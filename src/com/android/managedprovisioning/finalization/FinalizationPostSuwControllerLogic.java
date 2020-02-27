@@ -22,8 +22,13 @@ import static com.android.managedprovisioning.finalization.FinalizationControlle
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.UserHandle;
 
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
@@ -36,17 +41,23 @@ public class FinalizationPostSuwControllerLogic implements FinalizationControlle
     private final Utils mUtils;
     private final ProvisioningIntentProvider mProvisioningIntentProvider;
     private final SendDpcBroadcastServiceUtils mSendDpcBroadcastServiceUtils;
+    private final ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     public FinalizationPostSuwControllerLogic(Activity activity) {
-        this(activity, new Utils(), new SendDpcBroadcastServiceUtils());
+        this(activity, new Utils(), new SendDpcBroadcastServiceUtils(),
+                new ProvisioningAnalyticsTracker(
+                        MetricsWriterFactory.getMetricsWriter(activity, new SettingsFacade()),
+                        new ManagedProvisioningSharedPreferences(activity)));
     }
 
     public FinalizationPostSuwControllerLogic(Activity activity, Utils utils,
-            SendDpcBroadcastServiceUtils sendDpcBroadcastServiceUtils) {
+            SendDpcBroadcastServiceUtils sendDpcBroadcastServiceUtils,
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         mActivity = activity;
         mUtils = utils;
         mProvisioningIntentProvider = new ProvisioningIntentProvider();
         mSendDpcBroadcastServiceUtils = sendDpcBroadcastServiceUtils;
+        mProvisioningAnalyticsTracker = provisioningAnalyticsTracker;
     }
 
     @Override
@@ -79,7 +90,8 @@ public class FinalizationPostSuwControllerLogic implements FinalizationControlle
         }
         mActivity.sendBroadcast(provisioningCompleteIntent);
 
-        mProvisioningIntentProvider.maybeLaunchDpc(params, userId, mUtils, mActivity);
+        mProvisioningIntentProvider.maybeLaunchDpc(params, userId, mUtils, mActivity,
+                mProvisioningAnalyticsTracker);
 
         return PROVISIONING_FINALIZED_RESULT_NO_CHILD_ACTIVITY_LAUNCHED;
     }
@@ -90,4 +102,13 @@ public class FinalizationPostSuwControllerLogic implements FinalizationControlle
         // PrimaryProfileFinalizationHelper, so we don't invoke it again in commitFinalizedState().
         return mUtils.isAdminIntegratedFlow(params);
     }
+
+    @Override
+    public void saveInstanceState(Bundle outState) {}
+
+    @Override
+    public void restoreInstanceState(Bundle savedInstanceState, ProvisioningParams params) {}
+
+    @Override
+    public void activityDestroyed(boolean isFinishing) {}
 }

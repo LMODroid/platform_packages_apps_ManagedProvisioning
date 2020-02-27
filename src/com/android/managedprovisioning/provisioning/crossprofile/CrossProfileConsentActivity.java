@@ -16,10 +16,13 @@
 
 package com.android.managedprovisioning.provisioning.crossprofile;
 
+import static com.android.managedprovisioning.common.ProvisionLogger.loge;
 import static com.android.managedprovisioning.common.ProvisionLogger.logw;
+import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PROVISIONING_PARAMS;
 
 import android.annotation.Nullable;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -35,10 +38,16 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
+import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.provisioning.crossprofile.CrossProfileAdapter.CrossProfileViewHolder;
 
 import com.google.android.setupdesign.GlifLayout;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 /**
  * Stand-alone activity that presents the user with the default OEM cross-profile apps for them to
@@ -46,14 +55,12 @@ import java.util.List;
  *
  * <p>Sets the result code to {@link AppCompatActivity#RESULT_OK} if the user successfully sets
  * their cross-profile preferences.
+ *
+ * <p>Accepts provisioning parameters provided via the {@link ProvisioningParams
+ * #EXTRA_PROVISIONING_PARAMS} extra. If these are not provided, it is assumed that the screen is
+ * being displayed outside of provisioning.
  */
 public class CrossProfileConsentActivity extends AppCompatActivity {
-
-    /**
-     * Boolean extra used internally within this application to specify that this activity is the
-     * final screen, not part of a setup flow.
-     */
-    public static final String EXTRA_FINAL_SCREEN = "android.app.extra.CROSS_PROFILE_FINAL_SCREEN";
 
     @VisibleForTesting
     static final String CROSS_PROFILE_SUMMARY_META_DATA = "android.app.cross_profile_summary";
@@ -62,6 +69,13 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
 
     private RecyclerView mCrossProfileItems;
     private CrossProfileConsentViewModel mModel;
+    private boolean mAddedButton = false;
+
+    // Provisioning state can be stored here since it is activity-scoped. If the activity is
+    // recreated, this state will be retrieved from the intent again in the same way.
+    @Nullable private ProvisioningParams mProvisioningParams;
+
+    @Nullable private CrossProfileAdapter mCrossProfileAdapter;
 
     /**
      * Flag to determine whether the UI should stop responding to clicks. Required since Android
@@ -72,9 +86,11 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        maybeInitializeProvisioningParams();
         initializeLayoutParams();
+        maybeForceOrientation();
         initializeCrossProfileItems();
-        addButton();
+        mAddedButton = false;
         mModel = findViewModel();
         observeItems();
         if (savedInstanceState == null) {
@@ -82,18 +98,45 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         }
     }
 
-    private CrossProfileConsentViewModel findViewModel() {
-        final CrossProfileConsentViewModel.Factory factory =
-                new CrossProfileConsentViewModel.Factory(this, getApplication());
-        return new ViewModelProvider(this, factory).get(CrossProfileConsentViewModel.class);
+    @Nullable
+    private void maybeInitializeProvisioningParams() {
+        final Intent intent = getIntent();
+        if (intent == null) {
+            mProvisioningParams = null;
+            return;
+        }
+        if (!intent.hasExtra(EXTRA_PROVISIONING_PARAMS)) {
+            mProvisioningParams = null;
+            return;
+        }
+        mProvisioningParams = intent.getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
     }
 
     protected void initializeLayoutParams() {
         setContentView(R.layout.cross_profile_consent_activity);
         final GlifLayout layout = findViewById(R.id.setup_wizard_layout);
-        final CustomizationParams params = CustomizationParams.createInstance(this, new Utils());
+        final CustomizationParams params = createCustomizationParams();
         layout.setPrimaryColor(ColorStateList.valueOf(params.mainColor));
         layout.setIcon(LogoUtils.getOrganisationLogo(this, params.mainColor));
+    }
+
+    private void maybeForceOrientation() {
+        if (!isDuringProvisioning() || !getResources().getBoolean(R.bool.lock_to_portrait)) {
+            return;
+        }
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
+
+    private boolean isDuringProvisioning() {
+        return mProvisioningParams != null;
+    }
+
+    private CustomizationParams createCustomizationParams() {
+        if (mProvisioningParams == null) {
+            return CustomizationParams.createInstance(this, new Utils());
+        } else {
+            return CustomizationParams.createInstance(mProvisioningParams, this, new Utils());
+        }
     }
 
     private void initializeCrossProfileItems() {
@@ -101,20 +144,10 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         mCrossProfileItems.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    private void addButton() {
-        if (isFinalScreen()) {
-            Utils.addDoneButton(findViewById(R.id.setup_wizard_layout), v -> onButtonClicked());
-        } else {
-            Utils.addNextButton(findViewById(R.id.setup_wizard_layout), v -> onButtonClicked());
-        }
-    }
-
-    private boolean isFinalScreen() {
-        final Intent intent = getIntent();
-        if (intent == null) {
-            return false;
-        }
-        return intent.getBooleanExtra(EXTRA_FINAL_SCREEN, /* defValue= */ false);
+    private CrossProfileConsentViewModel findViewModel() {
+        final CrossProfileConsentViewModel.Factory factory =
+                new CrossProfileConsentViewModel.Factory(this, getApplication());
+        return new ViewModelProvider(this, factory).get(CrossProfileConsentViewModel.class);
     }
 
     private void observeItems() {
@@ -143,17 +176,96 @@ public class CrossProfileConsentActivity extends AppCompatActivity {
         if (crossProfileItems == null) {
             return;
         }
-        mCrossProfileItems.setAdapter(new CrossProfileAdapter(crossProfileItems));
-    }
-
-    private void onButtonClicked() {
-        if (mSuppressClicks) {
-            logw("Double-click detected on button.");
+        if (crossProfileItems.isEmpty()) {
+            logw("No provisioning cross-profile consent apps. Skipping.");
+            mModel.onConsentComplete(new HashMap<>());
+            finishWithResult();
             return;
         }
+        mCrossProfileAdapter = new CrossProfileAdapter(crossProfileItems);
+        mCrossProfileItems.setAdapter(mCrossProfileAdapter);
+        maybeAddButton();
+        if (isSilentProvisioning()) {
+            onButtonClicked();
+        }
+    }
+
+    private void maybeAddButton() {
+        if (mAddedButton) {
+            return;
+        }
+        mAddedButton = true;
+        if (isFinalScreen()) {
+            Utils.addDoneButton(findViewById(R.id.setup_wizard_layout), v -> onButtonClicked());
+        } else {
+            Utils.addNextButton(findViewById(R.id.setup_wizard_layout), v -> onButtonClicked());
+        }
+    }
+
+    private boolean isFinalScreen() {
+        return mProvisioningParams == null;
+    }
+
+    /**
+     * Handles all logic from the click of the 'next' or 'done' button. Since this could have
+     * multiple entry points, click listeners should call this directly without preceding logic.
+     */
+    private void onButtonClicked() {
+        if (mSuppressClicks) {
+            logw("Double-click detected on button");
+            return;
+        }
+        if (mCrossProfileAdapter == null) {
+            loge("Button clicked before items found");
+            return;
+        }
+        final List<CrossProfileItem> crossProfileItems = mModel.getItems().getValue();
+        if (crossProfileItems == null) {
+            loge("Button clicked before items found");
+            return;
+        }
+        final Map<CrossProfileItem, Boolean> toggleStates = findToggleStates();
+        for (CrossProfileItem crossProfileItem : toggleStates.keySet()) {
+            if (!crossProfileItems.contains(crossProfileItem)) {
+                loge("Unexpected race condition: unknown cross-profile item selected from UI: "
+                        + crossProfileItem);
+                return;
+            }
+        }
         mSuppressClicks = true;
-        mModel.onButtonClicked();
+        mModel.onConsentComplete(toggleStates);
+        finishWithResult();
+    }
+
+    /** Assumes {@link #mCrossProfileAdapter} is non-null. */
+    private Map<CrossProfileItem, Boolean> findToggleStates() {
+        if (isSilentProvisioning()) {
+            return findSilentProvisioningToggleStates();
+        }
+        final Map<CrossProfileItem, Boolean> toggleStates = new HashMap<>();
+        final List<CrossProfileItem> crossProfileItems =
+                mCrossProfileAdapter.getCrossProfileItems();
+        for (int i = 0; i < crossProfileItems.size(); i++) {
+            final CrossProfileViewHolder viewHolder =
+                    (CrossProfileViewHolder) mCrossProfileItems.findViewHolderForAdapterPosition(i);
+            toggleStates.put(crossProfileItems.get(i), viewHolder.toggle().isChecked());
+        }
+        return toggleStates;
+    }
+
+    private Map<CrossProfileItem, Boolean> findSilentProvisioningToggleStates() {
+        return mModel.getItems()
+                .getValue()
+                .stream()
+                .collect(Collectors.toMap(Function.identity(), c -> true));
+    }
+
+    private void finishWithResult() {
         setResult(RESULT_OK);
         finish();
+    }
+
+    private boolean isSilentProvisioning() {
+        return mProvisioningParams != null && Utils.isSilentProvisioning(this, mProvisioningParams);
     }
 }

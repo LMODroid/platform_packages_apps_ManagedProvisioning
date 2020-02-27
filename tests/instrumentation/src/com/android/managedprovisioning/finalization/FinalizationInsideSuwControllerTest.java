@@ -41,7 +41,9 @@ import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -50,6 +52,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.analytics.DeferredMetricsReader;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.NotificationHelper;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
 import com.android.managedprovisioning.common.SettingsFacade;
@@ -83,6 +86,7 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
     @Mock private UserProvisioningStateHelper mHelper;
     @Mock private NotificationHelper mNotificationHelper;
     @Mock private DeferredMetricsReader mDeferredMetricsReader;
+    @Mock private ProvisioningAnalyticsTracker mProvisioningAnalyticsTracker;
 
     private PreFinalizationController mPreFinalizationController;
     private FinalizationController mFinalizationController;
@@ -96,6 +100,8 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
                 .thenReturn(true);
         when(mActivity.getFilesDir()).thenReturn(getContext().getFilesDir());
         when(mActivity.getIntent()).thenReturn(ACTIVITY_INTENT);
+        when(mActivity.bindService(any(Intent.class), any(ServiceConnection.class), anyInt()))
+                .thenReturn(false);
 
         final ProvisioningParamsUtils provisioningParamsUtils = new ProvisioningParamsUtils();
         mPreFinalizationController = new PreFinalizationController(
@@ -104,7 +110,8 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         mFinalizationController = new FinalizationController(
                 mActivity,
                 new FinalizationInsideSuwControllerLogic(
-                        mActivity, mUtils, new PolicyComplianceUtils()),
+                        mActivity, mUtils, new PolicyComplianceUtils(),
+                        mProvisioningAnalyticsTracker),
                 mUtils, mSettingsFacade, mHelper, mNotificationHelper, mDeferredMetricsReader,
                 provisioningParamsUtils);
     }
@@ -168,6 +175,16 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         // GIVEN that the provisioning state is now incomplete
         when(mHelper.isStateUnmanagedOrFinalized()).thenReturn(false);
 
+        // WHEN we save and restore controller state
+        saveAndRestoreControllerState();
+
+        // THEN the user provisioning state is not yet finalized
+        verify(mHelper, never()).markUserProvisioningStateFinalized(params);
+
+        // THEN no intent should be sent to the dpc.
+        verify(mActivity, never()).startActivityForResultAsUser(
+                any(Intent.class), anyInt(), eq(MANAGED_PROFILE_USER_HANDLE));
+
         // WHEN calling provisioningFinalized
         mFinalizationController.provisioningFinalized();
 
@@ -183,7 +200,28 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         // THEN the user provisioning state is not yet finalized
         verify(mHelper, never()).markUserProvisioningStateFinalized(params);
 
-         // THEN intent should be sent to the dpc again
+         // THEN intent should not be sent to the dpc again
+        verifyDpcLaunchedForUser(MANAGED_PROFILE_USER_HANDLE, 1);
+
+        // WHEN simulating a DPC cancel by calling activityDestroyed(true), and then
+        // provisioningFinalized again
+        mFinalizationController.activityDestroyed(true);
+        mFinalizationController.provisioningFinalized();
+
+        // THEN the user provisioning state is not yet finalized
+        verify(mHelper, never()).markUserProvisioningStateFinalized(params);
+
+        // THEN intent should be sent to the dpc again
+        verifyDpcLaunchedForUser(MANAGED_PROFILE_USER_HANDLE, 2);
+
+        // WHEN we save and restore controller state, and then call provisioningFinalized again
+        saveAndRestoreControllerState();
+        mFinalizationController.provisioningFinalized();
+
+        // THEN the user provisioning state is not yet finalized
+        verify(mHelper, never()).markUserProvisioningStateFinalized(params);
+
+        // THEN intent is not sent to the dpc again
         verifyDpcLaunchedForUser(MANAGED_PROFILE_USER_HANDLE, 2);
 
         // WHEN the provisioning state changes are now committed
@@ -223,6 +261,16 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         // GIVEN that the provisioning state is now incomplete
         when(mHelper.isStateUnmanagedOrFinalized()).thenReturn(false);
 
+        // WHEN we save and restore controller state
+        saveAndRestoreControllerState();
+
+        // THEN the user provisioning state is not yet finalized
+        verify(mHelper, never()).markUserProvisioningStateFinalized(params);
+
+        // THEN no intent should be sent to the dpc.
+        verify(mActivity, never()).startActivityForResultAsUser(
+                any(Intent.class), anyInt(), eq(UserHandle.of(UserHandle.myUserId())));
+
         // WHEN calling provisioningFinalized
         mFinalizationController.provisioningFinalized();
 
@@ -238,7 +286,28 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         // THEN the user provisioning state is not yet finalized
         verify(mHelper, never()).markUserProvisioningStateFinalized(params);
 
+        // THEN intent should not be sent to the dpc again
+        verifyDpcLaunchedForUser(UserHandle.of(UserHandle.myUserId()), 1);
+
+        // WHEN simulating a DPC cancel by calling activityDestroyed(true), and then
+        // provisioningFinalized again
+        mFinalizationController.activityDestroyed(true);
+        mFinalizationController.provisioningFinalized();
+
+        // THEN the user provisioning state is not yet finalized
+        verify(mHelper, never()).markUserProvisioningStateFinalized(params);
+
         // THEN intent should be sent to the dpc again
+        verifyDpcLaunchedForUser(UserHandle.of(UserHandle.myUserId()), 2);
+
+        // WHEN we save and restore controller state, and then call provisioningFinalized again
+        saveAndRestoreControllerState();
+        mFinalizationController.provisioningFinalized();
+
+        // THEN the user provisioning state is not yet finalized
+        verify(mHelper, never()).markUserProvisioningStateFinalized(params);
+
+        // THEN intent should not be sent to the dpc again
         verifyDpcLaunchedForUser(UserHandle.of(UserHandle.myUserId()), 2);
 
         // WHEN the provisioning state changes are now committed
@@ -347,14 +416,18 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mActivity, times(numTimes)).startActivityForResultAsUser(
                 intentCaptor.capture(), anyInt(), eq(userHandle));
+        final String intentAction = intentCaptor.getValue().getAction();
         // THEN the intent should be ACTION_PROVISIONING_SUCCESSFUL
-        assertEquals(ACTION_ADMIN_POLICY_COMPLIANCE, intentCaptor.getValue().getAction());
+        assertEquals(ACTION_ADMIN_POLICY_COMPLIANCE, intentAction);
         // THEN the intent should only be sent to the dpc
         assertEquals(TEST_MDM_PACKAGE_NAME, intentCaptor.getValue().getPackage());
         // THEN the admin extras bundle should contain mdm extras
         assertExtras(intentCaptor.getValue());
         // THEN the intent should have the category that was passed into the parent activity
         assertTrue(intentCaptor.getValue().hasCategory(TEST_DPC_INTENT_CATEGORY));
+        // THEN a metric should be logged
+        verify(mProvisioningAnalyticsTracker, times(numTimes)).logDpcSetupStarted(
+                eq(mActivity), eq(intentAction));
     }
 
     private void verifySendDpcServiceNotStarted() {
@@ -384,5 +457,12 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         }
 
         return builder;
+    }
+
+    private void saveAndRestoreControllerState() {
+        final Bundle savedInstanceState = new Bundle();
+        mFinalizationController.saveInstanceState(savedInstanceState);
+        mFinalizationController.activityDestroyed(false);
+        mFinalizationController.restoreInstanceState(savedInstanceState);
     }
 }

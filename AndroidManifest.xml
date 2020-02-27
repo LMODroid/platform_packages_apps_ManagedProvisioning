@@ -69,6 +69,10 @@
     <!-- Required by setup design library -->
     <uses-permission android:name="com.google.android.setupwizard.SETUP_COMPAT_SERVICE" />
 
+    <uses-permission android:name="android.permission.CONFIGURE_INTERACT_ACROSS_PROFILES" />
+
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
     <application
         android:label="@string/app_label"
         android:allowClearUserData="false"
@@ -222,7 +226,7 @@
         <service android:name=".finalization.SendDpcBroadcastService" />
         <service android:name=".ota.OtaService" />
 
-        <receiver android:name="com.android.managedprovisioning.preprovisioning.BootReminder">
+        <receiver android:name="com.android.managedprovisioning.BootReminder">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
