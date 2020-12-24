@@ -29,13 +29,15 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MAIN_COLOR;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_CONSENT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_USER_SETUP;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORT_URL;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_USE_MOBILE_DATA;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_CLOUD_ENROLLMENT;
-import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_MANAGED_ACCOUNT;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 
@@ -80,10 +82,7 @@ import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Locale;
-import java.util.stream.Collectors;
 
 /**
  * Provisioning parameters for Device Owner and Profile Owner provisioning.
@@ -96,13 +95,11 @@ public final class ProvisioningParams extends PersistableBundlable {
     public static final boolean DEFAULT_IS_QR_PROVISIONING = false;
     public static final boolean DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION = false;
+    public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED = false;
+    public static final boolean DEFAULT_SKIP_USER_SETUP = true;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA = false;
-    public static final boolean DEFAULT_EXTRA_PROVISIONING_IS_ORGANIZATION_OWNED = false;
-    public static final ArrayList<Integer> DEFAULT_EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES =
-            new ArrayList<>();
-    public static final int DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES = 0;
     // Intent extra used internally for passing data between activities and service.
     public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
 
@@ -114,7 +111,7 @@ public final class ProvisioningParams extends PersistableBundlable {
             PROVISIONING_TRIGGER_UNSPECIFIED,
             PROVISIONING_TRIGGER_CLOUD_ENROLLMENT,
             PROVISIONING_TRIGGER_QR_CODE,
-            PROVISIONING_TRIGGER_MANAGED_ACCOUNT
+            PROVISIONING_TRIGGER_PERSISTENT_DEVICE_OWNER
     })
     @Retention(RetentionPolicy.SOURCE)
     public @interface ProvisioningTrigger {}
@@ -137,10 +134,6 @@ public final class ProvisioningParams extends PersistableBundlable {
     private static final String TAG_PROVISIONING_ACTION = "provisioning-action";
     private static final String TAG_IS_ORGANIZATION_OWNED_PROVISIONING =
             "is-organization-owned-provisioning";
-    private static final String TAG_ALLOWED_PROVISIONING_MODES =
-            "allowed-provisioning-modes";
-    private static final String TAG_INITIATOR_REQUESTED_PROVISIONING_MODES =
-            "initiator-requested-provisioning-modes";
     private static final String TAG_FLOW_TYPE = "flow-type";
     private static final String TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD =
             "is-transitioning-from-regular-to-child";
@@ -255,36 +248,16 @@ public final class ProvisioningParams extends PersistableBundlable {
     /** True if device encryption should be skipped. */
     public final boolean skipEncryption;
 
+    /** True if user setup can be skipped. */
+    public final boolean skipUserSetup;
+
     public final boolean skipEducationScreens;
 
-    /**
-     * True if the provisioning is done on a device owned by the organization.
-     *
-     * <p>For the admin-integrated flow, this field is only set after the admin app
-     * picks a provisioning mode.
-     */
+    /** True if user consent page in pre-provisioning can be skipped. */
+    public final boolean skipUserConsent;
+
+    /** True if the provisioning is done on a device owned by the organization. */
     public final boolean isOrganizationOwnedProvisioning;
-
-    /**
-     * {@link ArrayList} of {@link Integer} containing a subset of {{@link
-     * DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE}, {@link
-     * DevicePolicyManager#PROVISIONING_MODE_FULLY_MANAGED_DEVICE}, {@link
-     * DevicePolicyManager#PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE}}.
-     **/
-    public final ArrayList<Integer> allowedProvisioningModes;
-
-    /**
-     * Integer specifying what provisioning modes have been specified by the provisioning
-     * initiator.
-     *
-     * <p>Can be one of {@link DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_OWNED}, {@link
-     * DevicePolicyManager#SUPPORTED_MODES_PERSONALLY_OWNED} or {@link
-     * DevicePolicyManager#SUPPORTED_MODES_ORGANIZATION_AND_PERSONALLY_OWNED} or if not relevant
-     * to the admin-integrated flow, {@link
-     * ProvisioningParams#DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES}.
-     *
-     */
-    public final int initiatorRequestedProvisioningModes;
 
     /** True if the device is transitioning from regular to child user. */
     public final boolean isTransitioningFromRegularToChild;
@@ -364,12 +337,12 @@ public final class ProvisioningParams extends PersistableBundlable {
         accountToMigrate = builder.mAccountToMigrate;
         provisioningAction = checkNotNull(builder.mProvisioningAction);
         mainColor = builder.mMainColor;
+        skipUserConsent = builder.mSkipUserConsent;
+        skipUserSetup = builder.mSkipUserSetup;
         skipEducationScreens = builder.mSkipEducationScreens;
         keepAccountMigrated = builder.mKeepAccountMigrated;
 
         isOrganizationOwnedProvisioning = builder.mIsOrganizationOwnedProvisioning;
-        allowedProvisioningModes = builder.mAllowedProvisioningModes;
-        initiatorRequestedProvisioningModes = builder.mInitiatorRequestedProvisioningModes;
         flowType = builder.mFlowType;
         isTransitioningFromRegularToChild = builder.mIsTransitioningFromRegularToChild;
         provisioningTrigger = builder.mProvisioningTrigger;
@@ -418,13 +391,11 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putBoolean(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED,
                 leaveAllSystemAppsEnabled);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION, skipEncryption);
+        bundle.putBoolean(EXTRA_PROVISIONING_SKIP_USER_SETUP, skipUserSetup);
+        bundle.putBoolean(EXTRA_PROVISIONING_SKIP_USER_CONSENT, skipUserConsent);
         bundle.putBoolean(EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS, skipEducationScreens);
         bundle.putBoolean(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, keepAccountMigrated);
         bundle.putBoolean(TAG_IS_ORGANIZATION_OWNED_PROVISIONING, isOrganizationOwnedProvisioning);
-        bundle.putIntArray(TAG_ALLOWED_PROVISIONING_MODES,
-                integerArrayListToIntArray(allowedProvisioningModes));
-        bundle.putInt(TAG_INITIATOR_REQUESTED_PROVISIONING_MODES,
-                initiatorRequestedProvisioningModes);
         bundle.putInt(TAG_FLOW_TYPE, flowType);
         bundle.putBoolean(TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD,
                  isTransitioningFromRegularToChild);
@@ -473,28 +444,18 @@ public final class ProvisioningParams extends PersistableBundlable {
         builder.setSkipEncryption(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_ENCRYPTION));
         builder.setLeaveAllSystemAppsEnabled(bundle.getBoolean(
                 EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED));
+        builder.setSkipUserSetup(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_USER_SETUP));
+        builder.setSkipUserConsent(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_USER_CONSENT));
         builder.setSkipEducationScreens(bundle.getBoolean(EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS));
         builder.setKeepAccountMigrated(bundle.getBoolean(
                 EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION));
         builder.setIsOrganizationOwnedProvisioning(bundle.getBoolean(
                 TAG_IS_ORGANIZATION_OWNED_PROVISIONING));
-        builder.setAllowedProvisioningModes(
-                intArrayToIntegerArrayList(bundle.getIntArray(TAG_ALLOWED_PROVISIONING_MODES)));
-        builder.setInitiatorRequestedProvisioningModes(bundle.getInt(
-                TAG_INITIATOR_REQUESTED_PROVISIONING_MODES));
         builder.setFlowType(bundle.getInt(TAG_FLOW_TYPE));
         builder.setIsTransitioningFromRegularToChild(bundle.getBoolean(
                 TAG_IS_TRANSITIONING_FROM_REGULAR_TO_CHILD));
         builder.setProvisioningTrigger(bundle.getInt(TAG_PROVISIONING_TRIGGER));
         return builder;
-    }
-
-    private static ArrayList<Integer> intArrayToIntegerArrayList(int[] intArray) {
-        return Arrays.stream(intArray).boxed().collect(Collectors.toCollection(ArrayList::new));
-    }
-
-    private static int[] integerArrayListToIntArray(ArrayList<Integer> arrayList) {
-        return arrayList.stream().mapToInt(Integer::valueOf).toArray();
     }
 
     public Builder toBuilder() {
@@ -604,15 +565,12 @@ public final class ProvisioningParams extends PersistableBundlable {
         private boolean mIsQrProvisioning = DEFAULT_IS_QR_PROVISIONING;
         private boolean mLeaveAllSystemAppsEnabled = DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
         private boolean mSkipEncryption = DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION;
+        private boolean mSkipUserConsent = DEFAULT_EXTRA_PROVISIONING_SKIP_USER_CONSENT;
         private boolean mSkipEducationScreens = DEFAULT_EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
+        private boolean mSkipUserSetup = DEFAULT_SKIP_USER_SETUP;
         private boolean mKeepAccountMigrated = DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
         private boolean mUseMobileData = DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA;
-        private boolean mIsOrganizationOwnedProvisioning =
-                DEFAULT_EXTRA_PROVISIONING_IS_ORGANIZATION_OWNED;
-        private ArrayList<Integer> mAllowedProvisioningModes =
-                DEFAULT_EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES;
-        private int mInitiatorRequestedProvisioningModes =
-                DEFAULT_EXTRA_PROVISIONING_SUPPORTED_MODES;
+        private boolean mIsOrganizationOwnedProvisioning = false;
         private @FlowType int mFlowType = FLOW_TYPE_UNSPECIFIED;
         private boolean mIsTransitioningFromRegularToChild = false;
         private @ProvisioningTrigger int mProvisioningTrigger = PROVISIONING_TRIGGER_UNSPECIFIED;
@@ -728,8 +686,18 @@ public final class ProvisioningParams extends PersistableBundlable {
             return this;
         }
 
+        public Builder setSkipUserConsent(boolean skipUserConsent) {
+            mSkipUserConsent = skipUserConsent;
+            return this;
+        }
+
         public Builder setSkipEducationScreens(boolean skipEducationScreens) {
             mSkipEducationScreens = skipEducationScreens;
+            return this;
+        }
+
+        public Builder setSkipUserSetup(boolean skipUserSetup) {
+            mSkipUserSetup = skipUserSetup;
             return this;
         }
 
@@ -761,17 +729,6 @@ public final class ProvisioningParams extends PersistableBundlable {
 
         public Builder setProvisioningTrigger(@ProvisioningTrigger int provisioningTrigger) {
             mProvisioningTrigger = provisioningTrigger;
-            return this;
-        }
-
-        public Builder setAllowedProvisioningModes(ArrayList<Integer> provisioningModes) {
-            mAllowedProvisioningModes = new ArrayList<>(provisioningModes);
-            return this;
-        }
-
-        public Builder setInitiatorRequestedProvisioningModes(
-                int initiatorRequestedProvisioningModes) {
-            mInitiatorRequestedProvisioningModes = initiatorRequestedProvisioningModes;
             return this;
         }
 
