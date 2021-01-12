@@ -34,8 +34,8 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import static org.hamcrest.core.AllOf.allOf;
 import static org.hamcrest.Matchers.not;
+import static org.hamcrest.core.AllOf.allOf;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.any;
@@ -79,6 +79,7 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -276,56 +277,6 @@ public class ProvisioningActivityTest {
         // THEN the listener is unregistered
         // b/130350469 to figure out why onPause/onResume is called one additional time
         verify(mProvisioningManager).unregisterListener(any(ProvisioningManagerCallback.class));
-    }
-
-    @Test
-    public void testCancelProfileOwner_CompProvisioningWithSkipConsent() throws Throwable {
-        // GIVEN launching profile intent with skipping user consent
-        ProvisioningParams params = new ProvisioningParams.Builder()
-                .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
-                .setDeviceAdminComponentName(ADMIN)
-                .setSkipUserConsent(true)
-                .build();
-        Intent intent = new Intent()
-                .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-        launchActivityAndWait(new Intent(intent));
-
-        reset(mProvisioningManager);
-
-        // WHEN the user tries to cancel
-        mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().onBackPressed());
-
-        // THEN never unregistering ProvisioningManager
-        // b/130350469 to figure out why onPause/onResume is called one additional time
-        verify(mProvisioningManager, never()).unregisterListener(
-                any(ProvisioningManagerCallback.class));
-    }
-
-    @FlakyTest
-    @Test
-    public void testCancelProfileOwner_CompProvisioningWithoutSkipConsent() throws Throwable {
-        // GIVEN launching profile intent without skipping user consent
-        ProvisioningParams params = new ProvisioningParams.Builder()
-                .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
-                .setDeviceAdminComponentName(ADMIN)
-                .setSkipUserConsent(false)
-                .build();
-        Intent intent = new Intent()
-                .putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, params);
-        launchActivityAndWait(new Intent(intent));
-
-        reset(mProvisioningManager);
-
-        // WHEN the user tries to cancel
-        mActivityRule.runOnUiThread(() -> mActivityRule.getActivity().onBackPressed());
-
-        // THEN unregistering ProvisioningManager
-        // b/130350469 to figure out why onPause/onResume is called one additional time
-        verify(mProvisioningManager)
-                .unregisterListener(any(ProvisioningManagerCallback.class));
-
-        // THEN the cancel dialog should be shown
-        onView(withText(R.string.profile_owner_cancel_message)).check(matches(isDisplayed()));
     }
 
     @Test

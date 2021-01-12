@@ -21,8 +21,17 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static android.app.admin.DevicePolicyManager.CODE_MANAGED_USERS_NOT_SUPPORTED;
 import static android.app.admin.DevicePolicyManager.CODE_OK;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_MODE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_ORGANIZATION_OWNED;
+import static android.app.admin.DevicePolicyManager.SUPPORTED_MODES_PERSONALLY_OWNED;
 import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
@@ -76,8 +85,12 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 import com.android.managedprovisioning.parser.MessageParser;
 
+import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SmallTest
 public class PreProvisioningControllerTest extends AndroidTestCase {
@@ -632,52 +645,6 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
-    public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_continueProvisioning()
-            throws Exception {
-        // GIVEN skipping user consent and encryption
-        prepareMocksForMaybeStartProvisioning(true, true, false);
-        // WHEN calling initiateProvisioning
-        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
-        // THEN start profile owner provisioning
-        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
-    }
-
-    public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_notSkipUserConsent()
-            throws Exception {
-        // GIVEN not skipping user consent
-        prepareMocksForMaybeStartProvisioning(false, true, false);
-        // WHEN calling initiateProvisioning
-        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
-        // THEN not starting profile owner provisioning
-        verify(mUi, never()).startProvisioning(mUserManager.getUserHandle(), mParams);
-    }
-
-    public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_requireEncryption()
-            throws Exception {
-        // GIVEN skipping user consent and encryption
-        prepareMocksForMaybeStartProvisioning(true, false, false);
-        // WHEN calling initiateProvisioning
-        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
-        // THEN not starting profile owner provisioning
-        verify(mUi, never()).startProvisioning(anyInt(), any());
-        // THEN show encryption ui
-        verify(mUi).requestEncryption(mParams);
-        verifyNoMoreInteractions(mUi);
-    }
-
-    public void testMaybeStartProfileOwnerProvisioningIfSkipUserConsent_managedProfileExists()
-            throws Exception {
-        // GIVEN skipping user consent and encryption, but current managed profile exists
-        prepareMocksForMaybeStartProvisioning(true, true, true);
-        // WHEN calling initiateProvisioning
-        mController.initiateProvisioning(mIntent, null, TEST_MDM_PACKAGE);
-        // THEN not starting profile owner provisioning
-        verify(mUi, never()).startProvisioning(mUserManager.getUserHandle(), mParams);
-        // THEN show an error.
-        verify(mUi).showErrorAndClose(eq(R.string.cant_add_work_profile),
-                eq(R.string.work_profile_cant_be_added_contact_admin), any());
-    }
-
     public void testInitiateProvisioning_showsWifiPicker() {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .build();
@@ -728,22 +695,32 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     public void
-    testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_hasExactlyThreeExtras() {
+            testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_hasExactlyFourExtras() {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .setIsOrganizationOwnedProvisioning(true)
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE,
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
         initiateProvisioning(params);
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.size()).isEqualTo(3);
+        assertThat(bundle.size()).isEqualTo(4);
     }
 
     public void testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_imeiPassed() {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .setIsOrganizationOwnedProvisioning(true)
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE,
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -756,6 +733,11 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .setIsOrganizationOwnedProvisioning(true)
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE,
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_ORGANIZATION_OWNED)
                 .build();
         initiateProvisioning(params);
 
@@ -765,18 +747,54 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
     }
 
     public void
-    testGetAdditionalExtrasForGetProvisioningModeIntent_nonOrgDevice_onlyAdminBundlePassed() {
+            testGetAdditionalExtrasForGetProvisioningModeIntent_nonOrgDevice_adminBundlePassed() {
         final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
                 .setIsOrganizationOwnedProvisioning(false)
                 .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
                 .build();
         initiateProvisioning(params);
 
         Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
 
-        assertThat(bundle.keySet()).containsExactly(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+        assertThat(bundle.keySet()).contains(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
         assertThat((PersistableBundle) bundle.getParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE))
                 .isEqualTo(TEST_ADMIN_BUNDLE);
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_nonOrgDevice_allowedModesPassed() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(false)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.getIntegerArrayList(EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES))
+                .containsExactly(PROVISIONING_MODE_MANAGED_PROFILE);
+    }
+
+    public void
+            testGetAdditionalExtrasForGetProvisioningModeIntent_nonOrgDevice_hasExactlyTwoExtras() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(false)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(List.of(PROVISIONING_MODE_MANAGED_PROFILE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_PERSONALLY_OWNED)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.size()).isEqualTo(2);
     }
 
     public void testGetAdditionalExtrasForGetProvisioningModeIntent_orgDevice_adminBundlePassed() {
@@ -792,29 +810,276 @@ public class PreProvisioningControllerTest extends AndroidTestCase {
                 .isEqualTo(TEST_ADMIN_BUNDLE);
     }
 
+    public void
+    testGetAdditionalExtrasForGetProvisioningModeIntent_fullyManagedDevice_adminBundlePassed() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(
+                        new ArrayList<>(List.of(PROVISIONING_MODE_FULLY_MANAGED_DEVICE)))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.keySet()).contains(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE);
+        assertThat((PersistableBundle) bundle.getParcelable(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE))
+                .isEqualTo(TEST_ADMIN_BUNDLE);
+    }
+
+    public void
+    testGetAdditionalExtrasForGetProvisioningModeIntent_fullyManagedDevice_hasExactlyFourExtras() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.size()).isEqualTo(4);
+    }
+
+    public void testGetAdditionalExtrasForGetProvisioningModeIntent_fullyManagedDevice_imeiPassed() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.getString(EXTRA_PROVISIONING_IMEI)).isEqualTo(TEST_IMEI);
+    }
+
+    public void testGetAdditionalExtrasForGetProvisioningModeIntent_fullyManagedDevice_serialNumberPassed() {
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setIsOrganizationOwnedProvisioning(true)
+                .setAdminExtrasBundle(TEST_ADMIN_BUNDLE)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .setInitiatorRequestedProvisioningModes(SUPPORTED_MODES_DEVICE_OWNER)
+                .build();
+        initiateProvisioning(params);
+
+        Bundle bundle = mController.getAdditionalExtrasForGetProvisioningModeIntent();
+
+        assertThat(bundle.containsKey(EXTRA_PROVISIONING_SERIAL_NUMBER)).isTrue();
+    }
+
+    public void testUpdateProvisioningParamsFromIntent_managedProfileModeWithAccountMigratedExtraTrue_setsParamToTrue() {
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_MANAGED_PROFILE)
+                .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, true);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().keepAccountMigrated).isTrue();
+    }
+
+    public void testUpdateProvisioningParamsFromIntent_managedProfileModeWithAccountMigratedExtraFalse_setsParamToFalse() {
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_MANAGED_PROFILE)
+                .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, false);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().keepAccountMigrated).isFalse();
+    }
+
+    public void
+    testUpdateProvisioningParamsFromIntent_managedProfileMode_accountMigratedIsFalse() {
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_MANAGED_PROFILE);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().keepAccountMigrated).isFalse();
+    }
+
+    public void
+    testUpdateProvisioningParamsFromIntent_managedDeviceModeWithAccountMigratedExtraTrue_accountMigratedIsFalse() {
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_FULLY_MANAGED_DEVICE)
+                .putExtra(EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION, true);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().keepAccountMigrated).isFalse();
+    }
+
+    public void
+    testUpdateProvisioningParamsFromIntent_managedProfileModeWithLeaveSystemAppsEnabledTrue_setsParamToTrue() {
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_MANAGED_PROFILE)
+                .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED, true);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().leaveAllSystemAppsEnabled).isTrue();
+    }
+
+    public void testUpdateProvisioningParamsFromIntent_managedProfileModeWithLeaveSystemAppsEnabledFalse_setsParamToFalse() {
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_MANAGED_PROFILE)
+                .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED, false);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().leaveAllSystemAppsEnabled).isFalse();
+    }
+
+    public void
+    testUpdateProvisioningParamsFromIntent_managedProfileMode_leaveSystemAppsEnabledIsFalse() {
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_MANAGED_PROFILE);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().leaveAllSystemAppsEnabled).isFalse();
+    }
+
+    public void testUpdateProvisioningParamsFromIntent_managedDeviceModeWithLeaveSystemAppsEnabledTrue_paramIsFalse() {
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_FULLY_MANAGED_DEVICE)
+                .putExtra(EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED, true);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_FULLY_MANAGED_DEVICE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().leaveAllSystemAppsEnabled).isFalse();
+    }
+
+    public void testUpdateProvisioningParamsFromIntent_adminBundlePassed_setsParam() {
+        PersistableBundle testAdminExtrasBundle = new PersistableBundle();
+        testAdminExtrasBundle.putInt("key1", 2);
+        testAdminExtrasBundle.putString("key2", "value2");
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_MANAGED_PROFILE)
+                .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, testAdminExtrasBundle);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().adminExtrasBundle).isEqualTo(testAdminExtrasBundle);
+    }
+
+    public void testUpdateProvisioningParamsFromIntent_adminBundlePassedWithPreexistingAdminBundle_appendsValues() {
+        PersistableBundle resultingAdminBundle = new PersistableBundle();
+        resultingAdminBundle.putInt("key1", 2);
+        resultingAdminBundle.putInt("someKey", 124);
+        PersistableBundle existingAdminBundle = new PersistableBundle();
+        existingAdminBundle.putInt("key2", 3);
+        existingAdminBundle.putInt("someKey", 123);
+        PersistableBundle expectedResult = new PersistableBundle();
+        expectedResult.putInt("key1", 2);
+        expectedResult.putInt("key2", 3);
+        expectedResult.putInt("someKey", 124);
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_MANAGED_PROFILE)
+                .putExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE, resultingAdminBundle);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAdminExtrasBundle(existingAdminBundle)
+                .setKeepAccountMigrated(false)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().adminExtrasBundle.toString())
+                .isEqualTo(expectedResult.toString());
+    }
+
+    public void
+    testUpdateProvisioningParamsFromIntent_noAdminBundleResult_existingAdminBundleRetained() {
+        PersistableBundle existingAdminBundle = new PersistableBundle();
+        existingAdminBundle.putInt("key2", 3);
+        existingAdminBundle.putInt("someKey", 123);
+        Intent resultIntent = new Intent()
+                .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_MANAGED_PROFILE);
+        final ProvisioningParams params = createProvisioningParamsBuilderForInitiateProvisioning()
+                .setAdminExtrasBundle(existingAdminBundle)
+                .setKeepAccountMigrated(false)
+                .setAllowedProvisioningModes(new ArrayList<>(List.of(
+                        PROVISIONING_MODE_MANAGED_PROFILE
+                )))
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().adminExtrasBundle.toString())
+                .isEqualTo(existingAdminBundle.toString());
+    }
+
     private ProvisioningParams.Builder createProvisioningParamsBuilderForInitiateProvisioning() {
         return createProvisioningParamsBuilder()
                 .setDeviceAdminDownloadInfo(PACKAGE_DOWNLOAD_INFO);
-    }
-
-    private void prepareMocksForMaybeStartProvisioning(
-            boolean skipUserConsent, boolean skipEncryption, boolean managedProfileExists)
-            throws IllegalProvisioningArgumentException {
-        String action = ACTION_PROVISION_MANAGED_PROFILE;
-        when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
-                .thenReturn(CODE_OK);
-        mParams = ProvisioningParams.Builder.builder()
-                .setProvisioningAction(action)
-                .setDeviceAdminComponentName(TEST_MDM_COMPONENT_NAME)
-                .setSkipUserConsent(skipUserConsent)
-                .build();
-
-        when(mUtils.alreadyHasManagedProfile(mContext)).thenReturn(
-                managedProfileExists ? 10 : -1);
-        when(mUtils.isEncryptionRequired()).thenReturn(!skipEncryption);
-
-
-        when(mMessageParser.parse(mIntent)).thenReturn(mParams);
     }
 
     private void prepareMocksForManagedProfileIntent(boolean skipEncryption) throws Exception {

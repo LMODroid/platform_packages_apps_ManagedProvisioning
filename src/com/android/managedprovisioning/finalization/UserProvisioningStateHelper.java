@@ -92,7 +92,8 @@ public class UserProvisioningStateHelper {
         if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
             // Managed profiles are a special case as two users are involved.
             managedProfileUserId = mUtils.getManagedProfile(mContext).getIdentifier();
-            if (userSetupCompleted) {
+            if (mUtils.isManagedProfileProvisioningStartedByDpc(
+                    mContext, params, mSettingsFacade)) {
                 // SUW on current user is complete, so nothing much to do beyond indicating we're
                 // all done.
                 if (!isUserProvisioningStateProfileFinalized()) {
@@ -100,8 +101,8 @@ public class UserProvisioningStateHelper {
                 }
                 newProfileState = STATE_USER_SETUP_FINALIZED;
             } else {
-                // We're still in SUW, so indicate that a managed-profile was setup on current user,
-                // and that we're awaiting finalization on both.
+                // Indicate that a managed-profile was setup on current user, and that we're
+                // awaiting finalization on both.
                 newState = STATE_USER_PROFILE_COMPLETE;
                 newProfileState = STATE_USER_SETUP_COMPLETE;
             }
@@ -116,12 +117,8 @@ public class UserProvisioningStateHelper {
                 // User setup was previously completed this is an unexpected case.
                 ProvisionLogger.logw("user_setup_complete set, but provisioning was started");
             }
-        } else if (params.skipUserSetup) {
-            // DPC requested setup-wizard is skipped, indicate this to SUW.
-            newState = STATE_USER_SETUP_COMPLETE;
         } else {
-            // DPC requested setup-wizard is not skipped, indicate this to SUW.
-            newState = STATE_USER_SETUP_INCOMPLETE;
+            newState = STATE_USER_SETUP_COMPLETE;
         }
 
         if (newState != null) {
