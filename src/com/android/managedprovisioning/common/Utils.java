@@ -44,7 +44,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
 import android.content.pm.UserInfo;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
@@ -667,13 +666,6 @@ public class Utils {
         return hash;
     }
 
-    public boolean isBrightColor(int color) {
-        // This comes from the YIQ transformation. We're using the formula:
-        // Y = .299 * R + .587 * G + .114 * B
-        return Color.red(color) * 299 + Color.green(color) * 587 + Color.blue(color) * 114
-                >= 1000 * THRESHOLD_BRIGHT_COLOR;
-    }
-
     /**
      * Returns whether given intent can be resolved for the user.
      */
@@ -699,7 +691,6 @@ public class Utils {
     }
 
     public void handleSupportUrl(Context context, CustomizationParams customizationParams,
-                ClickableSpanFactory clickableSpanFactory,
                 AccessibilityContextMenuMaker contextMenuMaker, TextView textView,
                 String deviceProvider, String contactDeviceProvider) {
         if (customizationParams.supportUrl == null) {
@@ -707,10 +698,11 @@ public class Utils {
             return;
         }
         final Intent intent = WebActivity.createIntent(
-                context, customizationParams.supportUrl, customizationParams.statusBarColor);
+                context, customizationParams.supportUrl);
 
-        handlePartialClickableTextView(textView, contactDeviceProvider, deviceProvider, intent,
-                clickableSpanFactory);
+        final ClickableSpanFactory spanFactory = new ClickableSpanFactory(getAccentColor(context));
+        handlePartialClickableTextView(
+                textView, contactDeviceProvider, deviceProvider, intent, spanFactory);
 
         contextMenuMaker.registerWithActivity(textView);
     }
@@ -794,6 +786,14 @@ public class Utils {
 
     public static FooterButton addNextButton(GlifLayout layout, @NonNull OnClickListener listener) {
         return setPrimaryButton(layout, listener, ButtonType.NEXT, R.string.next);
+    }
+
+    /**
+     * Adds an encryption primary button mixin to a {@link GlifLayout} screen.
+     */
+    public static FooterButton addEncryptButton(
+            GlifLayout layout, @NonNull OnClickListener listener) {
+        return setPrimaryButton(layout, listener, ButtonType.NEXT, R.string.encrypt);
     }
 
     public static FooterButton addAcceptAndContinueButton(GlifLayout layout,
