@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /**
- * Copyright (C) 2019 The Android Open Source Project
+ * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,12 @@
  * limitations under the License.
  */
 -->
-<resources>
-    <!-- Provisioning -->
-    <dimen name="animation_height">212dp</dimen>
-</resources>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginLeft="?attr/sudMarginStart"
+    android:layout_marginRight="?attr/sudMarginEnd"
+    android:paddingBottom="@dimen/spacer_24"
+    android:id="@+id/terms_disclaimer_general"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    style="@style/Provisioning2Theme.Text.Primary.Medium" />
