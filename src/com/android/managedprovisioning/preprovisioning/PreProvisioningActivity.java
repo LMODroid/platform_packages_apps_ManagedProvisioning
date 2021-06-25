@@ -16,6 +16,9 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
+import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
+import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
+
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
@@ -34,9 +37,12 @@ import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.analytics.MetricsWriterFactory;
+import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
 import com.android.managedprovisioning.common.LogoUtils;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
@@ -78,6 +84,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private ControllerProvider mControllerProvider;
     private final AccessibilityContextMenuMaker mContextMenuMaker;
     private PreProvisioningActivityBridge mBridge;
+    private boolean mShouldForwardTransition;
 
     private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
 
@@ -110,6 +117,16 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         mController = mControllerProvider.getInstance(this);
         mBridge = createBridge();
         mController.getState().observe(this, this::onStateChanged);
+        logMetrics();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mShouldForwardTransition) {
+            overridePendingTransition(R.anim.sud_slide_next_in, R.anim.sud_slide_next_out);
+            mShouldForwardTransition = false;
+        }
     }
 
     protected PreProvisioningActivityBridge createBridge() {
@@ -214,6 +231,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 }
                 break;
             case GET_PROVISIONING_MODE_REQUEST_CODE:
+                mShouldForwardTransition = true;
                 if (resultCode == RESULT_OK) {
                     if(data != null && mController.updateProvisioningParamsFromIntent(data)) {
                         mController.showUserConsentScreen();
@@ -498,6 +516,15 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             showDialog(mUtils.createCancelProvisioningDialogBuilder(),
                     BACK_PRESSED_DIALOG_CLOSE_ACTIVITY);
         }
+    }
+
+    private void logMetrics() {
+        final ProvisioningAnalyticsTracker analyticsTracker =
+                new ProvisioningAnalyticsTracker(
+                        MetricsWriterFactory.getMetricsWriter(this, new SettingsFacade()),
+                        new ManagedProvisioningSharedPreferences(this));
+        int nightMode = getResources().getConfiguration().uiMode & UI_MODE_NIGHT_MASK;
+        analyticsTracker.logIsNightMode(nightMode == UI_MODE_NIGHT_YES);
     }
 
     /**
