@@ -435,10 +435,6 @@ public class Utils {
      * </ul>
      */
     public boolean checkAdminIntegratedFlowPreconditions(ProvisioningParams params) {
-        if (params.isNfc) {
-            ProvisionLogger.logi("NFC provisioning");
-            return false;
-        }
         if (isFinancedDeviceAction(params.provisioningAction)) {
             ProvisionLogger.logi("Financed device provisioning");
             return false;

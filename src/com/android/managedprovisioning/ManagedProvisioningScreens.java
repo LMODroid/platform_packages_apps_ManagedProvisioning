@@ -18,6 +18,7 @@ package com.android.managedprovisioning;
 
 public enum ManagedProvisioningScreens {
     PRE_PROVISIONING,
+    PRE_PROVISIONING_VIA_NFC,
     LANDING,
     PROVISIONING,
     ADMIN_INTEGRATED_PREPARE,
