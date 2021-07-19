@@ -265,6 +265,9 @@ public class PreProvisioningActivityController {
             return;
         }
 
+        mProvisioningAnalyticsTracker.logProvisioningExtras(mContext, intent);
+        mProvisioningAnalyticsTracker.logEntryPoint(mContext, intent);
+
         // Check whether provisioning is allowed for the current action. This check needs to happen
         // before any actions that might affect the state of the device.
         // Note that checkDevicePolicyPreconditions takes care of calling
@@ -306,7 +309,6 @@ public class PreProvisioningActivityController {
         }
 
         mViewModel.getTimeLogger().start();
-        mProvisioningAnalyticsTracker.logPreProvisioningStarted(mContext, intent);
         mViewModel.onProvisioningInitiated();
 
         if (mUtils.checkAdminIntegratedFlowPreconditions(params)) {
