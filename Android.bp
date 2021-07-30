@@ -31,7 +31,7 @@ android_library {
     manifest: "AndroidManifest.xml",
 
     libs: [
-        "android.car",
+        "android.car-system-stubs",
         "auto_value_annotations",
     ],
 
@@ -67,7 +67,7 @@ android_app {
 
     // TODO(b/183510678) remove AAOS dependency after refactoring
     libs: [
-        "android.car",
+        "android.car-system-stubs",
         "auto_value_annotations",
     ],
 
