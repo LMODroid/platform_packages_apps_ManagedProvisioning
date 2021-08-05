@@ -129,9 +129,8 @@
             Nfc bump entry for device owner provisioning, protected by a permission so only the Nfc
             stack can trigger this.
         -->
-        <activity-alias
-            android:name=".PreProvisioningActivityViaNfc"
-            android:targetActivity=".preprovisioning.PreProvisioningActivity"
+        <activity
+            android:name=".preprovisioning.PreProvisioningActivityViaNfc"
             android:permission="android.permission.DISPATCH_NFC_MESSAGE"
             android:exported="true">
             <intent-filter android:priority="10">
@@ -139,7 +138,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="application/com.android.managedprovisioning" />
             </intent-filter>
-        </activity-alias>
+        </activity>
         <!--
             Trusted app entry for device owner provisioning, protected by a permission so only
             privileged app can trigger this.

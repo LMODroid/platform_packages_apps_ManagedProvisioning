@@ -23,6 +23,7 @@ import static com.android.managedprovisioning.ManagedProvisioningScreens.FINANCE
 import static com.android.managedprovisioning.ManagedProvisioningScreens.LANDING;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.POST_ENCRYPT;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.PRE_PROVISIONING;
+import static com.android.managedprovisioning.ManagedProvisioningScreens.PRE_PROVISIONING_VIA_NFC;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.PROVISIONING;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.RESET_AND_RETURN_DEVICE;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.TERMS;
@@ -34,6 +35,7 @@ import com.android.managedprovisioning.finalization.FinalizationInsideSuwActivit
 import com.android.managedprovisioning.preprovisioning.EncryptDeviceActivity;
 import com.android.managedprovisioning.preprovisioning.PostEncryptionActivity;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
+import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityViaNfc;
 import com.android.managedprovisioning.preprovisioning.WebActivity;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
@@ -92,6 +94,7 @@ final class ScreenManager {
                 new HashMap<>(ManagedProvisioningScreens.values().length);
         map.put(LANDING, LandingActivity.class);
         map.put(PRE_PROVISIONING, PreProvisioningActivity.class);
+        map.put(PRE_PROVISIONING_VIA_NFC, PreProvisioningActivityViaNfc.class);
         map.put(PROVISIONING, ProvisioningActivity.class);
         map.put(ADMIN_INTEGRATED_PREPARE, AdminIntegratedFlowPrepareActivity.class);
         map.put(RESET_AND_RETURN_DEVICE, ResetAndReturnDeviceActivity.class);

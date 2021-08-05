@@ -18,7 +18,6 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
-import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
@@ -29,7 +28,6 @@ import static com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_S
 
 import android.app.Activity;
 import android.app.DialogFragment;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -46,7 +44,6 @@ import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
-import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -61,7 +58,6 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
 import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity;
-import com.android.managedprovisioning.provisioning.ProvisioningService;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
@@ -125,10 +121,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         }
         // TODO(b/192074477): Remove deferred setup-specific logic after the managed account flow
         //  starts ManagedProvisioning with the isSetupFlow extra
-        // TODO(b/178822333): Remove NFC-specific logic after adding support for the
-        //  admin-integrated flow
         // This temporary fix only works when called before super.onCreate
-        if (mSettingsFacade.isDeferredSetup(getApplicationContext()) || isNfcSetup()) {
+        if (mSettingsFacade.isDeferredSetup(getApplicationContext())) {
             getIntent().putExtra(EXTRA_IS_SETUP_FLOW, true);
         }
 
@@ -137,10 +131,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         mBridge = createBridge();
         mController.getState().observe(this, this::onStateChanged);
         logMetrics();
-    }
-
-    private boolean isNfcSetup() {
-        return ACTION_NDEF_DISCOVERED.equals(getIntent().getAction());
     }
 
     @Override
@@ -232,12 +222,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case ORGANIZATION_OWNED_LANDING_PAGE_REQUEST_CODE:
             case ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE:
                 if (resultCode == RESULT_OK) {
-                    // TODO(b/177849035): Remove NFC-specific logic
-                    if (mController.getParams().isNfc) {
-                        mController.startNfcFlow();
-                    } else {
-                        handleAdminIntegratedFlowPreparerResult();
-                    }
+                    handleAdminIntegratedFlowPreparerResult();
                 } else {
                     ProvisionLogger.loge(
                             "Provisioning was aborted in the preparation stage, "

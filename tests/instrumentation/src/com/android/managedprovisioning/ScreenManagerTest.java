@@ -23,6 +23,7 @@ import static com.android.managedprovisioning.ManagedProvisioningScreens.FINANCE
 import static com.android.managedprovisioning.ManagedProvisioningScreens.LANDING;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.POST_ENCRYPT;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.PRE_PROVISIONING;
+import static com.android.managedprovisioning.ManagedProvisioningScreens.PRE_PROVISIONING_VIA_NFC;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.PROVISIONING;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.RESET_AND_RETURN_DEVICE;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.TERMS;
@@ -44,6 +45,7 @@ import com.android.managedprovisioning.finalization.FinalizationInsideSuwActivit
 import com.android.managedprovisioning.preprovisioning.EncryptDeviceActivity;
 import com.android.managedprovisioning.preprovisioning.PostEncryptionActivity;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
+import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityViaNfc;
 import com.android.managedprovisioning.preprovisioning.WebActivity;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
@@ -65,7 +67,7 @@ import java.util.stream.Collectors;
 
 @SmallTest
 public final class ScreenManagerTest {
-    private static final int EXPECTED_NUMBER_OF_SCREENS = 11;
+    private static final int EXPECTED_NUMBER_OF_SCREENS = 12;
     private static final Map<ManagedProvisioningScreens, Class<? extends Activity>>
             TEST_SCREEN_TO_ACTIVITY_MAP = createTestScreenToActivityMap();
     private static final Map<ManagedProvisioningScreens, Class<? extends Activity>>
@@ -89,6 +91,8 @@ public final class ScreenManagerTest {
                 .isEqualTo(LandingActivity.class);
         assertThat(screenManager.getActivityClassForScreen(PRE_PROVISIONING))
                 .isEqualTo(PreProvisioningActivity.class);
+        assertThat(screenManager.getActivityClassForScreen(PRE_PROVISIONING_VIA_NFC))
+                .isEqualTo(PreProvisioningActivityViaNfc.class);
         assertThat(screenManager.getActivityClassForScreen(PROVISIONING))
                 .isEqualTo(ProvisioningActivity.class);
         assertThat(screenManager.getActivityClassForScreen(ADMIN_INTEGRATED_PREPARE))
@@ -185,6 +189,7 @@ public final class ScreenManagerTest {
         Map<ManagedProvisioningScreens, Class<? extends Activity>> map = new HashMap<>();
         map.put(LANDING, Activity.class);
         map.put(PRE_PROVISIONING, Activity.class);
+        map.put(PRE_PROVISIONING_VIA_NFC, Activity.class);
         map.put(PROVISIONING, Activity.class);
         map.put(ADMIN_INTEGRATED_PREPARE, Activity.class);
         map.put(RESET_AND_RETURN_DEVICE, Activity.class);

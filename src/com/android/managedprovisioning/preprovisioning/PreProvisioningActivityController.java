@@ -40,16 +40,15 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_NFC;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
-import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED;
-import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
 
 import static java.util.Objects.requireNonNull;
 
@@ -320,13 +319,6 @@ public class PreProvisioningActivityController {
             mViewModel.onAdminIntegratedFlowInitiated();
         } else if (mUtils.isFinancedDeviceAction(params.provisioningAction)) {
             mUi.prepareFinancedDeviceFlow(params);
-        } else if (params.isNfc) {
-            // TODO(b/177849035): Remove NFC-specific logic
-            if (mUtils.shouldShowOwnershipDisclaimerScreen(params)) {
-                mUi.showOwnershipDisclaimerScreen(params);
-            } else {
-                startNfcFlow();
-            }
         } else if (isProfileOwnerProvisioning()) {
             startManagedProfileFlow();
         } else if (isDpcTriggeredManagedDeviceProvisioning(intent)) {
@@ -337,12 +329,6 @@ public class PreProvisioningActivityController {
 
     private boolean isIntentActionValid(String action) {
         return !ACTION_PROVISION_MANAGED_DEVICE.equals(action);
-    }
-
-    void startNfcFlow() {
-        ProvisionLogger.logi("Starting the NFC provisioning flow.");
-        updateProvisioningFlowState(FLOW_TYPE_LEGACY);
-        showUserConsentScreen();
     }
 
     private void startManagedProfileFlow() {
@@ -360,7 +346,8 @@ public class PreProvisioningActivityController {
     }
 
     private boolean isNfcProvisioning(Intent intent) {
-        return ACTION_NDEF_DISCOVERED.equals(intent.getAction());
+        return intent.getIntExtra(EXTRA_PROVISIONING_TRIGGER, PROVISIONING_TRIGGER_UNSPECIFIED)
+                == PROVISIONING_TRIGGER_NFC;
     }
 
     private boolean isQrCodeProvisioning(Intent intent) {
@@ -719,8 +706,6 @@ public class PreProvisioningActivityController {
         // Otherwise, verify that the calling app is trying to set itself as Device/ProfileOwner
         if (ACTION_RESUME_PROVISIONING.equals(intent.getAction())) {
             return verifyActivityAlias(intent, "PreProvisioningActivityAfterEncryption");
-        } else if (ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
-            return verifyActivityAlias(intent, "PreProvisioningActivityViaNfc");
         } else if (ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(intent.getAction())
                 || ACTION_PROVISION_FINANCED_DEVICE.equals(intent.getAction())) {
             return verifyActivityAlias(intent, "PreProvisioningActivityViaTrustedApp");

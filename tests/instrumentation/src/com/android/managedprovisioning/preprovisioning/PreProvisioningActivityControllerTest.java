@@ -34,7 +34,6 @@ import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_PERSONA
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
-import static android.nfc.NfcAdapter.ACTION_NDEF_DISCOVERED;
 
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 
@@ -419,82 +418,8 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
-    public void testInitiateProvisioning_withNfc_showsOwnershipDisclaimer() throws Exception {
-        // GIVEN provisioning was started via an NFC tap and should show ownership disclaimer
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
-        when(mUtils.shouldShowOwnershipDisclaimerScreen(eq(mParams))).thenReturn(true);
-
-        // WHEN initiating NFC provisioning
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
-                mController.initiateProvisioning(mIntent, /* callingPackage= */ null));
-
-        // THEN show the ownership disclaimer
-        verify(mUi).showOwnershipDisclaimerScreen(eq(mParams));
-        verifyNoMoreInteractions(mUi);
-    }
-
-    public void testInitiateProvisioning_withNfc_skipsOwnershipDisclaimer() throws Exception {
-        // GIVEN provisioning was started via an NFC tap and should show ownership disclaimer
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
-        when(mUtils.shouldShowOwnershipDisclaimerScreen(eq(mParams))).thenReturn(false);
-
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
-            // WHEN initiating NFC provisioning
-            mController.initiateProvisioning(mIntent, /* callingPackage= */ null);
-        });
-
-        // THEN show the ownership disclaimer
-        verify(mUi).initiateUi(any());
-        verifyNoMoreInteractions(mUi);
-    }
-
     // TODO(b/177575786): Migrate outdated PreProvisioningControllerTest tests to robolectric
     /*
-    public void testNfc() throws Exception {
-        // GIVEN provisioning was started via an NFC tap and device is already encrypted
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
-        // WHEN initiating NFC provisioning
-        mController.initiateProvisioning(mIntent, null, null);
-        // WHEN the user consents
-        mController.continueProvisioningAfterUserConsent();
-        // THEN start device owner provisioning
-        verifyInitiateDeviceOwnerUi();
-        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
-        verify(mEncryptionController).cancelEncryptionReminder();
-        verifyNoMoreInteractions(mUi);
-    }
-
-    public void testNfc_skipEncryption() throws Exception {
-        // GIVEN provisioning was started via an NFC tap with encryption skipped
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, true);
-        when(mUtils.isEncryptionRequired()).thenReturn(true);
-        // WHEN initiating NFC provisioning
-
-        mController.initiateProvisioning(mIntent, null, null);
-        // WHEN the user consents
-        mController.continueProvisioningAfterUserConsent();
-        // THEN start device owner provisioning
-        verifyInitiateDeviceOwnerUi();
-        verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
-        verify(mUi, never()).requestEncryption(any(ProvisioningParams.class));
-        verify(mEncryptionController).cancelEncryptionReminder();
-        verifyNoMoreInteractions(mUi);
-    }
-
-    public void testNfc_withEncryption() throws Exception {
-        // GIVEN provisioning was started via an NFC tap with encryption necessary
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
-        when(mUtils.isEncryptionRequired()).thenReturn(true);
-        // WHEN initiating NFC provisioning
-        mController.initiateProvisioning(mIntent, null, null);
-        // WHEN the user consents
-        mController.continueProvisioningAfterUserConsent();
-        // THEN show encryption screen
-        verifyInitiateDeviceOwnerUi();
-        verify(mUi).requestEncryption(mParams);
-        verifyNoMoreInteractions(mUi);
-    }
-
     public void testNfc_afterEncryption() throws Exception {
         // GIVEN provisioning was started via an NFC tap and we have gone through encryption
         // in this case the device gets resumed with the DO intent and startedByTrustedSource flag
@@ -507,37 +432,6 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         // THEN start device owner provisioning
         verifyInitiateDeviceOwnerUi();
         verify(mUi).startProvisioning(mUserManager.getUserHandle(), mParams);
-        verifyNoMoreInteractions(mUi);
-    }
-
-    public void testNfc_frp() throws Exception {
-        // GIVEN provisioning was started via an NFC tap, but the device is locked with FRP
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
-        // setting the data block size to any number greater than 0 should invoke FRP.
-        when(mPdbManager.getDataBlockSize()).thenReturn(4);
-        // WHEN initiating NFC provisioning
-        mController.initiateProvisioning(mIntent, null, null);
-        // THEN show an error dialog
-        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
-                eq(R.string.device_has_reset_protection_contact_admin), any());
-        verifyNoMoreInteractions(mUi);
-    }
-
-    public void testNfc_encryptionNotSupported() throws Exception {
-        // GIVEN provisioning was started via an NFC tap, the device is not encrypted and encryption
-        // is not supported on the device
-        prepareMocksForNfcIntent(ACTION_PROVISION_MANAGED_DEVICE, false);
-        when(mUtils.isEncryptionRequired()).thenReturn(true);
-        when(mDevicePolicyManager.getStorageEncryptionStatus())
-                .thenReturn(DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED);
-        // WHEN initiating NFC provisioning
-        mController.initiateProvisioning(mIntent, null, null);
-        // WHEN the user consents
-        mController.continueProvisioningAfterUserConsent();
-        // THEN show an error dialog
-        verifyInitiateDeviceOwnerUi();
-        verify(mUi).showErrorAndClose(eq(R.string.cant_set_up_device),
-                eq(R.string.device_doesnt_allow_encryption_contact_admin), any());
         verifyNoMoreInteractions(mUi);
     }
 
@@ -1263,19 +1157,6 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .thenReturn(CODE_OK);
         when(mMessageParser.parse(mIntent)).thenReturn(
                 createParams(false, skipEncryption, null, action, TEST_MDM_PACKAGE));
-    }
-
-    private void prepareMocksForNfcIntent(String action, boolean skipEncryption) throws Exception {
-        when(mIntent.getAction()).thenReturn(ACTION_NDEF_DISCOVERED);
-        when(mIntent.getComponent()).thenReturn(ComponentName.createRelative(MP_PACKAGE_NAME,
-                ".PreProvisioningActivityViaNfc"));
-        when(mDevicePolicyManager.checkProvisioningPreCondition(action, TEST_MDM_PACKAGE))
-                .thenReturn(CODE_OK);
-        mParams = createParamsBuilder(true, skipEncryption, TEST_WIFI_SSID, action,
-                TEST_MDM_PACKAGE)
-                .setIsNfc(true)
-                .build();
-        when(mMessageParser.parse(mIntent)).thenReturn(mParams);
     }
 
     private void prepareMocksForQrIntent(String action, boolean skipEncryption) throws Exception {
