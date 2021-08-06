@@ -26,6 +26,7 @@ import android.os.Bundle;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.SettingsFacade;
 
 //TODO(b/181323689) Create tests for activity
 public class PreProvisioningActivityViaNfc extends Activity {
@@ -34,9 +35,10 @@ public class PreProvisioningActivityViaNfc extends Activity {
         super.onCreate(savedInstanceState);
         Intent provisioningIntent = transformIntentToProvisioningIntent();
 
-        if (provisioningIntent != null) {
+        if (provisioningIntent != null && new SettingsFacade().isDuringSetupWizard(this)) {
             //TODO(b/194486707) Decide dialog options available for user
             startActivity(provisioningIntent);
+            finish();
         } else {
             ProvisionLogger.loge("NFC tag data is invalid.");
             AlertDialog alertDialog = createAlertDialog();
