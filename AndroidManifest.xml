@@ -16,6 +16,7 @@
 */
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.android.managedprovisioning" >
 
     <permission
@@ -290,5 +291,11 @@
         <service
             android:name=".analytics.ProcessMetricsJobService"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
+
+        <!-- (b/197919878) Disable startup provider due to resource loading issue. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove" />
     </application>
 </manifest>
