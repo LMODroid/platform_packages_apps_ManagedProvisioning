@@ -55,8 +55,8 @@ public class PreProvisioningActivityViaNfc extends Activity {
     //TODO(b/194486033) Decide appropriate message and title
     private AlertDialog createAlertDialog() {
         return new AlertDialog.Builder(this)
-                .setMessage(R.string.contact_your_admin_for_help)
-                .setTitle(R.string.cant_set_up_device)
+                .setMessage(R.string.if_questions_contact_admin)
+                .setTitle(R.string.device_already_set_up)
                 .setPositiveButton(android.R.string.ok, createDialogOnClickListener())
                 .setCancelable(false)
                 .create();
