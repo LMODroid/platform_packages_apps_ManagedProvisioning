@@ -133,6 +133,7 @@
         <activity
             android:name=".preprovisioning.PreProvisioningActivityViaNfc"
             android:permission="android.permission.DISPATCH_NFC_MESSAGE"
+            android:theme="@style/SudThemeGlifV3.DayNight"
             android:exported="true">
             <intent-filter android:priority="10">
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
