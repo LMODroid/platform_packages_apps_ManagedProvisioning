@@ -33,16 +33,19 @@ public class PreProvisioningActivityViaNfc extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent provisioningIntent = transformIntentToProvisioningIntent();
 
-        if (provisioningIntent != null && new SettingsFacade().isDuringSetupWizard(this)) {
-            //TODO(b/194486707) Decide dialog options available for user
-            startActivity(provisioningIntent);
-            finish();
+        if (new SettingsFacade().isDeviceProvisioned(this)) {
+            ProvisionLogger.loge("Device already provisioned, aborting NFC provisioning.");
+            createDeviceAlreadySetupDialog().show();
         } else {
-            ProvisionLogger.loge("NFC tag data is invalid.");
-            AlertDialog alertDialog = createAlertDialog();
-            alertDialog.show();
+            Intent provisioningIntent = transformIntentToProvisioningIntent();
+            if (provisioningIntent != null) {
+                startActivity(provisioningIntent);
+                finish();
+            } else {
+                ProvisionLogger.loge("NFC tag data is invalid.");
+                createCantSetupDeviceDialog().show();
+            }
         }
     }
 
@@ -52,8 +55,16 @@ public class PreProvisioningActivityViaNfc extends Activity {
         return devicePolicyManager.createProvisioningIntentFromNfcIntent(getIntent());
     }
 
-    //TODO(b/194486033) Decide appropriate message and title
-    private AlertDialog createAlertDialog() {
+    private AlertDialog createCantSetupDeviceDialog() {
+        return new AlertDialog.Builder(this)
+                .setMessage(R.string.contact_your_admin_for_help)
+                .setTitle(R.string.cant_set_up_device)
+                .setPositiveButton(android.R.string.ok, createDialogOnClickListener())
+                .setCancelable(false)
+                .create();
+    }
+
+    private AlertDialog createDeviceAlreadySetupDialog() {
         return new AlertDialog.Builder(this)
                 .setMessage(R.string.if_questions_contact_admin)
                 .setTitle(R.string.device_already_set_up)
