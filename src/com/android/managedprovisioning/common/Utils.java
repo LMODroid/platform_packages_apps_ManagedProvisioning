@@ -359,7 +359,7 @@ public class Utils {
     // TODO: Add unit tests
     public UserHandle getManagedProfile(Context context) {
         UserManager userManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
-        int currentUserId = userManager.getUserHandle();
+        int currentUserId = userManager.getProcessUserId();
         List<UserInfo> userProfiles = userManager.getProfiles(currentUserId);
         for (UserInfo profile : userProfiles) {
             if (profile.isManagedProfile()) {

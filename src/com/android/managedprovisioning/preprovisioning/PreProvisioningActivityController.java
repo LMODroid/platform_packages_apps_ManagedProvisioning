@@ -875,7 +875,7 @@ public class PreProvisioningActivityController {
     }
 
     private void showManagedProfileErrorAndClose(int provisioningPreCondition) {
-        UserInfo userInfo = mUserManager.getUserInfo(mUserManager.getUserHandle());
+        UserInfo userInfo = mUserManager.getUserInfo(mUserManager.getProcessUserId());
         ProvisionLogger.logw("DevicePolicyManager.checkProvisioningPreCondition returns code: "
                 + provisioningPreCondition);
         // If this is organization-owned provisioning, do not show any other error dialog, just
