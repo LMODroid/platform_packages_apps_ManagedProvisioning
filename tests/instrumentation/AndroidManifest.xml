@@ -15,6 +15,7 @@
 -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.android.managedprovisioning.tests">
 
     <!-- System permission to receive result from managed profile -->
@@ -23,6 +24,7 @@
     <application>
         <uses-library android:name="android.test.runner" />
         <receiver android:name="com.android.managedprovisioning.e2eui.ManagedProfileAdminReceiver"
+            android:exported="true"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <meta-data android:name="android.app.device_admin"
                 android:resource="@xml/device_admin_sample" />
@@ -33,17 +35,25 @@
         </receiver>
 
         <activity android:name="com.android.managedprovisioning.e2eui.DpcPostProvisioningActivity"
+            android:exported="true"
             android:permission="android.permission.BIND_DEVICE_ADMIN">
             <intent-filter>
                 <action android:name="android.app.action.PROVISIONING_SUCCESSFUL" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="com.android.managedprovisioning.provisioning.EmptyActivity">
+        <activity android:name="com.android.managedprovisioning.provisioning.EmptyActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.app.action.STATE_USER_SETUP_COMPLETE" />
             </intent-filter>
         </activity>
+
+        <!-- (b/197919878) Disable startup provider due to resource loading issue. -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:node="remove" />
     </application>
 
     <instrumentation android:name="com.android.managedprovisioning.TestInstrumentationRunner"
