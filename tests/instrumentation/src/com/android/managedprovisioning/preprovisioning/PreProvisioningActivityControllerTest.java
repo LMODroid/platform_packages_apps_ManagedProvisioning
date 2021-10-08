@@ -192,7 +192,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         when(mContext.getSystemService(TelephonyManager.class)).thenReturn(mTelephonyManager);
         when(mTelephonyManager.getImei()).thenReturn(TEST_IMEI);
 
-        when(mUserManager.getUserHandle()).thenReturn(TEST_USER_ID);
+        when(mUserManager.getProcessUserId()).thenReturn(TEST_USER_ID);
 
         when(mUtils.isEncryptionRequired()).thenReturn(false);
         when(mUtils.currentLauncherSupportsManagedProfiles(mContext)).thenReturn(true);
