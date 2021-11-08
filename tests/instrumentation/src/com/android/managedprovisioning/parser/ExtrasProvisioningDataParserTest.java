@@ -90,7 +90,6 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCALE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCAL_TIME_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOGO_URI_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
@@ -991,7 +990,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_SUPPORT_URL_SHORT, TEST_SUPPORT_URL)
                 .putExtra(EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT,
                         TEST_USE_MOBILE_DATA)
-                .putExtra(EXTRA_PROVISIONING_LOGO_URI_SHORT, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_DISCLAIMERS_SHORT, parcelablesShort)
                 .putExtra(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT_SHORT, true);
     }

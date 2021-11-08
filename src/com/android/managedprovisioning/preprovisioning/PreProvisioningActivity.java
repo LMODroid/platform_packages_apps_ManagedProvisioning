@@ -55,7 +55,6 @@ import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
-import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RetryLaunchActivity;
@@ -212,7 +211,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     @Override
     public void finish() {
         // The user has backed out of provisioning, so we perform the necessary clean up steps.
-        LogoUtils.cleanUp(this);
         ProvisioningParams params = mController.getParams();
         if (params != null) {
             params.cleanUp();
