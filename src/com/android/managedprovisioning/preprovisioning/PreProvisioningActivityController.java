@@ -244,10 +244,6 @@ public class PreProvisioningActivityController {
          */
         public String packageName;
         /**
-         * Various organization-defined customizations, e.g. colors, organization name.
-         */
-        public CustomizationParams customization;
-        /**
          * List of headings for the organization-provided terms and conditions.
          */
         public List<String> disclaimerHeadings;
@@ -411,13 +407,9 @@ public class PreProvisioningActivityController {
             mProvisioningAnalyticsTracker.logOrganizationOwnedManagedProfileProvisioning();
         }
 
-        CustomizationParams customization =
-                CustomizationParams.createInstance(mViewModel.getParams(), mContext, mUtils);
-
         // show UI so we can get user's consent to continue
         final String packageName = mViewModel.getParams().inferDeviceAdminPackageName();
         final UiParams uiParams = new UiParams();
-        uiParams.customization = customization;
         uiParams.provisioningAction = mViewModel.getParams().provisioningAction;
         uiParams.packageName = packageName;
         uiParams.isDeviceManaged = mDevicePolicyManager.isDeviceManaged();
