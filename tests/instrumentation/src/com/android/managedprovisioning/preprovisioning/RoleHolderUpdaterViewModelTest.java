@@ -33,6 +33,10 @@ import androidx.test.filters.SmallTest;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.android.bedstead.nene.utils.Poll;
+import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
+import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
+import com.android.managedprovisioning.common.RoleHolderUpdaterProvider;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.common.ViewModelEvent;
 import com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel.LaunchRoleHolderUpdaterEvent;
 import com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel.LaunchRoleHolderUpdaterFailureEvent;
@@ -68,6 +72,7 @@ public class RoleHolderUpdaterViewModelTest {
     private boolean mCanLaunchRoleHolderUpdater = true;
     private RoleHolderUpdaterViewModel mViewModel;
     private Set<ViewModelEvent> mEvents;
+    private Utils mUtils = new Utils();
 
     @Before
     public void setUp() {
@@ -188,7 +193,10 @@ public class RoleHolderUpdaterViewModelTest {
                 (Application) mApplicationContext,
                 mHandler,
                 (context, intent) -> mCanLaunchRoleHolderUpdater,
-                mTestConfig);
+                mTestConfig,
+                new DeviceManagementRoleHolderUpdaterHelper(
+                        RoleHolderUpdaterProvider.DEFAULT.getPackageName(mApplicationContext),
+                        new DefaultPackageInstallChecker(mUtils)));
     }
 
     private static final class TestConfig implements RoleHolderUpdaterViewModel.Config {

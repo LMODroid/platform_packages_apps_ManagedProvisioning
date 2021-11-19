@@ -90,6 +90,13 @@ public final class Constants {
                     Globals.MANAGED_PROVISIONING_PACKAGE_NAME,
                     ProvisioningService.class.getName()));
 
+    /**
+     * A boolean feature flag that determines whether to enable deferring provisioning to the
+     * role holder. If {@code false}, provisioning will always be handled by AOSP
+     * ManagedProvisioning.
+     */
+    public static boolean FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = false;
+
     private Constants() {
         // Do not instantiate
     }

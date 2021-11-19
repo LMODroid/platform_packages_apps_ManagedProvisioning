@@ -20,9 +20,27 @@
     public *;
     *;
 }
+
 -keep public class com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel$CanLaunchRoleHolderUpdaterChecker {
     public *;
 }
+
 -keep public class com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel$Config {
+    public *;
+}
+
+-keep public class com.android.managedprovisioning.common.RoleHolderUpdaterProvider {
+    public *;
+}
+
+-keep public class com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper {
+    public *;
+}
+
+-keep public class com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper {
+    public *;
+}
+
+-keep public class com.android.managedprovisioning.common.DefaultPackageInstallChecker {
     public *;
 }

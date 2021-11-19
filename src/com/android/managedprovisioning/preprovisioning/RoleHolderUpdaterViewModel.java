@@ -22,7 +22,6 @@ import static com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterV
 import static java.util.Objects.requireNonNull;
 
 import android.app.Application;
-import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
@@ -35,6 +34,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.common.ViewModelEvent;
@@ -54,6 +54,7 @@ final class RoleHolderUpdaterViewModel extends AndroidViewModel {
     private final Handler mHandler;
     private final CanLaunchRoleHolderUpdaterChecker mCanLaunchRoleHolderUpdaterChecker;
     private final Config mConfig;
+    private final DeviceManagementRoleHolderUpdaterHelper mRoleHolderUpdaterHelper;
 
     private int mNumberOfStartUpdaterTries = 0;
     private int mNumberOfUpdateTries = 0;
@@ -62,11 +63,13 @@ final class RoleHolderUpdaterViewModel extends AndroidViewModel {
             @NonNull Application application,
             Handler handler,
             CanLaunchRoleHolderUpdaterChecker canLaunchRoleHolderUpdaterChecker,
-            Config config) {
+            Config config,
+            DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper) {
         super(application);
         mHandler = requireNonNull(handler);
         mCanLaunchRoleHolderUpdaterChecker = requireNonNull(canLaunchRoleHolderUpdaterChecker);
         mConfig = requireNonNull(config);
+        mRoleHolderUpdaterHelper = requireNonNull(roleHolderUpdaterHelper);
     }
 
     MutableLiveData<ViewModelEvent> observeViewModelEvents() {
@@ -89,7 +92,7 @@ final class RoleHolderUpdaterViewModel extends AndroidViewModel {
      * @see LaunchRoleHolderUpdaterFailureEvent
      */
     void tryStartRoleHolderUpdater() {
-        Intent intent = new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER);
+        Intent intent = mRoleHolderUpdaterHelper.createRoleHolderUpdaterIntent();
         boolean canLaunchRoleHolderUpdater =
                 mCanLaunchRoleHolderUpdaterChecker.canLaunchRoleHolderUpdater(
                         getApplication().getApplicationContext(), intent);
@@ -214,9 +217,14 @@ final class RoleHolderUpdaterViewModel extends AndroidViewModel {
     static class RoleHolderUpdaterViewModelFactory implements ViewModelProvider.Factory {
         private final Application mApplication;
         private final Utils mUtils;
+        private final DeviceManagementRoleHolderUpdaterHelper mRoleHolderUpdaterHelper;
 
-        RoleHolderUpdaterViewModelFactory(Application application, Utils utils) {
+        RoleHolderUpdaterViewModelFactory(
+                Application application,
+                Utils utils,
+                DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper) {
             mApplication = requireNonNull(application);
+            mRoleHolderUpdaterHelper = requireNonNull(roleHolderUpdaterHelper);
             mUtils = requireNonNull(utils);
         }
 
@@ -227,7 +235,8 @@ final class RoleHolderUpdaterViewModel extends AndroidViewModel {
                     mApplication,
                     new Handler(Looper.getMainLooper()),
                     new DefaultCanLaunchRoleHolderUpdaterChecker(mUtils),
-                    config);
+                    config,
+                    mRoleHolderUpdaterHelper);
         }
     }
 

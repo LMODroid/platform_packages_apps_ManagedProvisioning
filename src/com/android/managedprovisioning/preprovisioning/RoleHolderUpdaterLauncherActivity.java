@@ -23,7 +23,10 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
+import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.RoleHolderUpdaterProvider;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel.LaunchRoleHolderUpdaterEvent;
 import com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel.RoleHolderUpdaterViewModelFactory;
@@ -42,7 +45,6 @@ import com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewMode
 public final class RoleHolderUpdaterLauncherActivity extends SetupGlifLayoutActivity {
 
     private static final int LAUNCH_ROLE_HOLDER_UPDATER_REQUEST_CODE = 1;
-
 
     private RoleHolderUpdaterViewModel mViewModel;
 
@@ -74,8 +76,13 @@ public final class RoleHolderUpdaterLauncherActivity extends SetupGlifLayoutActi
     }
 
     private RoleHolderUpdaterViewModel createViewModel() {
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                new DeviceManagementRoleHolderUpdaterHelper(
+                        RoleHolderUpdaterProvider.DEFAULT.getPackageName(this),
+                        new DefaultPackageInstallChecker(mUtils));
         return new ViewModelProvider(this,
-                new RoleHolderUpdaterViewModelFactory(getApplication(), mUtils))
+                new RoleHolderUpdaterViewModelFactory(
+                        getApplication(), mUtils, roleHolderUpdaterHelper))
                 .get(RoleHolderUpdaterViewModel.class);
     }
 
