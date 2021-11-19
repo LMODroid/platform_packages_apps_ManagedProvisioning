@@ -257,8 +257,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         if (!mUtils.isFinancedDeviceAction(mParams.provisioningAction)) {
             return true;
         }
-        return mPolicyComplianceUtils.isPolicyComplianceActivityResolvableForUser(
-                this, mParams, mUtils, UserHandle.SYSTEM);
+        return mPolicyComplianceUtils.isPolicyComplianceActivityResolvableForManagedUser(
+                this, mParams, mUtils);
     }
 
     protected final void updateProvisioningFinalizedScreen() {
