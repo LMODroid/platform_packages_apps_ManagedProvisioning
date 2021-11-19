@@ -14,20 +14,23 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.testcommon;
 
-public enum ManagedProvisioningScreens {
-    PRE_PROVISIONING,
-    PRE_PROVISIONING_VIA_NFC,
-    LANDING,
-    PROVISIONING,
-    ADMIN_INTEGRATED_PREPARE,
-    RESET_AND_RETURN_DEVICE,
-    WEB,
-    ENCRYPT,
-    POST_ENCRYPT,
-    FINALIZATION_INSIDE_SUW,
-    TERMS,
-    FINANCED_DEVICE_LANDING,
-    ROLE_HOLDER_UPDATER_LAUNCHER
+import com.android.managedprovisioning.common.SharedPreferences;
+
+/**
+ * Helper class which shadows {@link SharedPreferences}.
+ */
+public class FakeSharedPreferences implements SharedPreferences {
+    private boolean mIsProvisioningFlowDelegatedToRoleHolder;
+
+    @Override
+    public void setIsProvisioningFlowDelegatedToRoleHolder(boolean value) {
+        mIsProvisioningFlowDelegatedToRoleHolder = value;
+    }
+
+    @Override
+    public boolean isProvisioningFlowDelegatedToRoleHolder() {
+        return mIsProvisioningFlowDelegatedToRoleHolder;
+    }
 }

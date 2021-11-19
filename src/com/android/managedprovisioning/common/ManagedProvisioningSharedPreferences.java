@@ -20,7 +20,11 @@ import android.content.SharedPreferences;
 
 import androidx.annotation.VisibleForTesting;
 
-public class ManagedProvisioningSharedPreferences {
+/**
+ * Default implementation of {@link com.android.managedprovisioning.common.SharedPreferences}.
+ */
+public class ManagedProvisioningSharedPreferences implements
+        com.android.managedprovisioning.common.SharedPreferences {
     public static final long DEFAULT_PROVISIONING_ID = 0L;
 
     @VisibleForTesting
@@ -202,19 +206,14 @@ public class ManagedProvisioningSharedPreferences {
         return mSharedPreferences.getInt(KEY_NOTIFICATION_BACKGROUND_COLOR, 0);
     }
 
-    /**
-     * Writes whether the provisioning flow is delegated to the device management role holder.
-     */
+    @Override
     public void setIsProvisioningFlowDelegatedToRoleHolder(boolean value) {
         mSharedPreferences.edit()
                 .putBoolean(KEY_IS_PROVISIONING_FLOW_DELEGATED_TO_ROLE_HOLDER, value)
                 .apply();
     }
 
-    /**
-     * Returns {@code true} if the provisioning flow is delegated to the device management
-     * role holder.
-     */
+    @Override
     public boolean isProvisioningFlowDelegatedToRoleHolder() {
         return mSharedPreferences.getBoolean(
                 KEY_IS_PROVISIONING_FLOW_DELEGATED_TO_ROLE_HOLDER,

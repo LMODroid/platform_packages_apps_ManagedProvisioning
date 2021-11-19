@@ -14,20 +14,21 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.common;
 
-public enum ManagedProvisioningScreens {
-    PRE_PROVISIONING,
-    PRE_PROVISIONING_VIA_NFC,
-    LANDING,
-    PROVISIONING,
-    ADMIN_INTEGRATED_PREPARE,
-    RESET_AND_RETURN_DEVICE,
-    WEB,
-    ENCRYPT,
-    POST_ENCRYPT,
-    FINALIZATION_INSIDE_SUW,
-    TERMS,
-    FINANCED_DEVICE_LANDING,
-    ROLE_HOLDER_UPDATER_LAUNCHER
+/**
+ * An interface which describes methods to keep data in store and retrieve it.
+ */
+public interface SharedPreferences {
+
+    /**
+     * Writes whether the provisioning flow is delegated to the device management role holder.
+     */
+    void setIsProvisioningFlowDelegatedToRoleHolder(boolean value);
+
+    /**
+     * Returns {@code true} if the provisioning flow is delegated to the device management
+     * role holder.
+     */
+    boolean isProvisioningFlowDelegatedToRoleHolder();
 }

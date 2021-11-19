@@ -264,12 +264,12 @@
         </receiver>
 
         <!-- TODO (b/146135268): Add permission for setup-wizard to guard access? -->
-        <activity android:name=".finalization.FinalizationInsideSuwActivity"
+        <activity android:name=".finalization.FinalizationForwarderActivity"
                   android:excludeFromRecents="true"
                   android:exported="true"
                   android:immersive="true"
                   android:launchMode="singleTop"
-                  android:theme="@style/SudThemeGlifV3.DayNight">
+                  android:theme="@android:style/Theme.Translucent.NoTitleBar">
             <intent-filter>
                 <!-- TODO (b/177666246): Remove PROVISION_FINALIZATION_INSIDE_SUW
                 after the setup wizard change which calls PROVISION_FINALIZATION is in prebuilt -->
@@ -279,6 +279,12 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".finalization.FinalizationInsideSuwActivity"
+                  android:excludeFromRecents="true"
+                  android:immersive="true"
+                  android:launchMode="singleTop"
+                  android:theme="@style/SudThemeGlifV3.DayNight" />
+
         <activity
             android:name=".provisioning.LandingActivity"
             android:theme="@style/SudThemeGlifV3.DayNight"
@@ -286,6 +292,11 @@
 
         <activity
             android:name=".provisioning.FinancedDeviceLandingActivity"
+            android:theme="@style/SudThemeGlifV3.DayNight"
+            android:immersive="true" />
+
+        <activity
+            android:name=".preprovisioning.RoleHolderUpdaterLauncherActivity"
             android:theme="@style/SudThemeGlifV3.DayNight"
             android:immersive="true" />
 

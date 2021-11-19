@@ -19,6 +19,7 @@ package com.android.managedprovisioning.preprovisioning;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 
+import static com.android.managedprovisioning.ManagedProvisioningScreens.ROLE_HOLDER_UPDATER_LAUNCHER;
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
@@ -439,7 +440,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void startRoleHolderUpdater() {
-        Intent intent = new Intent(this, RoleHolderUpdaterLauncherActivity.class);
+        Intent intent = new Intent(this, getActivityForScreen(ROLE_HOLDER_UPDATER_LAUNCHER));
         getTransitionHelper().startActivityForResultWithTransition(
                  this,
                 intent,

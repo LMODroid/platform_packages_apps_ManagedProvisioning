@@ -48,3 +48,8 @@
 -keep public class com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences {
     public *;
 }
+
+-keep public class com.android.managedprovisioning.common.SharedPreferences {
+    public *;
+    *;
+}
