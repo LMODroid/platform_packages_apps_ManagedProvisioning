@@ -89,6 +89,8 @@ import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.TimeLogger;
+import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
+import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
@@ -100,6 +102,8 @@ import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 import com.android.managedprovisioning.parser.MessageParser;
+import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
+import com.android.managedprovisioning.provisioning.Constants;
 
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -147,6 +151,33 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
     private static final long OTHER_LOCAL_TIME = 4321L;
     private static final String TIME_ZONE_EXTRA = "GMT";
     private static final String OTHER_TIME_ZONE = "GMT+1";
+    private static final String TEST_ROLE_HOLDER_PACKAGE_NAME = "test.roleholder.package";
+    private static final String TEST_ROLE_HOLDER_UPDATER_PACKAGE_NAME =
+            "test.roleholderupdater.package";
+    private static final DeviceManagementRoleHolderHelper
+            DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER =
+            new DeviceManagementRoleHolderHelper(
+                    TEST_ROLE_HOLDER_PACKAGE_NAME,
+                    /* packageInstallChecker= */ (packageName, packageManager) -> true,
+                    /* resolveIntentChecker= */ (intent, packageManager) -> true,
+                    /* roleHolderStubChecker= */ (packageName, packageManager) -> false);
+    private static final DeviceManagementRoleHolderHelper
+            DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_PRESENT =
+            new DeviceManagementRoleHolderHelper(
+                    TEST_ROLE_HOLDER_PACKAGE_NAME,
+                    /* packageInstallChecker= */ (packageName, packageManager) -> false,
+                    /* resolveIntentChecker= */ (intent, packageManager) -> false,
+                    /* roleHolderStubChecker= */ (packageName, packageManager) -> false);
+    private static final DeviceManagementRoleHolderUpdaterHelper
+            ROLE_HOLDER_UPDATER_HELPER =
+            new DeviceManagementRoleHolderUpdaterHelper(
+                    TEST_ROLE_HOLDER_UPDATER_PACKAGE_NAME,
+                    /* packageInstallChecker= */ (packageName, packageManager) -> true);
+    private static final DeviceManagementRoleHolderUpdaterHelper
+            ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED =
+            new DeviceManagementRoleHolderUpdaterHelper(
+                    TEST_ROLE_HOLDER_UPDATER_PACKAGE_NAME,
+                    /* packageInstallChecker= */ (packageName, packageManager) -> false);
 
     @Mock
     private Context mContext;
@@ -245,7 +276,15 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 mMessageParser,
                 mEncryptionController);
 
-        mController = new PreProvisioningActivityController(
+        mController = createControllerWithRoleHolderUpdaterNotPresent();
+
+        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = false;
+    }
+
+    private PreProvisioningActivityController createControllerWithRoleHolderHelpers(
+            DeviceManagementRoleHolderHelper deviceManagementRoleHolderHelper,
+            DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper) {
+        return new PreProvisioningActivityController(
                 mContext,
                 mUi,
                 mUtils,
@@ -254,7 +293,9 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 new PolicyComplianceUtils(),
                 new GetProvisioningModeUtils(),
                 mViewModel,
-                (context, provisioningId) -> parcelables -> DISCLAIMERS_PARAM);
+                (context, provisioningId) -> parcelables -> DISCLAIMERS_PARAM,
+                deviceManagementRoleHolderHelper,
+                roleHolderUpdaterHelper);
     }
 
     public void testManagedProfile() throws Exception {
@@ -272,6 +313,77 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         verify(mUi).startProvisioning(mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
+    }
+
+    public void testManagedProfile_hasRoleHolderUpdaterInstalled_startsRoleHolderUpdater()
+            throws Exception {
+        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
+        mController = createControllerWithRoleHolderUpdaterInstalled();
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
+                mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE));
+
+        // THEN start profile provisioning
+        verify(mUi).startRoleHolderUpdater();
+        verifyNoMoreInteractions(mUi);
+    }
+
+    public void testManagedProfile_hasRoleHolderValidAndInstalled_startsRoleHolder()
+            throws Exception {
+        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
+        mController = createControllerWithRoleHolderValidAndInstalled();
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+            mController.startAppropriateProvisioning(mIntent);
+        });
+
+        // THEN start profile provisioning
+        verify(mUi).initiateUi(any(UiParams.class));
+        verify(mUi).startRoleHolderProvisioning(any(Intent.class));
+        verifyNoMoreInteractions(mUi);
+        verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
+        verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(true);
+    }
+
+    public void testManagedProfile_roleHolderNotPresent_startsPlatformProvidedProvisioning()
+            throws Exception {
+        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
+        mController = createControllerWithRoleHolderUpdaterInstalled();
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+            mController.startAppropriateProvisioning(mIntent);
+        });
+
+        // THEN start profile provisioning
+        verify(mUi).initiateUi(any(UiParams.class));
+        verify(mUi).startRoleHolderUpdater();
+        verifyNoMoreInteractions(mUi);
+        verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
+    }
+
+    public void testManagedProfile_roleHolderUpdaterNotPresent_startsPlatformProvidedProvisioning()
+            throws Exception {
+        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
+        mController = createControllerWithRoleHolderUpdaterNotPresent();
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        });
+
+        // THEN start profile provisioning
+        verify(mUi).initiateUi(any(UiParams.class));
+        verifyNoMoreInteractions(mUi);
+        verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
     }
 
     public void testManagedProfile_provisioningNotAllowed() throws Exception {
@@ -1561,5 +1673,23 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
     private Intent createResultIntentWithFullyManagedDevice() {
         return new Intent()
                 .putExtra(EXTRA_PROVISIONING_MODE, PROVISIONING_MODE_FULLY_MANAGED_DEVICE);
+    }
+
+    private PreProvisioningActivityController createControllerWithRoleHolderUpdaterInstalled() {
+        return createControllerWithRoleHolderHelpers(
+                DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_PRESENT,
+                ROLE_HOLDER_UPDATER_HELPER);
+    }
+
+    private PreProvisioningActivityController createControllerWithRoleHolderValidAndInstalled() {
+        return createControllerWithRoleHolderHelpers(
+                DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER,
+                ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED);
+    }
+
+    private PreProvisioningActivityController createControllerWithRoleHolderUpdaterNotPresent() {
+        return createControllerWithRoleHolderHelpers(
+                DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_PRESENT,
+                ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED);
     }
 }

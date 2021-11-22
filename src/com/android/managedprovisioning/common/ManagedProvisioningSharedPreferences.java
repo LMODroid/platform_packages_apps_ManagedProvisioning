@@ -18,11 +18,7 @@ package com.android.managedprovisioning.common;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import androidx.annotation.Keep;
 import androidx.annotation.VisibleForTesting;
-
-import java.util.Collections;
-import java.util.Set;
 
 public class ManagedProvisioningSharedPreferences {
     public static final long DEFAULT_PROVISIONING_ID = 0L;
@@ -50,6 +46,8 @@ public class ManagedProvisioningSharedPreferences {
      */
     private static final Object sWriteLock = new Object();
     private static final String KEY_ACCENT_COLOR = "accent_color";
+    private static final String KEY_IS_PROVISIONING_FLOW_DELEGATED_TO_ROLE_HOLDER =
+            "is_provisioning_flow_delegated_to_role_holder";
 
     private final SharedPreferences mSharedPreferences;
 
@@ -202,5 +200,24 @@ public class ManagedProvisioningSharedPreferences {
      */
     public int getNotificationBackgroundColor() {
         return mSharedPreferences.getInt(KEY_NOTIFICATION_BACKGROUND_COLOR, 0);
+    }
+
+    /**
+     * Writes whether the provisioning flow is delegated to the device management role holder.
+     */
+    public void setIsProvisioningFlowDelegatedToRoleHolder(boolean value) {
+        mSharedPreferences.edit()
+                .putBoolean(KEY_IS_PROVISIONING_FLOW_DELEGATED_TO_ROLE_HOLDER, value)
+                .apply();
+    }
+
+    /**
+     * Returns {@code true} if the provisioning flow is delegated to the device management
+     * role holder.
+     */
+    public boolean isProvisioningFlowDelegatedToRoleHolder() {
+        return mSharedPreferences.getBoolean(
+                KEY_IS_PROVISIONING_FLOW_DELEGATED_TO_ROLE_HOLDER,
+                /* defaultValue= */ false);
     }
 }
