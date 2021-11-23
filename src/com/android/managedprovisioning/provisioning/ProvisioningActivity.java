@@ -278,7 +278,6 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
         final Intent intent = new Intent(this,
                 getActivityForScreen(ManagedProvisioningScreens.RESET_AND_RETURN_DEVICE));
         WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
-        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS, mParams);
         getTransitionHelper().startActivityWithTransition(this, intent);
     }
 

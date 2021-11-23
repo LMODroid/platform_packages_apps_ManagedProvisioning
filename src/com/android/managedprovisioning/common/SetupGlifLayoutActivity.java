@@ -60,8 +60,8 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
         super.onApplyThemeResource(theme, resid, first);
     }
 
-    protected void initializeLayoutParams(int layoutResourceId, @Nullable Integer headerResourceId,
-            CustomizationParams params) {
+    protected void initializeLayoutParams(
+            int layoutResourceId, @Nullable Integer headerResourceId) {
         setContentView(layoutResourceId);
         GlifLayout layout = findViewById(R.id.setup_wizard_layout);
 
@@ -89,8 +89,6 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
 
             increaseMaxLinesIfNecessary(header, mInitialHeaderMaxLines);
         }
-
-        layout.setIcon(LogoUtils.getOrganisationLogo(this, params.logoColor));
     }
 
     /**
