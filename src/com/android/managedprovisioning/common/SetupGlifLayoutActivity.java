@@ -27,7 +27,6 @@ import android.widget.TextView;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.model.CustomizationParams;
 
 import com.google.android.setupdesign.GlifLayout;
 
@@ -89,6 +88,8 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
 
             increaseMaxLinesIfNecessary(header, mInitialHeaderMaxLines);
         }
+
+        layout.setIcon(getDrawable(R.drawable.ic_enterprise_blue_24dp));
     }
 
     /**
