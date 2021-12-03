@@ -111,6 +111,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.ProvisioningParams.FlowType;
 import com.android.managedprovisioning.parser.DisclaimerParser;
 import com.android.managedprovisioning.parser.DisclaimersParserImpl;
+import com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.DefaultConfig;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.PreProvisioningViewModelFactory;
 
 import java.util.IllformedLocaleException;
@@ -155,7 +156,8 @@ public class PreProvisioningActivityController {
                 new ViewModelProvider(
                         activity,
                         new PreProvisioningViewModelFactory(
-                                (ManagedProvisioningBaseApplication) activity.getApplication()))
+                                (ManagedProvisioningBaseApplication) activity.getApplication(),
+                                new DefaultConfig()))
                                         .get(PreProvisioningViewModel.class),
                 DisclaimersParserImpl::new,
                 new DeviceManagementRoleHolderHelper(
@@ -978,6 +980,14 @@ public class PreProvisioningActivityController {
 
     LiveData<Integer> getState() {
         return mViewModel.getState();
+    }
+
+    void incrementRoleHolderUpdateRetryCount() {
+        mViewModel.incrementRoleHolderUpdateRetryCount();
+    }
+
+    boolean canRetryRoleHolderUpdate() {
+        return mViewModel.canRetryRoleHolderUpdate();
     }
 
     private void showProvisioningErrorAndClose(String action, int provisioningPreCondition) {

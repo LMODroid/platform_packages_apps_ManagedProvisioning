@@ -16,10 +16,12 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
+import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 
-import static com.android.managedprovisioning.ManagedProvisioningScreens.ROLE_HOLDER_UPDATER_LAUNCHER;
+import static com.android.managedprovisioning.ManagedProvisioningScreens.RETRY_LAUNCH;
+import static com.android.managedprovisioning.common.RetryLaunchActivity.EXTRA_INTENT_TO_LAUNCH;
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
@@ -47,10 +49,13 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
+import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
 import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.RetryLaunchActivity;
 import com.android.managedprovisioning.common.RoleHolderProvider;
 import com.android.managedprovisioning.common.RoleHolderUpdaterProvider;
 import com.android.managedprovisioning.common.SettingsFacade;
@@ -303,7 +308,13 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 }
                 break;
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_UPDATER_REQUEST_CODE:
-                mController.startAppropriateProvisioning(getIntent());
+                if (resultCode == RESULT_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
+                        && mController.canRetryRoleHolderUpdate()) {
+                    startRoleHolderUpdater();
+                    mController.incrementRoleHolderUpdateRetryCount();
+                } else {
+                    mController.startAppropriateProvisioning(getIntent());
+                }
                 break;
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE:
                 ProvisionLogger.logw("Role holder returned result code " + resultCode);
@@ -440,7 +451,13 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void startRoleHolderUpdater() {
-        Intent intent = new Intent(this, getActivityForScreen(ROLE_HOLDER_UPDATER_LAUNCHER));
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                new DeviceManagementRoleHolderUpdaterHelper(
+                        mRoleHolderUpdaterProvider.getPackageName(this),
+                        new DefaultPackageInstallChecker(mUtils));
+        Intent intent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
+        intent.putExtra(
+                EXTRA_INTENT_TO_LAUNCH, roleHolderUpdaterHelper.createRoleHolderUpdaterIntent());
         getTransitionHelper().startActivityForResultWithTransition(
                  this,
                 intent,
@@ -449,9 +466,11 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void startRoleHolderProvisioning(Intent intent) {
+        Intent retryLaunchIntent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
+        retryLaunchIntent.putExtra(RetryLaunchActivity.EXTRA_INTENT_TO_LAUNCH, intent);
         getTransitionHelper().startActivityForResultWithTransition(
                 /* activity= */ this,
-                intent,
+                retryLaunchIntent,
                 START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE);
     }
 

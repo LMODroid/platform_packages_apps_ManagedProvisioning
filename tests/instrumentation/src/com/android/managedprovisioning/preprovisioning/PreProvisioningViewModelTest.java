@@ -60,7 +60,7 @@ public final class PreProvisioningViewModelTest {
         mViewModel = new PreProvisioningViewModel(
                 mTimeLogger,
                 messageParser,
-                mEncryptionController);
+                mEncryptionController, new PreProvisioningViewModel.DefaultConfig());
     }
 
     @Test
@@ -142,5 +142,21 @@ public final class PreProvisioningViewModelTest {
         assertThrows(
                 IllegalProvisioningArgumentException.class,
                 () -> mViewModel.loadParamsIfNecessary(invalidIntent));
+    }
+
+    @Test
+    public void canRetryRoleHolderUpdate_noTries_works() {
+        mViewModel.incrementRoleHolderUpdateRetryCount();
+
+        assertThat(mViewModel.canRetryRoleHolderUpdate()).isTrue();
+    }
+
+    @Test
+    public void canRetryRoleHolderUpdate_threeTries_isFalse() {
+        mViewModel.incrementRoleHolderUpdateRetryCount();
+        mViewModel.incrementRoleHolderUpdateRetryCount();
+        mViewModel.incrementRoleHolderUpdateRetryCount();
+
+        assertThat(mViewModel.canRetryRoleHolderUpdate()).isFalse();
     }
 }

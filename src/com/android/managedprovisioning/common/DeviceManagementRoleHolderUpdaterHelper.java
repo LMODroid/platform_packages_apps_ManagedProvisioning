@@ -57,6 +57,7 @@ public class DeviceManagementRoleHolderUpdaterHelper {
      * Creates an intent to be used to launch the role holder updater.
      */
     public Intent createRoleHolderUpdaterIntent() {
-        return new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER);
+        return new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER)
+                .setPackage(mRoleHolderUpdaterPackageName);
     }
 }

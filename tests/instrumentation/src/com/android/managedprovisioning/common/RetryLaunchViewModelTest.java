@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning.preprovisioning;
+package com.android.managedprovisioning.common;
 
-import static com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel.LaunchRoleHolderUpdaterFailureEvent.REASON_EXCEEDED_MAXIMUM_NUMBER_UPDATER_LAUNCH_RETRIES;
-import static com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel.LaunchRoleHolderUpdaterFailureEvent.REASON_EXCEEDED_MAXIMUM_NUMBER_UPDATE_RETRIES;
+import static com.android.managedprovisioning.common.RetryLaunchViewModel.LaunchActivityFailureEvent.REASON_EXCEEDED_MAXIMUM_NUMBER_ACTIVITY_LAUNCH_RETRIES;
 
 import static com.google.common.truth.Truth.assertThat;
 
@@ -33,13 +32,9 @@ import androidx.test.filters.SmallTest;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.android.bedstead.nene.utils.Poll;
-import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
-import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
-import com.android.managedprovisioning.common.RoleHolderUpdaterProvider;
-import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.common.ViewModelEvent;
-import com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel.LaunchRoleHolderUpdaterEvent;
-import com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel.LaunchRoleHolderUpdaterFailureEvent;
+import com.android.managedprovisioning.common.RetryLaunchViewModel.LaunchActivityEvent;
+import com.android.managedprovisioning.common.RetryLaunchViewModel.LaunchActivityFailureEvent;
+import com.android.managedprovisioning.common.RetryLaunchViewModel.LaunchActivityWaitingForRetryEvent;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -47,31 +42,34 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 import java.time.Duration;
-import java.util.Collections;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Arrays;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.stream.Collectors;
 
 
 @SmallTest
 @RunWith(JUnit4.class)
-public class RoleHolderUpdaterViewModelTest {
+public class RetryLaunchViewModelTest {
     private static final int LAUNCH_ROLE_HOLDER_UPDATER_PERIOD_MILLIS = 100;
     private static final int NO_EVENT_TIMEOUT_MILLIS = 200;
     private static final int LAUNCH_ROLE_HOLDER_MAX_RETRIES = 1;
     private static final int ROLE_HOLDER_UPDATE_MAX_RETRIES = 1;
-    private static final LaunchRoleHolderUpdaterEvent
+    private static final LaunchActivityEvent
             LAUNCH_ROLE_HOLDER_UPDATER_EVENT = createLaunchRoleHolderUpdaterEvent();
-    private static final LaunchRoleHolderUpdaterFailureEvent
+    private static final LaunchActivityFailureEvent
             EXCEED_MAX_NUMBER_LAUNCH_RETRIES_EVENT = createExceedMaxNumberLaunchRetriesEvent();
-    private static final LaunchRoleHolderUpdaterFailureEvent
-            EXCEED_MAX_NUMBER_UPDATE_RETRIES_EVENT = createExceedMaxNumberUpdateRetriesEvent();
+    private static final LaunchActivityWaitingForRetryEvent WAITING_FOR_RETRY_EVENT =
+            createWaitingForRetryEvent();
+    private static final String TEST_DEVICE_MANAGEMENT_ROLE_HOLDER_UPDATER_PACKAGE_NAME =
+            "com.devicemanagementroleholderupdater.test.package";
 
     private final Context mApplicationContext = ApplicationProvider.getApplicationContext();
     private Handler mHandler;
     private TestConfig mTestConfig;
     private boolean mCanLaunchRoleHolderUpdater = true;
-    private RoleHolderUpdaterViewModel mViewModel;
-    private Set<ViewModelEvent> mEvents;
+    private RetryLaunchViewModel mViewModel;
+    private Queue<ViewModelEvent> mEvents;
     private Utils mUtils = new Utils();
 
     @Before
@@ -89,25 +87,10 @@ public class RoleHolderUpdaterViewModelTest {
 
     @Test
     public void tryStartRoleHolderUpdater_launchUpdater_works() {
-        mViewModel.tryStartRoleHolderUpdater();
+        mViewModel.tryStartActivity();
         blockUntilNextUiThreadCycle();
 
         assertThat(mEvents).containsExactly(LAUNCH_ROLE_HOLDER_UPDATER_EVENT);
-    }
-
-    @Test
-    public void tryStartRoleHolderUpdater_exceedsMaxRetryLimit_fails() {
-        mTestConfig.launchRoleHolderMaxRetries = 1;
-
-        mViewModel.tryStartRoleHolderUpdater();
-        blockUntilNextUiThreadCycle();
-        mViewModel.tryStartRoleHolderUpdater();
-        blockUntilNextUiThreadCycle();
-
-        assertThat(mEvents)
-                .containsExactly(
-                        LAUNCH_ROLE_HOLDER_UPDATER_EVENT,
-                        EXCEED_MAX_NUMBER_UPDATE_RETRIES_EVENT);
     }
 
     @Test
@@ -115,10 +98,13 @@ public class RoleHolderUpdaterViewModelTest {
         mTestConfig.launchRoleHolderMaxRetries = 2;
         mCanLaunchRoleHolderUpdater = false;
 
-        mViewModel.tryStartRoleHolderUpdater();
+        mViewModel.tryStartActivity();
         mCanLaunchRoleHolderUpdater = true;
 
-        pollForEvent(mEvents, LAUNCH_ROLE_HOLDER_UPDATER_EVENT);
+        pollForEvents(
+                mEvents,
+                WAITING_FOR_RETRY_EVENT,
+                LAUNCH_ROLE_HOLDER_UPDATER_EVENT);
     }
 
     @Test
@@ -126,9 +112,12 @@ public class RoleHolderUpdaterViewModelTest {
         mTestConfig.roleHolderUpdateMaxRetries = 1;
         mCanLaunchRoleHolderUpdater = false;
 
-        mViewModel.tryStartRoleHolderUpdater();
+        mViewModel.tryStartActivity();
 
-        pollForEvent(mEvents, EXCEED_MAX_NUMBER_LAUNCH_RETRIES_EVENT);
+        pollForEvents(
+                mEvents,
+                WAITING_FOR_RETRY_EVENT,
+                EXCEED_MAX_NUMBER_LAUNCH_RETRIES_EVENT);
     }
 
     @Test
@@ -136,48 +125,51 @@ public class RoleHolderUpdaterViewModelTest {
         mTestConfig.roleHolderUpdateMaxRetries = 1;
         mCanLaunchRoleHolderUpdater = false;
 
-        mViewModel.tryStartRoleHolderUpdater();
+        mViewModel.tryStartActivity();
         mViewModel.stopLaunchRetries();
 
-        pollForNoEvent(mEvents);
+        pollForEvents(mEvents, WAITING_FOR_RETRY_EVENT);
     }
 
-    private void pollForEvent(
-            Set<ViewModelEvent> capturedViewModelEvents, ViewModelEvent viewModelEvent) {
-        Poll.forValue("CapturedViewModelEvents", () -> capturedViewModelEvents)
-                .toMeet(viewModelEvents -> viewModelEvents.size() == 1
-                                && viewModelEvents.contains(viewModelEvent))
-                .errorOnFail("Expected CapturedViewModelEvents to contain only " + viewModelEvent)
-                .await();
+    private void pollForEvents(
+            Queue<ViewModelEvent> actualEvents,
+            ViewModelEvent... expectedEvents) {
+        for (ViewModelEvent nextExpectedEvent : expectedEvents) {
+            Poll.forValue("CapturedViewModelEvents", () -> actualEvents)
+                    .toMeet(actualEventsQueue -> !actualEventsQueue.isEmpty())
+                    .errorOnFail("Expected CapturedViewModelEvents to contain exactly "
+                            + Arrays.stream(expectedEvents)
+                            .map(Object::toString).collect(Collectors.joining()))
+                    .await();
+            assertThat(actualEvents.remove()).isEqualTo(nextExpectedEvent);
+        }
+        pollForNoEvent(actualEvents);
     }
 
-    private void pollForNoEvent(Set<ViewModelEvent> capturedViewModelEvents) {
+    private void pollForNoEvent(Queue<ViewModelEvent> capturedViewModelEvents) {
         // TODO(b/208237942): A pattern for testing that something does not happen
         assertThat(Poll.forValue("CapturedViewModelEvents", () -> capturedViewModelEvents)
                 .toMeet(viewModelEvents -> !viewModelEvents.isEmpty())
                 .timeout(Duration.ofMillis(NO_EVENT_TIMEOUT_MILLIS))
                 .await())
-                .isEqualTo(Collections.emptySet());
+                .isEmpty();
     }
 
-    private static LaunchRoleHolderUpdaterFailureEvent createExceedMaxNumberUpdateRetriesEvent() {
-        return new LaunchRoleHolderUpdaterFailureEvent(
-                REASON_EXCEEDED_MAXIMUM_NUMBER_UPDATE_RETRIES);
+    private static LaunchActivityFailureEvent createExceedMaxNumberLaunchRetriesEvent() {
+        return new LaunchActivityFailureEvent(
+                REASON_EXCEEDED_MAXIMUM_NUMBER_ACTIVITY_LAUNCH_RETRIES);
     }
 
-    private static LaunchRoleHolderUpdaterFailureEvent createExceedMaxNumberLaunchRetriesEvent() {
-        return new LaunchRoleHolderUpdaterFailureEvent(
-                REASON_EXCEEDED_MAXIMUM_NUMBER_UPDATER_LAUNCH_RETRIES);
+    private static LaunchActivityWaitingForRetryEvent createWaitingForRetryEvent() {
+        return new LaunchActivityWaitingForRetryEvent();
     }
 
-    private static LaunchRoleHolderUpdaterEvent createLaunchRoleHolderUpdaterEvent() {
-        Intent intent = new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER);
-        return new LaunchRoleHolderUpdaterEvent(intent);
+    private static LaunchActivityEvent createLaunchRoleHolderUpdaterEvent() {
+        return new LaunchActivityEvent(createUpdateDeviceManagementRoleHolderIntent());
     }
 
-    private Set<ViewModelEvent> subscribeToViewModelEvents() {
-        Set<ViewModelEvent> capturedViewModelEvents =
-                Collections.newSetFromMap(new ConcurrentHashMap<>());
+    private Queue<ViewModelEvent> subscribeToViewModelEvents() {
+        Queue<ViewModelEvent> capturedViewModelEvents = new ConcurrentLinkedQueue<>();
         InstrumentationRegistry.getInstrumentation().runOnMainSync(
                 () -> mViewModel.observeViewModelEvents()
                         .observeForever(capturedViewModelEvents::add));
@@ -188,18 +180,21 @@ public class RoleHolderUpdaterViewModelTest {
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {});
     }
 
-    private RoleHolderUpdaterViewModel createViewModel() {
-        return new RoleHolderUpdaterViewModel(
+    private RetryLaunchViewModel createViewModel() {
+        return new RetryLaunchViewModel(
                 (Application) mApplicationContext,
+                createUpdateDeviceManagementRoleHolderIntent(),
                 mHandler,
                 (context, intent) -> mCanLaunchRoleHolderUpdater,
-                mTestConfig,
-                new DeviceManagementRoleHolderUpdaterHelper(
-                        RoleHolderUpdaterProvider.DEFAULT.getPackageName(mApplicationContext),
-                        new DefaultPackageInstallChecker(mUtils)));
+                mTestConfig);
     }
 
-    private static final class TestConfig implements RoleHolderUpdaterViewModel.Config {
+    private static Intent createUpdateDeviceManagementRoleHolderIntent() {
+        return new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER)
+                .setPackage(TEST_DEVICE_MANAGEMENT_ROLE_HOLDER_UPDATER_PACKAGE_NAME);
+    }
+
+    private static final class TestConfig implements RetryLaunchViewModel.Config {
         public int launchRoleHolderUpdaterPeriodMillis;
         public int launchRoleHolderMaxRetries;
         public int roleHolderUpdateMaxRetries;
@@ -214,18 +209,14 @@ public class RoleHolderUpdaterViewModelTest {
         }
 
         @Override
-        public int getLaunchRoleHolderUpdaterPeriodMillis() {
+        public long getLaunchActivityRetryMillis() {
             return launchRoleHolderUpdaterPeriodMillis;
         }
 
         @Override
-        public int getLaunchRoleHolderMaxRetries() {
+        public int getLaunchActivityMaxRetries() {
             return launchRoleHolderMaxRetries;
         }
 
-        @Override
-        public int getRoleHolderUpdateMaxRetries() {
-            return roleHolderUpdateMaxRetries;
-        }
     }
 }

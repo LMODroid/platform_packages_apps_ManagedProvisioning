@@ -26,7 +26,7 @@ import static com.android.managedprovisioning.ManagedProvisioningScreens.PRE_PRO
 import static com.android.managedprovisioning.ManagedProvisioningScreens.PRE_PROVISIONING_VIA_NFC;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.PROVISIONING;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.RESET_AND_RETURN_DEVICE;
-import static com.android.managedprovisioning.ManagedProvisioningScreens.ROLE_HOLDER_UPDATER_LAUNCHER;
+import static com.android.managedprovisioning.ManagedProvisioningScreens.RETRY_LAUNCH;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.TERMS;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.WEB;
 
@@ -42,13 +42,13 @@ import android.content.pm.PackageManager;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
 
+import com.android.managedprovisioning.common.RetryLaunchActivity;
 import com.android.managedprovisioning.finalization.FinalizationForwarderActivity;
 import com.android.managedprovisioning.finalization.FinalizationInsideSuwActivity;
 import com.android.managedprovisioning.preprovisioning.EncryptDeviceActivity;
 import com.android.managedprovisioning.preprovisioning.PostEncryptionActivity;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityViaNfc;
-import com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterLauncherActivity;
 import com.android.managedprovisioning.preprovisioning.WebActivity;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
@@ -115,8 +115,8 @@ public final class ScreenManagerTest {
                 .isEqualTo(TermsActivity.class);
         assertThat(screenManager.getActivityClassForScreen(FINANCED_DEVICE_LANDING))
                 .isEqualTo(FinancedDeviceLandingActivity.class);
-        assertThat(screenManager.getActivityClassForScreen(ROLE_HOLDER_UPDATER_LAUNCHER))
-                .isEqualTo(RoleHolderUpdaterLauncherActivity.class);
+        assertThat(screenManager.getActivityClassForScreen(RETRY_LAUNCH))
+                .isEqualTo(RetryLaunchActivity.class);
     }
 
     @Test
@@ -205,7 +205,7 @@ public final class ScreenManagerTest {
         map.put(FINALIZATION_INSIDE_SUW, Activity.class);
         map.put(TERMS, Activity.class);
         map.put(FINANCED_DEVICE_LANDING, Activity.class);
-        map.put(ROLE_HOLDER_UPDATER_LAUNCHER, Activity.class);
+        map.put(RETRY_LAUNCH, Activity.class);
         return map;
     }
 

@@ -18,6 +18,8 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS;
 
+import static java.util.Objects.requireNonNull;
+
 import android.annotation.IntDef;
 import android.annotation.MainThread;
 import android.content.Intent;
@@ -36,7 +38,6 @@ import com.android.managedprovisioning.parser.MessageParser;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-import java.util.Objects;
 
 /**
  * A {@link ViewModel} which maintains data related to preprovisioning.
@@ -49,6 +50,7 @@ public final class PreProvisioningViewModel extends ViewModel {
     static final int STATE_PROVISIONING_STARTED = 5;
     static final int STATE_PROVISIONING_FINALIZED = 6;
 
+    private static final int DEFAULT_MAX_ROLE_HOLDER_UPDATE_RETRIES = 3;
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({STATE_PREPROVISIONING_INITIALIZING,
             STATE_GETTING_PROVISIONING_MODE,
@@ -57,20 +59,25 @@ public final class PreProvisioningViewModel extends ViewModel {
             STATE_PROVISIONING_FINALIZED})
     private @interface PreProvisioningState {}
 
+
     private ProvisioningParams mParams;
     private final MessageParser mMessageParser;
     private final TimeLogger mTimeLogger;
     private final EncryptionController mEncryptionController;
     private final MutableLiveData<Integer> mState =
             new MutableLiveData<>(STATE_PREPROVISIONING_INITIALIZING);
+    private final Config mConfig;
+    private int mRoleHolderUpdateRetries = 1;
 
     PreProvisioningViewModel(
             TimeLogger timeLogger,
             MessageParser messageParser,
-            EncryptionController encryptionController) {
-        mMessageParser = Objects.requireNonNull(messageParser);
-        mTimeLogger = Objects.requireNonNull(timeLogger);
-        mEncryptionController = Objects.requireNonNull(encryptionController);
+            EncryptionController encryptionController,
+            Config config) {
+        mMessageParser = requireNonNull(messageParser);
+        mTimeLogger = requireNonNull(timeLogger);
+        mEncryptionController = requireNonNull(encryptionController);
+        mConfig = requireNonNull(config);
     }
 
     /**
@@ -188,11 +195,34 @@ public final class PreProvisioningViewModel extends ViewModel {
         }
     }
 
+    void incrementRoleHolderUpdateRetryCount() {
+        mRoleHolderUpdateRetries++;
+    }
+
+    boolean canRetryRoleHolderUpdate() {
+        return mRoleHolderUpdateRetries < mConfig.getMaxRoleHolderUpdateRetries();
+    }
+
+    interface Config {
+        int getMaxRoleHolderUpdateRetries();
+    }
+
+    static class DefaultConfig implements Config {
+        @Override
+        public int getMaxRoleHolderUpdateRetries() {
+            return DEFAULT_MAX_ROLE_HOLDER_UPDATE_RETRIES;
+        }
+    }
+
     static class PreProvisioningViewModelFactory implements ViewModelProvider.Factory {
         private final ManagedProvisioningBaseApplication mApplication;
+        private final Config mConfig;
 
-        PreProvisioningViewModelFactory(ManagedProvisioningBaseApplication application) {
-            mApplication = application;
+        PreProvisioningViewModelFactory(
+                ManagedProvisioningBaseApplication application,
+                Config config) {
+            mApplication = requireNonNull(application);
+            mConfig = requireNonNull(config);
         }
 
         @Override
@@ -204,7 +234,8 @@ public final class PreProvisioningViewModel extends ViewModel {
             return (T) new PreProvisioningViewModel(
                     new TimeLogger(mApplication, PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS),
                     new MessageParser(mApplication),
-                    mApplication.getEncryptionController());
+                    mApplication.getEncryptionController(),
+                    mConfig);
         }
     }
 }

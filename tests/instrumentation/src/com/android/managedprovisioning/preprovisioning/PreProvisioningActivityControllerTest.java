@@ -274,7 +274,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         mViewModel = new PreProvisioningViewModel(
                 mTimeLogger,
                 mMessageParser,
-                mEncryptionController);
+                mEncryptionController, new PreProvisioningViewModel.DefaultConfig());
 
         mController = createControllerWithRoleHolderUpdaterNotPresent();
 

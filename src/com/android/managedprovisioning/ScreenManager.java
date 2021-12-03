@@ -26,18 +26,18 @@ import static com.android.managedprovisioning.ManagedProvisioningScreens.PRE_PRO
 import static com.android.managedprovisioning.ManagedProvisioningScreens.PRE_PROVISIONING_VIA_NFC;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.PROVISIONING;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.RESET_AND_RETURN_DEVICE;
-import static com.android.managedprovisioning.ManagedProvisioningScreens.ROLE_HOLDER_UPDATER_LAUNCHER;
+import static com.android.managedprovisioning.ManagedProvisioningScreens.RETRY_LAUNCH;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.TERMS;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.WEB;
 
 import android.app.Activity;
 
+import com.android.managedprovisioning.common.RetryLaunchActivity;
 import com.android.managedprovisioning.finalization.FinalizationInsideSuwActivity;
 import com.android.managedprovisioning.preprovisioning.EncryptDeviceActivity;
 import com.android.managedprovisioning.preprovisioning.PostEncryptionActivity;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityViaNfc;
-import com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterLauncherActivity;
 import com.android.managedprovisioning.preprovisioning.WebActivity;
 import com.android.managedprovisioning.preprovisioning.terms.TermsActivity;
 import com.android.managedprovisioning.provisioning.AdminIntegratedFlowPrepareActivity;
@@ -106,7 +106,7 @@ final class ScreenManager {
         map.put(FINALIZATION_INSIDE_SUW, FinalizationInsideSuwActivity.class);
         map.put(TERMS, TermsActivity.class);
         map.put(FINANCED_DEVICE_LANDING, FinancedDeviceLandingActivity.class);
-        map.put(ROLE_HOLDER_UPDATER_LAUNCHER, RoleHolderUpdaterLauncherActivity.class);
+        map.put(RETRY_LAUNCH, RetryLaunchActivity.class);
         return map;
     }
 

@@ -45,7 +45,8 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
     private static final String ROLE_HOLDER_UPDATER_EMPTY_PACKAGE_NAME = "";
     private static final String ROLE_HOLDER_UPDATER_NULL_PACKAGE_NAME = null;
     private static final Intent ROLE_HOLDER_UPDATER_INTENT =
-            new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER);
+            new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER)
+                    .setPackage(ROLE_HOLDER_UPDATER_PACKAGE_NAME);
 
     private final Context mContext = ApplicationProvider.getApplicationContext();
 
