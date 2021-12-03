@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning;
 
-import static com.google.common.truth.Truth.assertThat;
+import static com.google.common.truth.Truth.assertWithMessage;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -177,20 +177,28 @@ public class TestUtils extends AndroidTestCase {
     }
 
     public static void assertIntentsEqual(Intent intent1, Intent intent2) {
-        assertThat(intent1.getAction()).isEqualTo(intent2.getAction());
-        assertThat(intent1.getPackage()).isEqualTo(intent2.getPackage());
+        assertWithMessage("Intent actions are not equal")
+                .that(intent1.getAction())
+                .isEqualTo(intent2.getAction());
+        assertWithMessage("Package names are not equal")
+                .that(intent1.getPackage())
+                .isEqualTo(intent2.getPackage());
         assertBundlesEqual(intent1.getExtras(), intent2.getExtras());
     }
 
     private static void assertBundlesEqual(Bundle bundle1, Bundle bundle2) {
         if (bundle1 != null) {
-            assertThat(bundle2).isNotNull();
-            assertThat(bundle1.keySet().size()).isEqualTo(bundle2.keySet().size());
+            assertWithMessage("Intent bundles are not equal")
+                    .that(bundle2).isNotNull();
+            assertWithMessage("Intent bundles are not equal")
+                    .that(bundle1.keySet().size()).isEqualTo(bundle2.keySet().size());
             for (String key : bundle1.keySet()) {
-                assertThat(bundle1.get(key)).isEqualTo(bundle2.get(key));
+                assertWithMessage("Intent bundles are not equal")
+                        .that(bundle1.get(key))
+                        .isEqualTo(bundle2.get(key));
             }
         } else {
-            assertThat(bundle2).isNull();
+            assertWithMessage("Intent bundles are not equal").that(bundle2).isNull();
         }
     }
 }
