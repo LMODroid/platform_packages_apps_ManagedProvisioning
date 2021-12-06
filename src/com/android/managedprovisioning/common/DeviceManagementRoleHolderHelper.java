@@ -1,0 +1,238 @@
+/*
+ * Copyright (C) 2021 The Android Open Source Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.android.managedprovisioning.common;
+
+import static android.app.admin.DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION_FINALIZATION;
+
+import static java.util.Objects.requireNonNull;
+
+import android.app.admin.DevicePolicyManager;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+
+import com.android.managedprovisioning.provisioning.Constants;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+/**
+ * Helper class for logic related to device management role holder launching.
+ */
+public final class DeviceManagementRoleHolderHelper {
+
+    private static final Map<String, String> sManagedProvisioningToRoleHolderIntentAction =
+            createManagedProvisioningToRoleHolderIntentActionMap();
+
+    private static final Set<String> sManagedProvisioningProvisioningActions =
+            createManagedProvisioningProvisioningActions();
+
+    private final String mRoleHolderPackageName;
+    private final PackageInstallChecker mPackageInstallChecker;
+    private final ResolveIntentChecker mResolveIntentChecker;
+    private final RoleHolderStubChecker mRoleHolderStubChecker;
+
+    public DeviceManagementRoleHolderHelper(
+            String roleHolderPackageName,
+            PackageInstallChecker packageInstallChecker,
+            ResolveIntentChecker resolveIntentChecker,
+            RoleHolderStubChecker roleHolderStubChecker) {
+        mRoleHolderPackageName = requireNonNull(roleHolderPackageName);
+        mPackageInstallChecker = requireNonNull(packageInstallChecker);
+        mResolveIntentChecker = requireNonNull(resolveIntentChecker);
+        mRoleHolderStubChecker = requireNonNull(roleHolderStubChecker);
+        if (mRoleHolderPackageName.isEmpty()) {
+            throw new IllegalArgumentException("Role holder package name cannot be empty.");
+        }
+    }
+
+    /**
+     * Returns whether the device management role holder is able to carry out the provisioning flow.
+     *
+     * <p>If this method returns {@code false}, then provisioning should be carried out by AOSP
+     * ManagedProvisioning instead.
+     *
+     * <p>If the device management role holder is a stub, it must be updated to the full device
+     * management role holder app via the device management role holder updater prior to carrying
+     * out provisioning.
+     */
+    public boolean isRoleHolderReadyForProvisioning(
+            Context context, Intent managedProvisioningIntent) {
+        requireNonNull(context);
+        if (!Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER) {
+            ProvisionLogger.logi("Cannot delegate provisioning to the role holder, because "
+                    + "the feature flag is turned off.");
+            return false;
+        }
+        if (!sManagedProvisioningProvisioningActions
+                .contains(managedProvisioningIntent.getAction())) {
+            ProvisionLogger.logi("Cannot delegate provisioning to the role holder, because "
+                    + "intent action " + managedProvisioningIntent.getAction() + " is not "
+                    + "supported by the role holder.");
+            return false;
+        }
+        if (!isRoleHolderPresent(mRoleHolderPackageName, context.getPackageManager())) {
+            ProvisionLogger.logi("Cannot delegate provisioning to the role holder, because "
+                    + "the role holder is not installed.");
+            return false;
+        }
+        if (mRoleHolderStubChecker
+                .isRoleHolderStub(mRoleHolderPackageName, context.getPackageManager())) {
+            ProvisionLogger.logi("Cannot delegate provisioning to the role holder, because "
+                    + "the role holder is a stub.");
+            return false;
+        }
+        boolean roleHolderValid =
+                isRoleHolderValid(mRoleHolderPackageName, context.getPackageManager());
+        if (!roleHolderValid) {
+            ProvisionLogger.logi("Cannot delegate provisioning to the role holder, because "
+                    + "the role holder is not valid.");
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Returns a new intent with an equivalent intent action with which AOSP ManagedProvisioning
+     * was started with, which starts the device management role holder.
+     * <p>
+     * For example, if AOSP ManagedProvisioning was started with {@link
+     * DevicePolicyManager#ACTION_PROVISION_MANAGED_PROFILE}, then the resulting intent of this call
+     * will return an intent with action {@link DevicePolicyManager
+     * #ACTION_ROLE_HOLDER_PROVISION_MANAGED_PROFILE}.
+     *
+     * @see DevicePolicyManager#ACTION_ROLE_HOLDER_PROVISION_MANAGED_PROFILE
+     * @see DevicePolicyManager#ACTION_ROLE_HOLDER_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE
+     */
+    public Intent createRoleHolderProvisioningIntent(Intent managedProvisioningIntent) {
+        requireNonNull(managedProvisioningIntent);
+        String provisioningAction = managedProvisioningIntent.getAction();
+        if (!sManagedProvisioningProvisioningActions.contains(provisioningAction)) {
+            throw new IllegalArgumentException("Intent action " + provisioningAction
+                    + " is not a valid provisioning action.");
+        }
+        String action = sManagedProvisioningToRoleHolderIntentAction.get(provisioningAction);
+        Intent roleHolderIntent = new Intent(action);
+        if (managedProvisioningIntent.getExtras() != null) {
+            roleHolderIntent.putExtras(managedProvisioningIntent.getExtras());
+        }
+        roleHolderIntent.setPackage(mRoleHolderPackageName);
+        return roleHolderIntent;
+    }
+
+    /**
+     * Returns a new intent which starts the device management role holder finalization.
+     */
+    public Intent createRoleHolderFinalizationIntent() {
+        Intent roleHolderIntent = new Intent(ACTION_ROLE_HOLDER_PROVISION_FINALIZATION);
+        roleHolderIntent.setPackage(mRoleHolderPackageName);
+        return roleHolderIntent;
+    }
+
+    private boolean isRoleHolderValid(
+            String roleHolderPackageName,
+            PackageManager packageManager) {
+        Collection<String> requiredRoleHolderIntentActions =
+                sManagedProvisioningToRoleHolderIntentAction.values();
+        List<String> unhandledRequiredActions = requiredRoleHolderIntentActions.parallelStream()
+                .filter(action -> !canResolveIntent(packageManager, roleHolderPackageName, action))
+                .collect(Collectors.toList());
+        if (!unhandledRequiredActions.isEmpty()) {
+            ProvisionLogger.logi("Role holder validation failed. Role holder does not implement "
+                    + "the following required intents: "
+                    + String.join(", ", unhandledRequiredActions));
+            return false;
+        }
+        return true;
+    }
+
+    private boolean canResolveIntent(
+            PackageManager packageManager,
+            String roleHolderPackageName,
+            String requiredAction) {
+        Intent intent = new Intent(requiredAction);
+        intent.setPackage(roleHolderPackageName);
+        return mResolveIntentChecker.canResolveIntent(intent, packageManager);
+    }
+
+    private boolean isRoleHolderPresent(
+            String roleHolderPackageName,
+            PackageManager packageManager) {
+        return roleHolderPackageName != null
+                && mPackageInstallChecker.isPackageInstalled(roleHolderPackageName, packageManager);
+    }
+
+    private static Set<String> createManagedProvisioningProvisioningActions() {
+        return Set.of(
+                DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE,
+                DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE);
+    }
+
+    private static Map<String, String> createManagedProvisioningToRoleHolderIntentActionMap() {
+        return Map.of(
+                DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE,
+                DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE,
+                DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE,
+                DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION_MANAGED_PROFILE,
+                DevicePolicyManager.ACTION_PROVISION_FINALIZATION,
+                ACTION_ROLE_HOLDER_PROVISION_FINALIZATION);
+    }
+
+    /**
+     * Checker that checks whether an {@link Intent} can be resolved.
+     */
+    public interface ResolveIntentChecker {
+        /**
+         * Returns {@code true} if {@code intent} can be resolved.
+         */
+        boolean canResolveIntent(Intent intent, PackageManager packageManager);
+    }
+
+    /**
+     * Default implementation of {@link ResolveIntentChecker}.
+     */
+    public static final class DefaultResolveIntentChecker implements ResolveIntentChecker {
+        @Override
+        public boolean canResolveIntent(Intent intent, PackageManager packageManager) {
+            return intent.resolveActivity(packageManager) != null;
+        }
+    }
+
+    /**
+     * Checker that checks whether the role holder is a stub.
+     */
+    public interface RoleHolderStubChecker {
+        /**
+         * Returns {@code true} if the role holder with package {@code packageName} is a stub.
+         */
+        boolean isRoleHolderStub(String packageName, PackageManager packageManager);
+    }
+
+    /**
+     * Default implementation of {@link RoleHolderStubChecker}.
+     */
+    public static final class DefaultRoleHolderStubChecker implements RoleHolderStubChecker {
+        @Override
+        public boolean isRoleHolderStub(String packageName, PackageManager packageManager) {
+            // TODO(b/207377785): Add check for whether the role holder is a stub
+            return false;
+        }
+    }
+}

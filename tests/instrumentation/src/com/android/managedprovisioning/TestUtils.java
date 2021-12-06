@@ -16,10 +16,13 @@
 
 package com.android.managedprovisioning;
 
+import static com.google.common.truth.Truth.assertThat;
+
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.BaseBundle;
+import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.RemoteException;
 import android.support.test.uiautomator.UiDevice;
@@ -171,5 +174,23 @@ public class TestUtils extends AndroidTestCase {
         return EncryptionController.getInstance(
                 context,
                 new ComponentName(context, PostEncryptionActivity.class));
+    }
+
+    public static void assertIntentsEqual(Intent intent1, Intent intent2) {
+        assertThat(intent1.getAction()).isEqualTo(intent2.getAction());
+        assertThat(intent1.getPackage()).isEqualTo(intent2.getPackage());
+        assertBundlesEqual(intent1.getExtras(), intent2.getExtras());
+    }
+
+    private static void assertBundlesEqual(Bundle bundle1, Bundle bundle2) {
+        if (bundle1 != null) {
+            assertThat(bundle2).isNotNull();
+            assertThat(bundle1.keySet().size()).isEqualTo(bundle2.keySet().size());
+            for (String key : bundle1.keySet()) {
+                assertThat(bundle1.get(key)).isEqualTo(bundle2.get(key));
+            }
+        } else {
+            assertThat(bundle2).isNull();
+        }
     }
 }
