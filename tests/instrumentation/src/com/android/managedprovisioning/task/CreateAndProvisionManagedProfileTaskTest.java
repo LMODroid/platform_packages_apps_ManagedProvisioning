@@ -38,8 +38,6 @@ import androidx.test.filters.SmallTest;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.task.interactacrossprofiles.CrossProfileAppsSnapshot;
-import com.android.managedprovisioning.task.nonrequiredapps.SystemAppsSnapshot;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -64,17 +62,9 @@ public class CreateAndProvisionManagedProfileTaskTest {
             .setDeviceAdminComponentName(ADMIN)
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
             .build();
-    private static final ProvisioningParams LEAVE_SYSTEM_APPS_PARAMS =
-            new ProvisioningParams.Builder()
-                    .setDeviceAdminComponentName(ADMIN)
-                    .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
-                    .setLeaveAllSystemAppsEnabled(true)
-                    .build();
 
     @Mock private Context mContext;
     @Mock private DevicePolicyManager mDevicePolicyManager;
-    @Mock private CrossProfileAppsSnapshot mCrossProfileAppsSnapshot;
-    @Mock private SystemAppsSnapshot mSystemAppsSnapshot;
     @Mock private AbstractProvisioningTask.Callback mCallback;
     @Mock private Utils mUtils;
     @Mock private Resources mResources;
@@ -103,8 +93,6 @@ public class CreateAndProvisionManagedProfileTaskTest {
         assertThat(task.getProfileUserId()).isEqualTo(TEST_USER_ID);
         verify(mCallback).onSuccess(task);
         verifyNoMoreInteractions(mCallback);
-        verify(mSystemAppsSnapshot).takeNewSnapshot(TEST_USER_ID);
-        verify(mCrossProfileAppsSnapshot).takeNewSnapshot(TEST_PARENT_USER_ID);
     }
 
     @Test
@@ -117,32 +105,13 @@ public class CreateAndProvisionManagedProfileTaskTest {
 
         verify(mCallback).onError(task, 0);
         verifyNoMoreInteractions(mCallback);
-        verifyNoMoreInteractions(mSystemAppsSnapshot);
-        verifyNoMoreInteractions(mCrossProfileAppsSnapshot);
     }
 
-    @Test
-    public void testLeaveSystemAppsEnabled() throws Exception {
-        CreateAndProvisionManagedProfileTask task = createProvisioningTask(
-                LEAVE_SYSTEM_APPS_PARAMS);
-        when(mDevicePolicyManager.createAndProvisionManagedProfile(any()))
-                .thenReturn(new UserHandle(TEST_USER_ID));
-
-        task.run(TEST_PARENT_USER_ID);
-
-        assertThat(task.getProfileUserId()).isEqualTo(TEST_USER_ID);
-        verify(mCallback).onSuccess(task);
-        verifyNoMoreInteractions(mCallback);
-        verifyNoMoreInteractions(mSystemAppsSnapshot);
-        verify(mCrossProfileAppsSnapshot).takeNewSnapshot(TEST_PARENT_USER_ID);
-    }
 
     private CreateAndProvisionManagedProfileTask createProvisioningTask(ProvisioningParams params) {
         return new CreateAndProvisionManagedProfileTask(
                 mUtils,
                 mContext,
-                mSystemAppsSnapshot,
-                mCrossProfileAppsSnapshot,
                 params,
                 mCallback,
                 mock(ProvisioningAnalyticsTracker.class));
