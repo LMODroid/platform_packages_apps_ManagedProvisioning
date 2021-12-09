@@ -16,15 +16,20 @@
 
 package com.android.managedprovisioning.finalization;
 
+import static com.android.managedprovisioning.ManagedProvisioningScreens.RETRY_LAUNCH;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
+import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper.DefaultResolveIntentChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper.DefaultRoleHolderStubChecker;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
+import com.android.managedprovisioning.common.RetryLaunchActivity;
 import com.android.managedprovisioning.common.RoleHolderProvider;
 import com.android.managedprovisioning.common.SharedPreferences;
 import com.android.managedprovisioning.common.TransitionHelper;
@@ -75,11 +80,24 @@ public class FinalizationForwarderActivity extends Activity implements
 
     @Override
     public void startRoleHolderFinalization() {
+        Intent intent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
+        intent.putExtra(
+                RetryLaunchActivity.EXTRA_INTENT_TO_LAUNCH,
+                mFinalizationController.createRoleHolderFinalizationIntent(this));
         mTransitionHelper.startActivityForResultWithTransition(
                 this,
-                mFinalizationController.createRoleHolderFinalizationIntent(this),
+                intent,
                 START_DEVICE_MANAGEMENT_ROLE_HOLDER_FINALIZATION_REQUEST_CODE);
     }
+
+    protected Class<? extends Activity> getActivityForScreen(ManagedProvisioningScreens screen) {
+        return getBaseApplication().getActivityClassForScreen(screen);
+    }
+
+    private ManagedProvisioningBaseApplication getBaseApplication() {
+        return ((ManagedProvisioningBaseApplication) getApplication());
+    }
+
 
     private FinalizationForwarderController createFinalizationController() {
         DeviceManagementRoleHolderHelper roleHolderHelper = new DeviceManagementRoleHolderHelper(

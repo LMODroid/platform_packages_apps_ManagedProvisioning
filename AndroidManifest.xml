@@ -298,7 +298,7 @@
             android:immersive="true" />
 
         <activity
-            android:name=".preprovisioning.RoleHolderUpdaterLauncherActivity"
+            android:name=".common.RetryLaunchActivity"
             android:theme="@style/SudThemeGlifV3.DayNight"
             android:immersive="true" />
 

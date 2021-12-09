@@ -105,7 +105,8 @@ public class PreProvisioningActivityTest {
                                 new PreProvisioningViewModel(
                                         new TimeLogger(activity, 0 /* category */),
                                         new MessageParser(activity),
-                                        TestUtils.createEncryptionController(activity)),
+                                        TestUtils.createEncryptionController(activity),
+                                        new PreProvisioningViewModel.DefaultConfig()),
                                 DisclaimersParserImpl::new,
                                 roleHolderHelper,
                                 roleHolderUpdaterHelper

@@ -16,16 +16,16 @@
 -keep public class com.android.managedprovisioning.common.ViewModelEvent {
     public *;
 }
--keep class com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel {
+-keep class com.android.managedprovisioning.common.RetryLaunchViewModel {
     public *;
     *;
 }
 
--keep public class com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel$CanLaunchRoleHolderUpdaterChecker {
+-keep public class com.android.managedprovisioning.common.RetryLaunchViewModel$CanLaunchActivityChecker {
     public *;
 }
 
--keep public class com.android.managedprovisioning.preprovisioning.RoleHolderUpdaterViewModel$Config {
+-keep public class com.android.managedprovisioning.common.RetryLaunchViewModel$Config {
     public *;
 }
 
