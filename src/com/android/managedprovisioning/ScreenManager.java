@@ -57,7 +57,7 @@ import java.util.Map;
  * #setOverrideActivity(ManagedProvisioningScreens, Class)} if they want the screens to map to
  * their own {@link Activity} implementations.
  */
-final class ScreenManager {
+public final class ScreenManager {
     static final Map<ManagedProvisioningScreens, Class<? extends Activity>>
             DEFAULT_SCREEN_TO_ACTIVITY_MAP = createBaseScreenMap();
 
