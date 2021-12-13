@@ -110,6 +110,7 @@ public class FinalizationForwarderActivity extends Activity implements
         return new FinalizationForwarderController(
                 roleHolderHelper,
                 /* ui= */ this,
-                sharedPreferences);
+                sharedPreferences,
+                ((ManagedProvisioningBaseApplication) getApplication()).getScreenManager());
     }
 }

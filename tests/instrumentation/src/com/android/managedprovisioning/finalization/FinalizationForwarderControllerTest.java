@@ -16,10 +16,12 @@
 
 package com.android.managedprovisioning.finalization;
 
+import static com.android.managedprovisioning.ManagedProvisioningScreens.FINALIZATION_INSIDE_SUW;
 import static com.android.managedprovisioning.TestUtils.assertIntentEquals;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
@@ -27,6 +29,9 @@ import android.content.Intent;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.filters.SmallTest;
 
+import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
+import com.android.managedprovisioning.ManagedProvisioningScreens;
+import com.android.managedprovisioning.ScreenManager;
 import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
 import com.android.managedprovisioning.common.SharedPreferences;
@@ -37,6 +42,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 @SmallTest
@@ -51,6 +59,10 @@ public class FinalizationForwarderControllerTest {
             new Intent(
                     ApplicationProvider.getApplicationContext(),
                     FinalizationInsideSuwActivity.class);
+    private static final Intent FINALIZATION_INTENT_TEST_OVERRIDE =
+            new Intent(
+                    ApplicationProvider.getApplicationContext(),
+                    Activity.class);
     private static final int PROVISIONING_FINALIZATION_UNDEFINED = 0;
     private static final int PROVISIONING_FINALIZATION_ROLE_HOLDER = 1;
     private static final int PROVISIONING_FINALIZATION_PLATFORM_PROVIDED = 2;
@@ -61,17 +73,21 @@ public class FinalizationForwarderControllerTest {
 
     private int mRoleHolderFinalizationType;
     private FinalizationForwarderController mController;
+    private ScreenManager mScreenManager;
 
     @Before
     public void setUp() {
         mRoleHolderFinalizationType = PROVISIONING_FINALIZATION_UNDEFINED;
+        ManagedProvisioningBaseApplication app = (ManagedProvisioningBaseApplication) mContext;
+        mScreenManager = app.getScreenManager();
         mController = new FinalizationForwarderController(new DeviceManagementRoleHolderHelper(
                 TEST_ROLE_HOLDER_PACKAGE,
                 new DefaultPackageInstallChecker(new Utils()),
                 new DeviceManagementRoleHolderHelper.DefaultResolveIntentChecker(),
                 new DeviceManagementRoleHolderHelper.DefaultRoleHolderStubChecker()),
                 mUi,
-                mSharedPreferences);
+                mSharedPreferences,
+                mScreenManager);
     }
 
     @Test
@@ -87,6 +103,21 @@ public class FinalizationForwarderControllerTest {
                 mController.createPlatformProvidedProvisioningFinalizationIntent(mContext);
 
         assertIntentEquals(finalizationIntent, FINALIZATION_INTENT_PLATFORM_PROVIDED);
+    }
+
+    @Test
+    public void createPlatformProvidedProvisioningFinalizationIntent_intentOverridden_works() {
+        Class<? extends Activity> originalActivity =
+                mScreenManager.getActivityClassForScreen(FINALIZATION_INSIDE_SUW);
+        mScreenManager.setOverrideActivity(FINALIZATION_INSIDE_SUW, Activity.class);
+        try {
+            Intent finalizationIntent =
+                    mController.createPlatformProvidedProvisioningFinalizationIntent(mContext);
+
+            assertIntentEquals(finalizationIntent, FINALIZATION_INTENT_TEST_OVERRIDE);
+        } finally {
+            mScreenManager.setOverrideActivity(FINALIZATION_INSIDE_SUW, originalActivity);
+        }
     }
 
     @Test
@@ -121,5 +152,12 @@ public class FinalizationForwarderControllerTest {
                 mRoleHolderFinalizationType = PROVISIONING_FINALIZATION_PLATFORM_PROVIDED;
             }
         };
+    }
+
+    private Map<ManagedProvisioningScreens, Class<? extends Activity>>
+    createTestScreenToActivityMap() {
+        Map<ManagedProvisioningScreens, Class<? extends Activity>> result = new HashMap<>();
+        result.put(FINALIZATION_INSIDE_SUW, Activity.class);
+        return result;
     }
 }

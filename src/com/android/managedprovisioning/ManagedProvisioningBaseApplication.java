@@ -72,4 +72,8 @@ public abstract class ManagedProvisioningBaseApplication extends Application {
             getActivityClassForScreen(ManagedProvisioningScreens screen) {
         return mScreenManager.getActivityClassForScreen(screen);
     }
+
+    public ScreenManager getScreenManager() {
+        return mScreenManager;
+    }
 }

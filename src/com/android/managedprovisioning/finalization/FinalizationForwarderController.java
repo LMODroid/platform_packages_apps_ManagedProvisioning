@@ -21,6 +21,8 @@ import static java.util.Objects.requireNonNull;
 import android.content.Context;
 import android.content.Intent;
 
+import com.android.managedprovisioning.ManagedProvisioningScreens;
+import com.android.managedprovisioning.ScreenManager;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
 import com.android.managedprovisioning.common.SharedPreferences;
 
@@ -29,11 +31,12 @@ import com.android.managedprovisioning.common.SharedPreferences;
  *
  * @see FinalizationForwarderActivity
  */
-public class FinalizationForwarderController {
+public final class FinalizationForwarderController {
 
     private final DeviceManagementRoleHolderHelper mRoleHolderHelper;
     private final Ui mUi;
     private final SharedPreferences mSharedPreferences;
+    private final ScreenManager mScreenManager;
 
     interface Ui {
         void startRoleHolderFinalization();
@@ -44,10 +47,12 @@ public class FinalizationForwarderController {
     public FinalizationForwarderController(
             DeviceManagementRoleHolderHelper roleHolderHelper,
             Ui ui,
-            SharedPreferences sharedPreferences) {
+            SharedPreferences sharedPreferences,
+            ScreenManager screenManager) {
         mRoleHolderHelper = requireNonNull(roleHolderHelper);
         mUi = requireNonNull(ui);
         mSharedPreferences = requireNonNull(sharedPreferences);
+        mScreenManager = requireNonNull(screenManager);
     }
 
     /**
@@ -56,7 +61,8 @@ public class FinalizationForwarderController {
      */
     public Intent createPlatformProvidedProvisioningFinalizationIntent(Context context) {
         requireNonNull(context);
-        return new Intent(context, FinalizationInsideSuwActivity.class);
+        return new Intent(context, mScreenManager.getActivityClassForScreen(
+                ManagedProvisioningScreens.FINALIZATION_INSIDE_SUW));
     }
 
     /**
