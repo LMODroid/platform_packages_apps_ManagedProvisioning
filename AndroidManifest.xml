@@ -79,6 +79,8 @@
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
+    <uses-permission android:name="android.permission.LAUNCH_DEVICE_MANAGER_SETUP" />
+
     <application
         android:label="@string/app_label"
         android:allowClearUserData="false"
