@@ -33,6 +33,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.view.WindowManager;
 
 import com.android.managedprovisioning.common.Globals;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -85,6 +86,8 @@ public abstract class FinalizationActivityBase extends Activity {
                 .build());
         mTransitionHelper.applyContentScreenTransitions(this);
         super.onCreate(savedInstanceState);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
         mFinalizationController = createFinalizationController();
 
         if (savedInstanceState != null) {
