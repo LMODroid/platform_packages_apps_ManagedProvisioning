@@ -252,15 +252,15 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.managedprovisioning.manageduser.ManagedUserCreationListener"
+        <receiver android:name="com.android.managedprovisioning.provisioninglisteners.ProvisioningCompletedListener"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.app.action.MANAGED_USER_CREATED" />
+                <action android:name="android.app.action.PROVISIONING_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <receiver
-            android:name="com.android.managedprovisioning.manageduser.ManagedUserRemovalListener"
+            android:name="com.android.managedprovisioning.provisioninglisteners.ManagedUserRemovalListener"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.USER_REMOVED" />

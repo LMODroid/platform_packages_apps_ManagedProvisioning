@@ -35,7 +35,6 @@ import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.task.nonrequiredapps.SystemAppsSnapshot;
 
 /**
  * Task to provision a fully managed device.
@@ -43,7 +42,6 @@ import com.android.managedprovisioning.task.nonrequiredapps.SystemAppsSnapshot;
 public class ProvisionFullyManagedDeviceTask extends AbstractProvisioningTask {
     private final DevicePolicyManager mDpm;
     private final Utils mUtils;
-    private final SystemAppsSnapshot mSystemAppsSnapshot;
 
     public ProvisionFullyManagedDeviceTask(
             Context context,
@@ -52,7 +50,6 @@ public class ProvisionFullyManagedDeviceTask extends AbstractProvisioningTask {
         this(
                 new Utils(),
                 context,
-                new SystemAppsSnapshot(context),
                 params,
                 callback,
                 new ProvisioningAnalyticsTracker(
@@ -64,7 +61,6 @@ public class ProvisionFullyManagedDeviceTask extends AbstractProvisioningTask {
     ProvisionFullyManagedDeviceTask(
             Utils utils,
             Context context,
-            SystemAppsSnapshot systemAppsSnapshot,
             ProvisioningParams params,
             Callback callback,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
@@ -72,7 +68,6 @@ public class ProvisionFullyManagedDeviceTask extends AbstractProvisioningTask {
 
         mDpm = requireNonNull(context.getSystemService(DevicePolicyManager.class));
         mUtils = requireNonNull(utils);
-        mSystemAppsSnapshot = requireNonNull(systemAppsSnapshot);
     }
 
     @Override
@@ -99,8 +94,6 @@ public class ProvisionFullyManagedDeviceTask extends AbstractProvisioningTask {
             return;
         }
 
-        maybeTakeSystemAppsSnapshots(userId, mProvisioningParams.leaveAllSystemAppsEnabled);
-
         stopTaskTimer();
         success();
     }
@@ -121,16 +114,9 @@ public class ProvisionFullyManagedDeviceTask extends AbstractProvisioningTask {
                 .setLocale(mProvisioningParams.locale)
                 // The device owner can grant sensors permissions if it has not opted
                 // out of controlling them.
-                .setDeviceOwnerCanGrantSensorsPermissions(
+                .setCanDeviceOwnerGrantSensorsPermissions(
                         !mProvisioningParams.deviceOwnerPermissionGrantOptOut)
                 .build();
-    }
-
-    private void maybeTakeSystemAppsSnapshots(
-            @UserIdInt int userId, boolean leaveAllSystemAppsEnabled) {
-        if (!leaveAllSystemAppsEnabled) {
-            mSystemAppsSnapshot.takeNewSnapshot(userId);
-        }
     }
 
     @Override
