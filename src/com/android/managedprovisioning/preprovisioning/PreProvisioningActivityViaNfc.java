@@ -17,6 +17,9 @@
 package com.android.managedprovisioning.preprovisioning;
 
 
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORTED_MODES;
+import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
@@ -29,6 +32,7 @@ import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 
 //TODO(b/181323689) Create tests for activity
+//TODO(b/213177227) Extract business logic to a controller for testability
 public class PreProvisioningActivityViaNfc extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,13 +44,20 @@ public class PreProvisioningActivityViaNfc extends Activity {
         } else {
             Intent provisioningIntent = transformIntentToProvisioningIntent();
             if (provisioningIntent != null) {
-                startActivity(provisioningIntent);
+                Intent provisioningIntentWithAdditionalExtras =
+                        addAdditionalExtras(provisioningIntent);
+                startActivity(provisioningIntentWithAdditionalExtras);
                 finish();
             } else {
                 ProvisionLogger.loge("NFC tag data is invalid.");
                 createCantSetupDeviceDialog().show();
             }
         }
+    }
+
+    private Intent addAdditionalExtras(Intent provisioningIntent) {
+        return new Intent(provisioningIntent).putExtra(
+                EXTRA_PROVISIONING_SUPPORTED_MODES, FLAG_SUPPORTED_MODES_DEVICE_OWNER);
     }
 
     private Intent transformIntentToProvisioningIntent() {
