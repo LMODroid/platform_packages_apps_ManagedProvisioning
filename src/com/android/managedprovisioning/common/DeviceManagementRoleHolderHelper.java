@@ -20,10 +20,12 @@ import static android.app.admin.DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION
 
 import static java.util.Objects.requireNonNull;
 
+import android.annotation.Nullable;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.text.TextUtils;
 
 import com.android.managedprovisioning.provisioning.Constants;
 
@@ -50,17 +52,14 @@ public final class DeviceManagementRoleHolderHelper {
     private final RoleHolderStubChecker mRoleHolderStubChecker;
 
     public DeviceManagementRoleHolderHelper(
-            String roleHolderPackageName,
+            @Nullable String roleHolderPackageName,
             PackageInstallChecker packageInstallChecker,
             ResolveIntentChecker resolveIntentChecker,
             RoleHolderStubChecker roleHolderStubChecker) {
-        mRoleHolderPackageName = requireNonNull(roleHolderPackageName);
+        mRoleHolderPackageName = roleHolderPackageName;
         mPackageInstallChecker = requireNonNull(packageInstallChecker);
         mResolveIntentChecker = requireNonNull(resolveIntentChecker);
         mRoleHolderStubChecker = requireNonNull(roleHolderStubChecker);
-        if (mRoleHolderPackageName.isEmpty()) {
-            throw new IllegalArgumentException("Role holder package name cannot be empty.");
-        }
     }
 
     /**
@@ -128,6 +127,9 @@ public final class DeviceManagementRoleHolderHelper {
             throw new IllegalArgumentException("Intent action " + provisioningAction
                     + " is not a valid provisioning action.");
         }
+        if (TextUtils.isEmpty(mRoleHolderPackageName)) {
+            throw new IllegalStateException("Role holder package name is null or empty.");
+        }
         String action = sManagedProvisioningToRoleHolderIntentAction.get(provisioningAction);
         Intent roleHolderIntent = new Intent(action);
         if (managedProvisioningIntent.getExtras() != null) {
@@ -141,6 +143,9 @@ public final class DeviceManagementRoleHolderHelper {
      * Returns a new intent which starts the device management role holder finalization.
      */
     public Intent createRoleHolderFinalizationIntent() {
+        if (TextUtils.isEmpty(mRoleHolderPackageName)) {
+            throw new IllegalStateException("Role holder package name is null or empty.");
+        }
         Intent roleHolderIntent = new Intent(ACTION_ROLE_HOLDER_PROVISION_FINALIZATION);
         roleHolderIntent.setPackage(mRoleHolderPackageName);
         return roleHolderIntent;
@@ -175,7 +180,7 @@ public final class DeviceManagementRoleHolderHelper {
     private boolean isRoleHolderPresent(
             String roleHolderPackageName,
             PackageManager packageManager) {
-        return roleHolderPackageName != null
+        return !TextUtils.isEmpty(roleHolderPackageName)
                 && mPackageInstallChecker.isPackageInstalled(roleHolderPackageName, packageManager);
     }
 

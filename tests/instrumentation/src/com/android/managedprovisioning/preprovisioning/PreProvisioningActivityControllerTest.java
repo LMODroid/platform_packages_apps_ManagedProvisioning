@@ -172,11 +172,19 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
             ROLE_HOLDER_UPDATER_HELPER =
             new DeviceManagementRoleHolderUpdaterHelper(
                     TEST_ROLE_HOLDER_UPDATER_PACKAGE_NAME,
+                    TEST_ROLE_HOLDER_PACKAGE_NAME,
                     /* packageInstallChecker= */ (packageName, packageManager) -> true);
     private static final DeviceManagementRoleHolderUpdaterHelper
             ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED =
             new DeviceManagementRoleHolderUpdaterHelper(
                     TEST_ROLE_HOLDER_UPDATER_PACKAGE_NAME,
+                    TEST_ROLE_HOLDER_PACKAGE_NAME,
+                    /* packageInstallChecker= */ (packageName, packageManager) -> false);
+    private static final DeviceManagementRoleHolderUpdaterHelper
+            ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_DEFINED =
+            new DeviceManagementRoleHolderUpdaterHelper(
+                    /* roleHolderUpdaterPackageName= */ null,
+                    TEST_ROLE_HOLDER_PACKAGE_NAME,
                     /* packageInstallChecker= */ (packageName, packageManager) -> false);
 
     @Mock
@@ -330,20 +338,40 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
-    public void testManagedProfile_hasRoleHolderValidAndInstalled_startsRoleHolder()
+    public void
+    testManagedProfile_hasRoleHolderValidAndInstalled_updaterNotInstalled_startsRoleHolder()
             throws Exception {
         Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
-        mController = createControllerWithRoleHolderValidAndInstalled();
+        mController = createControllerWithRoleHolderValidAndInstalledWithUpdater(
+                ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED);
         // GIVEN an intent to provision a managed profile
         prepareMocksForManagedProfileIntent(false);
         // WHEN initiating provisioning
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
             mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
-            mController.startAppropriateProvisioning(mIntent);
         });
 
-        // THEN start profile provisioning
-        verify(mUi).initiateUi(any(UiParams.class));
+        // THEN start role holder provisioning
+        verify(mUi).startRoleHolderProvisioning(any(Intent.class));
+        verifyNoMoreInteractions(mUi);
+        verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
+        verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(true);
+    }
+
+    public void
+    testManagedProfile_hasRoleHolderValidAndInstalled_updaterNotDefined_startsRoleHolder()
+            throws Exception {
+        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
+        mController = createControllerWithRoleHolderValidAndInstalledWithUpdater(
+                ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_DEFINED);
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        });
+
+        // THEN start role holder provisioning
         verify(mUi).startRoleHolderProvisioning(any(Intent.class));
         verifyNoMoreInteractions(mUi);
         verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
@@ -1681,10 +1709,12 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 ROLE_HOLDER_UPDATER_HELPER);
     }
 
-    private PreProvisioningActivityController createControllerWithRoleHolderValidAndInstalled() {
+    private PreProvisioningActivityController
+    createControllerWithRoleHolderValidAndInstalledWithUpdater(
+            DeviceManagementRoleHolderUpdaterHelper updaterHelper) {
         return createControllerWithRoleHolderHelpers(
                 DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER,
-                ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED);
+                updaterHelper);
     }
 
     private PreProvisioningActivityController createControllerWithRoleHolderUpdaterNotPresent() {

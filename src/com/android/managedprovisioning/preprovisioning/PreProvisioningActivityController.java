@@ -168,6 +168,7 @@ public class PreProvisioningActivityController {
                 ),
                 new DeviceManagementRoleHolderUpdaterHelper(
                         RoleHolderUpdaterProvider.DEFAULT.getPackageName(activity),
+                        RoleHolderProvider.DEFAULT.getPackageName(activity),
                         new DefaultPackageInstallChecker(new Utils())));
     }
     @VisibleForTesting
@@ -373,7 +374,7 @@ public class PreProvisioningActivityController {
         if (mRoleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext)) {
             mUi.startRoleHolderUpdater();
         } else {
-            performPlatformProvidedProvisioning();
+            startAppropriateProvisioning(intent);
         }
     }
 
