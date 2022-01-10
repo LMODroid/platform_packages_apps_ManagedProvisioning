@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"אישור"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"אני מסכים/ה"</string>
     <string name="url_error" msgid="5958494012986243186">"לא ניתן להציג את הקישור."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"ניווט למעלה"</string>
     <string name="terms" msgid="8295436105384703903">"תנאים"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"הפרטים של פרופיל העבודה"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"פרטי המכשיר המנוהל"</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"תזכורת לגבי פרטיות"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"‏ייתכן שמנהל ה-IT שלך יכול לראות את הנתונים והפעילות במכשיר הזה"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"המכשיר הזה התקבל מ-<xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"ביצוע תשלומים באמצעות האפליקציה <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"ביצוע תשלומים למכשיר הזה"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"ספק האשראי <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> יכול להתקין את האפליקציה <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> כדי לבצע תשלומים עבור המכשיר הזה."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"ספק האשראי <xliff:g id="CREDITOR_NAME">%s</xliff:g> יכול להגביל את המכשיר הזה"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"אפשר להגביל את המכשיר הזה"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ספק האשראי <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> יכול להגביל את הגישה למכשיר הזה אם לא מתבצעים תשלומים."</string>
 </resources>
