@@ -38,9 +38,10 @@
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"ਆਪਣੀ ਸੰਸਥਾ ਦੀਆਂ ਪਰਦੇਦਾਰੀ ਨੀਤੀਆਂ ਸਮੇਤ, ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨਾਲ ਸੰਪਰਕ ਕਰੋ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ਹੋਰ ਜਾਣੋ"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"ਰੱਦ ਕਰੋ"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"ਠੀਕ"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"ਠੀਕ ਹੈ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ਮੈਂ ਸਹਿਮਤ ਹਾਂ"</string>
     <string name="url_error" msgid="5958494012986243186">"ਇਹ ਲਿੰਕ ਦਿਖਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ।"</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"ਉੱਪਰ ਵੱਲ ਨੈਵੀਗੇਟ ਕਰੋ"</string>
     <string name="terms" msgid="8295436105384703903">"ਮਦਾਂ"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦੀ ਜਾਣਕਾਰੀ"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"ਪ੍ਰਬੰਧਿਤ ਕੀਤੇ ਡੀਵਾਈਸ ਬਾਰੇ ਜਾਣਕਾਰੀ"</string>
@@ -48,7 +49,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"ਕੀ ਮੌਜੂਦਾ ਪ੍ਰੋਫਾਈਲ ਮਿਟਾਉਣਾ ਹੈ?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ਤੁਹਾਡੇ ਕੋਲ ਪਹਿਲਾਂ ਤੋਂ ਹੀ ਇੱਕ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਹੈ। ਇਸਦਾ ਪ੍ਰਬੰਧਨ ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੀਤਾ ਜਾਂਦਾ ਹੈ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ, "<a href="#read_this_link">"ਇਹ ਪੜ੍ਹੋ"</a>"।"</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ਜੇਕਰ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਡਾਟਾ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ਜੇ ਤੁਸੀਂ ਜਾਰੀ ਰੱਖਦੇ ਹੋ, ਤਾਂ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀਆਂ ਸਾਰੀਆਂ ਐਪਾਂ ਅਤੇ ਡਾਟਾ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ਮਿਟਾਓ"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ਰੱਦ ਕਰੋ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਸਥਾਪਤ ਕਰਨ ਲਈ, ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨੂੰ ਇਨਕ੍ਰਿਪਟ ਕੀਤੇ ਜਾਣ ਦੀ ਲੋੜ ਹੈ। ਇਸ ਵਿੱਚ ਕੁਝ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ।"</string>
@@ -64,7 +65,7 @@
     <string name="change_device_launcher" msgid="4523563368433637980">"ਡੀਵਾਈਸ ਲਾਂਚਰ ਨੂੰ ਬਦਲੋ"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ਇਹ ਲਾਂਚਰ ਐਪ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵੱਲੋਂ ਨਹੀਂ ਵਰਤੀ ਜਾ ਸਕਦੀ"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"ਰੱਦ ਕਰੋ"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"ਠੀਕ"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"ਠੀਕ ਹੈ"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ਵਰਤੋਂਕਾਰ ਸੈੱਟਅੱਪ ਅਧੂਰਾ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ਕਾਰਜ ਡੀਵਾਈਸ ਦਾ ਵਰਤੋਂਕਾਰ"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"ਕਾਰਜ ਡੀਵਾਈਸ ਸੈੱਟ ਅੱਪ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
@@ -73,7 +74,7 @@
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"ਇਸ ਨਾਲ ਤੁਹਾਡਾ ਡੀਵਾਈਸ ਰੀਸੈੱਟ ਹੋ ਜਾਵੇਗਾ ਅਤੇ ਤੁਹਾਨੂੰ ਵਾਪਸ ਪਹਿਲੀ ਸਕ੍ਰੀਨ \'ਤੇ ਲਿਜਾਇਆ ਜਾਵੇਗਾ"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ਕੀ ਤੁਸੀਂ ਸੈੱਟ ਅੱਪ ਕਰਨਾ ਬੰਦ ਅਤੇ ਆਪਣੇ ਡੀਵਾਈਸ ਦਾ ਡਾਟਾ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ਰੱਦ ਕਰੋ"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"ਠੀਕ"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"ਠੀਕ ਹੈ"</string>
     <string name="reset" msgid="6467204151306265796">"ਰੀਸੈੱਟ ਕਰੋ"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ਪ੍ਰੋਫਾਈਲ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"ਡੀਵਾਈਸ ਸਥਾਪਤ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ"</string>
@@ -185,12 +186,12 @@
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ਨਿੱਜੀ ਐਪ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੋਂ ਵੱਖਰੀਆਂ ਅਤੇ ਲੁਕਵੀਆਂ ਹੁੰਦੀਆਂ ਹਨ"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ਤੁਹਾਡਾ IT ਪ੍ਰਸ਼ਾਸਕ ਡੀਵਾਈਸ ਕੰਟਰੋਲ ਅਤੇ ਕੁਝ ਐਪ ਬਲਾਕ ਕਰ ਸਕਦਾ ਹੈ"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ ਅਤੇ ਤੁਹਾਡੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਵੱਲੋਂ ਪ੍ਰਬੰਧਿਤ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ। ਨਿੱਜੀ ਐਪਾਂ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੋਂ ਵੱਖਰੀਆਂ ਅਤੇ ਲੁਕਵੀਆਂ ਹੁੰਦੀਆਂ ਹਨ। ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਕੰਟਰੋਲ ਕਰ ਸਕਦਾ ਹੈ ਅਤੇ ਕੁਝ ਐਪਾਂ ਨੂੰ ਬਲਾਕ ਕਰ ਸਕਦਾ ਹੈ।"</string>
-    <string name="just_a_sec" msgid="6244676028626237220">"ਬੱਸ ਇੱਕ ਸਕਿੰਟ…"</string>
+    <string name="just_a_sec" msgid="6244676028626237220">"ਬਸ ਇੱਕ ਸਕਿੰਟ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ਪਰਦੇਦਾਰੀ ਯਾਦ-ਸੂਚਨਾ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ਸ਼ਾਇਦ ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਤੁਹਾਡਾ ਡਾਟਾ ਅਤੇ ਸਰਗਰਮੀ ਦੇਖ ਸਕਦਾ ਹੈ"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"ਇਹ ਡੀਵਾਈਸ <xliff:g id="CREDITOR_NAME">%s</xliff:g> ਵੱਲੋਂ ਮੁਹੱਈਆ ਕਰਵਾਇਆ ਗਿਆ ਹੈ"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ਐਪ ਨਾਲ ਭੁਗਤਾਨ ਕਰੋ"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"ਇਸ ਡੀਵਾਈਸ ਲਈ ਭੁਗਤਾਨ ਕਰੋ"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ਐਪ ਨੂੰ ਸਥਾਪਤ ਕਰ ਸਕਦਾ ਹੈ ਤਾਂ ਕਿ ਤੁਸੀਂ ਇਸ ਡੀਵਾਈਸ ਲਈ ਭੁਗਤਾਨ ਕਰ ਸਕੋ।"</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਪ੍ਰਤਿਬੰਧਿਤ ਕਰ ਸਕਦਾ ਹੈ"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਪ੍ਰਤਿਬੰਧਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ਜੇ ਤੁਸੀਂ ਭੁਗਤਾਨ ਨਹੀਂ ਕਰਦੇ, ਤਾਂ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ਇਸ ਡੀਵਾਈਸ ਤੱਕ ਪਹੁੰਚ ਨੂੰ ਪ੍ਰਤਿਬੰਧਿਤ ਕਰ ਸਕਦਾ ਹੈ।"</string>
 </resources>

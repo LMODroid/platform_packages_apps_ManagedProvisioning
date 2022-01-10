@@ -41,14 +41,15 @@
     <string name="ok_setup" msgid="4593707675416137504">"ОК"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Разрешить"</string>
     <string name="url_error" msgid="5958494012986243186">"Не удалось открыть ссылку."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"Наверх"</string>
     <string name="terms" msgid="8295436105384703903">"Условия использования"</string>
-    <string name="work_profile_info" msgid="5433388376309583996">"Информация о рабочем профиле"</string>
+    <string name="work_profile_info" msgid="5433388376309583996">"Данные рабочего профиля"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Информация об управляемом устройстве"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"Рабочий профиль"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"Удалить существующий профиль?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"У вас уже есть рабочий профиль. Им управляют с помощью этого приложения:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Прежде чем продолжить, "<a href="#read_this_link">"ознакомьтесь с этой информацией"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Все приложения и данные в этом профиле будут удалены. Продолжить?"</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Все приложения и данные, находящиеся в этом профиле, будут удалены."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Удалить"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Отмена"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Чтобы настроить рабочий профиль, необходимо зашифровать данные на устройстве. Это займет некоторое время."</string>
@@ -169,9 +170,9 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Все приложения, необходимые для работы, находятся в рабочем профиле. После работы эти приложения можно приостановить. Данные в вашем рабочем профиле видны системному администратору."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Настройте рабочее устройство"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Держите рабочие приложения под рукой"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Это устройство не предназначено для личного использования"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Системный администратор может получить доступ к вашим действиям и данным на этом устройстве."</string>
-    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Сведения о ваших действиях и данные"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Этим устройством управляет администратор"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Системный администратор может получить доступ к вашим данным и сведениям о ваших действиях на этом устройстве."</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Ваши действия и данные"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Разрешения для приложений"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"На этом устройстве системный администратор может предоставлять приложениям такие разрешения, как доступ к микрофону, камере и данным о местоположении."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Настройка…"</string>
@@ -187,10 +188,10 @@
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Рабочие приложения находятся в рабочем профиле и управляются администратором. Личные приложения скрыты и находятся отдельно от рабочих. Системный администратор может управлять этим устройством и блокировать некоторые приложения."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Подождите…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Напоминание о конфиденциальности"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Системный администратор может получить доступ к вашим действиям и данным на этом устройстве."</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Системный администратор может получить доступ к вашим данным и сведениям о ваших действиях на этом устройстве."</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Устройство предоставлено компанией \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\""</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Вносите платежи через приложение \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\""</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Совершайте платежи, используя это устройство"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Компания \"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>\" может установить приложение \"<xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>\", чтобы вы вносили платежи за это устройство."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"У компании \"<xliff:g id="CREDITOR_NAME">%s</xliff:g>\" есть возможность заблокировать это устройство"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Ограничивайте функции, доступные для этого устройства"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Компания \"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>\" может заблокировать это устройство, если платежи по кредиту не будут выполнены."</string>
 </resources>

@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"J\'accepte"</string>
     <string name="url_error" msgid="5958494012986243186">"Impossible d\'afficher ce lien."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"Revenir en arrière"</string>
     <string name="terms" msgid="8295436105384703903">"Conditions d\'utilisation"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Infos sur le profil professionnel"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Infos sur l\'appareil géré"</string>
@@ -165,14 +166,14 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Les applis professionnelles sont dans votre profil professionnel"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Mettez vos applis professionnelles en pause quand vous avez fini de travailler"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Votre administrateur informatique a accès aux données du profil professionnel"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configuration de votre profil professionnel…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configuration de votre profil pro…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Les applications professionnelles sont conservées dans votre profil professionnel. Vous pouvez mettre en pause vos applications professionnelles lorsque vous avez fini votre journée. Les données dans votre profil professionnel sont visibles par votre administrateur informatique."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Configurez votre appareil professionnel"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Gardez vos applications professionnelles à portée de main"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Cet appareil n\'est pas privé"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Votre administrateur informatique peut voir vos données et votre activité sur cet appareil."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Votre activité et vos données"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Autorisations de l\'application"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Autorisations des applications"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Votre administrateur informatique peut définir des autorisations pour les applis sur cet appareil, par exemple concernant le micro, l\'appareil photo et la position."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configuration de votre appareil…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Utilisez cet appareil pour accéder facilement à vos applications professionnelles. Cet appareil n\'est pas privé. Il est donc possible que votre administrateur informatique puisse voir vos données et votre activité."</string>
@@ -182,15 +183,15 @@
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Annuler la configuration"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Réinitialiser et retourner l\'appareil"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les applis pros sont conservées dans votre profil pro et gérées par votre administrateur"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis personnelles sont distinctes des professionnelles et masquées"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applis."</string>
-    <string name="cope_provisioning_summary" msgid="993014104601034878">"Les applications professionnelles sont conservées dans votre profil professionnel et gérées par votre administrateur informatique. Les applications personnelles sont masquées des applications professionnelles et traitées de façon distincte. Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applications."</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis perso sont distinctes des applis pro et non visibles par celles-ci"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applis"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Les applis pro sont conservées dans votre profil pro et gérées par votre administrateur. Les applis perso sont distinctes des applis pro et non visibles par celles-ci. Votre administrateur peut contrôler cet appareil et bloquer certaines applis."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Un instant…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Rappel concernant les règles de confidentialité"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Votre administrateur informatique peut voir vos données et votre activité sur cet appareil"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Cet appareil est fourni par <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Payer avec <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> peut installer <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> afin que vous puissiez effectuer des paiements sur cet appareil."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> peut limiter cet appareil"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Effectuer des paiements pour cet appareil"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> peut installer l\'appli <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> afin que vous puissiez effectuer des paiements sur cet appareil."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Cet appareil peut être limité"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> peut limiter l\'accès à cet appareil si vous n\'effectuez pas de paiements."</string>
 </resources>

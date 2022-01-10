@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Suostun"</string>
     <string name="url_error" msgid="5958494012986243186">"Tätä linkkiä ei voi näyttää."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"Siirry ylös"</string>
     <string name="terms" msgid="8295436105384703903">"Käyttöehdot"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Työprofiilin tiedot"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Hallinnoidun laitteen tiedot"</string>
@@ -173,7 +174,7 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi tällä laitteella."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Toimintasi ja datasi"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Sovellusluvat"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT-järjestelmänvalvoja voi määrittää käyttöoikeudet tämän laitteen sovelluksille, kuten mikrofonille, kameralle ja sijaintiluville."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT-järjestelmänvalvoja voi määrittää luvat tämän laitteen sovelluksille, kuten luvat käyttää mikrofonia, kameraa tai sijaintia."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Määritetään laitetta…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Käytä työsovelluksia helposti tällä laitteella. Laite ei ole yksityinen, joten IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi."</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Käytä työsovelluksia helposti tällä laitteella. Laite ei ole yksityinen, joten IT-järjestelmänvalvoja voi nähdä toimintosi ja datasi. IT-järjestelmänvalvoja voi myös määrittää käyttöoikeudet tämän laitteen sovelluksille, kuten mikrofonille, kameralle ja sijaintiluville."</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Tietosuojamuistutus"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT-järjestelmänvalvoja voi nähdä datasi ja toimintasi tällä laitteella."</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Tämän laitteen tarjoaa <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Ota <xliff:g id="CREDITOR_NAME">%s</xliff:g> käyttöön maksujen tekemiseen"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Maksa tällä laitteella"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> saa asentaa sovelluksen (<xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>), jotta voit tehdä tämän laitteen maksuja."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> voi rajoittaa tämän laitteen käyttöä"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Tätä laitetta voidaan rajoittaa"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> voi rajoittaa pääsyä tälle laitteelle, jos et suorita maksuja."</string>
 </resources>

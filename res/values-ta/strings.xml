@@ -28,10 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"பின்வரும் ஆப்ஸ் உங்கள் சாதனத்தை நிர்வகிக்கும்:"</string>
     <string name="next" msgid="1004321437324424398">"அடுத்து"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"பணிக் கணக்கை அமைக்கிறது…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"அமைப்புகள், கார்ப்பரேட் அணுகல், ஆப்ஸ், அனுமதிகள், இந்தச் சுயவிவரத்துடன் தொடர்புடைய தரவு (உங்கள் நெட்வொர்க் செயல்பாடு, சாதனத்தின் இருப்பிடம், அழைப்பு வரலாறு, தொடர்புத் தேடல் வரலாறு ஆகியவையும் இதில் அடங்கும்) ஆகியவற்றை உங்கள் IT நிர்வாகியால் கண்காணிக்கவும் நிர்வகிக்கவும் முடியும்.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"அமைப்புகள், கார்ப்பரேட் அணுகல், ஆப்ஸ், அனுமதிகள், இந்தச் சுயவிவரத்துடன் தொடர்புடைய தரவு (உங்கள் நெட்வொர்க் செயல்பாடு, சாதனத்தின் இருப்பிடம், அழைப்பு விவரங்கள், தொடர்புகளில் இதுவரை தேடியவை ஆகியவையும் இதில் அடங்கும்) ஆகியவற்றை உங்கள் IT நிர்வாகியால் கண்காணிக்கவும் நிர்வகிக்கவும் முடியும்.<xliff:g id="LINE_BREAK">
 
 </xliff:g>நிறுவனத்தின் தனியுரிமைக் கொள்கைகள் உட்பட கூடுதல் தகவலுக்கு IT நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"அமைப்புகள், கார்ப்பரேட் அணுகல், ஆப்ஸ், அனுமதிகள், இந்தச் சாதனத்துடன் தொடர்புடைய தரவு (உங்கள் நெட்வொர்க் செயல்பாடு, சாதனத்தின் இருப்பிடம், அழைப்பு வரலாறு, தொடர்புத் தேடல் வரலாறு ஆகியவை இதில் அடங்கும்) ஆகியவற்றை உங்கள் IT நிர்வாகியால் கண்காணிக்கவும் நிர்வகிக்கவும் இயலும்.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"அமைப்புகள், கார்ப்பரேட் அணுகல், ஆப்ஸ், அனுமதிகள், இந்தச் சாதனத்துடன் தொடர்புடைய தரவு (உங்கள் நெட்வொர்க் செயல்பாடு, சாதனத்தின் இருப்பிடம், அழைப்பு விவரங்கள், தொடர்புகளில் இதுவரை தேடியவை ஆகியவை இதில் அடங்கும்) ஆகியவற்றை உங்கள் IT நிர்வாகியால் கண்காணிக்கவும் நிர்வகிக்கவும் இயலும்.<xliff:g id="LINE_BREAK">
 
 </xliff:g>நிறுவனத்தின் தனியுரிமைக் கொள்கைகள் உட்பட கூடுதல் தகவலைப் பெற IT நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"திருட்டிற்கு எதிரான பாதுகாப்பு அம்சங்களைப் பயன்படுத்த, சாதனத்தில் கடவுச்சொல் பாதுகாப்புள்ள திரைப் பூட்டு இருக்க வேண்டும்."</string>
@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"சரி"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ஏற்கிறேன்"</string>
     <string name="url_error" msgid="5958494012986243186">"இந்த இணைப்பைக் காட்ட முடியவில்லை."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"மேலே செல்"</string>
     <string name="terms" msgid="8295436105384703903">"விதிமுறைகள்"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"பணிக் கணக்குச் தகவல்"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"நிர்வகிக்கப்படும் சாதனத் தகவல்"</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"தனியுரிமை நினைவூட்டல்"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"இந்தச் சாதனத்தில் உள்ள உங்கள் தரவையும் செயல்பாட்டையும் IT நிர்வாகி பார்க்கக்கூடும்"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"இந்தச் சாதனம் <xliff:g id="CREDITOR_NAME">%s</xliff:g> நிறுவனத்தால் வழங்கப்பட்டது"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ஆப்ஸ் மூலம் பேமெண்ட்டுகளைச் செலுத்துங்கள்"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"இந்தச் சாதனத்திற்கான பேமெண்ட்டுகளைச் செய்யலாம்"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ஆப்ஸை <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> நிறுவுவதன் மூலம் இந்தச் சாதனத்திற்கான பேமெண்ட்டுகளை நீங்கள் செலுத்த முடியும்."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"இந்தச் சாதனத்தை <xliff:g id="CREDITOR_NAME">%s</xliff:g> கட்டுப்படுத்த முடியும்"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"இந்தச் சாதனம் தடைசெய்யப்படலாம்"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"நீங்கள் பேமெண்ட்டுகளைச் செலுத்தவில்லையெனில் இந்தச் சாதனத்திற்கான அணுகலை <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> கட்டுப்படுத்த முடியும்."</string>
 </resources>
