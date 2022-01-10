@@ -118,7 +118,8 @@ public class DownloadPackageTask extends AbstractProvisioningTask
         mContext.registerReceiver(mReceiver,
                 new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE),
                 null,
-                new Handler(Looper.myLooper()));
+                new Handler(Looper.myLooper()),
+                Context.RECEIVER_EXPORTED);
 
         if (Globals.DEBUG) {
             ProvisionLogger.logd("Starting download from " + mPackageDownloadInfo.location);
