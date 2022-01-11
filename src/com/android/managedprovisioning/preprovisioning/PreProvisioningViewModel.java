@@ -22,7 +22,9 @@ import static java.util.Objects.requireNonNull;
 
 import android.annotation.IntDef;
 import android.annotation.MainThread;
+import android.annotation.Nullable;
 import android.content.Intent;
+import android.os.Bundle;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -49,14 +51,20 @@ public final class PreProvisioningViewModel extends ViewModel {
     static final int STATE_SHOWING_USER_CONSENT = 4;
     static final int STATE_PROVISIONING_STARTED = 5;
     static final int STATE_PROVISIONING_FINALIZED = 6;
+    static final int STATE_UPDATING_ROLE_HOLDER = 7;
+    static final int STATE_ROLE_HOLDER_PROVISIONING = 8;
 
     private static final int DEFAULT_MAX_ROLE_HOLDER_UPDATE_RETRIES = 3;
+    private Bundle mRoleHolderState;
+
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({STATE_PREPROVISIONING_INITIALIZING,
             STATE_GETTING_PROVISIONING_MODE,
             STATE_SHOWING_USER_CONSENT,
             STATE_PROVISIONING_STARTED,
-            STATE_PROVISIONING_FINALIZED})
+            STATE_PROVISIONING_FINALIZED,
+            STATE_UPDATING_ROLE_HOLDER,
+            STATE_ROLE_HOLDER_PROVISIONING})
     private @interface PreProvisioningState {}
 
 
@@ -116,8 +124,46 @@ public final class PreProvisioningViewModel extends ViewModel {
      * Handles state when provisioning has initiated
      */
     @MainThread
-    public void onProvisioningInitiated() {
+    public void onPlatformProvisioningInitiated() {
         setState(STATE_PREPROVISIONING_INITIALIZED);
+    }
+
+    /**
+     * Handles state when the role holder update has started
+     */
+    @MainThread
+    public void onRoleHolderUpdateInitiated() {
+        setState(STATE_UPDATING_ROLE_HOLDER);
+    }
+
+    /**
+     * Handles state when provisioning is delegated to the role holder
+     */
+    @MainThread
+    public void onRoleHolderProvisioningInitiated() {
+        setState(STATE_ROLE_HOLDER_PROVISIONING);
+    }
+
+    /**
+     * Sets a copy of the role holder state.
+     */
+    public void setRoleHolderState(@Nullable Bundle roleHolderState) {
+        if (roleHolderState == null) {
+            mRoleHolderState = null;
+        } else {
+            mRoleHolderState = new Bundle(roleHolderState);
+        }
+    }
+
+    /**
+     * Retrieves a copy of the role holder state or {@link null} if one does not exist.
+     */
+    public @Nullable Bundle getRoleHolderState() {
+        if (mRoleHolderState == null) {
+            return null;
+        } else {
+            return new Bundle(mRoleHolderState);
+        }
     }
 
     /**
@@ -197,6 +243,13 @@ public final class PreProvisioningViewModel extends ViewModel {
 
     void incrementRoleHolderUpdateRetryCount() {
         mRoleHolderUpdateRetries++;
+    }
+
+    /**
+     * Resets the update retry count
+     */
+    public void resetRoleHolderUpdateRetryCount() {
+        mRoleHolderUpdateRetries = 0;
     }
 
     boolean canRetryRoleHolderUpdate() {

@@ -42,6 +42,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUC
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
+import static android.app.admin.DevicePolicyManager.EXTRA_ROLE_HOLDER_STATE;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
@@ -219,14 +220,44 @@ public class PreProvisioningActivityController {
         if (isRoleHolderReadyForProvisioning) {
             ProvisionLogger.logw("Provisioning via role holder.");
             Intent roleHolderProvisioningIntent =
-                    mRoleHolderHelper.createRoleHolderProvisioningIntent(
-                            managedProvisioningIntent);
+                    createRoleHolderProvisioningIntent(managedProvisioningIntent);
             mSharedPreferences.setIsProvisioningFlowDelegatedToRoleHolder(true);
+            mViewModel.onRoleHolderProvisioningInitiated();
             mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
         } else {
             ProvisionLogger.logw("Provisioning via platform-provided provisioning");
             performPlatformProvidedProvisioning();
         }
+    }
+
+    private Intent createRoleHolderProvisioningIntent(Intent managedProvisioningIntent) {
+        Intent intent =
+                mRoleHolderHelper.createRoleHolderProvisioningIntent(managedProvisioningIntent);
+        if (mViewModel.getRoleHolderState() != null) {
+            intent.putExtra(EXTRA_ROLE_HOLDER_STATE, mViewModel.getRoleHolderState());
+        }
+        return intent;
+    }
+
+    /**
+     * Starts the role holder updater, saving {@code roleHolderState} to be used to restart
+     * the role holder.
+     *
+     * @see DevicePolicyManager#EXTRA_ROLE_HOLDER_STATE
+     */
+    public void startRoleHolderUpdater(@Nullable Bundle roleHolderState) {
+        mViewModel.onRoleHolderUpdateInitiated();
+        mViewModel.setRoleHolderState(roleHolderState);
+        mUi.startRoleHolderUpdater();
+    }
+
+    /**
+     * Starts the role holder updater with the last provided role holder state.
+     *
+     * <p>This can be useful in update retry cases.
+     */
+    public void startRoleHolderUpdaterWithLastState() {
+        startRoleHolderUpdater(mViewModel.getRoleHolderState());
     }
 
     interface Ui {
@@ -372,7 +403,8 @@ public class PreProvisioningActivityController {
         // TODO(b/207376815): Have a PreProvisioningForwarderActivity to forward to either
         //  platform-provided provisioning or DMRH
         if (mRoleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext)) {
-            mUi.startRoleHolderUpdater();
+            resetRoleHolderUpdateRetryCount();
+            startRoleHolderUpdater(/* roleHolderState= */ null);
         } else {
             startAppropriateProvisioning(intent);
         }
@@ -382,7 +414,7 @@ public class PreProvisioningActivityController {
         ProvisioningParams params = mViewModel.getParams();
 
         mViewModel.getTimeLogger().start();
-        mViewModel.onProvisioningInitiated();
+        mViewModel.onPlatformProvisioningInitiated();
 
         if (mUtils.checkAdminIntegratedFlowPreconditions(params)) {
             if (mUtils.shouldShowOwnershipDisclaimerScreen(params)) {
@@ -985,6 +1017,10 @@ public class PreProvisioningActivityController {
 
     void incrementRoleHolderUpdateRetryCount() {
         mViewModel.incrementRoleHolderUpdateRetryCount();
+    }
+
+    void resetRoleHolderUpdateRetryCount() {
+        mViewModel.resetRoleHolderUpdateRetryCount();
     }
 
     boolean canRetryRoleHolderUpdate() {

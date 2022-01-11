@@ -35,6 +35,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SENSORS_P
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SERIAL_NUMBER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
+import static android.app.admin.DevicePolicyManager.EXTRA_ROLE_HOLDER_STATE;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_PERSONALLY_OWNED;
@@ -42,6 +43,7 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_FULLY_MANA
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
 
+import static com.android.managedprovisioning.TestUtils.assertBundlesEqual;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LOCAL_TIME;
 
@@ -53,6 +55,7 @@ import static org.mockito.Mockito.anyInt;
 import static org.mockito.Mockito.anyString;
 import static org.mockito.Mockito.eq;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
@@ -88,6 +91,7 @@ import androidx.test.filters.SmallTest;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
@@ -105,7 +109,9 @@ import com.android.managedprovisioning.parser.MessageParser;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
 import com.android.managedprovisioning.provisioning.Constants;
 
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
@@ -186,6 +192,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                     /* roleHolderUpdaterPackageName= */ null,
                     TEST_ROLE_HOLDER_PACKAGE_NAME,
                     /* packageInstallChecker= */ (packageName, packageManager) -> false);
+    private static final Bundle ROLE_HOLDER_STATE = createRoleHolderStateBundle();
 
     @Mock
     private Context mContext;
@@ -376,6 +383,97 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
         verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
         verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(true);
+    }
+
+    public void testManagedProfile_roleHolderStarted_startedWithoutState()
+            throws Exception {
+        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
+        mController = createControllerWithRoleHolderValidAndInstalledWithUpdater(
+                ROLE_HOLDER_UPDATER_HELPER);
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+
+            // simulate that the updater has run and returned back, starting DMRH
+            mController.startAppropriateProvisioning(mIntent);
+        });
+
+        // THEN start profile provisioning
+        ArgumentCaptor<Intent> intentArgumentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mUi).startRoleHolderUpdater();
+        verify(mUi).startRoleHolderProvisioning(intentArgumentCaptor.capture());
+        assertThat(intentArgumentCaptor.getValue().hasExtra(EXTRA_ROLE_HOLDER_STATE)).isFalse();
+        verifyNoMoreInteractions(mUi);
+    }
+
+    public void testManagedProfile_roleHolderRequestedUpdate_restartsWithProvidedState()
+            throws Exception {
+        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
+        mController = createControllerWithRoleHolderValidAndInstalledWithUpdater(
+                ROLE_HOLDER_UPDATER_HELPER);
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+
+            // simulate that the updater has run and returned back, starting DMRH
+            mController.startAppropriateProvisioning(mIntent);
+
+            // simulate that DMRH has returned RESULT_UPDATE_ROLE_HOLDER with state
+            mController.startRoleHolderUpdater(ROLE_HOLDER_STATE);
+
+            // simulate that DMRH updater updated DMRH and now it restarts it with
+            // state returned before
+            mController.startAppropriateProvisioning(mIntent);
+        });
+
+        // THEN start profile provisioning
+        verify(mUi, times(2)).startRoleHolderUpdater();
+        ArgumentCaptor<Intent> intentArgumentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mUi, times(2)).startRoleHolderProvisioning(intentArgumentCaptor.capture());
+        assertBundlesEqual(
+                intentArgumentCaptor.getAllValues().get(1).getBundleExtra(EXTRA_ROLE_HOLDER_STATE),
+                ROLE_HOLDER_STATE);
+        verifyNoMoreInteractions(mUi);
+    }
+
+    public void
+    testManagedProfile_roleHolderRequestedUpdate_updateFailsOnce_restartsWithProvidedState()
+            throws Exception {
+        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
+        mController = createControllerWithRoleHolderValidAndInstalledWithUpdater(
+                ROLE_HOLDER_UPDATER_HELPER);
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+
+            // simulate that the updater has run and returned back, starting DMRH
+            mController.startAppropriateProvisioning(mIntent);
+
+            // simulate that DMRH has returned RESULT_UPDATE_ROLE_HOLDER with state
+            mController.startRoleHolderUpdater(ROLE_HOLDER_STATE);
+
+            // simulate that DMRH updater failed and starts again with last state
+            mController.startRoleHolderUpdaterWithLastState();
+
+            // simulate that DMRH updater updated DMRH and now it restarts it with
+            // state returned before
+            mController.startAppropriateProvisioning(mIntent);
+        });
+
+        // THEN start profile provisioning
+        verify(mUi, times(3)).startRoleHolderUpdater();
+        ArgumentCaptor<Intent> intentArgumentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mUi, times(2)).startRoleHolderProvisioning(intentArgumentCaptor.capture());
+        assertBundlesEqual(
+                intentArgumentCaptor.getAllValues().get(1).getBundleExtra(EXTRA_ROLE_HOLDER_STATE),
+                ROLE_HOLDER_STATE);
+        verifyNoMoreInteractions(mUi);
     }
 
     public void testManagedProfile_roleHolderNotPresent_startsPlatformProvidedProvisioning()
@@ -1721,5 +1819,13 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         return createControllerWithRoleHolderHelpers(
                 DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_PRESENT,
                 ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED);
+    }
+
+    private static Bundle createRoleHolderStateBundle() {
+        Bundle result = new Bundle();
+        result.putString("key1", "value1");
+        result.putInt("key2", 2);
+        result.putBoolean("key3", true);
+        return result;
     }
 }

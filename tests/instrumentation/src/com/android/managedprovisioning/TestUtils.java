@@ -186,7 +186,7 @@ public class TestUtils extends AndroidTestCase {
         assertBundlesEqual(intent1.getExtras(), intent2.getExtras());
     }
 
-    private static void assertBundlesEqual(Bundle bundle1, Bundle bundle2) {
+    public static void assertBundlesEqual(Bundle bundle1, Bundle bundle2) {
         if (bundle1 != null) {
             assertWithMessage("Intent bundles are not equal")
                     .that(bundle2).isNotNull();

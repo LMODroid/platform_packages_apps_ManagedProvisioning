@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR;
+import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_ROLE_HOLDER;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 
@@ -34,6 +35,7 @@ import static java.util.Objects.requireNonNull;
 import android.app.Activity;
 import android.app.BackgroundServiceStartNotAllowedException;
 import android.app.DialogFragment;
+import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -310,7 +312,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_UPDATER_REQUEST_CODE:
                 if (resultCode == RESULT_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
                         && mController.canRetryRoleHolderUpdate()) {
-                    startRoleHolderUpdater();
+                    mController.startRoleHolderUpdaterWithLastState();
                     mController.incrementRoleHolderUpdateRetryCount();
                 } else {
                     mController.startAppropriateProvisioning(getIntent());
@@ -318,8 +320,15 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 break;
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE:
                 ProvisionLogger.logw("Role holder returned result code " + resultCode);
-                setResult(resultCode);
-                getTransitionHelper().finishActivity(this);
+                if (resultCode == RESULT_UPDATE_ROLE_HOLDER) {
+                    Bundle roleHolderState =
+                            data.getBundleExtra(DevicePolicyManager.EXTRA_ROLE_HOLDER_STATE);
+                    mController.resetRoleHolderUpdateRetryCount();
+                    mController.startRoleHolderUpdater(roleHolderState);
+                } else {
+                    setResult(resultCode);
+                    getTransitionHelper().finishActivity(this);
+                }
                 break;
             default:
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
