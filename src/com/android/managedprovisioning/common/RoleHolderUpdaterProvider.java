@@ -24,8 +24,8 @@ import androidx.annotation.Nullable;
  * A provider for the role holder updater package name.
  */
 public interface RoleHolderUpdaterProvider {
-    // TODO(b/207145607): Return the role holder updater using a framework API
-    RoleHolderUpdaterProvider DEFAULT = (Context context) -> "com.google.android.gms";
+    RoleHolderUpdaterProvider DEFAULT = (Context context) ->
+            context.getString(com.android.internal.R.string.config_deviceManagerUpdater);
 
     /**
      * Returns the package name of the role holder updater.
