@@ -178,9 +178,8 @@ public final class RetryLaunchActivity extends SetupGlifLayoutActivity {
     }
 
     private void initializeUi() {
-        // TODO(b/208822780): Decide strings for this screen
-        int headerResId = R.string.downloading_administrator_header;
-        int titleResId = R.string.setup_device_progress;
+        int headerResId = R.string.just_a_sec;
+        int titleResId = R.string.just_a_sec;
         initializeLayoutParams(R.layout.empty_loading_layout, headerResId);
         setTitle(titleResId);
     }
