@@ -116,6 +116,7 @@ public class ProvisionFullyManagedDeviceTask extends AbstractProvisioningTask {
                 // out of controlling them.
                 .setCanDeviceOwnerGrantSensorsPermissions(
                         !mProvisioningParams.deviceOwnerPermissionGrantOptOut)
+                .setAdminExtras(mProvisioningParams.adminExtrasBundle)
                 .build();
     }
 

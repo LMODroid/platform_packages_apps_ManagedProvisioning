@@ -122,6 +122,7 @@ public class CreateAndProvisionManagedProfileTask extends AbstractProvisioningTa
                 .setOrganizationOwnedProvisioning(
                         mProvisioningParams.isOrganizationOwnedProvisioning)
                 .setKeepingAccountOnMigration(mProvisioningParams.keepAccountMigrated)
+                .setAdminExtras(mProvisioningParams.adminExtrasBundle)
                 .build();
     }
 
