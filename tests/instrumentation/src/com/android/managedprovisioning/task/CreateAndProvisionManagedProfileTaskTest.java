@@ -22,12 +22,14 @@ import static com.google.common.truth.Truth.assertThat;
 
 import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import android.app.admin.DevicePolicyManager;
+import android.app.admin.ProvisioningException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.res.Resources;
@@ -69,6 +71,10 @@ public class CreateAndProvisionManagedProfileTaskTest {
     @Mock private Utils mUtils;
     @Mock private Resources mResources;
 
+    private static final String TEST_ERROR_MESSAGE = "test error message";
+    private static final ProvisioningException PROVISIONING_EXCEPTION = new ProvisioningException(
+            new Exception(), /* provisioningError= */ 0, TEST_ERROR_MESSAGE);
+
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
@@ -103,10 +109,21 @@ public class CreateAndProvisionManagedProfileTaskTest {
 
         task.run(TEST_PARENT_USER_ID);
 
-        verify(mCallback).onError(task, 0);
+        verify(mCallback).onError(task, 0, /* errorMessage= */ null);
         verifyNoMoreInteractions(mCallback);
     }
 
+    @Test
+    public void testTextError() throws Exception {
+        CreateAndProvisionManagedProfileTask task = createProvisioningTask(TEST_PARAMS);
+        doThrow(PROVISIONING_EXCEPTION)
+                .when(mDevicePolicyManager).createAndProvisionManagedProfile(any());
+
+        task.run(TEST_PARENT_USER_ID);
+
+        verify(mCallback).onError(task, 0, TEST_ERROR_MESSAGE);
+        verifyNoMoreInteractions(mCallback);
+    }
 
     private CreateAndProvisionManagedProfileTask createProvisioningTask(ProvisioningParams params) {
         return new CreateAndProvisionManagedProfileTask(

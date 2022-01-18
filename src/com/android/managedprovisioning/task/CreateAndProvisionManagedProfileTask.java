@@ -21,6 +21,7 @@ import static java.util.Objects.requireNonNull;
 import android.annotation.UserIdInt;
 import android.app.admin.DevicePolicyManager;
 import android.app.admin.ManagedProfileProvisioningParams;
+import android.app.admin.ProvisioningException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.os.UserHandle;
@@ -88,6 +89,10 @@ public class CreateAndProvisionManagedProfileTask extends AbstractProvisioningTa
 
         try {
             profile = mDpm.createAndProvisionManagedProfile(params);
+        } catch (ProvisioningException provisioningException) {
+            ProvisionLogger.loge("Failure provisioning managed profile.", provisioningException);
+            error(/* resultCode= */ 0, provisioningException.getMessage());
+            return;
         } catch (Exception e) {
             // Catching all Exceptions to allow Managed Provisioning to handle any failure
             // during provisioning properly and perform any necessary cleanup.
