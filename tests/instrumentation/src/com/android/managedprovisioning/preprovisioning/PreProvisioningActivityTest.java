@@ -91,6 +91,7 @@ public class PreProvisioningActivityTest {
         DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
                 new DeviceManagementRoleHolderUpdaterHelper(
                         TEST_ROLE_HOLDER_UPDATER_PACKAGE_NAME,
+                        TEST_ROLE_HOLDER_PACKAGE_NAME,
                         /* packageInstallChecker= */ (packageName, packageManager) -> false);
         TestInstrumentationRunner.registerReplacedActivity(PreProvisioningActivity.class,
                 (classLoader, className, intent) -> new PreProvisioningActivity(

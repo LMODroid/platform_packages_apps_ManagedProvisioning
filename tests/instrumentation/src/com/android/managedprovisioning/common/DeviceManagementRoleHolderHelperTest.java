@@ -85,15 +85,13 @@ public class DeviceManagementRoleHolderHelperTest {
     }
 
     @Test
-    public void roleHolderHelperConstructor_roleHolderPackageNameNull_throwsException() {
-        assertThrows(NullPointerException.class, () ->
-                createRoleHolderHelper(ROLE_HOLDER_NULL_PACKAGE_NAME));
+    public void roleHolderHelperConstructor_roleHolderPackageNameNull_noExceptionThrown() {
+        createRoleHolderHelper(ROLE_HOLDER_NULL_PACKAGE_NAME);
     }
 
     @Test
-    public void roleHolderHelperConstructor_roleHolderPackageNameEmpty_throwsException() {
-        assertThrows(IllegalArgumentException.class, () ->
-                createRoleHolderHelper(ROLE_HOLDER_EMPTY_PACKAGE_NAME));
+    public void roleHolderHelperConstructor_roleHolderPackageNameEmpty_noExceptionThrown() {
+        createRoleHolderHelper(ROLE_HOLDER_EMPTY_PACKAGE_NAME);
     }
 
     @Test
@@ -102,6 +100,24 @@ public class DeviceManagementRoleHolderHelperTest {
 
         assertThat(roleHolderHelper.isRoleHolderReadyForProvisioning(
                 mContext, MANAGED_PROVISIONING_INTENT)).isTrue();
+    }
+
+    @Test
+    public void isRoleHolderReadyForProvisioning_nullRoleHolderPackageName_isFalse() {
+        DeviceManagementRoleHolderHelper roleHolderHelper =
+                createRoleHolderHelper(ROLE_HOLDER_NULL_PACKAGE_NAME);
+
+        assertThat(roleHolderHelper.isRoleHolderReadyForProvisioning(
+                mContext, MANAGED_PROVISIONING_INTENT)).isFalse();
+    }
+
+    @Test
+    public void isRoleHolderReadyForProvisioning_emptyRoleHolderPackageName_isFalse() {
+        DeviceManagementRoleHolderHelper roleHolderHelper =
+                createRoleHolderHelper(ROLE_HOLDER_EMPTY_PACKAGE_NAME);
+
+        assertThat(roleHolderHelper.isRoleHolderReadyForProvisioning(
+                mContext, MANAGED_PROVISIONING_INTENT)).isFalse();
     }
 
     @Test
@@ -245,6 +261,24 @@ public class DeviceManagementRoleHolderHelperTest {
     }
 
     @Test
+    public void createRoleHolderProvisioningIntent_nullRoleHolderPackageName_throwsException() {
+        DeviceManagementRoleHolderHelper roleHolderHelper =
+                createRoleHolderHelper(ROLE_HOLDER_NULL_PACKAGE_NAME);
+
+        assertThrows(IllegalStateException.class, () ->
+                roleHolderHelper.createRoleHolderProvisioningIntent(MANAGED_PROFILE_INTENT));
+    }
+
+    @Test
+    public void createRoleHolderProvisioningIntent_emptyRoleHolderPackageName_throwsException() {
+        DeviceManagementRoleHolderHelper roleHolderHelper =
+                createRoleHolderHelper(ROLE_HOLDER_EMPTY_PACKAGE_NAME);
+
+        assertThrows(IllegalStateException.class, () ->
+                roleHolderHelper.createRoleHolderProvisioningIntent(MANAGED_PROFILE_INTENT));
+    }
+
+    @Test
     public void createRoleHolderProvisioningIntent_trustedSourceProvisioningIntent_works() {
         DeviceManagementRoleHolderHelper roleHolderHelper = createRoleHolderHelper();
 
@@ -265,12 +299,30 @@ public class DeviceManagementRoleHolderHelperTest {
     }
 
     @Test
-    public void createRoleHolderProvisioningIntent_provisioningFinalizationIntent_works() {
+    public void createRoleHolderFinalizationIntent_works() {
         DeviceManagementRoleHolderHelper roleHolderHelper = createRoleHolderHelper();
 
         assertIntentsEqual(
                 roleHolderHelper.createRoleHolderFinalizationIntent(),
                 PROVISION_FINALIZATION_ROLE_HOLDER_INTENT);
+    }
+
+    @Test
+    public void createRoleHolderFinalizationIntent_nullRoleHolderPackageName_throwsException() {
+        DeviceManagementRoleHolderHelper roleHolderHelper =
+                createRoleHolderHelper(ROLE_HOLDER_NULL_PACKAGE_NAME);
+
+        assertThrows(IllegalStateException.class,
+                roleHolderHelper::createRoleHolderFinalizationIntent);
+    }
+
+    @Test
+    public void createRoleHolderFinalizationIntent_emptyRoleHolderPackageName_throwsException() {
+        DeviceManagementRoleHolderHelper roleHolderHelper =
+                createRoleHolderHelper(ROLE_HOLDER_EMPTY_PACKAGE_NAME);
+
+        assertThrows(IllegalStateException.class,
+                roleHolderHelper::createRoleHolderFinalizationIntent);
     }
 
     private void enableRoleHolderDelegation() {

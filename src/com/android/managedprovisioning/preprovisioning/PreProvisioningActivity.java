@@ -454,6 +454,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
                 new DeviceManagementRoleHolderUpdaterHelper(
                         mRoleHolderUpdaterProvider.getPackageName(this),
+                        RoleHolderProvider.DEFAULT.getPackageName(this),
                         new DefaultPackageInstallChecker(mUtils));
         Intent intent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
         intent.putExtra(
