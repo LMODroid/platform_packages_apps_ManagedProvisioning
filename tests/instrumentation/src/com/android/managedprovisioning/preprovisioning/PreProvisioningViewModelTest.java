@@ -33,7 +33,7 @@ import static org.testng.Assert.assertThrows;
 import android.app.Instrumentation;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
+import android.os.PersistableBundle;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
@@ -58,7 +58,7 @@ public final class PreProvisioningViewModelTest {
     private EncryptionController mEncryptionController;
     private final Context mContext = InstrumentationRegistry.getTargetContext();
 
-    private static final Bundle ROLE_HOLDER_STATE = createRoleHolderStateBundle();
+    private static final PersistableBundle ROLE_HOLDER_STATE = createRoleHolderStateBundle();
 
     @Before
     public void setUp()  {
@@ -222,7 +222,7 @@ public final class PreProvisioningViewModelTest {
 
     @Test
     public void getRoleHolderState_modifySetState_isImmutable() {
-        Bundle bundle = new Bundle(ROLE_HOLDER_STATE);
+        PersistableBundle bundle = new PersistableBundle(ROLE_HOLDER_STATE);
 
         mViewModel.setRoleHolderState(bundle);
         bundle.putString(TEST_KEY, TEST_VALUE);
@@ -232,7 +232,7 @@ public final class PreProvisioningViewModelTest {
 
     @Test
     public void getRoleHolderState_modifyGetState_isImmutable() {
-        Bundle bundle = new Bundle(ROLE_HOLDER_STATE);
+        PersistableBundle bundle = new PersistableBundle(ROLE_HOLDER_STATE);
 
         mViewModel.setRoleHolderState(bundle);
         mViewModel.getRoleHolderState().putString(TEST_KEY, TEST_VALUE);
@@ -240,8 +240,8 @@ public final class PreProvisioningViewModelTest {
         assertBundlesEqual(mViewModel.getRoleHolderState(), ROLE_HOLDER_STATE);
     }
 
-    private static Bundle createRoleHolderStateBundle() {
-        Bundle result = new Bundle();
+    private static PersistableBundle createRoleHolderStateBundle() {
+        PersistableBundle result = new PersistableBundle();
         result.putString("key1", "value1");
         result.putInt("key2", 2);
         result.putBoolean("key3", true);

@@ -91,7 +91,6 @@ import androidx.test.filters.SmallTest;
 import androidx.test.platform.app.InstrumentationRegistry;
 
 import com.android.managedprovisioning.R;
-import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
@@ -111,7 +110,6 @@ import com.android.managedprovisioning.provisioning.Constants;
 
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
@@ -192,7 +190,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                     /* roleHolderUpdaterPackageName= */ null,
                     TEST_ROLE_HOLDER_PACKAGE_NAME,
                     /* packageInstallChecker= */ (packageName, packageManager) -> false);
-    private static final Bundle ROLE_HOLDER_STATE = createRoleHolderStateBundle();
+    private static final PersistableBundle ROLE_HOLDER_STATE = createRoleHolderStateBundle();
 
     @Mock
     private Context mContext;
@@ -435,7 +433,8 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         ArgumentCaptor<Intent> intentArgumentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mUi, times(2)).startRoleHolderProvisioning(intentArgumentCaptor.capture());
         assertBundlesEqual(
-                intentArgumentCaptor.getAllValues().get(1).getBundleExtra(EXTRA_ROLE_HOLDER_STATE),
+                intentArgumentCaptor.getAllValues().get(1)
+                        .getParcelableExtra(EXTRA_ROLE_HOLDER_STATE),
                 ROLE_HOLDER_STATE);
         verifyNoMoreInteractions(mUi);
     }
@@ -471,7 +470,8 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         ArgumentCaptor<Intent> intentArgumentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mUi, times(2)).startRoleHolderProvisioning(intentArgumentCaptor.capture());
         assertBundlesEqual(
-                intentArgumentCaptor.getAllValues().get(1).getBundleExtra(EXTRA_ROLE_HOLDER_STATE),
+                intentArgumentCaptor.getAllValues().get(1)
+                        .getParcelableExtra(EXTRA_ROLE_HOLDER_STATE),
                 ROLE_HOLDER_STATE);
         verifyNoMoreInteractions(mUi);
     }
@@ -1821,8 +1821,8 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED);
     }
 
-    private static Bundle createRoleHolderStateBundle() {
-        Bundle result = new Bundle();
+    private static PersistableBundle createRoleHolderStateBundle() {
+        PersistableBundle result = new PersistableBundle();
         result.putString("key1", "value1");
         result.putInt("key2", 2);
         result.putBoolean("key3", true);
