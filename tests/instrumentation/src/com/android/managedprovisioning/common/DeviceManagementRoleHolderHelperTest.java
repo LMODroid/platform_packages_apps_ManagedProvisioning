@@ -33,6 +33,8 @@ import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.provisioning.Constants;
 
+import com.google.android.setupcompat.util.WizardManagerHelper;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -55,16 +57,12 @@ public class DeviceManagementRoleHolderHelperTest {
             new Intent(DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE)
                     .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE);
     private static final Intent MANAGED_PROFILE_ROLE_HOLDER_INTENT =
-            new Intent(DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION_MANAGED_PROFILE)
-                    .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE)
-                    .setPackage(ROLE_HOLDER_PACKAGE_NAME);
+            createManagedProfileRoleHolderIntent();
     private static final Intent PROVISION_TRUSTED_SOURCE_INTENT =
             new Intent(DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
                     .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE);
     private static final Intent PROVISION_TRUSTED_SOURCE_ROLE_HOLDER_INTENT =
-            new Intent(ACTION_ROLE_HOLDER_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
-                    .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE)
-                    .setPackage(ROLE_HOLDER_PACKAGE_NAME);
+            createTrustedSourceRoleHolderIntent();
     private static final Intent FINANCED_DEVICE_INTENT =
             new Intent(DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE)
                     .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE);
@@ -303,7 +301,8 @@ public class DeviceManagementRoleHolderHelperTest {
         DeviceManagementRoleHolderHelper roleHolderHelper = createRoleHolderHelper();
 
         assertIntentsEqual(
-                roleHolderHelper.createRoleHolderFinalizationIntent(),
+                roleHolderHelper.createRoleHolderFinalizationIntent(
+                        /* parentActivityIntent= */ null),
                 PROVISION_FINALIZATION_ROLE_HOLDER_INTENT);
     }
 
@@ -313,7 +312,8 @@ public class DeviceManagementRoleHolderHelperTest {
                 createRoleHolderHelper(ROLE_HOLDER_NULL_PACKAGE_NAME);
 
         assertThrows(IllegalStateException.class,
-                roleHolderHelper::createRoleHolderFinalizationIntent);
+                () -> roleHolderHelper.createRoleHolderFinalizationIntent(
+                        /* parentActivityIntent= */ null));
     }
 
     @Test
@@ -322,7 +322,8 @@ public class DeviceManagementRoleHolderHelperTest {
                 createRoleHolderHelper(ROLE_HOLDER_EMPTY_PACKAGE_NAME);
 
         assertThrows(IllegalStateException.class,
-                roleHolderHelper::createRoleHolderFinalizationIntent);
+                () -> roleHolderHelper.createRoleHolderFinalizationIntent(
+                        /* parentActivityIntent= */ null));
     }
 
     private void enableRoleHolderDelegation() {
@@ -393,5 +394,21 @@ public class DeviceManagementRoleHolderHelperTest {
         result.add(ACTION_ROLE_HOLDER_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
         result.add(DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION_FINALIZATION);
         return result;
+    }
+
+    private static Intent createManagedProfileRoleHolderIntent() {
+        Intent intent = new Intent(DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION_MANAGED_PROFILE)
+                .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE)
+                .setPackage(ROLE_HOLDER_PACKAGE_NAME);
+        WizardManagerHelper.copyWizardManagerExtras(MANAGED_PROFILE_INTENT, intent);
+        return intent;
+    }
+
+    private static Intent createTrustedSourceRoleHolderIntent() {
+        Intent intent = new Intent(ACTION_ROLE_HOLDER_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
+                .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE)
+                .setPackage(ROLE_HOLDER_PACKAGE_NAME);
+        WizardManagerHelper.copyWizardManagerExtras(PROVISION_TRUSTED_SOURCE_INTENT, intent);
+        return intent;
     }
 }

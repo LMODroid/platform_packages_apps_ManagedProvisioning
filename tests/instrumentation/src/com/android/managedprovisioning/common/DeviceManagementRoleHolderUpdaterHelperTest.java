@@ -136,7 +136,8 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
                 createRoleHolderUpdaterHelper();
 
         assertIntentsEqual(
-                roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(),
+                roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
+                        /* parentActivityIntent= */ null),
                 ROLE_HOLDER_UPDATER_INTENT);
     }
 
@@ -147,7 +148,8 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
                         ROLE_HOLDER_UPDATER_NULL_PACKAGE_NAME);
 
         assertThrows(IllegalStateException.class,
-                roleHolderUpdaterHelper::createRoleHolderUpdaterIntent);
+                () -> roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
+                        /* parentActivityIntent= */ null));
     }
 
     @Test
@@ -157,7 +159,8 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
                         ROLE_HOLDER_UPDATER_EMPTY_PACKAGE_NAME);
 
         assertThrows(IllegalStateException.class,
-                roleHolderUpdaterHelper::createRoleHolderUpdaterIntent);
+                () -> roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
+                        /* parentActivityIntent= */ null));
     }
 
     private DeviceManagementRoleHolderUpdaterHelper

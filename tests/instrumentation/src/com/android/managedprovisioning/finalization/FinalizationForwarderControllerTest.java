@@ -92,7 +92,8 @@ public class FinalizationForwarderControllerTest {
 
     @Test
     public void createRoleHolderFinalizationIntent_works() {
-        Intent finalizationIntent = mController.createRoleHolderFinalizationIntent(mContext);
+        Intent finalizationIntent = mController.createRoleHolderFinalizationIntent(
+                mContext, /* parentActivityIntent= */ null);
 
         assertIntentEquals(finalizationIntent, FINALIZATION_INTENT_ROLE_HOLDER);
     }
@@ -100,7 +101,8 @@ public class FinalizationForwarderControllerTest {
     @Test
     public void createPlatformProvidedProvisioningFinalizationIntent_works() {
         Intent finalizationIntent =
-                mController.createPlatformProvidedProvisioningFinalizationIntent(mContext);
+                mController.createPlatformProvidedProvisioningFinalizationIntent(
+                        mContext, /* parentActivityIntent= */ null);
 
         assertIntentEquals(finalizationIntent, FINALIZATION_INTENT_PLATFORM_PROVIDED);
     }
@@ -112,7 +114,8 @@ public class FinalizationForwarderControllerTest {
         mScreenManager.setOverrideActivity(FINALIZATION_INSIDE_SUW, Activity.class);
         try {
             Intent finalizationIntent =
-                    mController.createPlatformProvidedProvisioningFinalizationIntent(mContext);
+                    mController.createPlatformProvidedProvisioningFinalizationIntent(
+                            mContext, /* parentActivityIntent= */ null);
 
             assertIntentEquals(finalizationIntent, FINALIZATION_INTENT_TEST_OVERRIDE);
         } finally {
