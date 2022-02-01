@@ -467,7 +467,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                         new DefaultPackageInstallChecker(mUtils));
         Intent intent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
         intent.putExtra(
-                EXTRA_INTENT_TO_LAUNCH, roleHolderUpdaterHelper.createRoleHolderUpdaterIntent());
+                EXTRA_INTENT_TO_LAUNCH,
+                roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(getIntent()));
         getTransitionHelper().startActivityForResultWithTransition(
                  this,
                 intent,

@@ -28,6 +28,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 
 import com.android.managedprovisioning.provisioning.Constants;
+import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import java.util.Collection;
 import java.util.List;
@@ -136,18 +137,22 @@ public final class DeviceManagementRoleHolderHelper {
             roleHolderIntent.putExtras(managedProvisioningIntent.getExtras());
         }
         roleHolderIntent.setPackage(mRoleHolderPackageName);
+        WizardManagerHelper.copyWizardManagerExtras(managedProvisioningIntent, roleHolderIntent);
         return roleHolderIntent;
     }
 
     /**
      * Returns a new intent which starts the device management role holder finalization.
      */
-    public Intent createRoleHolderFinalizationIntent() {
+    public Intent createRoleHolderFinalizationIntent(@Nullable Intent parentActivityIntent) {
         if (TextUtils.isEmpty(mRoleHolderPackageName)) {
             throw new IllegalStateException("Role holder package name is null or empty.");
         }
         Intent roleHolderIntent = new Intent(ACTION_ROLE_HOLDER_PROVISION_FINALIZATION);
         roleHolderIntent.setPackage(mRoleHolderPackageName);
+        if (parentActivityIntent != null) {
+            WizardManagerHelper.copyWizardManagerExtras(parentActivityIntent, roleHolderIntent);
+        }
         return roleHolderIntent;
     }
 

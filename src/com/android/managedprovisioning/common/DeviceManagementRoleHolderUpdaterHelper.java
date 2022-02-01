@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 
 import com.android.managedprovisioning.provisioning.Constants;
+import com.google.android.setupcompat.util.WizardManagerHelper;
 
 /**
  * Helper class for logic related to device management role holder updater launching.
@@ -70,11 +71,15 @@ public class DeviceManagementRoleHolderUpdaterHelper {
     /**
      * Creates an intent to be used to launch the role holder updater.
      */
-    public Intent createRoleHolderUpdaterIntent() {
+    public Intent createRoleHolderUpdaterIntent(@Nullable Intent parentActivityIntent) {
         if (TextUtils.isEmpty(mRoleHolderUpdaterPackageName)) {
             throw new IllegalStateException("Role holder updater package name is null or empty.");
         }
-        return new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER)
+        Intent intent = new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER)
                 .setPackage(mRoleHolderUpdaterPackageName);
+        if (parentActivityIntent != null) {
+            WizardManagerHelper.copyWizardManagerExtras(parentActivityIntent, intent);
+        }
+        return intent;
     }
 }

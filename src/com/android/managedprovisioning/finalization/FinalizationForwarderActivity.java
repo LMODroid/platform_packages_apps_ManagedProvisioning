@@ -74,7 +74,8 @@ public class FinalizationForwarderActivity extends Activity implements
     public void startPlatformProvidedProvisioningFinalization() {
         mTransitionHelper.startActivityForResultWithTransition(
                 this,
-                mFinalizationController.createPlatformProvidedProvisioningFinalizationIntent(this),
+                mFinalizationController.createPlatformProvidedProvisioningFinalizationIntent(
+                        this, getIntent()),
                 START_PLATFORM_PROVIDED_PROVISIONING_FINALIZATION_REQUEST_CODE);
     }
 
@@ -83,7 +84,7 @@ public class FinalizationForwarderActivity extends Activity implements
         Intent intent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
         intent.putExtra(
                 RetryLaunchActivity.EXTRA_INTENT_TO_LAUNCH,
-                mFinalizationController.createRoleHolderFinalizationIntent(this));
+                mFinalizationController.createRoleHolderFinalizationIntent(this, getIntent()));
         mTransitionHelper.startActivityForResultWithTransition(
                 this,
                 intent,
