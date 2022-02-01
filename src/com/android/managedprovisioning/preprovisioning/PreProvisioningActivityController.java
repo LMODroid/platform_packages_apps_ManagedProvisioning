@@ -244,8 +244,9 @@ public class PreProvisioningActivityController {
      * the role holder.
      *
      * @see DevicePolicyManager#EXTRA_ROLE_HOLDER_STATE
+     * @param roleHolderState
      */
-    public void startRoleHolderUpdater(@Nullable Bundle roleHolderState) {
+    public void startRoleHolderUpdater(@Nullable PersistableBundle roleHolderState) {
         mViewModel.onRoleHolderUpdateInitiated();
         mViewModel.setRoleHolderState(roleHolderState);
         mUi.startRoleHolderUpdater();

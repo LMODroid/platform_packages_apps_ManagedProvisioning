@@ -22,7 +22,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.BaseBundle;
-import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.RemoteException;
 import android.support.test.uiautomator.UiDevice;
@@ -186,7 +185,7 @@ public class TestUtils extends AndroidTestCase {
         assertBundlesEqual(intent1.getExtras(), intent2.getExtras());
     }
 
-    public static void assertBundlesEqual(Bundle bundle1, Bundle bundle2) {
+    public static void assertBundlesEqual(BaseBundle bundle1, BaseBundle bundle2) {
         if (bundle1 != null) {
             assertWithMessage("Intent bundles are not equal")
                     .that(bundle2).isNotNull();

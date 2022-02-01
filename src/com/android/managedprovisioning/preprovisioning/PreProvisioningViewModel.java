@@ -24,7 +24,7 @@ import android.annotation.IntDef;
 import android.annotation.MainThread;
 import android.annotation.Nullable;
 import android.content.Intent;
-import android.os.Bundle;
+import android.os.PersistableBundle;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -55,7 +55,7 @@ public final class PreProvisioningViewModel extends ViewModel {
     static final int STATE_ROLE_HOLDER_PROVISIONING = 8;
 
     private static final int DEFAULT_MAX_ROLE_HOLDER_UPDATE_RETRIES = 3;
-    private Bundle mRoleHolderState;
+    private PersistableBundle mRoleHolderState;
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({STATE_PREPROVISIONING_INITIALIZING,
@@ -146,23 +146,25 @@ public final class PreProvisioningViewModel extends ViewModel {
 
     /**
      * Sets a copy of the role holder state.
+     * @param roleHolderState
      */
-    public void setRoleHolderState(@Nullable Bundle roleHolderState) {
+    public void setRoleHolderState(@Nullable PersistableBundle roleHolderState) {
         if (roleHolderState == null) {
             mRoleHolderState = null;
         } else {
-            mRoleHolderState = new Bundle(roleHolderState);
+            mRoleHolderState = new PersistableBundle(roleHolderState);
         }
     }
 
     /**
      * Retrieves a copy of the role holder state or {@link null} if one does not exist.
+     * @return
      */
-    public @Nullable Bundle getRoleHolderState() {
+    public @Nullable PersistableBundle getRoleHolderState() {
         if (mRoleHolderState == null) {
             return null;
         } else {
-            return new Bundle(mRoleHolderState);
+            return new PersistableBundle(mRoleHolderState);
         }
     }
 

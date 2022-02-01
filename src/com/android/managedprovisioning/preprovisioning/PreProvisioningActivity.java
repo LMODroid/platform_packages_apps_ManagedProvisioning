@@ -38,6 +38,7 @@ import android.app.DialogFragment;
 import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -321,8 +322,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE:
                 ProvisionLogger.logw("Role holder returned result code " + resultCode);
                 if (resultCode == RESULT_UPDATE_ROLE_HOLDER) {
-                    Bundle roleHolderState =
-                            data.getBundleExtra(DevicePolicyManager.EXTRA_ROLE_HOLDER_STATE);
+                    PersistableBundle roleHolderState =
+                            data.getParcelableExtra(DevicePolicyManager.EXTRA_ROLE_HOLDER_STATE);
                     mController.resetRoleHolderUpdateRetryCount();
                     mController.startRoleHolderUpdater(roleHolderState);
                 } else {
