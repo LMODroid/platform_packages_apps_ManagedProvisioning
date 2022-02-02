@@ -56,7 +56,9 @@ public class FinalizationForwarderActivity extends Activity implements
         mTransitionHelper.applyContentScreenTransitions(this);
         super.onCreate(savedInstanceState);
         mFinalizationController = createFinalizationController();
-        mFinalizationController.forwardFinalization(this);
+        if (savedInstanceState == null) {
+            mFinalizationController.forwardFinalization(this);
+        }
     }
 
     @Override
