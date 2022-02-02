@@ -56,7 +56,7 @@ public class RetryLaunchViewModelTest {
     private static final int LAUNCH_ROLE_HOLDER_MAX_RETRIES = 1;
     private static final int ROLE_HOLDER_UPDATE_MAX_RETRIES = 1;
     private static final LaunchActivityEvent
-            LAUNCH_ROLE_HOLDER_UPDATER_EVENT = createLaunchRoleHolderUpdaterEvent();
+            LAUNCH_ACTIVITY_EVENT = createLaunchRoleHolderUpdaterEvent();
     private static final LaunchActivityFailureEvent
             EXCEED_MAX_NUMBER_LAUNCH_RETRIES_EVENT = createExceedMaxNumberLaunchRetriesEvent();
     private static final LaunchActivityWaitingForRetryEvent WAITING_FOR_RETRY_EVENT =
@@ -90,7 +90,7 @@ public class RetryLaunchViewModelTest {
         mViewModel.tryStartActivity();
         blockUntilNextUiThreadCycle();
 
-        assertThat(mEvents).containsExactly(LAUNCH_ROLE_HOLDER_UPDATER_EVENT);
+        assertThat(mEvents).containsExactly(LAUNCH_ACTIVITY_EVENT);
     }
 
     @Test
@@ -104,7 +104,7 @@ public class RetryLaunchViewModelTest {
         pollForEvents(
                 mEvents,
                 WAITING_FOR_RETRY_EVENT,
-                LAUNCH_ROLE_HOLDER_UPDATER_EVENT);
+                LAUNCH_ACTIVITY_EVENT);
     }
 
     @Test
@@ -129,6 +129,18 @@ public class RetryLaunchViewModelTest {
         mViewModel.stopLaunchRetries();
 
         pollForEvents(mEvents, WAITING_FOR_RETRY_EVENT);
+    }
+
+    @Test
+    public void markWaitingForActivityResult_works() {
+        mViewModel.markWaitingForActivityResult();
+
+        assertThat(mViewModel.isWaitingForActivityResult()).isTrue();
+    }
+
+    @Test
+    public void isWaitingForActivityResult_defaultsToFalse() {
+        assertThat(mViewModel.isWaitingForActivityResult()).isFalse();
     }
 
     private void pollForEvents(

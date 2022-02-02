@@ -36,7 +36,7 @@ import androidx.lifecycle.ViewModelProvider;
 import java.util.Objects;
 
 final class RetryLaunchViewModel extends AndroidViewModel {
-    static final int VIEW_MODEL_EVENT_LAUNCH_UPDATER = 1;
+    static final int VIEW_MODEL_EVENT_LAUNCH_ACTIVITY = 1;
     static final int VIEW_MODEL_EVENT_LAUNCH_FAILURE = 2;
     static final int VIEW_MODEL_EVENT_WAITING_FOR_RETRY = 3;
 
@@ -48,6 +48,7 @@ final class RetryLaunchViewModel extends AndroidViewModel {
     private final Intent mActivityIntent;
 
     private int mNumberOfStartUpdaterTries = 0;
+    private boolean mIsWaitingForActivityResult;
 
     RetryLaunchViewModel(
             @NonNull Application application,
@@ -94,6 +95,14 @@ final class RetryLaunchViewModel extends AndroidViewModel {
         mHandler.removeCallbacks(mRunnable);
     }
 
+    boolean isWaitingForActivityResult() {
+        return mIsWaitingForActivityResult;
+    }
+
+    void markWaitingForActivityResult() {
+        mIsWaitingForActivityResult = true;
+    }
+
     /**
      * Tries to reschedule the role holder updater launch.
      */
@@ -126,7 +135,7 @@ final class RetryLaunchViewModel extends AndroidViewModel {
         private final Intent mIntent;
 
         LaunchActivityEvent(Intent intent) {
-            super(VIEW_MODEL_EVENT_LAUNCH_UPDATER);
+            super(VIEW_MODEL_EVENT_LAUNCH_ACTIVITY);
             mIntent = requireNonNull(intent);
         }
 

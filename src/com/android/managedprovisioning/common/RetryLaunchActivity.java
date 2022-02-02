@@ -138,8 +138,11 @@ public final class RetryLaunchActivity extends SetupGlifLayoutActivity {
     private void setupViewModelObservation() {
         mViewModel.observeViewModelEvents().observe(this, viewModelEvent -> {
             switch (viewModelEvent.getType()) {
-                case RetryLaunchViewModel.VIEW_MODEL_EVENT_LAUNCH_UPDATER:
-                    launchActivity(((LaunchActivityEvent) viewModelEvent).getIntent());
+                case RetryLaunchViewModel.VIEW_MODEL_EVENT_LAUNCH_ACTIVITY:
+                    if (!mViewModel.isWaitingForActivityResult()) {
+                        launchActivity(((LaunchActivityEvent) viewModelEvent).getIntent());
+                        mViewModel.markWaitingForActivityResult();
+                    }
                     break;
                 case RetryLaunchViewModel.VIEW_MODEL_EVENT_WAITING_FOR_RETRY:
                     initializeUi();
