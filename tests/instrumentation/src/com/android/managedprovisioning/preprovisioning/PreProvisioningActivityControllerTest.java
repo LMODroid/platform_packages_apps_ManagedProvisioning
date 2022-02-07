@@ -27,6 +27,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIME
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
@@ -323,6 +324,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.continueProvisioningAfterUserConsent());
         // THEN start profile provisioning
+        verify(mUi).onParamsValidated(mParams);
         verify(mUi).startProvisioning(mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
@@ -337,7 +339,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         // WHEN initiating provisioning
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE));
-
+        verify(mUi).onParamsValidated(mParams);
         // THEN start profile provisioning
         verify(mUi).startRoleHolderUpdater();
         verifyNoMoreInteractions(mUi);
@@ -357,6 +359,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         });
 
         // THEN start role holder provisioning
+        verify(mUi).onParamsValidated(mParams);
         verify(mUi).startRoleHolderProvisioning(any(Intent.class));
         verifyNoMoreInteractions(mUi);
         verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
@@ -377,6 +380,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         });
 
         // THEN start role holder provisioning
+        verify(mUi).onParamsValidated(any());
         verify(mUi).startRoleHolderProvisioning(any(Intent.class));
         verifyNoMoreInteractions(mUi);
         verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
@@ -400,6 +404,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
 
         // THEN start profile provisioning
         ArgumentCaptor<Intent> intentArgumentCaptor = ArgumentCaptor.forClass(Intent.class);
+        verify(mUi).onParamsValidated(any());
         verify(mUi).startRoleHolderUpdater();
         verify(mUi).startRoleHolderProvisioning(intentArgumentCaptor.capture());
         assertThat(intentArgumentCaptor.getValue().hasExtra(EXTRA_ROLE_HOLDER_STATE)).isFalse();
@@ -429,6 +434,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         });
 
         // THEN start profile provisioning
+        verify(mUi).onParamsValidated(any());
         verify(mUi, times(2)).startRoleHolderUpdater();
         ArgumentCaptor<Intent> intentArgumentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mUi, times(2)).startRoleHolderProvisioning(intentArgumentCaptor.capture());
@@ -466,6 +472,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         });
 
         // THEN start profile provisioning
+        verify(mUi).onParamsValidated(any());
         verify(mUi, times(3)).startRoleHolderUpdater();
         ArgumentCaptor<Intent> intentArgumentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mUi, times(2)).startRoleHolderProvisioning(intentArgumentCaptor.capture());
@@ -489,6 +496,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         });
 
         // THEN start profile provisioning
+        verify(mUi).onParamsValidated(mParams);
         verify(mUi).initiateUi(any(UiParams.class));
         verify(mUi).startRoleHolderUpdater();
         verifyNoMoreInteractions(mUi);
@@ -507,6 +515,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         });
 
         // THEN start profile provisioning
+        verify(mUi).onParamsValidated(mParams);
         verify(mUi).initiateUi(any(UiParams.class));
         verifyNoMoreInteractions(mUi);
         verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
@@ -555,6 +564,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         // WHEN initiating managed profile provisioning
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE));
+        verify(mUi).onParamsValidated(mParams);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN the UI elements should be updated accordingly
@@ -571,12 +581,14 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         // WHEN initiating with a continuation intent
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.initiateProvisioning(mIntent, MP_PACKAGE_NAME));
+        verify(mUi).onParamsValidated(mParams);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
         // WHEN the user consents
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.continueProvisioningAfterUserConsent());
         // THEN start profile provisioning
+        verify(mUi).onParamsValidated(mParams);
         verify(mUi).startProvisioning(mParams);
         verify(mEncryptionController).cancelEncryptionReminder();
         verifyNoMoreInteractions(mUi);
@@ -589,6 +601,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         // WHEN initiating managed profile provisioning
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE));
+        verify(mUi).onParamsValidated(mParams);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
         // WHEN the user consents
@@ -657,12 +670,14 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         // WHEN initiating provisioning
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE));
+        verify(mUi).onParamsValidated(mParams);
         // THEN the UI elements should be updated accordingly
         verifyInitiateProfileOwnerUi();
         // WHEN the user consents
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.continueProvisioningAfterUserConsent());
         // THEN start profile provisioning
+        verify(mUi).onParamsValidated(mParams);
         verify(mUi).startProvisioning(mParams);
         verify(mUi, never()).requestEncryption(any(ProvisioningParams.class));
         verify(mEncryptionController).cancelEncryptionReminder();
@@ -679,6 +694,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         // WHEN initiating provisioning
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() ->
                 mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE));
+        verify(mUi).onParamsValidated(mParams);
         // WHEN the user consents
         mController.continueProvisioningAfterUserConsent();
         // THEN the UI elements should be updated accordingly
@@ -1673,6 +1689,54 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         verify(mUi, never()).initiateUi(any());
         verify(mUi).abortProvisioning();
         verifyNoMoreInteractions(mUi);
+    }
+
+    public void testUpdateProvisioningParamsFromIntent_keepScreenOnWorkProfile_works() {
+        Intent resultIntent = createResultIntentWithManagedProfile()
+                .putExtra(EXTRA_PROVISIONING_KEEP_SCREEN_ON, /* value= */ true);
+        ProvisioningParams params = createProvisioningParamsBuilderForManagedProfile()
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().keepScreenOn).isTrue();
+    }
+
+    public void testUpdateProvisioningParamsFromIntent_keepScreenOnManagedDevice_works() {
+        Intent resultIntent = createResultIntentWithFullyManagedDevice()
+                .putExtra(EXTRA_PROVISIONING_KEEP_SCREEN_ON, /* value= */ true);
+        ProvisioningParams params = createProvisioningParamsBuilderForFullyManagedDevice()
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().keepScreenOn).isTrue();
+    }
+
+    public void testUpdateProvisioningParamsFromIntent_noKeepScreenOnSet_isFalse() {
+        Intent resultIntent = createResultIntentWithManagedProfile();
+        ProvisioningParams params = createProvisioningParamsBuilderForManagedProfile()
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().keepScreenOn).isFalse();
+    }
+
+    public void testUpdateProvisioningParamsFromIntent_withPreExistingKeepScreenOn_replaced() {
+        Intent resultIntent = createResultIntentWithFullyManagedDevice()
+                .putExtra(EXTRA_PROVISIONING_KEEP_SCREEN_ON, /* value= */ true);
+        ProvisioningParams params = createProvisioningParamsBuilderForFullyManagedDevice()
+                .setKeepScreenOn(false)
+                .build();
+        initiateProvisioning(params);
+
+        mController.updateProvisioningParamsFromIntent(resultIntent);
+
+        assertThat(mController.getParams().keepScreenOn).isTrue();
     }
 
     private static Parcelable[] createDisclaimersExtra() {

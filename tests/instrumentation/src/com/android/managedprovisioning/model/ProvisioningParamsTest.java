@@ -497,6 +497,32 @@ public class ProvisioningParamsTest extends AndroidTestCase {
         assertThat(provisioningParams.allowProvisioningAfterUserSetupComplete).isFalse();
     }
 
+    @SmallTest
+    public void testKeepScreenOn_notSet_isFalse() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .build();
+
+        assertThat(params.keepScreenOn).isFalse();
+    }
+
+    @SmallTest
+    public void testKeepScreenOn_setTrue_isTrue() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setKeepScreenOn(true)
+                .build();
+
+        assertThat(params.keepScreenOn).isTrue();
+    }
+
+    @SmallTest
+    public void testKeepScreenOn_setFalse_isFalse() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setKeepScreenOn(false)
+                .build();
+
+        assertThat(params.keepScreenOn).isFalse();
+    }
+
     private ProvisioningParams.Builder createDefaultProvisioningParamsBuilder() {
         return ProvisioningParams.Builder
                 .builder()

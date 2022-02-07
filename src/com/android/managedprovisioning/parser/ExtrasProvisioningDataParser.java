@@ -33,6 +33,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIME
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_CONTENT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
@@ -573,7 +574,11 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setSkipOwnershipDisclaimer(getSkipOwnershipDisclaimer(intent))
                     .setReturnBeforePolicyCompliance(getReturnBeforePolicyCompliance(intent))
                     .setDeviceOwnerPermissionGrantOptOut(
-                            adminOptedOutOfSensorsPermissionGrants);
+                            adminOptedOutOfSensorsPermissionGrants)
+                    .setKeepScreenOn(getBooleanExtraFromLongName(
+                            intent,
+                            EXTRA_PROVISIONING_KEEP_SCREEN_ON,
+                            ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_SCREEN_ON));
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra has invalid type", e);
         } catch (IllegalArgumentException e) {
