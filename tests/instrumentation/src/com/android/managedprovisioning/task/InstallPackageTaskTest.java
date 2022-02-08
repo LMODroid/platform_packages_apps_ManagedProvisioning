@@ -211,7 +211,8 @@ public class InstallPackageTaskTest {
         }
 
         @Override
-        public void onError(AbstractProvisioningTask task, int errorCode) {
+        public void onError(
+                AbstractProvisioningTask task, int errorCode, String errorMessage) {
             callbackTriggered(errorCode);
         }
     }

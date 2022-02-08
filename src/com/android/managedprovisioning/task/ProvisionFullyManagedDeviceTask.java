@@ -21,6 +21,7 @@ import static java.util.Objects.requireNonNull;
 import android.annotation.UserIdInt;
 import android.app.admin.DevicePolicyManager;
 import android.app.admin.FullyManagedDeviceProvisioningParams;
+import android.app.admin.ProvisioningException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.stats.devicepolicy.DevicePolicyEnums;
@@ -86,6 +87,10 @@ public class ProvisionFullyManagedDeviceTask extends AbstractProvisioningTask {
 
         try {
             mDpm.provisionFullyManagedDevice(params);
+        } catch (ProvisioningException provisioningException) {
+            ProvisionLogger.loge("Failure provisioning device owner", provisioningException);
+            error(/* resultCode= */ 0, provisioningException.getMessage());
+            return;
         } catch (Exception e) {
             // Catching all Exceptions to allow Managed Provisioning to handle any failure
             // during provisioning properly and perform any necessary cleanup.

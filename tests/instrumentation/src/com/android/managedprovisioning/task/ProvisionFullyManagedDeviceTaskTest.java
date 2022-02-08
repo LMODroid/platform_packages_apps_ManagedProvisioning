@@ -74,6 +74,10 @@ public class ProvisionFullyManagedDeviceTaskTest {
 
     @Captor private ArgumentCaptor<FullyManagedDeviceProvisioningParams> mParamsCaptor;
 
+    private static final String TEST_ERROR_MESSAGE = "test error message";
+    private static final ProvisioningException PROVISIONING_EXCEPTION = new ProvisioningException(
+            new Exception(), /* provisioningError= */ 0, TEST_ERROR_MESSAGE);
+
     @Before
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
@@ -105,7 +109,19 @@ public class ProvisionFullyManagedDeviceTaskTest {
 
         task.run(TEST_USER_ID);
 
-        verify(mCallback).onError(task, 0);
+        verify(mCallback).onError(task, 0, /* errorMessage= */ null);
+        verifyNoMoreInteractions(mCallback);
+    }
+
+    @Test
+    public void testTextError() throws Exception {
+        ProvisionFullyManagedDeviceTask task = createProvisioningTask(TEST_PARAMS);
+        doThrow(PROVISIONING_EXCEPTION)
+                .when(mDevicePolicyManager).provisionFullyManagedDevice(any());
+
+        task.run(TEST_USER_ID);
+
+        verify(mCallback).onError(task, 0, TEST_ERROR_MESSAGE);
         verifyNoMoreInteractions(mCallback);
     }
 
