@@ -18,24 +18,23 @@ package com.android.managedprovisioning.common;
 
 import android.app.role.RoleManager;
 import android.content.Context;
+import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
-
-import java.util.List;
 
 /**
  * A provider for the role holder package name.
  */
 public interface RoleHolderProvider {
     RoleHolderProvider DEFAULT = (Context context) -> {
-        RoleManager roleManager = context.getSystemService(RoleManager.class);
-        List<String> roleHolders = roleManager.getRoleHolders(RoleManager.ROLE_DEVICE_MANAGER);
-        if (roleHolders.isEmpty()) {
+        String deviceManagerConfig =
+                context.getString(com.android.internal.R.string.config_deviceManager);
+        if (TextUtils.isEmpty(deviceManagerConfig)) {
             ProvisionLogger.logi("No role holders retrieved for "
                     + RoleManager.ROLE_DEVICE_MANAGER);
             return null;
         }
-        return roleHolders.get(0);
+        return RoleHolderParser.getRoleHolderPackage(deviceManagerConfig);
     };
 
     /**
