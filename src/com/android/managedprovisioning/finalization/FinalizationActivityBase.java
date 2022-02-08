@@ -25,7 +25,6 @@ import static com.android.managedprovisioning.provisioning.Constants.PROVISIONIN
 import android.app.Activity;
 import android.app.BackgroundServiceStartNotAllowedException;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -35,10 +34,9 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.view.WindowManager;
 
-import com.android.managedprovisioning.common.Globals;
+import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.TransitionHelper;
-import com.android.managedprovisioning.provisioning.ProvisioningService;
 
 /**
  * Instances of this base class manage interactions with a Device Policy Controller app after it has
@@ -89,6 +87,13 @@ public abstract class FinalizationActivityBase extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         mFinalizationController = createFinalizationController();
+
+        if (mFinalizationController.shouldKeepScreenOn()) {
+            ManagedProvisioningBaseApplication application =
+                    (ManagedProvisioningBaseApplication) getApplication();
+            application.markKeepScreenOn();
+            application.maybeKeepScreenOn(this);
+        }
 
         if (savedInstanceState != null) {
             final Bundle controllerState = savedInstanceState.getBundle(CONTROLLER_STATE_KEY);

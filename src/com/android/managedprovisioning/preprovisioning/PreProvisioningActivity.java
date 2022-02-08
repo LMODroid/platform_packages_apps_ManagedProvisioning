@@ -47,6 +47,7 @@ import android.widget.TextView;
 
 import androidx.annotation.VisibleForTesting;
 
+import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
@@ -482,6 +483,16 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 /* activity= */ this,
                 retryLaunchIntent,
                 START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE);
+    }
+
+    @Override
+    public void onParamsValidated(ProvisioningParams params) {
+        if (params.keepScreenOn) {
+            ManagedProvisioningBaseApplication application =
+                    (ManagedProvisioningBaseApplication) getApplication();
+            application.markKeepScreenOn();
+            application.maybeKeepScreenOn(this);
+        }
     }
 
     private void requestLauncherPick() {
