@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"확인"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"동의합니다."</string>
     <string name="url_error" msgid="5958494012986243186">"표시할 수 없는 링크입니다."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"뒤로 탐색"</string>
     <string name="terms" msgid="8295436105384703903">"약관"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"직장 프로필 정보"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"관리 기기 정보"</string>
@@ -163,7 +162,7 @@
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"IT 관리자가 휴대기기 관리를 사용하여 보안 정책을 시행합니다."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"직장 설정 준비 중…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"직장 프로필 설정"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"업무용 앱은 직장 프로필에 보관됩니다"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"업무용 앱은 직장 프로필에 보관됩니다."</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"업무가 끝나면 업무용 앱 일시중지"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"직장 프로필의 데이터가 IT 관리자에게 공개됩니다"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"직장 프로필 설정 중..."</string>
@@ -174,7 +173,7 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT 관리자가 이 기기의 내 데이터와 활동을 볼 수 있습니다."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"활동 및 데이터"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"앱 권한"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT 관리자가 이 기기에 있는 앱의 마이크, 카메라, 위치 등에 대한 권한을 설정할 수 있습니다."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT 관리자가 이 기기에 있는 앱에서 마이크, 카메라, 위치 등에 대한 권한을 설정할 수 있습니다."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"기기 설정 중…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"이 기기를 사용하여 직장 앱에 간편하게 액세스하세요. 이 기기는 비공개 기기가 아니므로 IT 관리자가 내 데이터와 활동을 볼 수 있습니다."</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"이 기기를 사용하여 직장 앱에 간편하게 액세스하세요. 이 기기는 개인 기기가 아니므로 IT 관리자가 활동 및 데이터를 볼 수 있습니다. IT 관리자는 이 기기에 있는 앱에서 마이크, 카메라, 위치 등에 대한 권한을 설정할 수도 있습니다."</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"개인정보 보호 알림"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT 관리자가 이 기기의 내 데이터와 활동을 볼 수 있습니다."</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"이 기기는 <xliff:g id="CREDITOR_NAME">%s</xliff:g>에서 제공합니다"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"이 기기와 관련된 비용을 결제할 수 있습니다"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> 앱으로 기기 값 결제"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"사용자가 기기 값을 결제할 수 있도록 <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>에서 <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> 앱을 설치할 수 있습니다."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"이 기기가 제한될 수 있습니다."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g>에서 이 기기를 제한할 수 있습니다"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"결제하지 않으면 <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>에서 이 기기에 대한 액세스를 제한할 수 있습니다."</string>
 </resources>

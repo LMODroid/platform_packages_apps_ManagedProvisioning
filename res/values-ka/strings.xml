@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"კარგი"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ვეთანხმები"</string>
     <string name="url_error" msgid="5958494012986243186">"ამ ბმულის ჩვენება ვერ ხერხდება."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"ნავიგაცია ზემოთ"</string>
     <string name="terms" msgid="8295436105384703903">"პირობები"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"სამსახურის პროფილის ინფორმაცია"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"მართული მოწყობილობის ინფორმაცია"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"კონფიდენციალურობის შესახებ შეხსენება"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"თქვენი IT ადმინისტრატორი შეიძლება ხედავდეს თქვენს მონაცემებს და აქტივობას ამ მოწყობილობაზე"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"ამ მოწყობილობის მომწოდებელია <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"აწარმოეთ გადახდები ამ მოწყობილობისთვის"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"გადახდების წარმოება <xliff:g id="CREDITOR_NAME">%s</xliff:g> აპით"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>-ს შეუძლია <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> აპის ინსტალაცია, რომ გადახდები აწარმოოთ ამ მოწყობილობისთვის."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ამ მოწყობილობისთვის შეიძლება დაწესდეს შეზღუდვა"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g>-ს შეუძლია ამ მოწყობილობის შეზღუდვა"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>-ს შეუძლია ამ მოწყობილობაზე წვდომის შეზღუდვა, გადაუხდელობის შემთხვევაში"</string>
 </resources>

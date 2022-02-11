@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"تأیید"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"رضایت دارم"</string>
     <string name="url_error" msgid="5958494012986243186">"این پیوند نمی‌تواند نمایش داده شود."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"پیمایش به‌بالا"</string>
     <string name="terms" msgid="8295436105384703903">"شرایط"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"اطلاعات نمایه کاری"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"اطلاعات دستگاه مدیریت‌شده"</string>
@@ -170,14 +169,14 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"برنامه‌های کاری در نمایه کاری‌تان حفظ می‌شوند. وقتی کار روزانه‌تان تمام شد، می‌توانید برنامه‌های کاری را موقتاً متوقف کنید. داده‌های موجود در نمایه کاری‌تان برای سرپرست فناوری اطلاعات نمایان است."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"بیایید دستگاه محل کارتان را راه‌اندازی کنیم"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"دردسترس قرار دادن برنامه‌های کاری"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"این دستگاه شخصی نیست"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"این دستگاه خصوصی نیست"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"‏ممکن است سرپرست IT بتواند داده‌ها و فعالیتتان را در این دستگاه ببیند."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"فعالیت و داده‌های شما"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"اجازه‌های برنامه"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"سرپرست سیستم شما می‌تواند برای برنامه‌های این دستگاه اجازه‌هایی تنظیم کند، برای مثال اجازه‌های میکروفون، دوربین، و مکان."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"درحال راه‌اندازی دستگاه…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"از این دستگاه برای دسترسی آسان به برنامه‌های کاری استفاده کنید. این دستگاه شخصی نیست، بنابراین ممکن است سرپرست سیستم بتواند داده‌ها و فعالیتتان را ببیند."</string>
-    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"از این دستگاه برای دسترسی آسان به برنامه‌های کاری استفاده کنید. این دستگاه شخصی نیست، بنابراین ممکن است سرپرست سیستم بتواند داده‌ها و فعالیتتان را ببیند. سرپرست سیستم شما می‌تواند اجازه‌های برنامه‌های این دستگاه را نیز تنظیم کند، برای مثال، اجازه‌های میکروفون، دوربین، و مکان."</string>
+    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"از این دستگاه برای دسترسی آسان به برنامه‌های کاری استفاده کنید. این دستگاه خصوصی نیست، بنابراین ممکن است سرپرست سیستم بتواند داده‌ها و فعالیتتان را ببیند."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"از این دستگاه برای دسترسی آسان به برنامه‌های کاری استفاده کنید. این دستگاه خصوصی نیست، بنابراین ممکن است سرپرست سیستم بتواند داده‌ها و فعالیتتان را ببیند. سرپرست سیستم شما می‌تواند اجازه‌های برنامه‌های این دستگاه را نیز تنظیم کند، برای مثال، اجازه‌های میکروفون، دوربین، و مکان."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"این دستگاه را به سرپرست فناوری اطلاعات برگردانید"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"به صفحه قبلی برگردید یا این دستگاه را بازنشانی کنید و آن را به سرپرست فناوری اطلاعات برگردانید."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"لغو راه‌اندازی"</string>
@@ -189,9 +188,9 @@
     <string name="just_a_sec" msgid="6244676028626237220">"لحظه‌ای صبر کنید…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"یادآوری حریم‌خصوصی"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"‏ممکن است سرپرست IT بتواند داده‌ها و فعالیت شما را در این دستگاه ببیند"</string>
-    <string name="financed_device_screen_header" msgid="6875169548352717124">"این دستگاه را <xliff:g id="CREDITOR_NAME">%s</xliff:g> تأمین کرده است"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"می‌توانید برای این دستگاه پرداخت انجام دهید"</string>
+    <string name="financed_device_screen_header" msgid="6875169548352717124">"این دستگاه را <xliff:g id="CREDITOR_NAME">%s</xliff:g> ارائه داده است"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"انجام پرداخت‌ها با برنامه <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> می‌تواند برنامه <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> را نصب کند تا بتوانید پرداخت‌های مربوط به این دستگاه را انجام دهید."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"می‌توانید این دستگاه را محدود کنید"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> می‌تواند این دستگاه را محدود کند"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"اگر پرداخت‌ها را انجام ندهید، <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> می‌تواند دسترسی به این دستگاه را محدود کند."</string>
 </resources>

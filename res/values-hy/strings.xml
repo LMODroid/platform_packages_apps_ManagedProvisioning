@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"Հաստատել"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Համաձայն եմ"</string>
     <string name="url_error" msgid="5958494012986243186">"Հնարավոր չէ ցուցադրել այս հղումը:"</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"Հետ"</string>
     <string name="terms" msgid="8295436105384703903">"Պայմաններ"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Աշխատանքային պրոֆիլի տվյալները"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Կառավարվող սարքի տվյալները"</string>
@@ -165,13 +164,13 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Կարգավորեք ձեր աշխատանքային պրոֆիլը"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Դադարեցրեք աշխատանքային հավելվածները օրվա ավարտին"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Ձեր աշխատանքային պրոֆիլի տվյալները տեսանելի են ՏՏ ադմինիստրատորին"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Ձեր աշխատանքային պրոֆիլի տվյալները տեսանելի են ձեր ՏՏ ադմինիստրատորին"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Աշխատանքային պրոֆիլը կարգավորվում է…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում։ Դրանք կարող եք դադարեցնել աշխատանքային օրվա ավարտին։ Ձեր աշխատանքային պրոֆիլի տվյալները տեսանելի են ՏՏ ադմինիստրատորին։"</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում։ Դրանք կարող եք դադարեցնել աշխատանքային օրվա ավարտին։ Ձեր աշխատանքային պրոֆիլի տվյալները տեսանելի են ձեր ՏՏ ադմինիստրատորին։"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Կարգավորեք աշխատանքային սարքը"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Աշխատանքային հավելվածները՝ ձեր գրպանում"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Այս սարքն անձնական չէ"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողությունները։"</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում։"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Ձեր գործողություններն ու տվյալները"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Հավելվածների թույլտվություններ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Ձեր ՏՏ ադմինիստրատորը կարող է այս սարքի հավելվածների համար սահմանել թույլտվություններ (օր․՝ տեղորոշման կամ խոսափողն ու տեսախցիկն օգտագործելու համար)։"</string>
@@ -185,13 +184,13 @@
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Աշխատանքային հավելվածները ձեր աշխատանքային պրոֆիլում են, կառավարիչ՝ ՏՏ ադմինիստրատորը"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Անձնական հավելվածները թաքցված են և առանձին են աշխատանքայիններից"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ՏՏ ադմինիստրատորը կարող է վերահսկել սարքը և արգելափակել որոշ հավելվածներ"</string>
-    <string name="cope_provisioning_summary" msgid="993014104601034878">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում և կառավարվում են ձեր ՏՏ ադմինիստրատորի կողմից։ Անձնական հավելվածները առանձին են և թաքցված են, երբ ցուցադրվում են աշխատանքայինները։ Ձեր ՏՏ ադմինիստրատորը կարող է վերահսկել այս սարքը և արգելափակել որոշակի հավելվածներ։"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում և կառավարվում են ձեր ՏՏ ադմինիստրատորի կողմից։ Անձնական հավելվածները թաքցված են և առանձնացված աշխատանքային հավելվածներից։ Ձեր ՏՏ ադմինիստրատորը կարող է վերահսկել այս սարքը և արգելափակել որոշակի հավելվածներ։"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Սպասեք մի փոքր…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Գաղտնիության վերաբերյալ հիշեցում"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողությունները"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ՏՏ ադմինիստրատորը կարող է տեսնել ձեր տվյալներն ու գործողություններն այս սարքում"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Այս սարքը տրամադրվել է <xliff:g id="CREDITOR_NAME">%s</xliff:g>-ի կողմից"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Կատարեք վճարումներ այս սարքի համար"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Վճարումներ կատարեք <xliff:g id="CREDITOR_NAME">%s</xliff:g> հավելվածի միջոցով"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"«<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>» ընկերությունը կարող է տեղադրել <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> հավելվածը, որպեսզի դուք կարողանաք վճարումներ կատարել։"</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Այս սարքի օգտագործումը կարող է սահմանափակվել"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"«<xliff:g id="CREDITOR_NAME">%s</xliff:g>» ընկերությունը կարող է արգելափակել այս սարքը"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"«<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>» ընկերությունը կարող է արգելափակել այս սարքը, եթե վճարումներ չկատարեք։"</string>
 </resources>

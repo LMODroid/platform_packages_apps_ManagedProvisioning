@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"ठीक है"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"मैं सहमत हूं"</string>
     <string name="url_error" msgid="5958494012986243186">"यह लिंक दिखाया नहीं जा सकता."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"ऊपर जाएं"</string>
     <string name="terms" msgid="8295436105384703903">"शर्तें"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"वर्क प्रोफ़ाइल की जानकारी"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"प्रबंधित डिवाइस की जानकारी"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"निजता रिमाइंडर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"आपके आईटी एडमिन इस डिवाइस पर आपका डेटा और गतिविधि देख सकते हैं"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"यह डिवाइस, <xliff:g id="CREDITOR_NAME">%s</xliff:g> ने दिया है"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"इस डिवाइस के लिए पेमेंट करें"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ऐप्लिकेशन से पैसे चुकाएं"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>, <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ऐप्लिकेशन को इंस्टॉल कर सकता है, ताकि आप इस डिवाइस के लिए पैसे चुका सकें."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"इस डिवाइस को प्रतिबंधित किया जा सकता है"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g>, इस डिवाइस पर पाबंदी लगा सकता है"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"अगर आप पैसे नहीं चुकाते, तो <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, डिवाइस को ऐक्सेस करने पर पाबंदी लगा सकता है."</string>
 </resources>

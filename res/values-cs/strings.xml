@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Souhlasím"</string>
     <string name="url_error" msgid="5958494012986243186">"Tento odkaz nelze zobrazit."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"Přejít nahoru"</string>
     <string name="terms" msgid="8295436105384703903">"Smluvní podmínky"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Informace o pracovním profilu"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Informace o spravovaném zařízení"</string>
@@ -108,7 +107,7 @@
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Toto zařízení bude spravovat, sledovat a zabezpečovat organizace <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Platí podmínky <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Následující odkaz není zabezpečený a bude ho možné otevřít, až bude zařízení nastaveno: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="2843488903902493030">"Další informace vám poskytne <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
-    <string name="if_questions_contact_admin" msgid="3509427015901582047">"Pokud máte nějaké otázky, obraťte se na svého administrátora IT"</string>
+    <string name="if_questions_contact_admin" msgid="3509427015901582047">"Máte-li nějaké otázky, obraťte se na svého administrátora IT"</string>
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"Nastavení není dokončeno. Požádejte o pomoc administrátora IT."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"Požádejte o pomoc administrátora IT"</string>
     <string name="organization_admin" msgid="5975914478148511290">"Administrátor IT"</string>
@@ -165,9 +164,9 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Teď nastavíme váš pracovní profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Pracovní aplikace jsou uložené v pracovním profilu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Až budete mít hotovo, pracovní aplikace pozastavte"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Údaje v pracovním profilu může vidět administrátor IT"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Data v pracovním profilu vidí administrátor IT"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Nastavování pracovního profilu…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Pracovní aplikace jsou uložené v pracovním profilu. Když pro daný den skončíte s prací, můžete je pozastavit. Údaje v pracovním profilu může vidět administrátor IT."</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Pracovní aplikace jsou uložené v pracovním profilu. Když pro daný den skončíte s prací, můžete je pozastavit. Data v pracovním profilu vidí administrátor IT."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Nastavíme váš pracovní telefon"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Mějte pracovní aplikace po ruce"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Toto zařízení není soukromé"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Připomenutí ohledně ochrany soukromí"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Administrátor IT může zobrazit vaše data a aktivitu v tomto zařízení"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Toto zařízení poskytuje <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Plaťte za toto zařízení"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Plaťte pomocí aplikace <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> může nainstalovat aplikaci společnosti <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>, abyste zařízení mohli začít splácet."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Toto zařízení může být omezeno"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> může toto zařízení omezit"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Pokud nebudete splácet, <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> může přístup k tomuto zařízení omezit."</string>
 </resources>

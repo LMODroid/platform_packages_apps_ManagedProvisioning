@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Olen nõus"</string>
     <string name="url_error" msgid="5958494012986243186">"Seda linki ei saa kuvada."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"Liigu üles"</string>
     <string name="terms" msgid="8295436105384703903">"Tingimused"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Tööprofiili teave"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Hallatava seadme teave"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privaatsuse meeldetuletus"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Teie IT-administraator võib selles seadmes teie andmeid ja tegevusi näha"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Selle seadme on andnud <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Tehke seadme eest makseid"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Krediidipakkuja <xliff:g id="CREDITOR_NAME">%s</xliff:g> rakenduses maksete tegemine"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> saab installida krediidipakkuja <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> rakenduse, et saaksite selle seadme eest makseid teha."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Seda seadet saab piirata"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> saab seada sellele seadmele piiranguid"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Kui te nõutavaid makseid ei tee, saab <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> piirata juurdepääsu sellele seadmele."</string>
 </resources>

@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"Жарайт"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Мен макулмун"</string>
     <string name="url_error" msgid="5958494012986243186">"Бул шилтемени ачуу мүмкүн эмес."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"Мурунку экранга өтүү"</string>
     <string name="terms" msgid="8295436105384703903">"Шарттар"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Жумуш профили жөнүндө маалымат"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Башкарылган түзмөк жөнүндө маалымат"</string>
@@ -64,7 +63,7 @@
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"Бул түзмөккө жумуш профили кошулбайт. Суроолоруңуз болсо, IT администраторуңузга кайрылыңыз."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"Түзмөктүн жүргүзгүчүн өзгөртүү"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Бул жүргүзүүчү колдонмо жумуш профилиңизде иштебейт"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"Жок"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"Жокко чыгаруу"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"Жарайт"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Колдонуучунун жөндөөсү толук эмес"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Жумуш түзмөгүн колдонуучу"</string>
@@ -152,7 +151,7 @@
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> жана <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
-    <string name="take_a_few_minutes" msgid="6282806501305322838">"Бир нече мүнөткө созулушу мүмкүн"</string>
+    <string name="take_a_few_minutes" msgid="6282806501305322838">"Бул бир нече мүнөткө созулушу мүмкүн"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Жумуш колдонмолоруңуз бул профилде сакталып, уюмуңуз тарабынан башкарылат"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Бул түзмөктүн коопсуздугу корголуп, уюмуңуз тарабынан башкарылат"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Жумуш түзмөгү жөндөөгө даярдалууда…"</string>
@@ -165,19 +164,19 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Келиңиз, жумуш профилиңизди жөндөп алалы"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Жумуш колдонмолору жумуш профилиңизде сакталат"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Иштеп бүткөнүңүздөн кийин, жумуш колдонмолорун тындырып коюңуз"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"IT администраторуңузга жумуш профилиңиздеги нерселер көрүнөт"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"IT администраторуңузга жумуш профилиңиздеги маалымат көрүнөт"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Жумуш профилиңиз жөндөлүүдө…"</string>
-    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Жумуш колдонмолору жумуш профилиңизде сакталат. Иштеп бүткөнүңүздөн кийин, жумуш колдонмолоруңузду тындырып койсоңуз болот. IT администраторуңузга жумуш профилиңиздеги нерселер көрүнөт."</string>
+    <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Жумуш колдонмолору жумуш профилиңизде сакталат. Иштеп бүткөнүңүздөн кийин, жумуш колдонмолоруңузду тындырып койсоңуз болот. IT администраторуңузга жумуш профилиңиздеги маалымат көрүнөт."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Келиңиз, жумуш телефонуңузду жөндөп алалы"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Жумуш колдонмолоруңузга оңой кире аласыз"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Бул жеке түзмөк эмес"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT администраторуңуз бул түзмөктөгү дайын-даректериңизди жана аракеттериңизди көрө алат."</string>
-    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Аракеттериңиз жана маалыматтарыңыз"</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Аракеттер жана дайындар"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Колдонмонун уруксаттары"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT администраторуңуз колдонмолорго бул түзмөктөгү жөндөөлөрдү, анын ичинде микрофонду, камераны жана аныкталган жерлер тууралуу маалыматты колдонууга уруксат бере алат."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IT администраторуңуз колдонмолорго бул түзмөктөгү жөндөөлөрдү, анын ичинде микрофонду, камераны жана жайгашкан жер тууралуу маалыматты колдонууга уруксат бере алат."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Түзмөгүңүз жөндөлүүдө…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Бул түзмөктү жумуш колдонмолоруңузга оңой кирүү үчүн колдонуңуз. Бул жеке түзмөк эмес, андыктан IT администраторуңуз дайындарыңызды жана аракеттериңизди көрө алат."</string>
-    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Бул түзмөктү жумуш колдонмолоруңузга оңой кирүү үчүн колдонуңуз. Бул жеке түзмөк эмес, андыктан IT администраторуңуз дайын-даректериңизди жана аракеттериңизди көрө алат. Ошондой эле, IT администраторуңуз колдонмолорго бул түзмөктөгү жөндөөлөрдү, анын ичинде микрофонду, камераны жана аныкталган жерлер тууралуу маалыматты колдонууга уруксат бере алат."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Бул түзмөктү жумуш колдонмолоруңузга оңой кирүү үчүн колдонуңуз. Бул жеке түзмөк эмес, андыктан IT администраторуңуз дайын-даректериңизди жана аракеттериңизди көрө алат. Ошондой эле, IT администраторуңуз колдонмолорго бул түзмөктөгү жөндөөлөрдү, анын ичинде микрофонду, камераны жана жайгашкан жер тууралуу маалыматты колдонууга уруксат бере алат."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Бул түзмөктү IT администраторуңузга кайтарыңыз"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Мурунку экранга кайтыңыз, же болбосо бул түзмөктү баштапкы абалга келтирип, IT администраторуңузга кайтарыңыз."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Жөндөөнү токтотуу"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Купуялык жөнүндө эстеткич"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT администраторуңуз бул түзмөктөгү дайын-даректериңизди жана аракеттериңизди көрө алат"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Бул түзмөктү <xliff:g id="CREDITOR_NAME">%s</xliff:g> камсыздады."</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Бул түзмөк үчүн төлөңүз"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> колдонмосунда төлөө"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Бул түзмөк үчүн төлөмдөрдү аткаруу максатында <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> колдонмосун орнотуп берет"</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Бул түзмөк чектелген болушу мүмкүн"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> бул түзмөктү колдонууну чектеп коёт"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Төлөбөсөңүз, <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> бул түзмөктү колдонууну чектеп коёт."</string>
 </resources>

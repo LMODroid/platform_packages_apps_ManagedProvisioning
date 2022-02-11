@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"ಸರಿ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ನಾನು ಸಮ್ಮತಿಸುತ್ತೇನೆ"</string>
     <string name="url_error" msgid="5958494012986243186">"ಈ ಲಿಂಕ್ ಅನ್ನು ಪ್ರದರ್ಶಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"ಮೇಲಕ್ಕೆ ನ್ಯಾವಿಗೇಟ್ ಮಾಡಿ"</string>
     <string name="terms" msgid="8295436105384703903">"ನಿಯಮಗಳು"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಮಾಹಿತಿ"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"ನಿರ್ವಹಿಸುವ ಸಾಧನದ ಮಾಹಿತಿ"</string>
@@ -165,7 +164,7 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಸೆಟಪ್ ಮಾಡೋಣ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿರಿಸಲಾಗಿದೆ"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ನಿಮ್ಮ ಕೆಲಸದ ಸಮಯವು ಮುಕ್ತಾಯವಾದಾಗ, ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ವಿರಾಮಗೊಳಿಸಿ"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಡೇಟಾ ಐಟಿ ನಿರ್ವಾಹಕರಿಗೆ ಕಾಣಿಸುತ್ತದೆ"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಡೇಟಾ ನಿಮ್ಮ ಐಟಿ ನಿರ್ವಾಹಕರಿಗೆ ಗೋಚರಿಸುತ್ತದೆ"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಹೊಂದಿಸಲಾಗುತ್ತಿದೆ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ಉದ್ಯೋಗದ ಆ್ಯಪ್‌ಗಳನ್ನು ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿರಿಸಲಾಗಿದೆ. ನಿಮ್ಮ ಕೆಲಸದ ಸಮಯವು ಮುಕ್ತಾಯವಾದಾಗ ನಿಮ್ಮ ಕೆಲಸದ ಆ್ಯಪ್‌ಗಳನ್ನು ನೀವು ವಿರಾಮಗೊಳಿಸಬಹುದು. ನಿಮ್ಮ ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿರುವ ಡೇಟಾ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ಮಾತ್ರ ಗೋಚರಿಸುತ್ತದೆ."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ನಿಮ್ಮ ಕೆಲಸದ ಸಾಧನವನ್ನು ಸೆಟಪ್ ಮಾಡೋಣ"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ಗೌಪ್ಯತಾ ಜ್ಞಾಪನಾ ಪತ್ರ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರಿಗೆ ಈ ಸಾಧನದಲ್ಲಿರುವ ನಿಮ್ಮ ಡೇಟಾ ಮತ್ತು ಚಟುವಟಿಕೆಯನ್ನು ವೀಕ್ಷಿಸಲು ಸಾಧ್ಯವಾಗಬಹುದು"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"ಈ ಸಾಧನವನ್ನು <xliff:g id="CREDITOR_NAME">%s</xliff:g> ಒದಗಿಸಿದ್ದಾರೆ"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"ಈ ಸಾಧನಕ್ಕಾಗಿ ಪಾವತಿಗಳನ್ನು ಮಾಡಿ"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ಆ್ಯಪ್ ಮೂಲಕ ಪಾವತಿಗಳನ್ನು ಮಾಡಿ"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> ಅವರು <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ಆ್ಯಪ್ ಅನ್ನು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಬಹುದು, ಇದರಿಂದ ನೀವು ಈ ಸಾಧನಕ್ಕಾಗಿ ಪಾವತಿಗಳನ್ನು ಮಾಡಬಹುದು."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ಈ ಸಾಧನವನ್ನು ನಿರ್ಬಂಧಿಸಬಹುದು"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ಅವರು ಈ ಸಾಧನವನ್ನು ನಿರ್ಬಂಧಿಸಬಹುದು"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ನೀವು ಪಾವತಿಗಳನ್ನು ಮಾಡದೇ ಇದ್ದರೆ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ಅವರು ಈ ಸಾಧನಕ್ಕೆ ನಿಮ್ಮ ಪ್ರವೇಶವನ್ನು ನಿರ್ಬಂಧಿಸಬಹುದು."</string>
 </resources>
