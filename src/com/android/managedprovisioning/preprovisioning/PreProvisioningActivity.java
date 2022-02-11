@@ -315,8 +315,20 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                         && mController.canRetryRoleHolderUpdate()) {
                     mController.startRoleHolderUpdaterWithLastState();
                     mController.incrementRoleHolderUpdateRetryCount();
-                } else {
+                } else if (resultCode == RESULT_OK
+                        || mController.getParams().allowOffline) {
                     mController.startAppropriateProvisioning(getIntent());
+                } else {
+                    ProvisionLogger.loge("Update failed and offline provisioning is not allowed.");
+                    if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
+                        showFactoryResetDialog(R.string.cant_set_up_device,
+                                R.string.contact_your_admin_for_help);
+                    } else {
+                        showErrorAndClose(
+                                R.string.cant_set_up_device,
+                                R.string.contact_your_admin_for_help,
+                                "Failed to provision personally-owned device.");
+                    }
                 }
                 break;
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE:

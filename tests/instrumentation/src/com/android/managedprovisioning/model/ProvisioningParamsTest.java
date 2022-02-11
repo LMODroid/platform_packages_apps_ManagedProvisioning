@@ -523,6 +523,32 @@ public class ProvisioningParamsTest extends AndroidTestCase {
         assertThat(params.keepScreenOn).isFalse();
     }
 
+    @SmallTest
+    public void testAllowOffline_notSet_isFalse() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .build();
+
+        assertThat(params.allowOffline).isFalse();
+    }
+
+    @SmallTest
+    public void testAllowOffline_setTrue_isTrue() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setAllowOffline(true)
+                .build();
+
+        assertThat(params.allowOffline).isTrue();
+    }
+
+    @SmallTest
+    public void testAllowOffline_setFalse_isFalse() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setAllowOffline(false)
+                .build();
+
+        assertThat(params.allowOffline).isFalse();
+    }
+
     private ProvisioningParams.Builder createDefaultProvisioningParamsBuilder() {
         return ProvisioningParams.Builder
                 .builder()

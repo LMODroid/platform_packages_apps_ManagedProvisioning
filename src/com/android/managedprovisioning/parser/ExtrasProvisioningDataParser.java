@@ -22,6 +22,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_COMPONENT_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_MINIMUM_VERSION_CODE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM;
@@ -578,7 +579,11 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setKeepScreenOn(getBooleanExtraFromLongName(
                             intent,
                             EXTRA_PROVISIONING_KEEP_SCREEN_ON,
-                            ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_SCREEN_ON));
+                            ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_SCREEN_ON))
+                    .setAllowOffline(getBooleanExtraFromLongName(
+                            intent,
+                            EXTRA_PROVISIONING_ALLOW_OFFLINE,
+                            ProvisioningParams.DEFAULT_EXTRA_ALLOW_OFFLINE));
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra has invalid type", e);
         } catch (IllegalArgumentException e) {
