@@ -27,7 +27,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 
-import com.android.managedprovisioning.provisioning.Constants;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import java.util.Collection;
@@ -40,7 +39,6 @@ import java.util.stream.Collectors;
  * Helper class for logic related to device management role holder launching.
  */
 public final class DeviceManagementRoleHolderHelper {
-
     private static final Map<String, String> sManagedProvisioningToRoleHolderIntentAction =
             createManagedProvisioningToRoleHolderIntentActionMap();
 
@@ -51,16 +49,19 @@ public final class DeviceManagementRoleHolderHelper {
     private final PackageInstallChecker mPackageInstallChecker;
     private final ResolveIntentChecker mResolveIntentChecker;
     private final RoleHolderStubChecker mRoleHolderStubChecker;
+    private final FeatureFlagChecker mFeatureFlagChecker;
 
     public DeviceManagementRoleHolderHelper(
             @Nullable String roleHolderPackageName,
             PackageInstallChecker packageInstallChecker,
             ResolveIntentChecker resolveIntentChecker,
-            RoleHolderStubChecker roleHolderStubChecker) {
+            RoleHolderStubChecker roleHolderStubChecker,
+            FeatureFlagChecker featureFlagChecker) {
         mRoleHolderPackageName = roleHolderPackageName;
         mPackageInstallChecker = requireNonNull(packageInstallChecker);
         mResolveIntentChecker = requireNonNull(resolveIntentChecker);
         mRoleHolderStubChecker = requireNonNull(roleHolderStubChecker);
+        mFeatureFlagChecker = requireNonNull(featureFlagChecker);
     }
 
     /**
@@ -76,7 +77,7 @@ public final class DeviceManagementRoleHolderHelper {
     public boolean isRoleHolderReadyForProvisioning(
             Context context, Intent managedProvisioningIntent) {
         requireNonNull(context);
-        if (!Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER) {
+        if (!mFeatureFlagChecker.canDelegateProvisioningToRoleHolder()) {
             ProvisionLogger.logi("Cannot delegate provisioning to the role holder, because "
                     + "the feature flag is turned off.");
             return false;

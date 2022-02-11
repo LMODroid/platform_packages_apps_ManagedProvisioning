@@ -53,6 +53,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.DefaultFeatureFlagChecker;
 import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
@@ -464,7 +465,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 new DeviceManagementRoleHolderUpdaterHelper(
                         mRoleHolderUpdaterProvider.getPackageName(this),
                         RoleHolderProvider.DEFAULT.getPackageName(this),
-                        new DefaultPackageInstallChecker(mUtils));
+                        new DefaultPackageInstallChecker(mUtils),
+                        new DefaultFeatureFlagChecker(getContentResolver()));
         Intent intent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
         intent.putExtra(
                 EXTRA_INTENT_TO_LAUNCH,

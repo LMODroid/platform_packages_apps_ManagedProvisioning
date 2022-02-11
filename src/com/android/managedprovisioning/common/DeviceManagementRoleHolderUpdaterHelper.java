@@ -24,7 +24,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
-import com.android.managedprovisioning.provisioning.Constants;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
 /**
@@ -35,21 +34,24 @@ public class DeviceManagementRoleHolderUpdaterHelper {
     private final String mRoleHolderUpdaterPackageName;
     private final String mRoleHolderPackageName;
     private final PackageInstallChecker mPackageInstallChecker;
+    private final FeatureFlagChecker mFeatureFlagChecker;
 
     public DeviceManagementRoleHolderUpdaterHelper(
             @Nullable String roleHolderUpdaterPackageName,
             @Nullable String roleHolderPackageName,
-            PackageInstallChecker packageInstallChecker) {
+            PackageInstallChecker packageInstallChecker,
+            FeatureFlagChecker featureFlagChecker) {
         mRoleHolderUpdaterPackageName = roleHolderUpdaterPackageName;
         mRoleHolderPackageName = roleHolderPackageName;
         mPackageInstallChecker = requireNonNull(packageInstallChecker);
+        mFeatureFlagChecker = requireNonNull(featureFlagChecker);
     }
 
     /**
      * Returns whether the device management role holder updater should be started.
      */
     public boolean shouldStartRoleHolderUpdater(Context context) {
-        if (!Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER) {
+        if (!mFeatureFlagChecker.canDelegateProvisioningToRoleHolder()) {
             ProvisionLogger.logi("Not starting role holder updater, because the feature flag "
                     + "is turned off.");
             return false;
