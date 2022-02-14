@@ -94,6 +94,7 @@ import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.DefaultFeatureFlagChecker;
 import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper.DefaultResolveIntentChecker;
@@ -167,12 +168,14 @@ public class PreProvisioningActivityController {
                         RoleHolderProvider.DEFAULT.getPackageName(activity),
                         new DefaultPackageInstallChecker(new Utils()),
                         new DefaultResolveIntentChecker(),
-                        new DefaultRoleHolderStubChecker()
+                        new DefaultRoleHolderStubChecker(),
+                        new DefaultFeatureFlagChecker(activity.getContentResolver())
                 ),
                 new DeviceManagementRoleHolderUpdaterHelper(
                         RoleHolderUpdaterProvider.DEFAULT.getPackageName(activity),
                         RoleHolderProvider.DEFAULT.getPackageName(activity),
-                        new DefaultPackageInstallChecker(new Utils())));
+                        new DefaultPackageInstallChecker(new Utils()),
+                        new DefaultFeatureFlagChecker(activity.getContentResolver())));
     }
     @VisibleForTesting
     PreProvisioningActivityController(

@@ -30,10 +30,10 @@ import androidx.test.core.app.ApplicationProvider;
 import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
-import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.ScreenManager;
 import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
+import com.android.managedprovisioning.common.FeatureFlagChecker;
 import com.android.managedprovisioning.common.SharedPreferences;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.testcommon.FakeSharedPreferences;
@@ -42,9 +42,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 @SmallTest
@@ -80,11 +77,13 @@ public class FinalizationForwarderControllerTest {
         mRoleHolderFinalizationType = PROVISIONING_FINALIZATION_UNDEFINED;
         ManagedProvisioningBaseApplication app = (ManagedProvisioningBaseApplication) mContext;
         mScreenManager = app.getScreenManager();
-        mController = new FinalizationForwarderController(new DeviceManagementRoleHolderHelper(
-                TEST_ROLE_HOLDER_PACKAGE,
-                new DefaultPackageInstallChecker(new Utils()),
-                new DeviceManagementRoleHolderHelper.DefaultResolveIntentChecker(),
-                new DeviceManagementRoleHolderHelper.DefaultRoleHolderStubChecker()),
+        mController = new FinalizationForwarderController(
+                new DeviceManagementRoleHolderHelper(
+                    TEST_ROLE_HOLDER_PACKAGE,
+                    new DefaultPackageInstallChecker(new Utils()),
+                    new DeviceManagementRoleHolderHelper.DefaultResolveIntentChecker(),
+                    new DeviceManagementRoleHolderHelper.DefaultRoleHolderStubChecker(),
+                    (FeatureFlagChecker) () -> false),
                 mUi,
                 mSharedPreferences,
                 mScreenManager);
@@ -155,12 +154,5 @@ public class FinalizationForwarderControllerTest {
                 mRoleHolderFinalizationType = PROVISIONING_FINALIZATION_PLATFORM_PROVIDED;
             }
         };
-    }
-
-    private Map<ManagedProvisioningScreens, Class<? extends Activity>>
-    createTestScreenToActivityMap() {
-        Map<ManagedProvisioningScreens, Class<? extends Activity>> result = new HashMap<>();
-        result.put(FINALIZATION_INSIDE_SUW, Activity.class);
-        return result;
     }
 }

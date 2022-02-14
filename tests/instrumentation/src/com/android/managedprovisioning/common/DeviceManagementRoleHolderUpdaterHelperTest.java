@@ -29,8 +29,6 @@ import android.content.Intent;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.filters.SmallTest;
 
-import com.android.managedprovisioning.provisioning.Constants;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,6 +50,7 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
                     .setPackage(ROLE_HOLDER_UPDATER_PACKAGE_NAME);
 
     private final Context mContext = ApplicationProvider.getApplicationContext();
+    private boolean mCanDelegateProvisioningToRoleHolder;
 
     @Before
     public void setUp() {
@@ -163,13 +162,18 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
                         /* parentActivityIntent= */ null));
     }
 
+    private FeatureFlagChecker createFeatureFlagChecker() {
+        return () -> mCanDelegateProvisioningToRoleHolder;
+    }
+
     private DeviceManagementRoleHolderUpdaterHelper
     createRoleHolderUpdaterHelperWithUpdaterPackageName(
             String packageName) {
         return new DeviceManagementRoleHolderUpdaterHelper(
                 packageName,
                 ROLE_HOLDER_PACKAGE_NAME,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true);
+                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true,
+                createFeatureFlagChecker());
     }
 
     private DeviceManagementRoleHolderUpdaterHelper
@@ -178,14 +182,16 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
         return new DeviceManagementRoleHolderUpdaterHelper(
                 ROLE_HOLDER_UPDATER_PACKAGE_NAME,
                 roleHolderPackageName,
-                /* packageInstallChecker= */ (packageName, packageManager) -> true);
+                /* packageInstallChecker= */ (packageName, packageManager) -> true,
+                createFeatureFlagChecker());
     }
 
     private DeviceManagementRoleHolderUpdaterHelper createRoleHolderUpdaterHelper() {
         return new DeviceManagementRoleHolderUpdaterHelper(
                 ROLE_HOLDER_UPDATER_PACKAGE_NAME,
                 ROLE_HOLDER_PACKAGE_NAME,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true);
+                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true,
+                createFeatureFlagChecker());
     }
 
     private DeviceManagementRoleHolderUpdaterHelper
@@ -193,14 +199,15 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
         return new DeviceManagementRoleHolderUpdaterHelper(
                 ROLE_HOLDER_UPDATER_PACKAGE_NAME,
                 ROLE_HOLDER_PACKAGE_NAME,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> false);
+                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> false,
+                createFeatureFlagChecker());
     }
 
     private void enableRoleHolderDelegation() {
-        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
+        mCanDelegateProvisioningToRoleHolder = true;
     }
 
     private void disableRoleHolderDelegation() {
-        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = false;
+        mCanDelegateProvisioningToRoleHolder = false;
     }
 }
