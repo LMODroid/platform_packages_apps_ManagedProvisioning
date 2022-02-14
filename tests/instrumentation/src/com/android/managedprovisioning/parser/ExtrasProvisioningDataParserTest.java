@@ -1008,6 +1008,62 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         assertThat(params.keepScreenOn).isTrue();
     }
 
+    public void testParse_trustedSourceProvisioningWithAllowOfflineTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE,
+                        /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.allowOffline).isTrue();
+    }
+
+    public void testParse_trustedSourceProvisioningWithAllowOfflineFalse_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE,
+                        /* value= */ false);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.allowOffline).isFalse();
+    }
+
+    public void testParse_trustedSourceProvisioningWithAllowOfflineNotSet_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent();
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.allowOffline).isFalse();
+    }
+
+    public void testParse_managedProfileProvisioningWithAllowOfflineTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestManagedProfileIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE, /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.allowOffline).isTrue();
+    }
+
+    public void testParse_financedDeviceProvisioningWithAllowOfflineTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestFinancedDeviceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE, /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.allowOffline).isTrue();
+    }
+
     private Stream<Field> buildAllShortExtras() {
         Field[] fields = ExtrasProvisioningDataParser.class.getDeclaredFields();
         return Arrays.stream(fields)
