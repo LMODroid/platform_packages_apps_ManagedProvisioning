@@ -40,6 +40,9 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
@@ -583,7 +586,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     .setAllowOffline(getBooleanExtraFromLongName(
                             intent,
                             EXTRA_PROVISIONING_ALLOW_OFFLINE,
-                            ProvisioningParams.DEFAULT_EXTRA_ALLOW_OFFLINE));
+                            ProvisioningParams.DEFAULT_EXTRA_ALLOW_OFFLINE))
+                    .setRoleHolderDownloadInfo(parseRoleHolderDownloadInfoFromExtras(intent));
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra has invalid type", e);
         } catch (IllegalArgumentException e) {
@@ -767,6 +771,44 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
         if (sigHash != null) {
             downloadInfoBuilder.setSignatureChecksum(StoreUtils.stringToByteArray(sigHash));
         }
+        return downloadInfoBuilder.build();
+    }
+
+    /**
+     * Parses role holder package download info configuration from an Intent and returns the result
+     * in {@link PackageDownloadInfo}.
+     *
+     * @return the {@link PackageDownloadInfo} or {@code null} if not supplied alongside {@link
+     * DevicePolicyManager#ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE}, {@link
+     * DevicePolicyManager#EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION} or
+     * {@link DevicePolicyManager#EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM}.
+     */
+    @Nullable
+    private PackageDownloadInfo parseRoleHolderDownloadInfoFromExtras(Intent intent) {
+        if (!intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)) {
+            ProvisionLogger.logi("Cannot parse role holder download info for non-trusted source "
+                    + "provisioning.");
+            return null;
+        }
+        String downloadLocation = getStringExtraFromLongName(
+                intent, EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION);
+        if (downloadLocation == null) {
+            ProvisionLogger.logi("Cannot parse role holder download info, because it does not "
+                    + "include the download location extra.");
+            return null;
+        }
+        String sigHash = getStringExtraFromLongName(
+                intent, EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM);
+        if (sigHash == null) {
+            ProvisionLogger.logi("Cannot parse role holder download info, because it does not "
+                    + "include the signature checksum extra.");
+            return null;
+        }
+        PackageDownloadInfo.Builder downloadInfoBuilder = PackageDownloadInfo.Builder.builder()
+                .setLocation(downloadLocation)
+                .setCookieHeader(getStringExtraFromLongName(
+                        intent, EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER));
+        downloadInfoBuilder.setSignatureChecksum(StoreUtils.stringToByteArray(sigHash));
         return downloadInfoBuilder.build();
     }
 }

@@ -27,12 +27,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 
+import com.android.managedprovisioning.provisioning.Constants;
+
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -41,9 +42,6 @@ import java.util.stream.Collectors;
 public final class DeviceManagementRoleHolderHelper {
     private static final Map<String, String> sManagedProvisioningToRoleHolderIntentAction =
             createManagedProvisioningToRoleHolderIntentActionMap();
-
-    private static final Set<String> sManagedProvisioningProvisioningActions =
-            createManagedProvisioningProvisioningActions();
 
     private final String mRoleHolderPackageName;
     private final PackageInstallChecker mPackageInstallChecker;
@@ -82,8 +80,8 @@ public final class DeviceManagementRoleHolderHelper {
                     + "the feature flag is turned off.");
             return false;
         }
-        if (!sManagedProvisioningProvisioningActions
-                .contains(managedProvisioningIntent.getAction())) {
+        if (!Constants.isRoleHolderProvisioningAllowedForAction(
+                managedProvisioningIntent.getAction())) {
             ProvisionLogger.logi("Cannot delegate provisioning to the role holder, because "
                     + "intent action " + managedProvisioningIntent.getAction() + " is not "
                     + "supported by the role holder.");
@@ -125,7 +123,7 @@ public final class DeviceManagementRoleHolderHelper {
     public Intent createRoleHolderProvisioningIntent(Intent managedProvisioningIntent) {
         requireNonNull(managedProvisioningIntent);
         String provisioningAction = managedProvisioningIntent.getAction();
-        if (!sManagedProvisioningProvisioningActions.contains(provisioningAction)) {
+        if (!Constants.isRoleHolderProvisioningAllowedForAction(provisioningAction)) {
             throw new IllegalArgumentException("Intent action " + provisioningAction
                     + " is not a valid provisioning action.");
         }
@@ -188,12 +186,6 @@ public final class DeviceManagementRoleHolderHelper {
             PackageManager packageManager) {
         return !TextUtils.isEmpty(roleHolderPackageName)
                 && mPackageInstallChecker.isPackageInstalled(roleHolderPackageName, packageManager);
-    }
-
-    private static Set<String> createManagedProvisioningProvisioningActions() {
-        return Set.of(
-                DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE,
-                DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE);
     }
 
     private static Map<String, String> createManagedProvisioningToRoleHolderIntentActionMap() {
