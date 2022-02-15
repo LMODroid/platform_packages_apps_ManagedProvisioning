@@ -16,7 +16,9 @@
 
 package com.android.managedprovisioning.common;
 
+import android.app.role.RoleManager;
 import android.content.Context;
+import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 
@@ -24,8 +26,16 @@ import androidx.annotation.Nullable;
  * A provider for the role holder package name.
  */
 public interface RoleHolderProvider {
-    // TODO (b/207145606): Return the role holder package name using a framework API
-    RoleHolderProvider DEFAULT = (Context context) -> "com.afwsamples.testdpc";
+    RoleHolderProvider DEFAULT = (Context context) -> {
+        String deviceManagerConfig =
+                context.getString(com.android.internal.R.string.config_deviceManager);
+        if (TextUtils.isEmpty(deviceManagerConfig)) {
+            ProvisionLogger.logi("No role holders retrieved for "
+                    + RoleManager.ROLE_DEVICE_MANAGER);
+            return null;
+        }
+        return RoleHolderParser.getRoleHolderPackage(deviceManagerConfig);
+    };
 
     /**
      * Returns the package name of the role holder.

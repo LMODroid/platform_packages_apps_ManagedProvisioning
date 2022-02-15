@@ -20,12 +20,14 @@ import static android.app.admin.DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION
 
 import static java.util.Objects.requireNonNull;
 
+import android.annotation.Nullable;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.text.TextUtils;
 
-import com.android.managedprovisioning.provisioning.Constants;
+import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import java.util.Collection;
 import java.util.List;
@@ -37,7 +39,6 @@ import java.util.stream.Collectors;
  * Helper class for logic related to device management role holder launching.
  */
 public final class DeviceManagementRoleHolderHelper {
-
     private static final Map<String, String> sManagedProvisioningToRoleHolderIntentAction =
             createManagedProvisioningToRoleHolderIntentActionMap();
 
@@ -48,19 +49,19 @@ public final class DeviceManagementRoleHolderHelper {
     private final PackageInstallChecker mPackageInstallChecker;
     private final ResolveIntentChecker mResolveIntentChecker;
     private final RoleHolderStubChecker mRoleHolderStubChecker;
+    private final FeatureFlagChecker mFeatureFlagChecker;
 
     public DeviceManagementRoleHolderHelper(
-            String roleHolderPackageName,
+            @Nullable String roleHolderPackageName,
             PackageInstallChecker packageInstallChecker,
             ResolveIntentChecker resolveIntentChecker,
-            RoleHolderStubChecker roleHolderStubChecker) {
-        mRoleHolderPackageName = requireNonNull(roleHolderPackageName);
+            RoleHolderStubChecker roleHolderStubChecker,
+            FeatureFlagChecker featureFlagChecker) {
+        mRoleHolderPackageName = roleHolderPackageName;
         mPackageInstallChecker = requireNonNull(packageInstallChecker);
         mResolveIntentChecker = requireNonNull(resolveIntentChecker);
         mRoleHolderStubChecker = requireNonNull(roleHolderStubChecker);
-        if (mRoleHolderPackageName.isEmpty()) {
-            throw new IllegalArgumentException("Role holder package name cannot be empty.");
-        }
+        mFeatureFlagChecker = requireNonNull(featureFlagChecker);
     }
 
     /**
@@ -76,7 +77,7 @@ public final class DeviceManagementRoleHolderHelper {
     public boolean isRoleHolderReadyForProvisioning(
             Context context, Intent managedProvisioningIntent) {
         requireNonNull(context);
-        if (!Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER) {
+        if (!mFeatureFlagChecker.canDelegateProvisioningToRoleHolder()) {
             ProvisionLogger.logi("Cannot delegate provisioning to the role holder, because "
                     + "the feature flag is turned off.");
             return false;
@@ -128,21 +129,31 @@ public final class DeviceManagementRoleHolderHelper {
             throw new IllegalArgumentException("Intent action " + provisioningAction
                     + " is not a valid provisioning action.");
         }
+        if (TextUtils.isEmpty(mRoleHolderPackageName)) {
+            throw new IllegalStateException("Role holder package name is null or empty.");
+        }
         String action = sManagedProvisioningToRoleHolderIntentAction.get(provisioningAction);
         Intent roleHolderIntent = new Intent(action);
         if (managedProvisioningIntent.getExtras() != null) {
             roleHolderIntent.putExtras(managedProvisioningIntent.getExtras());
         }
         roleHolderIntent.setPackage(mRoleHolderPackageName);
+        WizardManagerHelper.copyWizardManagerExtras(managedProvisioningIntent, roleHolderIntent);
         return roleHolderIntent;
     }
 
     /**
      * Returns a new intent which starts the device management role holder finalization.
      */
-    public Intent createRoleHolderFinalizationIntent() {
+    public Intent createRoleHolderFinalizationIntent(@Nullable Intent parentActivityIntent) {
+        if (TextUtils.isEmpty(mRoleHolderPackageName)) {
+            throw new IllegalStateException("Role holder package name is null or empty.");
+        }
         Intent roleHolderIntent = new Intent(ACTION_ROLE_HOLDER_PROVISION_FINALIZATION);
         roleHolderIntent.setPackage(mRoleHolderPackageName);
+        if (parentActivityIntent != null) {
+            WizardManagerHelper.copyWizardManagerExtras(parentActivityIntent, roleHolderIntent);
+        }
         return roleHolderIntent;
     }
 
@@ -175,7 +186,7 @@ public final class DeviceManagementRoleHolderHelper {
     private boolean isRoleHolderPresent(
             String roleHolderPackageName,
             PackageManager packageManager) {
-        return roleHolderPackageName != null
+        return !TextUtils.isEmpty(roleHolderPackageName)
                 && mPackageInstallChecker.isPackageInstalled(roleHolderPackageName, packageManager);
     }
 

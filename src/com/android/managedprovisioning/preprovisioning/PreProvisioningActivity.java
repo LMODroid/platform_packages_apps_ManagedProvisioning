@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR;
+import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_ROLE_HOLDER;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 
@@ -34,8 +35,10 @@ import static java.util.Objects.requireNonNull;
 import android.app.Activity;
 import android.app.BackgroundServiceStartNotAllowedException;
 import android.app.DialogFragment;
+import android.app.admin.DevicePolicyManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.provider.Settings;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -44,15 +47,16 @@ import android.widget.TextView;
 
 import androidx.annotation.VisibleForTesting;
 
+import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.DefaultFeatureFlagChecker;
 import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderUpdaterHelper;
 import com.android.managedprovisioning.common.GetProvisioningModeUtils;
-import com.android.managedprovisioning.common.LogoUtils;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.RetryLaunchActivity;
@@ -209,7 +213,6 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     @Override
     public void finish() {
         // The user has backed out of provisioning, so we perform the necessary clean up steps.
-        LogoUtils.cleanUp(this);
         ProvisioningParams params = mController.getParams();
         if (params != null) {
             params.cleanUp();
@@ -310,16 +313,35 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_UPDATER_REQUEST_CODE:
                 if (resultCode == RESULT_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
                         && mController.canRetryRoleHolderUpdate()) {
-                    startRoleHolderUpdater();
+                    mController.startRoleHolderUpdaterWithLastState();
                     mController.incrementRoleHolderUpdateRetryCount();
-                } else {
+                } else if (resultCode == RESULT_OK
+                        || mController.getParams().allowOffline) {
                     mController.startAppropriateProvisioning(getIntent());
+                } else {
+                    ProvisionLogger.loge("Update failed and offline provisioning is not allowed.");
+                    if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
+                        showFactoryResetDialog(R.string.cant_set_up_device,
+                                R.string.contact_your_admin_for_help);
+                    } else {
+                        showErrorAndClose(
+                                R.string.cant_set_up_device,
+                                R.string.contact_your_admin_for_help,
+                                "Failed to provision personally-owned device.");
+                    }
                 }
                 break;
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE:
                 ProvisionLogger.logw("Role holder returned result code " + resultCode);
-                setResult(resultCode);
-                getTransitionHelper().finishActivity(this);
+                if (resultCode == RESULT_UPDATE_ROLE_HOLDER) {
+                    PersistableBundle roleHolderState =
+                            data.getParcelableExtra(DevicePolicyManager.EXTRA_ROLE_HOLDER_STATE);
+                    mController.resetRoleHolderUpdateRetryCount();
+                    mController.startRoleHolderUpdater(roleHolderState);
+                } else {
+                    setResult(resultCode);
+                    getTransitionHelper().finishActivity(this);
+                }
                 break;
             default:
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
@@ -454,10 +476,13 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
                 new DeviceManagementRoleHolderUpdaterHelper(
                         mRoleHolderUpdaterProvider.getPackageName(this),
-                        new DefaultPackageInstallChecker(mUtils));
+                        RoleHolderProvider.DEFAULT.getPackageName(this),
+                        new DefaultPackageInstallChecker(mUtils),
+                        new DefaultFeatureFlagChecker(getContentResolver()));
         Intent intent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
         intent.putExtra(
-                EXTRA_INTENT_TO_LAUNCH, roleHolderUpdaterHelper.createRoleHolderUpdaterIntent());
+                EXTRA_INTENT_TO_LAUNCH,
+                roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(getIntent()));
         getTransitionHelper().startActivityForResultWithTransition(
                  this,
                 intent,
@@ -472,6 +497,16 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 /* activity= */ this,
                 retryLaunchIntent,
                 START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE);
+    }
+
+    @Override
+    public void onParamsValidated(ProvisioningParams params) {
+        if (params.keepScreenOn) {
+            ManagedProvisioningBaseApplication application =
+                    (ManagedProvisioningBaseApplication) getApplication();
+            application.markKeepScreenOn();
+            application.maybeKeepScreenOn(this);
+        }
     }
 
     private void requestLauncherPick() {

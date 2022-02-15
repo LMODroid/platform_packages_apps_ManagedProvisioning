@@ -120,7 +120,7 @@ public class VerifyPackageTaskTest {
         runWithDownloadInfo(TEST_PACKAGE_CHECKSUM_HASH, EMPTY_BYTE_ARRAY);
 
         // THEN an error should be reported
-        verify(mCallback).onError(mTask, ERROR_DEVICE_ADMIN_MISSING);
+        verify(mCallback).onError(mTask, ERROR_DEVICE_ADMIN_MISSING, /* errorMessage= */ null);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -162,7 +162,7 @@ public class VerifyPackageTaskTest {
         runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH);
 
         // THEN hash mismatch error should be called
-        verify(mCallback).onError(mTask, ERROR_HASH_MISMATCH);
+        verify(mCallback).onError(mTask, ERROR_HASH_MISMATCH, /* errorMessage= */ null);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -175,7 +175,7 @@ public class VerifyPackageTaskTest {
         runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH);
 
         // THEN hash mismatch error should be called
-        verify(mCallback).onError(mTask, ERROR_HASH_MISMATCH);
+        verify(mCallback).onError(mTask, ERROR_HASH_MISMATCH, /* errorMessage= */ null);
         verifyNoMoreInteractions(mCallback);
     }
 
@@ -188,7 +188,7 @@ public class VerifyPackageTaskTest {
         runWithDownloadInfo(EMPTY_BYTE_ARRAY, TEST_SIGNATURE_HASH);
 
         // THEN hash mismatch error should be called
-        verify(mCallback).onError(mTask, ERROR_HASH_MISMATCH);
+        verify(mCallback).onError(mTask, ERROR_HASH_MISMATCH, /* errorMessage= */ null);
         verifyNoMoreInteractions(mCallback);
     }
 

@@ -24,6 +24,7 @@ import android.os.Bundle;
 
 import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.ManagedProvisioningScreens;
+import com.android.managedprovisioning.common.DefaultFeatureFlagChecker;
 import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper.DefaultResolveIntentChecker;
@@ -56,7 +57,9 @@ public class FinalizationForwarderActivity extends Activity implements
         mTransitionHelper.applyContentScreenTransitions(this);
         super.onCreate(savedInstanceState);
         mFinalizationController = createFinalizationController();
-        mFinalizationController.forwardFinalization(this);
+        if (savedInstanceState == null) {
+            mFinalizationController.forwardFinalization(this);
+        }
     }
 
     @Override
@@ -74,7 +77,8 @@ public class FinalizationForwarderActivity extends Activity implements
     public void startPlatformProvidedProvisioningFinalization() {
         mTransitionHelper.startActivityForResultWithTransition(
                 this,
-                mFinalizationController.createPlatformProvidedProvisioningFinalizationIntent(this),
+                mFinalizationController.createPlatformProvidedProvisioningFinalizationIntent(
+                        this, getIntent()),
                 START_PLATFORM_PROVIDED_PROVISIONING_FINALIZATION_REQUEST_CODE);
     }
 
@@ -83,7 +87,7 @@ public class FinalizationForwarderActivity extends Activity implements
         Intent intent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
         intent.putExtra(
                 RetryLaunchActivity.EXTRA_INTENT_TO_LAUNCH,
-                mFinalizationController.createRoleHolderFinalizationIntent(this));
+                mFinalizationController.createRoleHolderFinalizationIntent(this, getIntent()));
         mTransitionHelper.startActivityForResultWithTransition(
                 this,
                 intent,
@@ -104,7 +108,8 @@ public class FinalizationForwarderActivity extends Activity implements
                 RoleHolderProvider.DEFAULT.getPackageName(this),
                 new DefaultPackageInstallChecker(new Utils()),
                 new DefaultResolveIntentChecker(),
-                new DefaultRoleHolderStubChecker());
+                new DefaultRoleHolderStubChecker(),
+                new DefaultFeatureFlagChecker(getContentResolver()));
         SharedPreferences sharedPreferences =
                 new ManagedProvisioningSharedPreferences(getApplicationContext());
         return new FinalizationForwarderController(

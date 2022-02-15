@@ -29,8 +29,6 @@ import android.content.Intent;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.filters.SmallTest;
 
-import com.android.managedprovisioning.provisioning.Constants;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,14 +39,18 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class DeviceManagementRoleHolderUpdaterHelperTest {
 
-    private static final String ROLE_HOLDER_UPDATER_PACKAGE_NAME = "com.test.package";
+    private static final String ROLE_HOLDER_UPDATER_PACKAGE_NAME = "com.test.updater.package";
+    private static final String ROLE_HOLDER_PACKAGE_NAME = "com.test.roleholder.package";
     private static final String ROLE_HOLDER_UPDATER_EMPTY_PACKAGE_NAME = "";
     private static final String ROLE_HOLDER_UPDATER_NULL_PACKAGE_NAME = null;
+    private static final String ROLE_HOLDER_EMPTY_PACKAGE_NAME = "";
+    private static final String ROLE_HOLDER_NULL_PACKAGE_NAME = null;
     private static final Intent ROLE_HOLDER_UPDATER_INTENT =
             new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER)
                     .setPackage(ROLE_HOLDER_UPDATER_PACKAGE_NAME);
 
     private final Context mContext = ApplicationProvider.getApplicationContext();
+    private boolean mCanDelegateProvisioningToRoleHolder;
 
     @Before
     public void setUp() {
@@ -56,17 +58,13 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
     }
 
     @Test
-    public void roleHolderHelperConstructor_roleHolderPackageNameNull_throwsException() {
-        assertThrows(NullPointerException.class, () ->
-                createRoleHolderUpdaterHelperWithPackageName(
-                        ROLE_HOLDER_UPDATER_NULL_PACKAGE_NAME));
+    public void roleHolderHelperConstructor_roleHolderPackageNameNull_noExceptionThrown() {
+        createRoleHolderUpdaterHelperWithUpdaterPackageName(ROLE_HOLDER_UPDATER_NULL_PACKAGE_NAME);
     }
 
     @Test
-    public void roleHolderHelperConstructor_roleHolderPackageNameEmpty_throwsException() {
-        assertThrows(IllegalArgumentException.class, () ->
-                createRoleHolderUpdaterHelperWithPackageName(
-                        ROLE_HOLDER_UPDATER_EMPTY_PACKAGE_NAME));
+    public void roleHolderHelperConstructor_roleHolderPackageNameEmpty_noExceptionThrown() {
+        createRoleHolderUpdaterHelperWithUpdaterPackageName(ROLE_HOLDER_UPDATER_EMPTY_PACKAGE_NAME);
     }
 
     @Test
@@ -75,6 +73,42 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
                 createRoleHolderUpdaterHelper();
 
         assertThat(roleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext)).isTrue();
+    }
+
+    @Test
+    public void shouldStartRoleHolderUpdater_nullRoleHolderPackageName_returnsFalse() {
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                createRoleHolderUpdaterHelperWithRoleHolderPackageName(
+                        ROLE_HOLDER_NULL_PACKAGE_NAME);
+
+        assertThat(roleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext)).isFalse();
+    }
+
+    @Test
+    public void shouldStartRoleHolderUpdater_emptyRoleHolderPackageName_returnsFalse() {
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                createRoleHolderUpdaterHelperWithRoleHolderPackageName(
+                        ROLE_HOLDER_EMPTY_PACKAGE_NAME);
+
+        assertThat(roleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext)).isFalse();
+    }
+
+    @Test
+    public void shouldStartRoleHolderUpdater_nullRoleHolderUpdaterPackageName_returnsFalse() {
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                createRoleHolderUpdaterHelperWithUpdaterPackageName(
+                        ROLE_HOLDER_UPDATER_NULL_PACKAGE_NAME);
+
+        assertThat(roleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext)).isFalse();
+    }
+
+    @Test
+    public void shouldStartRoleHolderUpdater_emptyRoleHolderUpdaterPackageName_returnsFalse() {
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                createRoleHolderUpdaterHelperWithUpdaterPackageName(
+                        ROLE_HOLDER_UPDATER_EMPTY_PACKAGE_NAME);
+
+        assertThat(roleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext)).isFalse();
     }
 
     @Test
@@ -101,35 +135,79 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
                 createRoleHolderUpdaterHelper();
 
         assertIntentsEqual(
-                roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(),
+                roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
+                        /* parentActivityIntent= */ null),
                 ROLE_HOLDER_UPDATER_INTENT);
     }
 
-    private DeviceManagementRoleHolderUpdaterHelper createRoleHolderUpdaterHelperWithPackageName(
+    @Test
+    public void createRoleHolderUpdaterIntent_nullRoleHolderUpdaterPackageName_throwsException() {
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                createRoleHolderUpdaterHelperWithUpdaterPackageName(
+                        ROLE_HOLDER_UPDATER_NULL_PACKAGE_NAME);
+
+        assertThrows(IllegalStateException.class,
+                () -> roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
+                        /* parentActivityIntent= */ null));
+    }
+
+    @Test
+    public void createRoleHolderUpdaterIntent_emptyRoleHolderUpdaterPackageName_throwsException() {
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                createRoleHolderUpdaterHelperWithUpdaterPackageName(
+                        ROLE_HOLDER_UPDATER_EMPTY_PACKAGE_NAME);
+
+        assertThrows(IllegalStateException.class,
+                () -> roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
+                        /* parentActivityIntent= */ null));
+    }
+
+    private FeatureFlagChecker createFeatureFlagChecker() {
+        return () -> mCanDelegateProvisioningToRoleHolder;
+    }
+
+    private DeviceManagementRoleHolderUpdaterHelper
+    createRoleHolderUpdaterHelperWithUpdaterPackageName(
             String packageName) {
         return new DeviceManagementRoleHolderUpdaterHelper(
                 packageName,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true);
+                ROLE_HOLDER_PACKAGE_NAME,
+                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true,
+                createFeatureFlagChecker());
+    }
+
+    private DeviceManagementRoleHolderUpdaterHelper
+    createRoleHolderUpdaterHelperWithRoleHolderPackageName(
+            String roleHolderPackageName) {
+        return new DeviceManagementRoleHolderUpdaterHelper(
+                ROLE_HOLDER_UPDATER_PACKAGE_NAME,
+                roleHolderPackageName,
+                /* packageInstallChecker= */ (packageName, packageManager) -> true,
+                createFeatureFlagChecker());
     }
 
     private DeviceManagementRoleHolderUpdaterHelper createRoleHolderUpdaterHelper() {
         return new DeviceManagementRoleHolderUpdaterHelper(
                 ROLE_HOLDER_UPDATER_PACKAGE_NAME,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true);
+                ROLE_HOLDER_PACKAGE_NAME,
+                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true,
+                createFeatureFlagChecker());
     }
 
     private DeviceManagementRoleHolderUpdaterHelper
             createRoleHolderUpdaterHelperWithUpdaterNotInstalled() {
         return new DeviceManagementRoleHolderUpdaterHelper(
                 ROLE_HOLDER_UPDATER_PACKAGE_NAME,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> false);
+                ROLE_HOLDER_PACKAGE_NAME,
+                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> false,
+                createFeatureFlagChecker());
     }
 
     private void enableRoleHolderDelegation() {
-        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = true;
+        mCanDelegateProvisioningToRoleHolder = true;
     }
 
     private void disableRoleHolderDelegation() {
-        Constants.FLAG_DEFER_PROVISIONING_TO_ROLE_HOLDER = false;
+        mCanDelegateProvisioningToRoleHolder = false;
     }
 }

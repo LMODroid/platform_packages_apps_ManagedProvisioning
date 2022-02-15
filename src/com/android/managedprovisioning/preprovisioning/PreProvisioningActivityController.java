@@ -33,6 +33,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ALLOWED_P
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
@@ -42,6 +43,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUC
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
+import static android.app.admin.DevicePolicyManager.EXTRA_ROLE_HOLDER_STATE;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
@@ -52,6 +54,7 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECI
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
+import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_SCREEN_ON;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
@@ -91,6 +94,7 @@ import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
+import com.android.managedprovisioning.common.DefaultFeatureFlagChecker;
 import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper.DefaultResolveIntentChecker;
@@ -164,11 +168,14 @@ public class PreProvisioningActivityController {
                         RoleHolderProvider.DEFAULT.getPackageName(activity),
                         new DefaultPackageInstallChecker(new Utils()),
                         new DefaultResolveIntentChecker(),
-                        new DefaultRoleHolderStubChecker()
+                        new DefaultRoleHolderStubChecker(),
+                        new DefaultFeatureFlagChecker(activity.getContentResolver())
                 ),
                 new DeviceManagementRoleHolderUpdaterHelper(
                         RoleHolderUpdaterProvider.DEFAULT.getPackageName(activity),
-                        new DefaultPackageInstallChecker(new Utils())));
+                        RoleHolderProvider.DEFAULT.getPackageName(activity),
+                        new DefaultPackageInstallChecker(new Utils()),
+                        new DefaultFeatureFlagChecker(activity.getContentResolver())));
     }
     @VisibleForTesting
     PreProvisioningActivityController(
@@ -218,14 +225,45 @@ public class PreProvisioningActivityController {
         if (isRoleHolderReadyForProvisioning) {
             ProvisionLogger.logw("Provisioning via role holder.");
             Intent roleHolderProvisioningIntent =
-                    mRoleHolderHelper.createRoleHolderProvisioningIntent(
-                            managedProvisioningIntent);
+                    createRoleHolderProvisioningIntent(managedProvisioningIntent);
             mSharedPreferences.setIsProvisioningFlowDelegatedToRoleHolder(true);
+            mViewModel.onRoleHolderProvisioningInitiated();
             mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
         } else {
             ProvisionLogger.logw("Provisioning via platform-provided provisioning");
             performPlatformProvidedProvisioning();
         }
+    }
+
+    private Intent createRoleHolderProvisioningIntent(Intent managedProvisioningIntent) {
+        Intent intent =
+                mRoleHolderHelper.createRoleHolderProvisioningIntent(managedProvisioningIntent);
+        if (mViewModel.getRoleHolderState() != null) {
+            intent.putExtra(EXTRA_ROLE_HOLDER_STATE, mViewModel.getRoleHolderState());
+        }
+        return intent;
+    }
+
+    /**
+     * Starts the role holder updater, saving {@code roleHolderState} to be used to restart
+     * the role holder.
+     *
+     * @see DevicePolicyManager#EXTRA_ROLE_HOLDER_STATE
+     * @param roleHolderState
+     */
+    public void startRoleHolderUpdater(@Nullable PersistableBundle roleHolderState) {
+        mViewModel.onRoleHolderUpdateInitiated();
+        mViewModel.setRoleHolderState(roleHolderState);
+        mUi.startRoleHolderUpdater();
+    }
+
+    /**
+     * Starts the role holder updater with the last provided role holder state.
+     *
+     * <p>This can be useful in update retry cases.
+     */
+    public void startRoleHolderUpdaterWithLastState() {
+        startRoleHolderUpdater(mViewModel.getRoleHolderState());
     }
 
     interface Ui {
@@ -278,6 +316,8 @@ public class PreProvisioningActivityController {
         void startRoleHolderUpdater();
 
         void startRoleHolderProvisioning(Intent intent);
+
+        void onParamsValidated(ProvisioningParams params);
     }
 
     /**
@@ -368,12 +408,15 @@ public class PreProvisioningActivityController {
             }
         }
 
+        mUi.onParamsValidated(params);
+
         // TODO(b/207376815): Have a PreProvisioningForwarderActivity to forward to either
         //  platform-provided provisioning or DMRH
         if (mRoleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext)) {
-            mUi.startRoleHolderUpdater();
+            resetRoleHolderUpdateRetryCount();
+            startRoleHolderUpdater(/* roleHolderState= */ null);
         } else {
-            performPlatformProvidedProvisioning();
+            startAppropriateProvisioning(intent);
         }
     }
 
@@ -381,7 +424,7 @@ public class PreProvisioningActivityController {
         ProvisioningParams params = mViewModel.getParams();
 
         mViewModel.getTimeLogger().start();
-        mViewModel.onProvisioningInitiated();
+        mViewModel.onPlatformProvisioningInitiated();
 
         if (mUtils.checkAdminIntegratedFlowPreconditions(params)) {
             if (mUtils.shouldShowOwnershipDisclaimerScreen(params)) {
@@ -517,6 +560,7 @@ public class PreProvisioningActivityController {
         maybeUpdateSkipEducationScreens(builder, resultIntent);
         maybeUpdateDisclaimers(builder, resultIntent);
         maybeUpdateSkipEncryption(builder, resultIntent);
+        maybeUpdateKeepScreenOn(builder, resultIntent);
         if (updateAccountToMigrate) {
             maybeUpdateAccountToMigrate(builder, resultIntent);
         }
@@ -539,6 +583,15 @@ public class PreProvisioningActivityController {
             builder.setDeviceOwnerPermissionGrantOptOut(resultIntent.getBooleanExtra(
                     EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT,
                     DEFAULT_EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT));
+        }
+    }
+
+    private void maybeUpdateKeepScreenOn(
+            ProvisioningParams.Builder builder, Intent resultIntent) {
+        if (resultIntent.hasExtra(EXTRA_PROVISIONING_KEEP_SCREEN_ON)) {
+            builder.setKeepScreenOn(resultIntent.getBooleanExtra(
+                    EXTRA_PROVISIONING_KEEP_SCREEN_ON,
+                    DEFAULT_EXTRA_PROVISIONING_KEEP_SCREEN_ON));
         }
     }
 
@@ -984,6 +1037,10 @@ public class PreProvisioningActivityController {
 
     void incrementRoleHolderUpdateRetryCount() {
         mViewModel.incrementRoleHolderUpdateRetryCount();
+    }
+
+    void resetRoleHolderUpdateRetryCount() {
+        mViewModel.resetRoleHolderUpdateRetryCount();
     }
 
     boolean canRetryRoleHolderUpdate() {

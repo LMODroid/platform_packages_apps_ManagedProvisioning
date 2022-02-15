@@ -16,20 +16,12 @@
 
 package com.android.managedprovisioning.common;
 
-import android.content.Context;
-
-import androidx.annotation.Nullable;
-
 /**
- * A provider for the role holder updater package name.
+ * Checker that checks whether a feature flag is enabled.
  */
-public interface RoleHolderUpdaterProvider {
-    RoleHolderUpdaterProvider DEFAULT = (Context context) ->
-            context.getString(com.android.internal.R.string.config_deviceManagerUpdater);
-
+public interface FeatureFlagChecker {
     /**
-     * Returns the package name of the role holder updater.
+     * Returns {@code true} if the provisioning to role holder feature is enabled.
      */
-    @Nullable
-    String getPackageName(Context context);
+    boolean canDelegateProvisioningToRoleHolder();
 }

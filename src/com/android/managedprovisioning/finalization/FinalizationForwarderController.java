@@ -18,6 +18,7 @@ package com.android.managedprovisioning.finalization;
 
 import static java.util.Objects.requireNonNull;
 
+import android.annotation.Nullable;
 import android.content.Context;
 import android.content.Intent;
 
@@ -25,6 +26,7 @@ import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.ScreenManager;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
 import com.android.managedprovisioning.common.SharedPreferences;
+import com.google.android.setupcompat.util.WizardManagerHelper;
 
 /**
  * A controller that contains business logic for the finalization forwarder.
@@ -59,19 +61,25 @@ public final class FinalizationForwarderController {
      * Returns a new {@link Intent} instance which resolves to the AOSP ManagedProvisioning
      * finalization.
      */
-    public Intent createPlatformProvidedProvisioningFinalizationIntent(Context context) {
+    public Intent createPlatformProvidedProvisioningFinalizationIntent(
+            Context context, @Nullable Intent parentActivityIntent) {
         requireNonNull(context);
-        return new Intent(context, mScreenManager.getActivityClassForScreen(
+        Intent intent = new Intent(context, mScreenManager.getActivityClassForScreen(
                 ManagedProvisioningScreens.FINALIZATION_INSIDE_SUW));
+        if (parentActivityIntent != null) {
+            WizardManagerHelper.copyWizardManagerExtras(parentActivityIntent, intent);
+        }
+        return intent;
     }
 
     /**
      * Returns a new {@link Intent} instance which resolves to the device management role holder
      * finalization.
      */
-    public Intent createRoleHolderFinalizationIntent(Context context) {
+    public Intent createRoleHolderFinalizationIntent(
+            Context context, @Nullable Intent parentActivityIntent) {
         requireNonNull(context);
-        return mRoleHolderHelper.createRoleHolderFinalizationIntent();
+        return mRoleHolderHelper.createRoleHolderFinalizationIntent(parentActivityIntent);
     }
 
     /**

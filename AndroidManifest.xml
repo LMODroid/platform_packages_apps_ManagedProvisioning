@@ -36,6 +36,7 @@
     <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.MANAGE_APP_OPS_MODES"/>
+    <uses-permission android:name="android.permission.HIDE_OVERLAY_WINDOWS"/>
 
     <uses-permission android:name="android.permission.CHANGE_COMPONENT_ENABLED_STATE" />
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
@@ -80,6 +81,9 @@
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <uses-permission android:name="android.permission.LAUNCH_DEVICE_MANAGER_SETUP" />
+
+    <!-- Used to read the device management role holder package name -->
+    <uses-permission android:name="android.permission.MANAGE_ROLE_HOLDERS" />
 
     <application
         android:label="@string/app_label"
@@ -252,15 +256,15 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name="com.android.managedprovisioning.manageduser.ManagedUserCreationListener"
+        <receiver android:name="com.android.managedprovisioning.provisioninglisteners.ProvisioningCompletedListener"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.app.action.MANAGED_USER_CREATED" />
+                <action android:name="android.app.action.PROVISIONING_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <receiver
-            android:name="com.android.managedprovisioning.manageduser.ManagedUserRemovalListener"
+            android:name="com.android.managedprovisioning.provisioninglisteners.ManagedUserRemovalListener"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.USER_REMOVED" />

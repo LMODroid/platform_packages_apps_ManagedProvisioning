@@ -314,8 +314,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     @Override
     protected void decideCancelProvisioningDialog() {
-        if ((mState == STATE_PROVISIONING_COMPLETED || mState == STATE_PROVISIONING_FINALIZED)
-                && !mParams.isOrganizationOwnedProvisioning) {
+        // TODO(b/213306538): Improve behaviour when cancelling BYOD mid-provisioning
+        if (!mParams.isOrganizationOwnedProvisioning) {
             return;
         }
 

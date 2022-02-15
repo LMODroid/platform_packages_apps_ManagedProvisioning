@@ -90,7 +90,6 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCALE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCAL_TIME_SHORT;
-import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOGO_URI_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
@@ -953,6 +952,118 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         assertThat(params.returnBeforePolicyCompliance).isTrue();
     }
 
+    public void testParse_trustedSourceProvisioningWithKeepScreenOnSetTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON,
+                        /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.keepScreenOn).isTrue();
+    }
+
+    public void testParse_trustedSourceProvisioningWithKeepScreenOnSetFalse_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON,
+                        /* value= */ false);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.keepScreenOn).isFalse();
+    }
+
+    public void testParse_trustedSourceProvisioningWithKeepScreenOnNotSet_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent();
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.keepScreenOn).isFalse();
+    }
+
+    public void testParse_managedProfileProvisioningWithKeepScreenOnSetTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestManagedProfileIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON, /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.keepScreenOn).isTrue();
+    }
+
+    public void testParse_financedDeviceProvisioningWithKeepScreenOnSetTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestFinancedDeviceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON, /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.keepScreenOn).isTrue();
+    }
+
+    public void testParse_trustedSourceProvisioningWithAllowOfflineTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE,
+                        /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.allowOffline).isTrue();
+    }
+
+    public void testParse_trustedSourceProvisioningWithAllowOfflineFalse_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE,
+                        /* value= */ false);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.allowOffline).isFalse();
+    }
+
+    public void testParse_trustedSourceProvisioningWithAllowOfflineNotSet_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent();
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.allowOffline).isFalse();
+    }
+
+    public void testParse_managedProfileProvisioningWithAllowOfflineTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestManagedProfileIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE, /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.allowOffline).isTrue();
+    }
+
+    public void testParse_financedDeviceProvisioningWithAllowOfflineTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestFinancedDeviceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ALLOW_OFFLINE, /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.allowOffline).isTrue();
+    }
+
     private Stream<Field> buildAllShortExtras() {
         Field[] fields = ExtrasProvisioningDataParser.class.getDeclaredFields();
         return Arrays.stream(fields)
@@ -991,7 +1102,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                 .putExtra(EXTRA_PROVISIONING_SUPPORT_URL_SHORT, TEST_SUPPORT_URL)
                 .putExtra(EXTRA_PROVISIONING_USE_MOBILE_DATA_SHORT,
                         TEST_USE_MOBILE_DATA)
-                .putExtra(EXTRA_PROVISIONING_LOGO_URI_SHORT, TEST_URI)
                 .putExtra(EXTRA_PROVISIONING_DISCLAIMERS_SHORT, parcelablesShort)
                 .putExtra(EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT_SHORT, true);
     }
