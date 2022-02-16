@@ -351,11 +351,12 @@ public class ProvisioningAnalyticsTracker {
 
     /**
      * Logs some entry points to provisioning.
-     *
-     * @param context Context passed to MetricsLogger
+     *  @param context Context passed to MetricsLogger
      * @param intent Intent that started provisioning
+     * @param settingsFacade
      */
-    public void logEntryPoint(Context context, Intent intent) {
+    public void logEntryPoint(Context context, Intent intent,
+            SettingsFacade settingsFacade) {
         if (intent == null || intent.getAction() == null) {
             return;
         }
@@ -367,12 +368,13 @@ public class ProvisioningAnalyticsTracker {
                         .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
                 break;
             case ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE:
-                logProvisionedFromTrustedSource(context, intent);
+                logProvisionedFromTrustedSource(context, intent, settingsFacade);
                 break;
         }
     }
 
-    private void logProvisionedFromTrustedSource(Context context, Intent intent) {
+    private void logProvisionedFromTrustedSource(Context context, Intent intent,
+            SettingsFacade settingsFacade) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE);
         final int provisioningTrigger = intent.getIntExtra(EXTRA_PROVISIONING_TRIGGER,
                 PROVISIONING_TRIGGER_UNSPECIFIED);
@@ -383,12 +385,7 @@ public class ProvisioningAnalyticsTracker {
                 .createEvent(DevicePolicyEnums.PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE)
                 .setInt(provisioningTrigger)
                 .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences))
-                .setBoolean(isDuringSetupWizard(context)));
-    }
-
-    private boolean isDuringSetupWizard(Context context) {
-        SettingsFacade settingsFacade = new SettingsFacade();
-        return settingsFacade.isDuringSetupWizard(context);
+                .setBoolean(settingsFacade.isDuringSetupWizard(context)));
     }
 
     /**

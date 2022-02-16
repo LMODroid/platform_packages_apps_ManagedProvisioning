@@ -97,6 +97,7 @@ public class DownloadPackageTaskTest {
                 mUtils,
                 mContext,
                 PARAMS,
+                TEST_DOWNLOAD_INFO,
                 mCallback,
                 mock(ProvisioningAnalyticsTracker.class));
     }

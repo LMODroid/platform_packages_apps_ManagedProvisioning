@@ -24,6 +24,8 @@ import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.RETRY_LAUNCH;
 import static com.android.managedprovisioning.common.RetryLaunchActivity.EXTRA_INTENT_TO_LAUNCH;
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
+import static com.android.managedprovisioning.preprovisioning.DownloadRoleHolderActivity.EXTRA_DIALOG_TITLE_ID;
+import static com.android.managedprovisioning.preprovisioning.DownloadRoleHolderActivity.EXTRA_ERROR_MESSAGE_RES_ID;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
 import static com.android.managedprovisioning.provisioning.Constants.PROVISIONING_SERVICE_INTENT;
@@ -32,6 +34,7 @@ import static com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_S
 
 import static java.util.Objects.requireNonNull;
 
+import android.annotation.NonNull;
 import android.app.Activity;
 import android.app.BackgroundServiceStartNotAllowedException;
 import android.app.DialogFragment;
@@ -90,6 +93,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private static final int ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE = 8;
     private static final int START_DEVICE_MANAGEMENT_ROLE_HOLDER_UPDATER_REQUEST_CODE = 9;
     private static final int START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE = 10;
+    private static final int DOWNLOAD_DEVICE_MANAGEMENT_ROLE_HOLDER_REQUEST_CODE = 11;
 
     // Note: must match the constant defined in HomeSettings
     private static final String EXTRA_SUPPORT_MANAGED_PROFILES = "support_managed_profiles";
@@ -343,9 +347,42 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     getTransitionHelper().finishActivity(this);
                 }
                 break;
+            case DOWNLOAD_DEVICE_MANAGEMENT_ROLE_HOLDER_REQUEST_CODE:
+                if (resultCode == RESULT_OK
+                        || mController.getParams().allowOffline) {
+                    mController.startAppropriateProvisioning(getIntent());
+                } else if (data != null && data.hasExtra(EXTRA_ERROR_MESSAGE_RES_ID)) {
+                    ProvisionLogger.loge("Role holder download failed and offline provisioning is "
+                            + "not allowed.");
+                    showRoleHolderDownloadFailedDialog(data);
+                } else {
+                    ProvisionLogger.loge("Role holder download failed and offline provisioning is "
+                            + "not allowed.");
+                    showRoleHolderDownloadFailedDialog(new Intent());
+                }
+                break;
             default:
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
                 break;
+        }
+    }
+
+    private void showRoleHolderDownloadFailedDialog(@NonNull Intent data) {
+        int dialogTitleResId = data.getIntExtra(
+                EXTRA_DIALOG_TITLE_ID,
+                R.string.cant_set_up_device);
+        int dialogMessageResId = data.getIntExtra(
+                EXTRA_ERROR_MESSAGE_RES_ID,
+                R.string.contact_your_admin_for_help);
+        if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
+            showFactoryResetDialog(
+                    dialogTitleResId,
+                    dialogMessageResId);
+        } else {
+            showErrorAndClose(
+                    dialogTitleResId,
+                    dialogMessageResId,
+                    "Failed to provision personally-owned device.");
         }
     }
 
@@ -507,6 +544,17 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             application.markKeepScreenOn();
             application.maybeKeepScreenOn(this);
         }
+    }
+
+    @Override
+    public void startRoleHolderDownload() {
+        Intent intent = new Intent(this,
+                getActivityForScreen(ManagedProvisioningScreens.DOWNLOAD_ROLE_HOLDER));
+        WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
+        intent.putExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS,
+                mController.getParams());
+        getTransitionHelper().startActivityForResultWithTransition(
+                this, intent, DOWNLOAD_DEVICE_MANAGEMENT_ROLE_HOLDER_REQUEST_CODE);
     }
 
     private void requestLauncherPick() {
