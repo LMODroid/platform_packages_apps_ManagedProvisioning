@@ -412,7 +412,7 @@ public class PreProvisioningActivityController {
 
         // TODO(b/207376815): Have a PreProvisioningForwarderActivity to forward to either
         //  platform-provided provisioning or DMRH
-        if (mRoleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext)) {
+        if (mRoleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext, intent)) {
             resetRoleHolderUpdateRetryCount();
             startRoleHolderUpdater(/* roleHolderState= */ null);
         } else {

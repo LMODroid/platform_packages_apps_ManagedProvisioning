@@ -38,6 +38,8 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIM
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOGO_URI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZATION_NAME;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
@@ -212,6 +214,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
             "Set-Cookie: sessionToken=foobar; Expires=Thu, 18 Feb 2016 23:59:59 GMT";
     private static final byte[] TEST_PACKAGE_CHECKSUM = new byte[] { '1', '2', '3', '4', '5' };
     private static final byte[] TEST_SIGNATURE_CHECKSUM = new byte[] { '5', '4', '3', '2', '1' };
+    private static final String TEST_SIGNATURE_CHECKSUM_STRING = buildTestSignatureChecksum();
     private static final int TEST_MIN_SUPPORT_VERSION = 17689;
     private static final PackageDownloadInfo TEST_DOWNLOAD_INFO =
             PackageDownloadInfo.Builder.builder()
@@ -1062,6 +1065,58 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
 
         assertThat(params.allowOffline).isTrue();
+    }
+
+    public void testParse_trustedSourceProvisioningWithRoleHolderDownloadInfo_works()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION,
+                        TEST_DOWNLOAD_LOCATION)
+                .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
+                        TEST_COOKIE_HEADER)
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM,
+                        TEST_SIGNATURE_CHECKSUM_STRING);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.roleHolderDownloadInfo).isNotNull();
+        assertThat(params.roleHolderDownloadInfo.location).isEqualTo(TEST_DOWNLOAD_LOCATION);
+        assertThat(params.roleHolderDownloadInfo.signatureChecksum)
+                .isEqualTo(TEST_SIGNATURE_CHECKSUM);
+        assertThat(params.roleHolderDownloadInfo.cookieHeader).isEqualTo(TEST_COOKIE_HEADER);
+    }
+
+    public void testParse_managedProfileProvisioningWithRoleHolderDownloadInfo_notParsed()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestManagedProfileIntent()
+                .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION,
+                        TEST_DOWNLOAD_LOCATION)
+                .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
+                        TEST_COOKIE_HEADER)
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM,
+                        TEST_SIGNATURE_CHECKSUM_STRING);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.roleHolderDownloadInfo).isNull();
+    }
+
+    public void testParse_financedDeviceProvisioningWithRoleHolderDownloadInfo_notParsed()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestFinancedDeviceIntent()
+                .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION,
+                        TEST_DOWNLOAD_LOCATION)
+                .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
+                        TEST_COOKIE_HEADER)
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM,
+                        TEST_SIGNATURE_CHECKSUM_STRING);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.roleHolderDownloadInfo).isNull();
     }
 
     private Stream<Field> buildAllShortExtras() {
