@@ -24,6 +24,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 
+import com.android.managedprovisioning.provisioning.Constants;
+
 import com.google.android.setupcompat.util.WizardManagerHelper;
 
 /**
@@ -50,7 +52,13 @@ public class DeviceManagementRoleHolderUpdaterHelper {
     /**
      * Returns whether the device management role holder updater should be started.
      */
-    public boolean shouldStartRoleHolderUpdater(Context context) {
+    public boolean shouldStartRoleHolderUpdater(Context context, Intent managedProvisioningIntent) {
+        if (!Constants.isRoleHolderProvisioningAllowedForAction(
+                managedProvisioningIntent.getAction())) {
+            ProvisionLogger.logi("Not starting role holder updater, because this provisioning "
+                    + "action is unsupported: " + managedProvisioningIntent.getAction());
+            return false;
+        }
         if (!mFeatureFlagChecker.canDelegateProvisioningToRoleHolder()) {
             ProvisionLogger.logi("Not starting role holder updater, because the feature flag "
                     + "is turned off.");

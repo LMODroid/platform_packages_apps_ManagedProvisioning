@@ -152,6 +152,8 @@ public final class ProvisioningParams extends PersistableBundlable {
             "device-owner-opt-out-of-permission-grants";
     private static final String TAG_KEEP_SCREEN_ON = "keep-screen-on";
     private static final String TAG_ALLOW_OFFLINE = "allow-offline";
+    private static final String TAG_ROLE_HOLDER_PACKAGE_DOWNLOAD_INFO =
+            "role-holder-download-info";
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
             = new Parcelable.Creator<ProvisioningParams>() {
@@ -331,6 +333,10 @@ public final class ProvisioningParams extends PersistableBundlable {
      */
     public final boolean allowOffline;
 
+    /** The download information of the role holder package. */
+    @Nullable
+    public final PackageDownloadInfo roleHolderDownloadInfo;
+
     public static String inferStaticDeviceAdminPackageName(ComponentName deviceAdminComponentName,
             String deviceAdminPackageName) {
         if (deviceAdminComponentName != null) {
@@ -401,6 +407,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         deviceOwnerPermissionGrantOptOut = builder.mDeviceOwnerPermissionGrantOptOut;
         keepScreenOn = builder.mKeepScreenOn;
         allowOffline = builder.mAllowOffline;
+        roleHolderDownloadInfo = builder.mRoleHolderDownloadInfo;
 
         validateFields();
     }
@@ -461,6 +468,8 @@ public final class ProvisioningParams extends PersistableBundlable {
                 deviceOwnerPermissionGrantOptOut);
         bundle.putBoolean(TAG_KEEP_SCREEN_ON, keepScreenOn);
         bundle.putBoolean(TAG_ALLOW_OFFLINE, allowOffline);
+        putPersistableBundlableIfNotNull(bundle, TAG_ROLE_HOLDER_PACKAGE_DOWNLOAD_INFO,
+                roleHolderDownloadInfo);
         return bundle;
     }
 
@@ -519,6 +528,10 @@ public final class ProvisioningParams extends PersistableBundlable {
                 bundle.getBoolean(TAG_DEVICE_OWNER_PERMISSION_GRANT_OPT_OUT));
         builder.setKeepScreenOn(bundle.getBoolean(TAG_KEEP_SCREEN_ON));
         builder.setAllowOffline(bundle.getBoolean(TAG_ALLOW_OFFLINE));
+        builder.setRoleHolderDownloadInfo(getObjectAttrFromPersistableBundle(
+                bundle,
+                TAG_ROLE_HOLDER_PACKAGE_DOWNLOAD_INFO,
+                PackageDownloadInfo::fromPersistableBundle));
         return builder;
     }
 
@@ -651,6 +664,7 @@ public final class ProvisioningParams extends PersistableBundlable {
                 DEFAULT_EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
         private boolean mKeepScreenOn = DEFAULT_EXTRA_PROVISIONING_KEEP_SCREEN_ON;
         private boolean mAllowOffline = DEFAULT_EXTRA_ALLOW_OFFLINE;
+        public PackageDownloadInfo mRoleHolderDownloadInfo;
 
         public Builder setProvisioningId(long provisioningId) {
             mProvisioningId = provisioningId;
@@ -834,6 +848,14 @@ public final class ProvisioningParams extends PersistableBundlable {
          */
         public Builder setAllowOffline(boolean allowOffline) {
             mAllowOffline = allowOffline;
+            return this;
+        }
+
+        /**
+         * Setter for the role holder download info.
+         */
+        public Builder setRoleHolderDownloadInfo(PackageDownloadInfo roleHolderDownloadInfo) {
+            mRoleHolderDownloadInfo = roleHolderDownloadInfo;
             return this;
         }
 

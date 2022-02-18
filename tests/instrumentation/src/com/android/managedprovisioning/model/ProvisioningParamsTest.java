@@ -110,6 +110,17 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                     .setSignatureChecksum(TEST_SIGNATURE_CHECKSUM)
                     .setMinVersion(TEST_MIN_SUPPORT_VERSION)
                     .build();
+    private static final PackageDownloadInfo ROLE_HOLDER_DOWNLOAD_INFO_LOCATION_AND_SIGNATURE =
+            PackageDownloadInfo.Builder.builder()
+                    .setLocation(TEST_DOWNLOAD_LOCATION)
+                    .setSignatureChecksum(TEST_SIGNATURE_CHECKSUM)
+                    .build();
+    private static final PackageDownloadInfo ROLE_HOLDER_DOWNLOAD_INFO =
+            PackageDownloadInfo.Builder.builder()
+                    .setLocation(TEST_DOWNLOAD_LOCATION)
+                    .setSignatureChecksum(TEST_SIGNATURE_CHECKSUM)
+                    .setCookieHeader(TEST_COOKIE_HEADER)
+                    .build();
 
     @Mock
     private Utils mUtils;
@@ -547,6 +558,47 @@ public class ProvisioningParamsTest extends AndroidTestCase {
                 .build();
 
         assertThat(params.allowOffline).isFalse();
+    }
+
+    @SmallTest
+    public void testRoleHolderDownload_roleHolderDownloadInfoSet_notNull() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setRoleHolderDownloadInfo(ROLE_HOLDER_DOWNLOAD_INFO)
+                .build();
+
+        assertThat(params.roleHolderDownloadInfo).isNotNull();
+    }
+
+    @SmallTest
+    public void testRoleHolderDownload_roleHolderDownloadInfoWithLocationAndSignature_works() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setRoleHolderDownloadInfo(ROLE_HOLDER_DOWNLOAD_INFO_LOCATION_AND_SIGNATURE)
+                .build();
+
+        assertThat(params.roleHolderDownloadInfo.location).isEqualTo(TEST_DOWNLOAD_LOCATION);
+        assertThat(params.roleHolderDownloadInfo.signatureChecksum).isEqualTo(
+                TEST_SIGNATURE_CHECKSUM);
+    }
+
+    @SmallTest
+    public void testRoleHolderDownload_roleHolderDownloadInfo_works() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setRoleHolderDownloadInfo(ROLE_HOLDER_DOWNLOAD_INFO)
+                .build();
+
+        assertThat(params.roleHolderDownloadInfo.location).isEqualTo(TEST_DOWNLOAD_LOCATION);
+        assertThat(params.roleHolderDownloadInfo.signatureChecksum).isEqualTo(
+                TEST_SIGNATURE_CHECKSUM);
+        assertThat(params.roleHolderDownloadInfo.cookieHeader).isEqualTo(TEST_COOKIE_HEADER);
+    }
+
+    @SmallTest
+    public void testRoleHolderDownload_defaultCookieHeaderNull() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setRoleHolderDownloadInfo(ROLE_HOLDER_DOWNLOAD_INFO_LOCATION_AND_SIGNATURE)
+                .build();
+
+        assertThat(params.roleHolderDownloadInfo.cookieHeader).isNull();
     }
 
     private ProvisioningParams.Builder createDefaultProvisioningParamsBuilder() {
