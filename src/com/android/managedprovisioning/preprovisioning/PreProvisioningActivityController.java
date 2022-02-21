@@ -20,13 +20,6 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DE
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.CODE_CANNOT_ADD_MANAGED_PROFILE;
-import static android.app.admin.DevicePolicyManager.CODE_HAS_DEVICE_OWNER;
-import static android.app.admin.DevicePolicyManager.CODE_MANAGED_USERS_NOT_SUPPORTED;
-import static android.app.admin.DevicePolicyManager.CODE_NOT_SYSTEM_USER;
-import static android.app.admin.DevicePolicyManager.CODE_OK;
-import static android.app.admin.DevicePolicyManager.CODE_PROVISIONING_NOT_ALLOWED_FOR_NON_DEVELOPER_USERS;
-import static android.app.admin.DevicePolicyManager.CODE_USER_SETUP_COMPLETED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ACCOUNT_TO_MIGRATE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ALLOWED_PROVISIONING_MODES;
@@ -50,6 +43,13 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PR
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_NFC;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
+import static android.app.admin.DevicePolicyManager.STATUS_CANNOT_ADD_MANAGED_PROFILE;
+import static android.app.admin.DevicePolicyManager.STATUS_HAS_DEVICE_OWNER;
+import static android.app.admin.DevicePolicyManager.STATUS_MANAGED_USERS_NOT_SUPPORTED;
+import static android.app.admin.DevicePolicyManager.STATUS_NOT_SYSTEM_USER;
+import static android.app.admin.DevicePolicyManager.STATUS_OK;
+import static android.app.admin.DevicePolicyManager.STATUS_PROVISIONING_NOT_ALLOWED_FOR_NON_DEVELOPER_USERS;
+import static android.app.admin.DevicePolicyManager.STATUS_USER_SETUP_COMPLETED;
 
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
@@ -837,11 +837,11 @@ public class PreProvisioningActivityController {
     /** @return False if condition preventing further provisioning */
     @VisibleForTesting protected boolean checkDevicePolicyPreconditions() {
         ProvisioningParams params = mViewModel.getParams();
-        int provisioningPreCondition = mDevicePolicyManager.checkProvisioningPreCondition(
+        int provisioningPreCondition = mDevicePolicyManager.checkProvisioningPrecondition(
                 params.provisioningAction,
                 params.inferDeviceAdminPackageName());
         // Check whether provisioning is allowed for the current action.
-        if (provisioningPreCondition != CODE_OK) {
+        if (provisioningPreCondition != STATUS_OK) {
             mProvisioningAnalyticsTracker.logProvisioningNotAllowed(mContext,
                     provisioningPreCondition);
             showProvisioningErrorAndClose(
@@ -1080,13 +1080,13 @@ public class PreProvisioningActivityController {
             return;
         }
         switch (provisioningPreCondition) {
-            case CODE_MANAGED_USERS_NOT_SUPPORTED:
+            case STATUS_MANAGED_USERS_NOT_SUPPORTED:
                 mUi.showErrorAndClose(R.string.cant_add_work_profile,
                         R.string.work_profile_cant_be_added_contact_admin,
                         "Exiting managed profile provisioning, managed profiles "
                                 + "feature is not available");
                 break;
-            case CODE_CANNOT_ADD_MANAGED_PROFILE:
+            case STATUS_CANNOT_ADD_MANAGED_PROFILE:
                 if (!userInfo.canHaveProfile()) {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
                             R.string.work_profile_cant_be_added_contact_admin,
@@ -1104,7 +1104,7 @@ public class PreProvisioningActivityController {
                                     + "profiles");
                 }
                 break;
-            case CODE_PROVISIONING_NOT_ALLOWED_FOR_NON_DEVELOPER_USERS:
+            case STATUS_PROVISIONING_NOT_ALLOWED_FOR_NON_DEVELOPER_USERS:
                 mUi.showErrorAndClose(R.string.cant_add_work_profile,
                         R.string.work_profile_cant_be_added_contact_admin,
                         "Exiting managed profile provisioning, "
@@ -1125,17 +1125,17 @@ public class PreProvisioningActivityController {
 
     private void showDeviceOwnerErrorAndClose(int provisioningPreCondition) {
         switch (provisioningPreCondition) {
-            case CODE_HAS_DEVICE_OWNER:
-            case CODE_USER_SETUP_COMPLETED:
+            case STATUS_HAS_DEVICE_OWNER:
+            case STATUS_USER_SETUP_COMPLETED:
                 mUi.showErrorAndClose(R.string.device_already_set_up,
                         R.string.if_questions_contact_admin, "Device already provisioned.");
                 return;
-            case CODE_NOT_SYSTEM_USER:
+            case STATUS_NOT_SYSTEM_USER:
                 mUi.showErrorAndClose(R.string.cant_set_up_device,
                         R.string.contact_your_admin_for_help,
                         "Device owner can only be set up for USER_SYSTEM.");
                 return;
-            case CODE_PROVISIONING_NOT_ALLOWED_FOR_NON_DEVELOPER_USERS:
+            case STATUS_PROVISIONING_NOT_ALLOWED_FOR_NON_DEVELOPER_USERS:
                 mUi.showErrorAndClose(R.string.cant_set_up_device,
                         R.string.contact_your_admin_for_help,
                         "Provisioning not allowed by OEM");
