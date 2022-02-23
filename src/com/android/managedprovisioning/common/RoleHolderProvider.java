@@ -16,7 +16,7 @@
 
 package com.android.managedprovisioning.common;
 
-import android.app.role.RoleManager;
+import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.text.TextUtils;
 
@@ -27,11 +27,10 @@ import androidx.annotation.Nullable;
  */
 public interface RoleHolderProvider {
     RoleHolderProvider DEFAULT = (Context context) -> {
-        String deviceManagerConfig =
-                context.getString(com.android.internal.R.string.config_deviceManager);
+        DevicePolicyManager dpm = context.getSystemService(DevicePolicyManager.class);
+        String deviceManagerConfig = dpm.getDevicePolicyManagementRoleHolderPackage();
         if (TextUtils.isEmpty(deviceManagerConfig)) {
-            ProvisionLogger.logi("No role holders retrieved for "
-                    + RoleManager.ROLE_DEVICE_MANAGER);
+            ProvisionLogger.logi("Role holder is not defined for this device.");
             return null;
         }
         return RoleHolderParser.getRoleHolderPackage(deviceManagerConfig);
