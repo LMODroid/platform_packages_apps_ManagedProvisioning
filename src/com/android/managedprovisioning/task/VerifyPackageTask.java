@@ -22,7 +22,6 @@ import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
-import android.text.TextUtils;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
@@ -58,14 +57,15 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
     private final Utils mUtils;
     private final PackageLocationProvider mDownloadLocationProvider;
     private final PackageManager mPackageManager;
-    private final PackageDownloadInfo mDownloadInfo;
+    private final PackageDownloadInfo mPackageDownloadInfo;
 
     public VerifyPackageTask(
             PackageLocationProvider downloadLocationProvider,
             Context context,
             ProvisioningParams params,
+            PackageDownloadInfo packageDownloadInfo,
             Callback callback) {
-        this(new Utils(), downloadLocationProvider, context, params, callback,
+        this(new Utils(), downloadLocationProvider, context, params, packageDownloadInfo, callback,
                 new ProvisioningAnalyticsTracker(
                         MetricsWriterFactory.getMetricsWriter(context, new SettingsFacade()),
                         new ManagedProvisioningSharedPreferences(context)));
@@ -77,6 +77,7 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
             PackageLocationProvider downloadLocationProvider,
             Context context,
             ProvisioningParams params,
+            PackageDownloadInfo packageDownloadInfo,
             Callback callback,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
         super(context, params, callback, provisioningAnalyticsTracker);
@@ -84,7 +85,7 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
         mUtils = checkNotNull(utils);
         mDownloadLocationProvider = checkNotNull(downloadLocationProvider);
         mPackageManager = mContext.getPackageManager();
-        mDownloadInfo = checkNotNull(params.deviceAdminDownloadInfo);
+        mPackageDownloadInfo = checkNotNull(packageDownloadInfo);
     }
 
     @Override
@@ -115,14 +116,14 @@ public class VerifyPackageTask extends AbstractProvisioningTask {
             return;
         }
 
-        if (mDownloadInfo.packageChecksum.length > 0) {
+        if (mPackageDownloadInfo.packageChecksum.length > 0) {
             if (!doesPackageHashMatch(
-                    packageLocation.getAbsolutePath(), mDownloadInfo.packageChecksum)) {
+                    packageLocation.getAbsolutePath(), mPackageDownloadInfo.packageChecksum)) {
                 error(ERROR_HASH_MISMATCH);
                 return;
             }
         } else {
-            if (!doesASignatureHashMatch(packageInfo, mDownloadInfo.signatureChecksum)) {
+            if (!doesASignatureHashMatch(packageInfo, mPackageDownloadInfo.signatureChecksum)) {
                 error(ERROR_HASH_MISMATCH);
                 return;
             }

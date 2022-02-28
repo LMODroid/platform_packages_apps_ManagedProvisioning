@@ -203,8 +203,8 @@ public class VerifyPackageTaskTest {
                 .setDeviceAdminPackageName(TEST_PACKAGE_NAME)
                 .setDeviceAdminDownloadInfo(downloadInfo)
                 .build();
-        mTask = new VerifyPackageTask(mUtils, mDownloadPackageTask, mContext, params, mCallback,
-                mock(ProvisioningAnalyticsTracker.class));
+        mTask = new VerifyPackageTask(mUtils, mDownloadPackageTask, mContext, params, downloadInfo,
+                mCallback, mock(ProvisioningAnalyticsTracker.class));
         mTask.run(TEST_USER_ID);
     }
 }
