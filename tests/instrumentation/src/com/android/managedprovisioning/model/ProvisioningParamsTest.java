@@ -561,6 +561,32 @@ public class ProvisioningParamsTest extends AndroidTestCase {
     }
 
     @SmallTest
+    public void testProvisioningShouldLaunchResultIntent_notSet_isFalse() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .build();
+
+        assertThat(params.provisioningShouldLaunchResultIntent).isFalse();
+    }
+
+    @SmallTest
+    public void testProvisioningShouldLaunchResultIntent_setTrue_isTrue() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setProvisioningShouldLaunchResultIntent(true)
+                .build();
+
+        assertThat(params.provisioningShouldLaunchResultIntent).isTrue();
+    }
+
+    @SmallTest
+    public void testProvisioningShouldLaunchResultIntent_setFalse_isFalse() {
+        ProvisioningParams params = createDefaultProvisioningParamsBuilder()
+                .setProvisioningShouldLaunchResultIntent(false)
+                .build();
+
+        assertThat(params.provisioningShouldLaunchResultIntent).isFalse();
+    }
+
+    @SmallTest
     public void testRoleHolderDownload_roleHolderDownloadInfoSet_notNull() {
         ProvisioningParams params = createDefaultProvisioningParamsBuilder()
                 .setRoleHolderDownloadInfo(ROLE_HOLDER_DOWNLOAD_INFO)
