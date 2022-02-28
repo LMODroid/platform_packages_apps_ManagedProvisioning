@@ -29,5 +29,6 @@ public enum ManagedProvisioningScreens {
     FINALIZATION_INSIDE_SUW,
     TERMS,
     FINANCED_DEVICE_LANDING,
-    RETRY_LAUNCH
+    RETRY_LAUNCH,
+    DOWNLOAD_ROLE_HOLDER
 }
