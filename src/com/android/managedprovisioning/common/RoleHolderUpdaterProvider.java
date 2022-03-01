@@ -25,7 +25,8 @@ import androidx.annotation.Nullable;
  */
 public interface RoleHolderUpdaterProvider {
     RoleHolderUpdaterProvider DEFAULT = (Context context) ->
-            context.getString(com.android.internal.R.string.config_deviceManagerUpdater);
+            context.getString(
+                    com.android.internal.R.string.config_devicePolicyManagementUpdater);
 
     /**
      * Returns the package name of the role holder updater.
