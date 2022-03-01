@@ -17,6 +17,7 @@
 package com.android.managedprovisioning;
 
 import static com.android.managedprovisioning.ManagedProvisioningScreens.ADMIN_INTEGRATED_PREPARE;
+import static com.android.managedprovisioning.ManagedProvisioningScreens.DOWNLOAD_ROLE_HOLDER;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.ENCRYPT;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.FINALIZATION_INSIDE_SUW;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.FINANCED_DEVICE_LANDING;
@@ -45,6 +46,7 @@ import androidx.test.filters.SmallTest;
 import com.android.managedprovisioning.common.RetryLaunchActivity;
 import com.android.managedprovisioning.finalization.FinalizationForwarderActivity;
 import com.android.managedprovisioning.finalization.FinalizationInsideSuwActivity;
+import com.android.managedprovisioning.preprovisioning.DownloadRoleHolderActivity;
 import com.android.managedprovisioning.preprovisioning.EncryptDeviceActivity;
 import com.android.managedprovisioning.preprovisioning.PostEncryptionActivity;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivity;
@@ -70,7 +72,7 @@ import java.util.stream.Collectors;
 
 @SmallTest
 public final class ScreenManagerTest {
-    private static final int EXPECTED_NUMBER_OF_SCREENS = 13;
+    private static final int EXPECTED_NUMBER_OF_SCREENS = 14;
     private static final Map<ManagedProvisioningScreens, Class<? extends Activity>>
             TEST_SCREEN_TO_ACTIVITY_MAP = createTestScreenToActivityMap();
     private static final Map<ManagedProvisioningScreens, Class<? extends Activity>>
@@ -117,6 +119,8 @@ public final class ScreenManagerTest {
                 .isEqualTo(FinancedDeviceLandingActivity.class);
         assertThat(screenManager.getActivityClassForScreen(RETRY_LAUNCH))
                 .isEqualTo(RetryLaunchActivity.class);
+        assertThat(screenManager.getActivityClassForScreen(DOWNLOAD_ROLE_HOLDER))
+                .isEqualTo(DownloadRoleHolderActivity.class);
     }
 
     @Test
@@ -206,6 +210,7 @@ public final class ScreenManagerTest {
         map.put(TERMS, Activity.class);
         map.put(FINANCED_DEVICE_LANDING, Activity.class);
         map.put(RETRY_LAUNCH, Activity.class);
+        map.put(DOWNLOAD_ROLE_HOLDER, Activity.class);
         return map;
     }
 

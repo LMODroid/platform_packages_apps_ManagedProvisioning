@@ -304,6 +304,11 @@
             android:immersive="true" />
 
         <activity
+            android:name=".preprovisioning.DownloadRoleHolderActivity"
+            android:theme="@style/SudThemeGlifV3.DayNight"
+            android:immersive="true" />
+
+        <activity
             android:name=".common.RetryLaunchActivity"
             android:theme="@style/SudThemeGlifV3.DayNight"
             android:immersive="true" />

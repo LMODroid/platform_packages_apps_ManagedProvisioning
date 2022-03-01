@@ -135,6 +135,12 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                     .setPackageChecksum(new byte[] {1})
                     .setSignatureChecksum(new byte[] {1})
                     .build();
+    public static final ProvisioningParams DOWNLOAD_ROLE_HOLDER_PARAMS =
+            ProvisioningParams.Builder.builder()
+                    .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
+                    .setDeviceAdminComponentName(TEST_MDM_COMPONENT_NAME)
+                    .setRoleHolderDownloadInfo(PACKAGE_DOWNLOAD_INFO)
+                    .build();
     private static final String TEST_IMEI = "my imei";
     private static final String DISCLAIMER_HEADER = "header1";
     private static final Uri DISCLAIMER_CONTENT_URI =
@@ -371,6 +377,52 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
         verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
         verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(true);
+    }
+
+    public void
+            testTrustedSource_roleHolderDownloadExtra_downloadsRoleHolder() throws Exception {
+        enableRoleHolderDelegation();
+        when(mSettingsFacade.isDuringSetupWizard(any())).thenReturn(false);
+        mController = createControllerWithRoleHolderHelpers(
+                DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_PRESENT,
+                ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED);
+
+        // GIVEN an intent to provision via trusted source
+        prepareMocksForTrustedSourceIntent(DOWNLOAD_ROLE_HOLDER_PARAMS);
+
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        });
+
+        // THEN download role holder
+        verify(mUi).onParamsValidated(DOWNLOAD_ROLE_HOLDER_PARAMS);
+        verify(mUi).startRoleHolderDownload();
+        verifyNoMoreInteractions(mUi);
+    }
+
+    public void
+            testManagedProfile_roleHolderDownloadExtra_startsPlatformProvidedProvisioning()
+            throws Exception {
+        enableRoleHolderDelegation();
+        when(mSettingsFacade.isDuringSetupWizard(any())).thenReturn(false);
+        mController = createControllerWithRoleHolderHelpers(
+                DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_PRESENT,
+                ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED);
+
+        // GIVEN an intent to provision via trusted source
+        prepareMocksForManagedProfileIntent(DOWNLOAD_ROLE_HOLDER_PARAMS);
+
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        });
+
+        // THEN start profile provisioning
+        verify(mUi).onParamsValidated(DOWNLOAD_ROLE_HOLDER_PARAMS);
+        verify(mUi).initiateUi(any(UiParams.class));
+        verifyNoMoreInteractions(mUi);
+        verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
     }
 
     public void
@@ -1759,6 +1811,17 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 .setDeviceAdminDownloadInfo(PACKAGE_DOWNLOAD_INFO);
     }
 
+    private void prepareMocksForManagedProfileIntent(ProvisioningParams params) throws Exception {
+        final String action = ACTION_PROVISION_MANAGED_PROFILE;
+        when(mIntent.getAction()).thenReturn(action);
+        when(mUtils.findDeviceAdmin(TEST_MDM_PACKAGE, null, mContext, UserHandle.myUserId()))
+                .thenReturn(TEST_MDM_COMPONENT_NAME);
+        when(mSettingsFacade.isDeviceProvisioned(mContext)).thenReturn(true);
+        when(mDevicePolicyManager.checkProvisioningPrecondition(action, TEST_MDM_PACKAGE))
+                .thenReturn(STATUS_OK);
+        when(mMessageParser.parse(mIntent)).thenReturn(params);
+    }
+
     private void prepareMocksForManagedProfileIntent(boolean skipEncryption) throws Exception {
         final String action = ACTION_PROVISION_MANAGED_PROFILE;
         when(mIntent.getAction()).thenReturn(action);
@@ -1771,15 +1834,14 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                 createParams(false, skipEncryption, null, action, TEST_MDM_PACKAGE));
     }
 
-    private void prepareMocksForQrIntent(String action, boolean skipEncryption) throws Exception {
+    private void prepareMocksForTrustedSourceIntent(ProvisioningParams params) throws Exception {
         when(mIntent.getAction())
                 .thenReturn(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE);
         when(mIntent.getComponent()).thenReturn(ComponentName.createRelative(MP_PACKAGE_NAME,
                 ".PreProvisioningActivityViaTrustedApp"));
-        when(mDevicePolicyManager.checkProvisioningPrecondition(action, TEST_MDM_PACKAGE))
+        when(mDevicePolicyManager.checkProvisioningPrecondition(anyString(), eq(TEST_MDM_PACKAGE)))
                 .thenReturn(STATUS_OK);
-        when(mMessageParser.parse(mIntent)).thenReturn(
-                createParams(true, skipEncryption, TEST_WIFI_SSID, action, TEST_MDM_PACKAGE));
+        when(mMessageParser.parse(mIntent)).thenReturn(params);
     }
 
     private void prepareMocksForDoIntent(boolean skipEncryption) throws Exception {

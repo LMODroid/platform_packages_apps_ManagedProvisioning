@@ -318,6 +318,8 @@ public class PreProvisioningActivityController {
         void startRoleHolderProvisioning(Intent intent);
 
         void onParamsValidated(ProvisioningParams params);
+
+        void startRoleHolderDownload();
     }
 
     /**
@@ -366,7 +368,7 @@ public class PreProvisioningActivityController {
         }
 
         mProvisioningAnalyticsTracker.logProvisioningExtras(mContext, intent);
-        mProvisioningAnalyticsTracker.logEntryPoint(mContext, intent);
+        mProvisioningAnalyticsTracker.logEntryPoint(mContext, intent, mSettingsFacade);
 
         // Check whether provisioning is allowed for the current action. This check needs to happen
         // before any actions that might affect the state of the device.
@@ -412,7 +414,10 @@ public class PreProvisioningActivityController {
 
         // TODO(b/207376815): Have a PreProvisioningForwarderActivity to forward to either
         //  platform-provided provisioning or DMRH
-        if (mRoleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext, intent)) {
+        if (mRoleHolderUpdaterHelper.shouldPlatformDownloadRoleHolder(intent, params)) {
+            mUi.startRoleHolderDownload();
+        } else if (mRoleHolderUpdaterHelper
+                .shouldStartRoleHolderUpdater(mContext, intent, params)) {
             resetRoleHolderUpdateRetryCount();
             startRoleHolderUpdater(/* roleHolderState= */ null);
         } else {

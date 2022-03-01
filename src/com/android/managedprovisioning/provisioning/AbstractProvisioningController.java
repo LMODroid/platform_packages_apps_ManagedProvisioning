@@ -191,19 +191,23 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
     }
 
     protected final void addDownloadAndInstallDeviceOwnerPackageTasks() {
-        if (mParams.deviceAdminDownloadInfo == null) return;
+        if (mParams.deviceAdminDownloadInfo == null) {
+            return;
+        }
 
-        DownloadPackageTask downloadTask = new DownloadPackageTask(mContext, mParams, this);
+        DownloadPackageTask downloadTask = new DownloadPackageTask(
+                mContext, mParams, mParams.deviceAdminDownloadInfo, this);
         addTasks(downloadTask,
-                new VerifyPackageTask(downloadTask, mContext, mParams, this),
+                new VerifyPackageTask(
+                        downloadTask, mContext, mParams, mParams.deviceAdminDownloadInfo, this),
                 new InstallPackageTask(downloadTask, mContext, mParams, this));
 
         // TODO(b/170333009): add unit test for headless system user mode
         if (UserManager.isHeadlessSystemUserMode() && mUserId != UserHandle.USER_SYSTEM) {
             ProvisionLogger.logd("Adding InstallExistingPackageTask for system user on "
                       + "headless system user mode");
-            addTasks(new InstallExistingPackageTask(mParams.inferDeviceAdminPackageName(),
-                    mContext, mParams, this, UserHandle.USER_SYSTEM));
+            addTasks(new InstallExistingPackageTask(mParams.inferDeviceAdminPackageName(), mContext,
+                    mParams, /* callback= */ this, UserHandle.USER_SYSTEM));
         }
     }
 
