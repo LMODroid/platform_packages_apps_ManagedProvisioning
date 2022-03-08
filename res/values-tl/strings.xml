@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Pahihintulutan ko"</string>
     <string name="url_error" msgid="5958494012986243186">"Hindi maipakita ang link na ito."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"Mag-navigate pataas"</string>
     <string name="terms" msgid="8295436105384703903">"Mga Tuntunin"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Impormasyon ng profile sa trabaho"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Impormasyon ng pinamamahalaang device"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Paalala sa privacy"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Baka makita ng iyong IT admin ang data at aktibidad mo sa device na ito"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Nagmula sa <xliff:g id="CREDITOR_NAME">%s</xliff:g> ang device na ito"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Magbayad para sa device na ito"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Magbayad gamit ang <xliff:g id="CREDITOR_NAME">%s</xliff:g> app"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Puwedeng i-install ng <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> ang <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> para makapagbayad ka para sa device na ito."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Puwedeng paghigpitan ang device na ito"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"Puwedeng paghigpitan ng <xliff:g id="CREDITOR_NAME">%s</xliff:g> ang device na ito"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Puwedeng paghigpitan ng <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ang access sa device na ito kung hindi ka magbabayad."</string>
 </resources>

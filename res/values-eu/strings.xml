@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"Ados"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Baimentzen dut"</string>
     <string name="url_error" msgid="5958494012986243186">"Ezin da bistaratu esteka."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"Joan gora"</string>
     <string name="terms" msgid="8295436105384703903">"Baldintzak"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Laneko profileko informazioa"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Kudeatutako gailuko informazioa"</string>
@@ -78,7 +77,7 @@
     <string name="reset" msgid="6467204151306265796">"Berrezarri jatorrizko datuak"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Ezin da konfiguratu profila"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Ezin da konfiguratu gailua"</string>
-    <string name="something_went_wrong" msgid="3593223774041784329">"Arazo bat izan da"</string>
+    <string name="something_went_wrong" msgid="3593223774041784329">"Arazoren bat izan da"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Ezin izan da konfiguratu gailua. Laguntza lortzeko, jarri IKT saileko administratzailearekin harremanetan."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Laguntza lortzeko, jarri IKT saileko administratzailearekin harremanetan"</string>
     <string name="reset_device" msgid="5483853913241939262">"Berrezarri gailua eta saiatu berriro konfiguratzen"</string>
@@ -95,7 +94,7 @@
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Ez"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Bai"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Bertan behera uzten…"</string>
-    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Profilaren konfigurazio-prozesua gelditu?"</string>
+    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Profila konfiguratzeari utzi nahi diozu?"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"Geroago ere konfigura dezakezu laneko profila erakundeak gailua kudeatzeko duen aplikazioan"</string>
     <string name="continue_button" msgid="7177918589510964446">"Egin aurrera"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Gelditu"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Pribatutasun-abisua"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Baliteke IKT saileko administratzaileak gailu honetan dituzun datuak eta egiten dituzun jarduerak ikusi ahal izatea"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> erakundeak eman du gailu hau"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Egin ordainketak gailu honen bidez"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Egin ordainketak <xliff:g id="CREDITOR_NAME">%s</xliff:g> aplikazioarekin"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> erakundeak <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> aplikazioa instala dezake, gailuari dagozkion ordainketak egin ahal izan ditzazun."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Gailua mugatu egin daiteke"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> erakundeak gailu hau muga dezake"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> erakundeak gailu honetarako sarbidea muga dezake ordainketak egiten ez badituzu."</string>
 </resources>
