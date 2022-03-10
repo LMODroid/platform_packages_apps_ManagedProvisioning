@@ -230,7 +230,6 @@ public class PreProvisioningActivityController {
             mViewModel.onRoleHolderProvisioningInitiated();
             mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
         } else {
-            ProvisionLogger.logw("Provisioning via platform-provided provisioning");
             performPlatformProvidedProvisioning();
         }
     }
@@ -426,6 +425,7 @@ public class PreProvisioningActivityController {
     }
 
     void performPlatformProvidedProvisioning() {
+        ProvisionLogger.logw("Provisioning via platform-provided provisioning");
         ProvisioningParams params = mViewModel.getParams();
 
         mViewModel.getTimeLogger().start();
