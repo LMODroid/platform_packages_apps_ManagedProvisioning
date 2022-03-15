@@ -202,7 +202,7 @@ public class RetryLaunchViewModelTest {
     }
 
     private static Intent createUpdateDeviceManagementRoleHolderIntent() {
-        return new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER)
+        return new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER)
                 .setPackage(TEST_DEVICE_MANAGEMENT_ROLE_HOLDER_UPDATER_PACKAGE_NAME);
     }
 

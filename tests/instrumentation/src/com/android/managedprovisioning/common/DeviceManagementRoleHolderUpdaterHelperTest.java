@@ -50,7 +50,7 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
     private static final String ROLE_HOLDER_EMPTY_PACKAGE_NAME = "";
     private static final String ROLE_HOLDER_NULL_PACKAGE_NAME = null;
     private static final Intent ROLE_HOLDER_UPDATER_INTENT =
-            new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_MANAGEMENT_ROLE_HOLDER)
+            new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER)
                     .setPackage(ROLE_HOLDER_UPDATER_PACKAGE_NAME);
     public static final String TEST_EXTRA_KEY = "test_extra_key";
     public static final String TEST_EXTRA_VALUE = "test_extra_value";
