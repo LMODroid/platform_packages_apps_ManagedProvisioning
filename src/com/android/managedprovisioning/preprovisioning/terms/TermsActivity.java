@@ -20,7 +20,7 @@ import static android.view.View.TEXT_ALIGNMENT_TEXT_START;
 import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVISIONING_TERMS_ACTIVITY_TIME_MS;
 import static com.android.internal.util.Preconditions.checkNotNull;
 
-import static com.google.android.setupdesign.util.ThemeHelper.shouldApplyExtendedPartnerConfig;
+import static com.google.android.setupdesign.util.ThemeHelper.shouldApplyMaterialYouStyle;
 
 import static java.util.Objects.requireNonNull;
 
@@ -127,7 +127,7 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
     }
 
     private void setupHeader() {
-        if (!shouldApplyExtendedPartnerConfig(this)) {
+        if (!shouldApplyMaterialYouStyle(this)) {
             return;
         }
         TextView header = findViewById(R.id.header);
@@ -151,7 +151,7 @@ public class TermsActivity extends SetupGlifLayoutActivity implements
         toolbar.setNavigationIcon(getDrawable(R.drawable.ic_arrow_back_24dp));
         toolbar.setNavigationOnClickListener(v ->
                 getTransitionHelper().finishActivity(TermsActivity.this));
-        if (!shouldApplyExtendedPartnerConfig(this)) {
+        if (!shouldApplyMaterialYouStyle(this)) {
             toolbar.setTitle(R.string.terms);
         }
     }
