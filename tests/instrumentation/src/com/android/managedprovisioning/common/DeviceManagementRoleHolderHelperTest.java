@@ -29,6 +29,7 @@ import static org.junit.Assert.assertThrows;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.PersistableBundle;
 
 import androidx.test.core.app.ApplicationProvider;
@@ -54,6 +55,7 @@ public class DeviceManagementRoleHolderHelperTest {
     private static final String ROLE_HOLDER_NULL_PACKAGE_NAME = null;
     private static final PersistableBundle TEST_ROLE_HOLDER_STATE = new PersistableBundle();
     private static final String TEST_CALLING_PACKAGE = "test.calling.package";
+    private static final Bundle TEST_ADDITIONAL_EXTRAS = new Bundle();
     private final Context mContext = ApplicationProvider.getApplicationContext();
     public static final String TEST_EXTRA_KEY = "test_extra_key";
     public static final String TEST_EXTRA_VALUE = "test_extra_value";
@@ -263,8 +265,8 @@ public class DeviceManagementRoleHolderHelperTest {
         assertThrows(IllegalArgumentException.class, () ->
                 roleHolderHelper.createRoleHolderProvisioningIntent(
                         INVALID_MANAGED_PROVISIONING_INTENT,
-                        TEST_ROLE_HOLDER_STATE,
-                        TEST_CALLING_PACKAGE));
+                        TEST_ADDITIONAL_EXTRAS, TEST_CALLING_PACKAGE, TEST_ROLE_HOLDER_STATE
+                ));
     }
 
     @Test
@@ -274,8 +276,8 @@ public class DeviceManagementRoleHolderHelperTest {
         assertIntentsEqual(
                 roleHolderHelper.createRoleHolderProvisioningIntent(
                         MANAGED_PROFILE_INTENT,
-                        TEST_ROLE_HOLDER_STATE,
-                        TEST_CALLING_PACKAGE),
+                        TEST_ADDITIONAL_EXTRAS, TEST_CALLING_PACKAGE, TEST_ROLE_HOLDER_STATE
+                ),
                 MANAGED_PROFILE_ROLE_HOLDER_INTENT);
     }
 
@@ -287,8 +289,8 @@ public class DeviceManagementRoleHolderHelperTest {
         assertIntentsEqual(
                 roleHolderHelper.createRoleHolderProvisioningIntent(
                         MANAGED_PROFILE_INTENT,
-                        /* roleHolderState= */ null,
-                        /* callingPackage= */ null),
+                        /* roleHolderState= */ TEST_ADDITIONAL_EXTRAS, null, null
+                        /* callingPackage= */),
                 MANAGED_PROFILE_ROLE_HOLDER_INTENT_WITH_MINIMAL_EXTRAS);
     }
 
@@ -300,8 +302,8 @@ public class DeviceManagementRoleHolderHelperTest {
         assertThrows(IllegalStateException.class, () ->
                 roleHolderHelper.createRoleHolderProvisioningIntent(
                         MANAGED_PROFILE_INTENT,
-                        TEST_ROLE_HOLDER_STATE,
-                        TEST_CALLING_PACKAGE));
+                        TEST_ADDITIONAL_EXTRAS, TEST_CALLING_PACKAGE, TEST_ROLE_HOLDER_STATE
+                ));
     }
 
     @Test
@@ -312,8 +314,8 @@ public class DeviceManagementRoleHolderHelperTest {
         assertThrows(IllegalStateException.class, () ->
                 roleHolderHelper.createRoleHolderProvisioningIntent(
                         MANAGED_PROFILE_INTENT,
-                        TEST_ROLE_HOLDER_STATE,
-                        TEST_CALLING_PACKAGE));
+                        TEST_ADDITIONAL_EXTRAS, TEST_CALLING_PACKAGE, TEST_ROLE_HOLDER_STATE
+                ));
     }
 
     @Test
@@ -323,8 +325,8 @@ public class DeviceManagementRoleHolderHelperTest {
         assertIntentsEqual(
                 roleHolderHelper.createRoleHolderProvisioningIntent(
                         PROVISION_TRUSTED_SOURCE_INTENT,
-                        TEST_ROLE_HOLDER_STATE,
-                        TEST_CALLING_PACKAGE),
+                        TEST_ADDITIONAL_EXTRAS, TEST_CALLING_PACKAGE, TEST_ROLE_HOLDER_STATE
+                ),
                 PROVISION_TRUSTED_SOURCE_ROLE_HOLDER_INTENT);
     }
 
@@ -336,8 +338,8 @@ public class DeviceManagementRoleHolderHelperTest {
         assertIntentsEqual(
                 roleHolderHelper.createRoleHolderProvisioningIntent(
                         PROVISION_TRUSTED_SOURCE_INTENT,
-                        /* roleHolderState= */ null,
-                        /* callingPackage= */ null),
+                        /* roleHolderState= */ TEST_ADDITIONAL_EXTRAS, null, null
+                        /* callingPackage= */),
                 PROVISION_TRUSTED_SOURCE_ROLE_HOLDER_INTENT_WITH_MINIMAL_EXTRAS);
     }
 
@@ -349,8 +351,8 @@ public class DeviceManagementRoleHolderHelperTest {
                 IllegalArgumentException.class,
                 () -> roleHolderHelper.createRoleHolderProvisioningIntent(
                         FINANCED_DEVICE_INTENT,
-                        TEST_ROLE_HOLDER_STATE,
-                        TEST_CALLING_PACKAGE));
+                        TEST_ADDITIONAL_EXTRAS, TEST_CALLING_PACKAGE, TEST_ROLE_HOLDER_STATE
+                ));
     }
 
     @Test
@@ -381,6 +383,31 @@ public class DeviceManagementRoleHolderHelperTest {
         assertThrows(IllegalStateException.class,
                 () -> roleHolderHelper.createRoleHolderFinalizationIntent(
                         /* parentActivityIntent= */ null));
+    }
+
+    @Test
+    public void isRoleHolderProvisioningEnabled_roleHolderConfigured_returnsTrue() {
+        DeviceManagementRoleHolderHelper roleHolderHelper =
+                createRoleHolderHelper(ROLE_HOLDER_PACKAGE_NAME);
+
+        assertThat(roleHolderHelper.isRoleHolderProvisioningEnabled()).isTrue();
+    }
+
+    @Test
+    public void isRoleHolderProvisioningEnabled_roleHolderNotConfigured_returnsFalse() {
+        DeviceManagementRoleHolderHelper roleHolderHelper =
+                createRoleHolderHelper(ROLE_HOLDER_EMPTY_PACKAGE_NAME);
+
+        assertThat(roleHolderHelper.isRoleHolderProvisioningEnabled()).isFalse();
+    }
+
+    @Test
+    public void isRoleHolderProvisioningEnabled_featureFlagDisabled_returnsFalse() {
+        mCanDelegateProvisioningToRoleHolder = false;
+        DeviceManagementRoleHolderHelper roleHolderHelper =
+                createRoleHolderHelper(ROLE_HOLDER_PACKAGE_NAME);
+
+        assertThat(roleHolderHelper.isRoleHolderProvisioningEnabled()).isFalse();
     }
 
     private DeviceManagementRoleHolderHelper createRoleHolderHelper() {
