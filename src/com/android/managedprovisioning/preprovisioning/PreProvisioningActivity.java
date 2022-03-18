@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
+import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_ROLE_HOLDER;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
@@ -315,14 +316,18 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 }
                 break;
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_UPDATER_REQUEST_CODE:
-                if (resultCode ==
-                        RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
+                if (resultCode
+                        == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
                         && mController.canRetryRoleHolderUpdate()) {
                     mController.startRoleHolderUpdaterWithLastState();
                     mController.incrementRoleHolderUpdateRetryCount();
                 } else if (resultCode == RESULT_OK
                         || mController.getParams().allowOffline) {
                     mController.startAppropriateProvisioning(getIntent());
+                } else if (resultCode
+                        == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED
+                ) {
+                    mController.performPlatformProvidedProvisioning();
                 } else {
                     ProvisionLogger.loge("Update failed and offline provisioning is not allowed.");
                     if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
