@@ -43,8 +43,8 @@ class PrimaryProfileFinalizationHelper {
 
     void finalizeProvisioningInPrimaryProfile(Context context,
             DpcReceivedSuccessReceiver.Callback callback) {
-        DevicePolicyManager devicePolicyManager =
-                context.getSystemService(DevicePolicyManager.class);
+        DevicePolicyManager devicePolicyManager = (DevicePolicyManager)
+                context.getSystemService(Context.DEVICE_POLICY_SERVICE);
         devicePolicyManager.finalizeWorkProfileProvisioning(
                 mManagedUserHandle, mMigratedAccount);
 
