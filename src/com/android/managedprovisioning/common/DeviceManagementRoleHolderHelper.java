@@ -217,7 +217,7 @@ public final class DeviceManagementRoleHolderHelper {
             String roleHolderPackageName,
             PackageManager packageManager) {
         return !TextUtils.isEmpty(roleHolderPackageName)
-                && mPackageInstallChecker.isPackageInstalled(roleHolderPackageName, packageManager);
+                && mPackageInstallChecker.isPackageInstalled(roleHolderPackageName);
     }
 
     private static Map<String, String> createManagedProvisioningToRoleHolderIntentActionMap() {
