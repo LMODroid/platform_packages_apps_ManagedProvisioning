@@ -98,9 +98,8 @@ public class DownloadRoleHolderActivity extends SetupGlifLayoutActivity {
     }
 
     private void initializeUi() {
-        // TODO(b/220175163): figure out proper strings
-        final int headerResId = R.string.downloading_administrator_header;
-        final int titleResId = R.string.setup_device_progress;
+        final int headerResId = R.string.setting_up;
+        final int titleResId = R.string.setting_up;
         initializeLayoutParams(R.layout.empty_loading_layout, headerResId);
         setTitle(titleResId);
     }
