@@ -38,7 +38,7 @@ import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.ConnectMobileNetworkTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.ProvisionFullyManagedDeviceTask;
-import com.android.managedprovisioning.task.VerifyPackageTask;
+import com.android.managedprovisioning.task.VerifyAdminPackageTask;
 
 import org.mockito.Mock;
 
@@ -91,7 +91,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         taskSucceeded(DownloadPackageTask.class);
 
         // THEN the verify package task should be run
-        taskSucceeded(VerifyPackageTask.class);
+        taskSucceeded(VerifyAdminPackageTask.class);
 
         // THEN the install package tasks should be run
         tasksDownloadAndInstallDeviceOwnerPackageSucceeded(TEST_USER_ID);
@@ -115,7 +115,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         taskSucceeded(DownloadPackageTask.class);
 
         // THEN the verify package task should be run
-        taskSucceeded(VerifyPackageTask.class);
+        taskSucceeded(VerifyAdminPackageTask.class);
 
         // THEN the install package tasks should be run
         tasksDownloadAndInstallDeviceOwnerPackageSucceeded(TEST_USER_ID);
