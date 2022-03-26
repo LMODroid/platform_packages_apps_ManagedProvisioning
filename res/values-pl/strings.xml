@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Zgadzam się"</string>
     <string name="url_error" msgid="5958494012986243186">"Nie można wyświetlić linku."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"Przejdź wyżej"</string>
     <string name="terms" msgid="8295436105384703903">"Warunki"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Informacje o profilu służbowym"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Informacje o urządzeniu zarządzanym"</string>
@@ -170,13 +171,13 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Skonfiguruj urządzenie służbowe"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Miej aplikacje służbowe zawsze pod ręką"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"To urządzenie nie jest prywatne"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Twój administrator IT może mieć podgląd Twoich danych i aktywności na tym urządzeniu."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Administrator IT może mieć podgląd Twoich danych i aktywności na tym urządzeniu."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Twoje dane i aktywność"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Uprawnienia aplikacji"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Administrator IT może konfigurować uprawnienia dla aplikacji na tym urządzeniu, w tym dostęp do mikrofonu, aparatu i lokalizacji."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Administrator IT może konfigurować uprawnienia aplikacji na tym urządzeniu, w tym dostęp do mikrofonu, aparatu i lokalizacji."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfiguruję urządzenie…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Użyj tego urządzenia, aby łatwo korzystać z aplikacji służbowych. To urządzenie nie jest prywatne, więc administrator IT może mieć podgląd Twoich danych i aktywności."</string>
-    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Użyj tego urządzenia, aby łatwo korzystać z aplikacji służbowych. To urządzenie nie jest prywatne, więc administrator IT może mieć podgląd Twojej aktywności i danych. Administrator IT może również konfigurować uprawnienia dla aplikacji na tym urządzeniu, w tym dostęp do mikrofonu, aparatu i lokalizacji."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Użyj tego urządzenia, aby łatwo korzystać z aplikacji służbowych. To urządzenie nie jest prywatne, więc administrator IT może mieć podgląd Twojej aktywności i danych. Administrator IT może również konfigurować uprawnienia aplikacji na tym urządzeniu, w tym dostęp do mikrofonu, aparatu i lokalizacji."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Oddaj urządzenie administratorowi IT"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Wróć na poprzedni ekran lub zresetuj urządzenie i oddaj je administratorowi IT."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Anuluj konfigurację"</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Przypomnienie o prywatności"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Twój administrator IT może mieć podgląd Twoich danych i aktywności na tym urządzeniu"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"To urządzenie dostarcza organizacja <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Płać za pomocą aplikacji <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Dokonuj płatności za korzystanie z tego urządzenia"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Organizacja <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> może zainstalować aplikację <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>, która umożliwia dokonywanie płatności za korzystanie z tego urządzenia."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"Organizacja <xliff:g id="CREDITOR_NAME">%s</xliff:g> może wprowadzić ograniczenia na tym urządzeniu"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"To urządzenie może podlegać ograniczeniom"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Organizacja <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> może wprowadzić ograniczenia na tym urządzeniu, jeśli nie będziesz dokonywać płatności."</string>
 </resources>

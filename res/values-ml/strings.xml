@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"ശരി"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ഞാൻ സമ്മതിക്കുന്നു"</string>
     <string name="url_error" msgid="5958494012986243186">"ഈ ലിങ്ക് പ്രദർശിപ്പിക്കാൻ കഴിയില്ല."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"മുകളിലേക്ക് നാവിഗേറ്റ് ചെയ്യുക"</string>
     <string name="terms" msgid="8295436105384703903">"നിബന്ധനകള്‍"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"ഔദ്യോഗിക പ്രൊഫൈൽ വിവരം"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"മാനേജുചെയ്യപ്പെടുന്ന ഉപകരണത്തിന്റെ വിവരങ്ങൾ"</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"സ്വകാര്യതാ റിമൈൻഡർ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"ഈ ഉപകരണത്തിലുള്ള നിങ്ങളുടെ ഡാറ്റയും ആക്‌റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> നൽകിയ ഉപകരണമാണിത്"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ആപ്പ് മുഖേന പേയ്മെന്റുകൾ നടത്താം"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"ഈ ഉപകരണത്തിനുള്ള പേയ്‌മെന്റുകൾ നടത്തുക"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> എന്നയാൾക്ക് <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ഇൻസ്‌റ്റാൾ ചെയ്യാനാകും, അതുവഴി നിങ്ങൾക്ക് ഈ ഉപകരണത്തിനുള്ള പേയ്‌മെന്റ് നടത്താം."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> എന്നതിന് ഈ ഉപകരണത്തെ നിയന്ത്രിക്കാനാകും"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ഈ ഉപകരണം നിയന്ത്രിക്കാനാകും"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"നിങ്ങൾ പേയ്മെന്റുകൾ നടത്തിയില്ലെങ്കിൽ ഈ ഉപകരണത്തിലേക്കുള്ള ആക്‌സസ് നിയന്ത്രിക്കാൻ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> എന്നതിനാകും."</string>
 </resources>
