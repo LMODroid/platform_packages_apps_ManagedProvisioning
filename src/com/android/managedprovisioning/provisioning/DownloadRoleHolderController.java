@@ -29,7 +29,8 @@ import com.android.managedprovisioning.task.AddWifiNetworkTask;
 import com.android.managedprovisioning.task.ConnectMobileNetworkTask;
 import com.android.managedprovisioning.task.DownloadPackageTask;
 import com.android.managedprovisioning.task.InstallPackageTask;
-import com.android.managedprovisioning.task.VerifyPackageTask;
+import com.android.managedprovisioning.task.VerifyAdminPackageTask;
+import com.android.managedprovisioning.task.VerifyRoleHolderPackageTask;
 
 /**
  * Controller which establishes network connection and downloads the device policy management
@@ -89,7 +90,7 @@ public class DownloadRoleHolderController extends AbstractProvisioningController
         DownloadPackageTask downloadTask = new DownloadPackageTask(
                 mContext, mParams, mParams.roleHolderDownloadInfo, this);
         addTasks(downloadTask,
-                new VerifyPackageTask(
+                new VerifyRoleHolderPackageTask(
                         downloadTask, mContext, mParams, mParams.roleHolderDownloadInfo, this),
                 new InstallPackageTask(downloadTask, mContext, mParams, this));
     }
@@ -101,29 +102,25 @@ public class DownloadRoleHolderController extends AbstractProvisioningController
 
     @Override
     protected int getErrorMsgId(AbstractProvisioningTask task, int errorCode) {
-        // TODO(b/220175163): update strings for the DMRH case
         if (task instanceof AddWifiNetworkTask) {
             return R.string.error_wifi;
         } else if (task instanceof DownloadPackageTask) {
             switch (errorCode) {
                 case DownloadPackageTask.ERROR_DOWNLOAD_FAILED:
-                    return R.string.error_download_failed;
                 case DownloadPackageTask.ERROR_OTHER:
-                    return R.string.cant_set_up_device;
+                    return R.string.error_role_holder_download_install_failed;
             }
-        } else if (task instanceof VerifyPackageTask) {
+        } else if (task instanceof VerifyAdminPackageTask) {
             switch (errorCode) {
-                case VerifyPackageTask.ERROR_HASH_MISMATCH:
-                    return R.string.error_hash_mismatch;
-                case VerifyPackageTask.ERROR_DEVICE_ADMIN_MISSING:
-                    return R.string.error_package_invalid;
+                case VerifyRoleHolderPackageTask.ERROR_HASH_MISMATCH:
+                    return R.string.error_role_holder_hash_mismatch;
             }
         } else if (task instanceof InstallPackageTask) {
             switch (errorCode) {
                 case InstallPackageTask.ERROR_PACKAGE_INVALID:
-                    return R.string.error_package_invalid;
+                    return R.string.error_role_holder_package_invalid;
                 case InstallPackageTask.ERROR_INSTALLATION_FAILED:
-                    return R.string.error_installation_failed;
+                    return R.string.error_role_holder_download_install_failed;
             }
         }
 
