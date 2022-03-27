@@ -28,10 +28,10 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Den følgende app vil styre din enhed:"</string>
     <string name="next" msgid="1004321437324424398">"Næste"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Arbejdsprofilen konfigureres..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne profil, bl.a. din netværksaktivitet samt enhedens placering, opkaldshistorik og historik for søgning efter kontakter. <xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne profil, bl.a. din netværksaktivitet samt enhedens lokation, opkaldshistorik og historik for søgning efter kontakter. <xliff:g id="LINE_BREAK">
 
 </xliff:g>Kontakt din it-administrator for at få flere oplysninger, bl.a. om din organisations privatlivspolitik."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne enhed, bl.a. din netværksaktivitet samt enhedens placering, opkaldshistorik og historik for søgning efter kontakter. <xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Din it-administrator kan overvåge og administrere indstillinger, virksomhedsadgang, apps, tilladelser og data, der er knyttet til denne enhed, bl.a. din netværksaktivitet samt enhedens lokation, opkaldshistorik og historik for søgning efter kontakter. <xliff:g id="LINE_BREAK">
 
 </xliff:g>Kontakt din it-administrator for at få flere oplysninger, bl.a. om din organisations privatlivspolitikker."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Hvis du vil bruge funktionen, der beskytter mod tyveri, skal din enhed have en skærmlås med en tilhørende adgangskode."</string>
@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Jeg accepterer"</string>
     <string name="url_error" msgid="5958494012986243186">"Dette link kan ikke vises."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"Gå op"</string>
     <string name="terms" msgid="8295436105384703903">"Vilkår"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Oplysninger om arbejdsprofil"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Oplysninger om administrerede enheder"</string>
@@ -173,10 +174,10 @@
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Din it-administrator kan muligvis se dine data og din aktivitet på denne enhed."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Din aktivitet og dine data"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Apptilladelser"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Din it-administrator kan angive tilladelser for apps på denne enhed, f.eks. tilladelser for mikrofonen, kameraet og din placering."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Din it-administrator kan angive tilladelser for apps på denne enhed, f.eks. tilladelser for mikrofonen, kameraet og din lokation."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Konfigurerer din enhed…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Brug denne enhed til nemt at få adgang til dine arbejdsapps. Denne enhed er ikke privat, så din it-administrator kan muligvis se dine data og din aktivitet."</string>
-    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Brug denne enhed til nemt at få adgang til dine arbejdsapps. Denne enhed er ikke privat, så din it-administrator kan muligvis se din aktivitet og dine data. Din it-administrator kan også angive tilladelser for apps på denne enhed, f.eks. tilladelser for mikrofonen, kameraet og din placering."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Brug denne enhed til nemt at få adgang til dine arbejdsapps. Denne enhed er ikke privat, så din it-administrator kan muligvis se din aktivitet og dine data. Din it-administrator kan også angive tilladelser for apps på denne enhed, f.eks. tilladelser for mikrofonen, kameraet og din lokation."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Returner denne enhed til din it-adminstrator"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Gå tilbage til den forrige skærm, eller nulstil enheden, og returner den til din it-administrator."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Annuller konfiguration"</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privatlivspåmindelse"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Din it-administrator kan muligvis se dine data og din aktivitet på denne enhed"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Denne enhed er leveret af <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Foretag betalinger med <xliff:g id="CREDITOR_NAME">%s</xliff:g>-appen"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Foretag betalinger for denne enhed"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> kan installere <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>-appen, så du kan foretage betalinger på denne enhed."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> kan begrænse denne enhed"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Denne enhed kan være begrænset"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan begrænse adgangen til denne enhed, hvis du ikke foretager betalinger."</string>
 </resources>

@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"Жарайды"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Келісемін"</string>
     <string name="url_error" msgid="5958494012986243186">"Бұл сілтеме көрсетілмейді."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"Жоғары қарай өту"</string>
     <string name="terms" msgid="8295436105384703903">"Шарттар"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Жұмыс профилінің ақпараты"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Басқарылатын құрылғы ақпараты"</string>
@@ -158,7 +159,7 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Әкімші қолданбасының параметрлері орнатылуда"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"Бұл құрылғы ұйымға тиесілі."</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Бұл телефонды басқару және бақылау үшін мына қолданба пайдаланылатын болады."</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Есептік жазбаңыз басқарылады"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Аккаунтыңыз басқарылады"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Қауіпсіздік саясатының талаптарын іске асыру үшін жүйе әкімшісі мобильдік құрылғыны басқару процесін қолданады."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Жұмысқа реттеуге дайындалуда…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Алдымен жұмыс профиліңізді реттеп алайық."</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Құпиялылық туралы еске салғыш"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Әкімші осы құрылғыдағы деректеріңізді және әрекеттеріңізді көруі мүмкін."</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Бұл құрылғыны <xliff:g id="CREDITOR_NAME">%s</xliff:g> ұсынады"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> қолданбасы арқылы төлеу"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Осы құрылғы арқылы төлемдер жасаңыз"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Құрылғының ақшасын төлеу үшін <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> қолданбасын орната алады."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> құрылғыны шектей алады"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Бұл құрылғыға шектеу қойылуы мүмкін"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Егер төлемесеңіз, <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> құрылғыны пайдалануды шектей алады."</string>
 </resources>

@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Roziman"</string>
     <string name="url_error" msgid="5958494012986243186">"Bu havolani ko‘rsatib bo‘lmadi."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"Tepaga"</string>
     <string name="terms" msgid="8295436105384703903">"Shartlar"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Ishchi profilga oid ma’lumotlar"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Boshqariluvchi qurilmaga oid ma’lumotlar"</string>
@@ -107,7 +108,7 @@
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Bu qurilma <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> tomonidan boshqariladi va xavfsiz saqlanadi. Ushbu shartlar amal qiladi: <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Bu xavfsiz bo‘lmagan havolani to qurilma sozlanmaguncha ochib bo‘lmaydi: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
     <string name="contact_device_provider" msgid="2843488903902493030">"Batafsil axborot olish uchun <xliff:g id="IT_ADMIN">%1$s</xliff:g> bilan bogʻlaning."</string>
-    <string name="if_questions_contact_admin" msgid="3509427015901582047">"Savollaringizga javob olish uchun AT administratoringizga murojaat qiling"</string>
+    <string name="if_questions_contact_admin" msgid="3509427015901582047">"Savollaringizga javob olish uchun administratoringizga murojaat qiling."</string>
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"Sozlash nihoyasiga yetmadi. Yordam olish uchun AT administratoringizga murojaat qiling."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"Yordam olish uchun AT administratoringizga murojaat qiling"</string>
     <string name="organization_admin" msgid="5975914478148511290">"AT administratori"</string>
@@ -164,7 +165,7 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Keling, ishchi profilingizni sozlaymiz"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Ishga oid ilovalar ishchi profilda saqlanadi"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Ishni tugatganingizdan keyin ishchi ilovalarni pauza qilish"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Ish profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Ish profilingizdagi maʼlumotlar faqat administratoringizga koʻrinadi"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Ish profilingiz sozlanmoqda…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Ishga oid ilovalar ish profilida saqlanadi. Ishni tugatganingizdan keyin ishga oid ilovalarni pauza qilishingiz mumkin. Ish profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Keling, ishchi qurilmangizni sozlaymiz"</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Maxfiylik eslatmasi"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"AT administratoringiz bu qurilmadagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Bu qurilma <xliff:g id="CREDITOR_NAME">%s</xliff:g> tomonidan berilgan."</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ilovasi yordamida toʻlovlarni amalga oshirish mumkin"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Bu qurilma uchun toʻlovlarni bajarish"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Bu qurilma toʻlovlarini amalga oshirishingiz uchun <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ilovasini oʻrnatishi mumkin."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> bu qurilmani cheklashi mumkin"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Bu qurilmadan foydalanish cheklanishi mumkin"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Agar toʻlovlarni amalga oshirmasangiz, <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> bu qurilmadan foydalanishni cheklashi mumkin."</string>
 </resources>

@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"ठिक छ"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"म स्वीकृति दिन्छु"</string>
     <string name="url_error" msgid="5958494012986243186">"यो लिंक देखाउन सकिँदैन।"</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"माथि जानुहोस्"</string>
     <string name="terms" msgid="8295436105384703903">"सर्तहरू"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"कार्य प्रोफाइल सम्बन्धी जानकारी"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"व्यवस्थित गरिएको डिभाइसको जानकारी"</string>
@@ -95,14 +96,14 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"हो"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"रद्द गरिँदै..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"के प्रोफाइल सेटअप रोक्ने हो?"</string>
-    <string name="work_profile_setup_later_message" msgid="122069011117225292">"तपाईंले पछि आफ्नो कार्य प्रोफाइललाई आफ्नो संगठनको यन्त्र व्यवस्थापन अनुप्रयोगमा सेटअप गर्न सक्नुहुन्छ"</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"तपाईंले पछि आफ्नो कार्य प्रोफाइललाई आफ्नो संगठनको यन्त्र व्यवस्थापन एपमा सेटअप गर्न सक्नुहुन्छ"</string>
     <string name="continue_button" msgid="7177918589510964446">"जारी राख्नुहोस्"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"रोक्नुहोस्"</string>
     <string name="dismiss" msgid="9009534756748565880">"खारेज गर्नुहोस्"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"तपाईं आफ्नो संगठनले व्यवस्थापन तथा अनुगमन गर्ने कुनै कार्य प्रोफाइल सिर्जना गर्न आँट्दै हुनुहुन्छ। यसमा सर्तहरू लागू हुनेछन्।"</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"तपाईं आफ्नो संगठनले व्यवस्थापन तथा अनुगमन गर्ने कुनै कार्य प्रोफाइल सिर्जना गर्न आँट्दै हुनुहुन्छ। यसमा <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> का सर्तहरू लागू हुनेछन्।"</string>
-    <string name="profile_owner_info_comp" msgid="9190421701126119142">"तपाईंका कार्य सम्बन्धी अनुप्रयोगहरूका लागि एउटा प्रोफाइल सिर्जना गरिनेछ। तपाईंको संगठनले यो प्रोफाइल र तपाईंका बाँकी डिभाइसको व्यवस्थापन तथा अनुगमन गर्ने छ। यसमा सर्तहरू लागू हुनेछन्।"</string>
-    <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"तपाईंका कार्य सम्बन्धी अनुप्रयोगहरूका लागि एउटा प्रोफाइल सिर्जना गरिनेछ। तपाईंको संगठनले यो प्रोफाइल र तपाईंका बाँकी डिभाइसको व्यवस्थापन तथा अनुगमन गर्ने छ। यसमा <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> का सर्तहरू लागू हुनेछन्।"</string>
+    <string name="profile_owner_info_comp" msgid="9190421701126119142">"तपाईंका कार्य सम्बन्धी अनुप्रयोगहरूका लागि एउटा प्रोफाइल सिर्जना गरिने छ। तपाईंको संगठनले यो प्रोफाइल र तपाईंका बाँकी डिभाइसको व्यवस्थापन तथा अनुगमन गर्ने छ। यसमा सर्तहरू लागू हुनेछन्।"</string>
+    <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"तपाईंका कार्य सम्बन्धी अनुप्रयोगहरूका लागि एउटा प्रोफाइल सिर्जना गरिने छ। तपाईंको संगठनले यो प्रोफाइल र तपाईंका बाँकी डिभाइसको व्यवस्थापन तथा अनुगमन गर्ने छ। यसमा <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> का सर्तहरू लागू हुनेछन्।"</string>
     <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ले यस डिभाइसको व्यवस्थापन तथा अनुगमन गरी यसलाई सुरक्षित राख्ने छ। सर्तहरू लागू हुने छन्।<xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ले यस डिभाइसको व्यवस्थापन तथा अनुगमन गरी यसलाई सुरक्षित राख्ने छ। <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> का सर्तहरू लागू हुने छन्।<xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"यो लिंक सुरक्षित छैन र यस डिभाइसको सेटअप पूरा नहुन्जेल यसलाई खोल्न सकिँदैन: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
@@ -165,7 +166,7 @@
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"कार्यस्थलसम्बन्धी एपहरू तपाईंको कार्यसम्बन्धी प्रोफाइलमा राखिन्छन्"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"आफ्नो दिनभरिको काम पूरा भएपछि कार्यस्थलसम्बन्धी एप पज गर्नुहोस्"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"तपाईंका IT एडमिनले तपाईंको कार्यलयको प्रोफाइलमा भएका डेटा हेर्न सक्छन्"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"तपाईंको कार्य प्रोफाइल सेट गरिँदै…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"तपाईंको कार्य प्रोफाइल सेट गरिँदै छ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"कामसम्बन्धी एपहरू तपाईंको कार्यलयको प्रोफाइलमा राखिन्छन्। तपाईंले दिनभरिको काम सकेपछि तपाईं कामसम्बन्धी एपहरू पज गर्न सक्नुहुन्छ। तपाईंका IT एडमिनले तपाईंको कार्यलयको प्रोफाइलमा भएका डेटा हेर्न सक्छन्।"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"तपाईंको कार्यस्थलको यन्त्र सेट अप गरौँ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"आफ्ना कार्यस्थलसम्बन्धी एपहरू सजिलै प्राप्त गर्नुहोस्"</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयतासम्बन्धी रिमाइन्डर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"तपाईंका IT व्यवस्थापकले यस डिभाइसको तपाईंको डेटा र गतिविधि हेर्न सक्ने सम्भावना हुन्छ।"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ले यो डिभाइस उपलब्ध गराएको हो"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> एपमार्फत भुक्तानी गर्नुहोस्"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"यो डिभाइसका लागि भुक्तानी गर्नुहोस्"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"तपाईंले यो डिभाइसको रकम भुक्तानी गर्न सक्नुहोस् भन्नाका खातिर <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> ले <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> एप इन्स्टल गर्न सक्छ।"</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ले यो यन्त्रमाथि प्रतिबन्ध लगाउन सक्छ"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"यो डिभाइसलाई ब्लक गर्न सकिन्छ"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"तपाईंले रकम भुक्तानी गर्नुभएन भने <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ले यो यन्त्रमाथि प्रतिबन्ध लगाउन सक्छ।"</string>
 </resources>
