@@ -194,4 +194,12 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"तपाईंले यो डिभाइसको रकम भुक्तानी गर्न सक्नुहोस् भन्नाका खातिर <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> ले <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> एप इन्स्टल गर्न सक्छ।"</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"यो डिभाइसलाई ब्लक गर्न सकिन्छ"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"तपाईंले रकम भुक्तानी गर्नुभएन भने <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ले यो यन्त्रमाथि प्रतिबन्ध लगाउन सक्छ।"</string>
+    <!-- no translation found for error_role_holder_hash_mismatch (6201584198247885437) -->
+    <skip />
+    <!-- no translation found for error_role_holder_download_install_failed (8151968372180693228) -->
+    <skip />
+    <!-- no translation found for error_role_holder_package_invalid (2631207759497988833) -->
+    <skip />
+    <!-- no translation found for setting_up (1478847967385506664) -->
+    <skip />
 </resources>
