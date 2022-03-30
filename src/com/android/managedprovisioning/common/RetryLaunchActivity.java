@@ -177,7 +177,7 @@ public final class RetryLaunchActivity extends SetupGlifLayoutActivity {
             return;
         }
         ProvisionLogger.logi("Retry launcher activity result code: " + resultCode);
-        finishWithResult(resultCode);
+        finishWithResult(resultCode, data);
     }
 
     private void initializeUi() {
@@ -194,12 +194,12 @@ public final class RetryLaunchActivity extends SetupGlifLayoutActivity {
                 LAUNCH_ACTIVITY_REQUEST_CODE);
     }
 
-    private void finishWithResult(int resultCode) {
-        setResult(resultCode);
+    private void finishWithResult(int resultCode, Intent data) {
+        setResult(resultCode, data);
         getTransitionHelper().finishActivity(this);
     }
 
     private void finishWithCancelResult() {
-        finishWithResult(RESULT_CANCELED);
+        finishWithResult(RESULT_CANCELED, /*data=*/ null);
     }
 }
