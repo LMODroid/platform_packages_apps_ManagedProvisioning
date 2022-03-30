@@ -44,6 +44,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLD
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORTED_MODES;
@@ -587,7 +588,9 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                             intent,
                             EXTRA_PROVISIONING_ALLOW_OFFLINE,
                             ProvisioningParams.DEFAULT_EXTRA_ALLOW_OFFLINE))
-                    .setRoleHolderDownloadInfo(parseRoleHolderDownloadInfoFromExtras(intent));
+                    .setRoleHolderDownloadInfo(parseRoleHolderDownloadInfoFromExtras(intent))
+                    .setProvisioningShouldLaunchResultIntent(
+                            getProvisioningShouldLaunchResultIntent(intent));
         } catch (ClassCastException e) {
             throw new IllegalProvisioningArgumentException("Extra has invalid type", e);
         } catch (IllegalArgumentException e) {
@@ -595,6 +598,17 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
         } catch (NullPointerException e) {
             throw new IllegalProvisioningArgumentException("Compulsory parameter not found!", e);
         }
+    }
+
+    private boolean getProvisioningShouldLaunchResultIntent(Intent intent) {
+        if (!intent.getAction().equals(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
+                && !intent.getAction().equals(ACTION_PROVISION_MANAGED_PROFILE)) {
+            return ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT;
+        }
+        return getBooleanExtraFromLongName(
+                intent,
+                EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT,
+                ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT);
     }
 
     private boolean getSkipOwnershipDisclaimer(Intent intent) {
