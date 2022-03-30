@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
+import static android.app.admin.DevicePolicyManager.EXTRA_RESULT_LAUNCH_INTENT;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_ROLE_HOLDER;
@@ -349,7 +350,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     mController.resetRoleHolderUpdateRetryCount();
                     mController.startRoleHolderUpdater(roleHolderState);
                 } else {
-                    setResult(resultCode);
+                    maybeHandleLaunchIntent(resultCode, data);
                     getTransitionHelper().finishActivity(this);
                 }
                 break;
@@ -371,6 +372,26 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
                 break;
         }
+    }
+
+    private void maybeHandleLaunchIntent(int resultCode, Intent data) {
+        if (data == null || !data.hasExtra(EXTRA_RESULT_LAUNCH_INTENT)) {
+            setResult(resultCode);
+            return;
+        }
+
+        Intent launchIntent = data.getParcelableExtra(EXTRA_RESULT_LAUNCH_INTENT, Intent.class);
+        ProvisionLogger.logi("Role holder returned result intent: " + launchIntent);
+
+        if (!mController.getParams().provisioningShouldLaunchResultIntent) {
+            ProvisionLogger.logi("Role Holder result intent to be launched by "
+                    + "provisioning initiator");
+            setResult(resultCode, launchIntent);
+            return;
+        }
+
+        ProvisionLogger.logi("Role Holder result intent launched by platform");
+        startActivity(launchIntent);
     }
 
     private void showRoleHolderDownloadFailedDialog(@NonNull Intent data) {
