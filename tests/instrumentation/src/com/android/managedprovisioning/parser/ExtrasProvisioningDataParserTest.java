@@ -1067,6 +1067,76 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         assertThat(params.allowOffline).isTrue();
     }
 
+    public void testParse_trustedSourceProvisioningWithProvisioningShouldLaunchResultIntentTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT,
+                        /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.provisioningShouldLaunchResultIntent).isTrue();
+    }
+
+    public void testParse_trustedSourceProvisioningWithProvisioningShouldLaunchResultIntentFalse_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT,
+                        /* value= */ false);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.provisioningShouldLaunchResultIntent).isFalse();
+    }
+
+    public void testParse_trustedSourceProvisioningWithProvisioningShouldLaunchResultIntentNotSet_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent();
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.provisioningShouldLaunchResultIntent).isFalse();
+    }
+
+    public void testParse_managedProfileProvisioningWithProvisioningShouldLaunchResultIntentTrue_isTrue()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestManagedProfileIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT,
+                        /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.provisioningShouldLaunchResultIntent).isTrue();
+    }
+
+    public void testDoesNotParse_financedDeviceProvisioningWithProvisioningShouldLaunchResultIntentTrue_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestFinancedDeviceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT,
+                        /* value= */ true);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.provisioningShouldLaunchResultIntent).isFalse();
+    }
+
+    public void testDoesNotParse_financedDeviceProvisioningWithProvisioningShouldLaunchResultIntentFalse_isFalse()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestFinancedDeviceIntent()
+                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT,
+                        /* value= */ false);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.provisioningShouldLaunchResultIntent).isFalse();
+    }
+
     public void testParse_trustedSourceProvisioningWithRoleHolderDownloadInfo_works()
             throws IllegalProvisioningArgumentException {
         Intent intent = buildTestTrustedSourceIntent()
