@@ -194,12 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"사용자가 기기 값을 결제할 수 있도록 <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>에서 <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> 앱을 설치할 수 있습니다."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"이 기기가 제한될 수 있습니다."</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"결제하지 않으면 <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>에서 이 기기에 대한 액세스를 제한할 수 있습니다."</string>
-    <!-- no translation found for error_role_holder_hash_mismatch (6201584198247885437) -->
-    <skip />
-    <!-- no translation found for error_role_holder_download_install_failed (8151968372180693228) -->
-    <skip />
-    <!-- no translation found for error_role_holder_package_invalid (2631207759497988833) -->
-    <skip />
-    <!-- no translation found for setting_up (1478847967385506664) -->
-    <skip />
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"기기를 설정할 수 없습니다. IT 관리자에게 연락하여 \'잘못된 체크섬\'을 언급하세요."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"나중에 다시 시도하거나 IT 관리자에게 도움을 요청하세요."</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"기기를 설정할 수 없습니다. IT 관리자에게 연락하여 \'구성요소 누락 또는 손상\'을 언급하세요."</string>
+    <string name="setting_up" msgid="1478847967385506664">"설정 중…"</string>
 </resources>
