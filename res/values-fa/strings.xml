@@ -194,12 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> می‌تواند برنامه <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> را نصب کند تا بتوانید پرداخت‌های مربوط به این دستگاه را انجام دهید."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"می‌توانید این دستگاه را محدود کنید"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"اگر پرداخت‌ها را انجام ندهید، <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> می‌تواند دسترسی به این دستگاه را محدود کند."</string>
-    <!-- no translation found for error_role_holder_hash_mismatch (6201584198247885437) -->
-    <skip />
-    <!-- no translation found for error_role_holder_download_install_failed (8151968372180693228) -->
-    <skip />
-    <!-- no translation found for error_role_holder_package_invalid (2631207759497988833) -->
-    <skip />
-    <!-- no translation found for setting_up (1478847967385506664) -->
-    <skip />
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"‏نمی‌توان دستگاه را راه‌اندازی کرد. با سرپرست سیستم تماس بگیرید و بگویید پیام خطای «جمع‌آزمای نامعتبر» (Invalid checksum) دریافت می‌کنید."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"بعداً دوباره امتحان کنید یا از سرپرست سیستم کمک بگیرید"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"‏نمی‌توان دستگاه را راه‌اندازی کرد. با سرپرست سیستم تماس بگیرید و بگویید پیام خطای «وجود نداشتن یا خراب بودن مؤلفه» (Missing or corrupted components) دریافت می‌کنید."</string>
+    <string name="setting_up" msgid="1478847967385506664">"درحال راه‌اندازی…"</string>
 </resources>
