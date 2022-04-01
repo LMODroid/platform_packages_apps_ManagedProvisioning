@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.common;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
+import static android.app.admin.DevicePolicyManager.EXTRA_FORCE_UPDATE_ROLE_HOLDER;
 
 import static com.android.managedprovisioning.TestUtils.assertIntentsEqual;
 
@@ -56,6 +57,12 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
     private static final Intent ROLE_HOLDER_UPDATER_INTENT =
             new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER)
                     .setPackage(ROLE_HOLDER_UPDATER_PACKAGE_NAME)
+                    .putExtra(EXTRA_PROVISIONING_TRIGGER, TEST_PROVISIONING_TRIGGER)
+                    .putExtra(EXTRA_FORCE_UPDATE_ROLE_HOLDER, false);
+    private static final Intent ROLE_HOLDER_UPDATER_INTENT_WITH_FORCE_UPDATE =
+            new Intent(DevicePolicyManager.ACTION_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER)
+                    .setPackage(ROLE_HOLDER_UPDATER_PACKAGE_NAME)
+                    .putExtra(EXTRA_FORCE_UPDATE_ROLE_HOLDER, true)
                     .putExtra(EXTRA_PROVISIONING_TRIGGER, TEST_PROVISIONING_TRIGGER);
     public static final String TEST_EXTRA_KEY = "test_extra_key";
     public static final String TEST_EXTRA_VALUE = "test_extra_value";
@@ -224,8 +231,22 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
         assertIntentsEqual(
                 roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
                         /* parentActivityIntent= */ null,
-                        TEST_PROVISIONING_TRIGGER),
+                        TEST_PROVISIONING_TRIGGER,
+                        /* isRoleHolderRequestedUpdate= */ false),
                 ROLE_HOLDER_UPDATER_INTENT);
+    }
+
+    @Test
+    public void createRoleHolderUpdaterIntent_withForceUpdate_works() {
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                createRoleHolderUpdaterHelper();
+
+        assertIntentsEqual(
+                roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
+                        /* parentActivityIntent= */ null,
+                        TEST_PROVISIONING_TRIGGER,
+                        /* isRoleHolderRequestedUpdate= */ true),
+                ROLE_HOLDER_UPDATER_INTENT_WITH_FORCE_UPDATE);
     }
 
     @Test
@@ -237,7 +258,8 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
         assertThrows(IllegalStateException.class,
                 () -> roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
                         /* parentActivityIntent= */ null,
-                        TEST_PROVISIONING_TRIGGER));
+                        TEST_PROVISIONING_TRIGGER,
+                        /* isRoleHolderRequestedUpdate= */ false));
     }
 
     @Test
@@ -249,7 +271,8 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
         assertThrows(IllegalStateException.class,
                 () -> roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
                         /* parentActivityIntent= */ null,
-                        TEST_PROVISIONING_TRIGGER));
+                        TEST_PROVISIONING_TRIGGER,
+                        /* isRoleHolderRequestedUpdate= */ false));
     }
 
     @Test
