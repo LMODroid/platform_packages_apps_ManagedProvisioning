@@ -204,6 +204,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
                     /* packageInstallChecker= */ (packageName, packageManager) -> false,
                     sFeatureFlagChecker);
     private static final PersistableBundle ROLE_HOLDER_STATE = createRoleHolderStateBundle();
+    private static final String TEST_CALLING_PACKAGE = "com.test.calling.package";
 
     @Mock
     private Context mContext;
@@ -458,7 +459,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
             mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
 
             // simulate that the updater has run and returned back, starting DMRH
-            mController.startAppropriateProvisioning(mIntent);
+            mController.startAppropriateProvisioning(mIntent, TEST_CALLING_PACKAGE);
         });
 
         // THEN start profile provisioning
@@ -482,14 +483,14 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
             mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
 
             // simulate that the updater has run and returned back, starting DMRH
-            mController.startAppropriateProvisioning(mIntent);
+            mController.startAppropriateProvisioning(mIntent, TEST_CALLING_PACKAGE);
 
             // simulate that DMRH has returned RESULT_UPDATE_ROLE_HOLDER with state
             mController.startRoleHolderUpdater(ROLE_HOLDER_STATE);
 
             // simulate that DMRH updater updated DMRH and now it restarts it with
             // state returned before
-            mController.startAppropriateProvisioning(mIntent);
+            mController.startAppropriateProvisioning(mIntent, TEST_CALLING_PACKAGE);
         });
 
         // THEN start profile provisioning
@@ -517,7 +518,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
             mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
 
             // simulate that the updater has run and returned back, starting DMRH
-            mController.startAppropriateProvisioning(mIntent);
+            mController.startAppropriateProvisioning(mIntent, TEST_CALLING_PACKAGE);
 
             // simulate that DMRH has returned RESULT_UPDATE_ROLE_HOLDER with state
             mController.startRoleHolderUpdater(ROLE_HOLDER_STATE);
@@ -527,7 +528,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
 
             // simulate that DMRH updater updated DMRH and now it restarts it with
             // state returned before
-            mController.startAppropriateProvisioning(mIntent);
+            mController.startAppropriateProvisioning(mIntent, TEST_CALLING_PACKAGE);
         });
 
         // THEN start profile provisioning
@@ -551,7 +552,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         // WHEN initiating provisioning
         InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
             mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
-            mController.startAppropriateProvisioning(mIntent);
+            mController.startAppropriateProvisioning(mIntent, TEST_CALLING_PACKAGE);
         });
 
         // THEN start profile provisioning
