@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"យល់ព្រម"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ខ្ញុំយល់ព្រម"</string>
     <string name="url_error" msgid="5958494012986243186">"មិន​អាច​បង្ហាញ​តំណ​នេះ​បាន​ទេ។"</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"រំកិលឡើងលើ"</string>
     <string name="terms" msgid="8295436105384703903">"លក្ខខណ្ឌ"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"ព័ត៌មាន​អំពី​កម្រងព័ត៌មាន​ការងារ"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"ព័ត៌មាន​អំពី​ឧបករណ៍​ដែល​ស្ថិតក្រោម​ការគ្រប់គ្រង"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"ការរំលឹកអំពីឯកជនភាព"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"អ្នក​គ្រប់គ្រងផ្នែក​ព័ត៌មាន​វិទ្យា​របស់អ្នក​ប្រហែលជាអាច​មើលឃើញទិន្នន័យ និងសកម្មភាព​របស់អ្នក​នៅលើ​ឧបករណ៍​នេះ"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"ឧបករណ៍នេះត្រូវបានផ្ដល់ដោយ <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"ធ្វើការបង់ប្រាក់​សម្រាប់​ឧបករណ៍​នេះ"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"ធ្វើការបង់ប្រាក់​ដោយប្រើកម្មវិធី <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> អាចដំឡើង​កម្មវិធី <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ដើម្បីឱ្យអ្នកអាច​ធ្វើការបង់ប្រាក់​សម្រាប់ឧបករណ៍នេះ។"</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ឧបករណ៍នេះ​អាចត្រូវបាន​ដាក់កំហិត"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> អាចដាក់កំហិតឧបករណ៍នេះ"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> អាចដាក់កំហិតការចូលប្រើឧបករណ៍នេះ ប្រសិនបើអ្នកមិនធ្វើការបង់ប្រាក់។"</string>
 </resources>

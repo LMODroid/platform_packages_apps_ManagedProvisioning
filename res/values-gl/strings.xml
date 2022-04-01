@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"Aceptar"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Acepto"</string>
     <string name="url_error" msgid="5958494012986243186">"Non se pode mostrar esta ligazón."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"Desprazarse cara arriba"</string>
     <string name="terms" msgid="8295436105384703903">"Condicións"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Información do perfil de traballo"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Información sobre o dispositivo xestionado"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Recordatorio de privacidade"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"O teu administrador de TI pode ter acceso aos teus datos e á actividade deste dispositivo"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> proporciona este dispositivo"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Fai pagos por este dispositivo"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Facer pagos coa aplicación de <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> pode instalar a aplicación de <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> para que poidas facer pagos con este dispositivo."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Este dispositivo pode ter restricións"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> pode restrinxir este dispositivo"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> pode restrinxir o acceso a este dispositivo se non fas pagos."</string>
 </resources>

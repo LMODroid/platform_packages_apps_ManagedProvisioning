@@ -28,7 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Dein Gerät wird von der folgenden App verwaltet:"</string>
     <string name="next" msgid="1004321437324424398">"Weiter"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Arbeitsprofil wird eingerichtet…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Dein IT-Administrator kann Einstellungen, Zugriffsrechte im Unternehmen, Apps, Berechtigungen und mit diesem Profil verknüpfte Daten, einschließlich deiner Netzwerkaktivitäten, sowie den Standort, die Anrufliste und den Kontaktsuchverlauf überwachen und verwalten.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Dein IT-Administrator kann Einstellungen, Zugriffsrechte im Unternehmen, Apps, Berechtigungen und mit diesem Profil verknüpfte Daten einschließlich deiner Netzwerkaktivitäten sowie den Standort, die Anrufliste und den Kontaktsuchverlauf überwachen und verwalten.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Wende dich an deinen IT-Administrator, um weitere Informationen insbesondere zu den Datenschutzrichtlinien deiner Organisation zu erhalten."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Dein IT-Administrator kann Einstellungen, Zugriffsrechte im Unternehmen, Apps, Berechtigungen und mit diesem Gerät verknüpfte Daten einschließlich deiner Netzwerkaktivitäten sowie den Standort, die Anrufliste und den Kontaktsuchverlauf überwachen und verwalten.<xliff:g id="LINE_BREAK">
@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Ich stimme zu"</string>
     <string name="url_error" msgid="5958494012986243186">"Anzeige nicht möglich."</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"Nach oben"</string>
     <string name="terms" msgid="8295436105384703903">"Nutzungsbedingungen"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Arbeitsprofilinformationen"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"Info zu verwalteten Geräten"</string>
@@ -93,7 +92,7 @@
     <string name="error_installation_failed" msgid="2282903750318407285">"Die Admin-App konnte nicht installiert werden"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Einrichtung abbrechen?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Nein"</string>
-    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Ja"</string>
+    <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"„Ja“"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"Vorgang wird abgebrochen…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Profileinrichtung abbrechen?"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"Du kannst dein Arbeitsprofil später über die Geräteverwaltungs-App deiner Organisation einrichten"</string>
@@ -190,8 +189,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Hinweise zum Datenschutz"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Dein IT-Administrator kann deine Daten und deine Geräteaktivitäten möglicherweise sehen"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Dieses Gerät wird von <xliff:g id="CREDITOR_NAME">%s</xliff:g> zur Verfügung gestellt"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Zahlungen mit diesem Gerät vornehmen"</string>
-    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> kann die <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>-App installieren, damit du Zahlungen mit diesem Gerät vornehmen kannst."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Dieses Gerät kann eingeschränkt werden"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"Zahlungen mit der <xliff:g id="CREDITOR_NAME">%s</xliff:g>-App vornehmen"</string>
+    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> kann die <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>-App installieren, damit du Zahlungen für dieses Gerät vornehmen kannst."</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> kann dieses Gerät einschränken"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kann den Zugriff auf das Gerät einschränken, wenn keine Zahlungen vorgenommen werden."</string>
 </resources>

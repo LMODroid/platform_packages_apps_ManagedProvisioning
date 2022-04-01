@@ -41,7 +41,6 @@
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"同意します"</string>
     <string name="url_error" msgid="5958494012986243186">"このリンクを表示できません。"</string>
-    <string name="navigation_button_description" msgid="6106309408994461239">"上へ移動"</string>
     <string name="terms" msgid="8295436105384703903">"利用規約"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"仕事用プロファイルの情報"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"管理対象デバイスの情報"</string>
@@ -183,15 +182,15 @@
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"セットアップをキャンセル"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"デバイスをリセットして返却"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者が管理します"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人用と仕事用のアプリは別々に保存、表示されます"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人用アプリは仕事用アプリとは別に保存され、一緒には表示されません"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT 管理者は、このデバイスを管理して特定のアプリをブロックできます"</string>
-    <string name="cope_provisioning_summary" msgid="993014104601034878">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者によって管理されています。個人用と仕事用のアプリは別々に保存、表示されます。IT 管理者はこのデバイスを管理し、特定のアプリをブロックすることができます。"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者によって管理されています。個人用アプリは仕事用アプリとは別個に保存され、一緒に表示されません。IT 管理者はこのデバイスを管理し、特定のアプリをブロックすることができます。"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"お待ちください…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"プライバシーに関するお知らせ"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT 管理者がこのデバイスのデータやアクティビティを確認できる可能性があります"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"このデバイスは <xliff:g id="CREDITOR_NAME">%s</xliff:g> から提供されています"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"このデバイスで支払いを行えます"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> アプリでお支払いください"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> によってインストールされる <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> アプリで、このデバイスのお支払いを行えます。"</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"このデバイスを制限できます"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> はこのデバイスを制限することがあります"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> は、お支払いが行われなかった場合、このデバイスへのアクセスを制限することがあります。"</string>
 </resources>
