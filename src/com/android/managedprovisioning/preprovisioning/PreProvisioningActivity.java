@@ -16,7 +16,9 @@
 
 package com.android.managedprovisioning.preprovisioning;
 
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
 import static android.app.admin.DevicePolicyManager.EXTRA_RESULT_LAUNCH_INTENT;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_ROLE_HOLDER;
@@ -546,7 +548,10 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         Intent intent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
         intent.putExtra(
                 EXTRA_INTENT_TO_LAUNCH,
-                roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(getIntent()));
+                roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
+                        getIntent(),
+                        getIntent().getIntExtra(
+                                EXTRA_PROVISIONING_TRIGGER, PROVISIONING_TRIGGER_UNSPECIFIED)));
         getTransitionHelper().startActivityForResultWithTransition(
                  this,
                 intent,

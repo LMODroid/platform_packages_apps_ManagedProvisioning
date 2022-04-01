@@ -17,6 +17,7 @@
 package com.android.managedprovisioning.common;
 
 import static android.app.admin.DevicePolicyManager.ACTION_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
 
 import static java.util.Objects.requireNonNull;
 
@@ -124,12 +125,15 @@ public class DeviceManagementRoleHolderUpdaterHelper {
     /**
      * Creates an intent to be used to launch the role holder updater.
      */
-    public Intent createRoleHolderUpdaterIntent(@Nullable Intent parentActivityIntent) {
+    public Intent createRoleHolderUpdaterIntent(
+            @Nullable Intent parentActivityIntent,
+            int provisioningTrigger) {
         if (TextUtils.isEmpty(mRoleHolderUpdaterPackageName)) {
             throw new IllegalStateException("Role holder updater package name is null or empty.");
         }
         Intent intent = new Intent(ACTION_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER)
-                .setPackage(mRoleHolderUpdaterPackageName);
+                .setPackage(mRoleHolderUpdaterPackageName)
+                .putExtra(EXTRA_PROVISIONING_TRIGGER, provisioningTrigger);
         if (parentActivityIntent != null) {
             WizardManagerHelper.copyWizardManagerExtras(parentActivityIntent, intent);
         }
