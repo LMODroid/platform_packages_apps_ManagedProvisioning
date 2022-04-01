@@ -36,7 +36,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUC
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TIME_ZONE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
-import static android.app.admin.DevicePolicyManager.EXTRA_ROLE_HOLDER_STATE;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_MODE_MANAGED_PROFILE_ON_PERSONAL_DEVICE;
@@ -219,28 +218,24 @@ public class PreProvisioningActivityController {
      * Starts provisioning via the role holder if possible, or falls back to AOSP
      * ManagedProvisioning provisioning otherwise.
      */
-    public void startAppropriateProvisioning(Intent managedProvisioningIntent) {
+    public void startAppropriateProvisioning(
+            Intent managedProvisioningIntent,
+            String callingPackage) {
         boolean isRoleHolderReadyForProvisioning = mRoleHolderHelper
                 .isRoleHolderReadyForProvisioning(mContext, managedProvisioningIntent);
         if (isRoleHolderReadyForProvisioning) {
             ProvisionLogger.logw("Provisioning via role holder.");
             Intent roleHolderProvisioningIntent =
-                    createRoleHolderProvisioningIntent(managedProvisioningIntent);
+                    mRoleHolderHelper.createRoleHolderProvisioningIntent(
+                            managedProvisioningIntent,
+                            mViewModel.getRoleHolderState(),
+                            callingPackage);
             mSharedPreferences.setIsProvisioningFlowDelegatedToRoleHolder(true);
             mViewModel.onRoleHolderProvisioningInitiated();
             mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
         } else {
             performPlatformProvidedProvisioning();
         }
-    }
-
-    private Intent createRoleHolderProvisioningIntent(Intent managedProvisioningIntent) {
-        Intent intent =
-                mRoleHolderHelper.createRoleHolderProvisioningIntent(managedProvisioningIntent);
-        if (mViewModel.getRoleHolderState() != null) {
-            intent.putExtra(EXTRA_ROLE_HOLDER_STATE, mViewModel.getRoleHolderState());
-        }
-        return intent;
     }
 
     /**
@@ -420,7 +415,7 @@ public class PreProvisioningActivityController {
             resetRoleHolderUpdateRetryCount();
             startRoleHolderUpdater(/* roleHolderState= */ null);
         } else {
-            startAppropriateProvisioning(intent);
+            startAppropriateProvisioning(intent, callingPackage);
         }
     }
 

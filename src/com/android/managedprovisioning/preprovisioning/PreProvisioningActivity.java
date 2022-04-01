@@ -324,7 +324,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     mController.incrementRoleHolderUpdateRetryCount();
                 } else if (resultCode == RESULT_OK
                         || mController.getParams().allowOffline) {
-                    mController.startAppropriateProvisioning(getIntent());
+                    mController.startAppropriateProvisioning(getIntent(), getCallingPackage());
                 } else if (resultCode
                         == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED
                 ) {
@@ -357,7 +357,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case DOWNLOAD_DEVICE_MANAGEMENT_ROLE_HOLDER_REQUEST_CODE:
                 if (resultCode == RESULT_OK
                         || mController.getParams().allowOffline) {
-                    mController.startAppropriateProvisioning(getIntent());
+                    mController.startAppropriateProvisioning(getIntent(), getCallingPackage());
                 } else if (data != null && data.hasExtra(EXTRA_ERROR_MESSAGE_RES_ID)) {
                     ProvisionLogger.loge("Role holder download failed and offline provisioning is "
                             + "not allowed.");

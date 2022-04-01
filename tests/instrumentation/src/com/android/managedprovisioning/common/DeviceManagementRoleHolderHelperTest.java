@@ -17,6 +17,8 @@
 package com.android.managedprovisioning.common;
 
 import static android.app.admin.DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
+import static android.app.admin.DevicePolicyManager.EXTRA_ROLE_HOLDER_PROVISIONING_INITIATOR_PACKAGE;
+import static android.app.admin.DevicePolicyManager.EXTRA_ROLE_HOLDER_STATE;
 
 import static com.android.managedprovisioning.TestUtils.assertIntentsEqual;
 
@@ -27,6 +29,7 @@ import static org.junit.Assert.assertThrows;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
+import android.os.PersistableBundle;
 
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.filters.SmallTest;
@@ -49,6 +52,8 @@ public class DeviceManagementRoleHolderHelperTest {
     private static final String ROLE_HOLDER_PACKAGE_NAME = "com.test.package";
     private static final String ROLE_HOLDER_EMPTY_PACKAGE_NAME = "";
     private static final String ROLE_HOLDER_NULL_PACKAGE_NAME = null;
+    private static final PersistableBundle TEST_ROLE_HOLDER_STATE = new PersistableBundle();
+    private static final String TEST_CALLING_PACKAGE = "test.calling.package";
     private final Context mContext = ApplicationProvider.getApplicationContext();
     public static final String TEST_EXTRA_KEY = "test_extra_key";
     public static final String TEST_EXTRA_VALUE = "test_extra_value";
@@ -57,11 +62,15 @@ public class DeviceManagementRoleHolderHelperTest {
                     .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE);
     private static final Intent MANAGED_PROFILE_ROLE_HOLDER_INTENT =
             createManagedProfileRoleHolderIntent();
+    private static final Intent MANAGED_PROFILE_ROLE_HOLDER_INTENT_WITH_MINIMAL_EXTRAS =
+            createManagedProfileRoleHolderIntentWithMinimalExtras();
     private static final Intent PROVISION_TRUSTED_SOURCE_INTENT =
             new Intent(DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
                     .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE);
     private static final Intent PROVISION_TRUSTED_SOURCE_ROLE_HOLDER_INTENT =
             createTrustedSourceRoleHolderIntent();
+    private static final Intent PROVISION_TRUSTED_SOURCE_ROLE_HOLDER_INTENT_WITH_MINIMAL_EXTRAS =
+            createTrustedSourceRoleHolderIntentWithMinimalExtras();
     private static final Intent FINANCED_DEVICE_INTENT =
             new Intent(DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE)
                     .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE);
@@ -253,7 +262,9 @@ public class DeviceManagementRoleHolderHelperTest {
 
         assertThrows(IllegalArgumentException.class, () ->
                 roleHolderHelper.createRoleHolderProvisioningIntent(
-                        INVALID_MANAGED_PROVISIONING_INTENT));
+                        INVALID_MANAGED_PROVISIONING_INTENT,
+                        TEST_ROLE_HOLDER_STATE,
+                        TEST_CALLING_PACKAGE));
     }
 
     @Test
@@ -261,8 +272,24 @@ public class DeviceManagementRoleHolderHelperTest {
         DeviceManagementRoleHolderHelper roleHolderHelper = createRoleHolderHelper();
 
         assertIntentsEqual(
-                roleHolderHelper.createRoleHolderProvisioningIntent(MANAGED_PROFILE_INTENT),
+                roleHolderHelper.createRoleHolderProvisioningIntent(
+                        MANAGED_PROFILE_INTENT,
+                        TEST_ROLE_HOLDER_STATE,
+                        TEST_CALLING_PACKAGE),
                 MANAGED_PROFILE_ROLE_HOLDER_INTENT);
+    }
+
+    @Test
+    public void
+            createRoleHolderProvisioningIntent_managedProfileProvisioningIntentWithNoStateOrCallingPackage_works() {
+        DeviceManagementRoleHolderHelper roleHolderHelper = createRoleHolderHelper();
+
+        assertIntentsEqual(
+                roleHolderHelper.createRoleHolderProvisioningIntent(
+                        MANAGED_PROFILE_INTENT,
+                        /* roleHolderState= */ null,
+                        /* callingPackage= */ null),
+                MANAGED_PROFILE_ROLE_HOLDER_INTENT_WITH_MINIMAL_EXTRAS);
     }
 
     @Test
@@ -271,7 +298,10 @@ public class DeviceManagementRoleHolderHelperTest {
                 createRoleHolderHelper(ROLE_HOLDER_NULL_PACKAGE_NAME);
 
         assertThrows(IllegalStateException.class, () ->
-                roleHolderHelper.createRoleHolderProvisioningIntent(MANAGED_PROFILE_INTENT));
+                roleHolderHelper.createRoleHolderProvisioningIntent(
+                        MANAGED_PROFILE_INTENT,
+                        TEST_ROLE_HOLDER_STATE,
+                        TEST_CALLING_PACKAGE));
     }
 
     @Test
@@ -280,7 +310,10 @@ public class DeviceManagementRoleHolderHelperTest {
                 createRoleHolderHelper(ROLE_HOLDER_EMPTY_PACKAGE_NAME);
 
         assertThrows(IllegalStateException.class, () ->
-                roleHolderHelper.createRoleHolderProvisioningIntent(MANAGED_PROFILE_INTENT));
+                roleHolderHelper.createRoleHolderProvisioningIntent(
+                        MANAGED_PROFILE_INTENT,
+                        TEST_ROLE_HOLDER_STATE,
+                        TEST_CALLING_PACKAGE));
     }
 
     @Test
@@ -289,8 +322,23 @@ public class DeviceManagementRoleHolderHelperTest {
 
         assertIntentsEqual(
                 roleHolderHelper.createRoleHolderProvisioningIntent(
-                        PROVISION_TRUSTED_SOURCE_INTENT),
+                        PROVISION_TRUSTED_SOURCE_INTENT,
+                        TEST_ROLE_HOLDER_STATE,
+                        TEST_CALLING_PACKAGE),
                 PROVISION_TRUSTED_SOURCE_ROLE_HOLDER_INTENT);
+    }
+
+    @Test
+    public void
+            createRoleHolderProvisioningIntent_trustedSourceProvisioningIntentWithNoStateOrCallingPackage_works() {
+        DeviceManagementRoleHolderHelper roleHolderHelper = createRoleHolderHelper();
+
+        assertIntentsEqual(
+                roleHolderHelper.createRoleHolderProvisioningIntent(
+                        PROVISION_TRUSTED_SOURCE_INTENT,
+                        /* roleHolderState= */ null,
+                        /* callingPackage= */ null),
+                PROVISION_TRUSTED_SOURCE_ROLE_HOLDER_INTENT_WITH_MINIMAL_EXTRAS);
     }
 
     @Test
@@ -300,7 +348,9 @@ public class DeviceManagementRoleHolderHelperTest {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> roleHolderHelper.createRoleHolderProvisioningIntent(
-                        FINANCED_DEVICE_INTENT));
+                        FINANCED_DEVICE_INTENT,
+                        TEST_ROLE_HOLDER_STATE,
+                        TEST_CALLING_PACKAGE));
     }
 
     @Test
@@ -404,12 +454,32 @@ public class DeviceManagementRoleHolderHelperTest {
     private static Intent createManagedProfileRoleHolderIntent() {
         Intent intent = new Intent(DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION_MANAGED_PROFILE)
                 .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE)
+                .setPackage(ROLE_HOLDER_PACKAGE_NAME)
+                .putExtra(EXTRA_ROLE_HOLDER_PROVISIONING_INITIATOR_PACKAGE, TEST_CALLING_PACKAGE)
+                .putExtra(EXTRA_ROLE_HOLDER_STATE, TEST_ROLE_HOLDER_STATE);
+        WizardManagerHelper.copyWizardManagerExtras(MANAGED_PROFILE_INTENT, intent);
+        return intent;
+    }
+
+    private static Intent createManagedProfileRoleHolderIntentWithMinimalExtras() {
+        Intent intent = new Intent(DevicePolicyManager.ACTION_ROLE_HOLDER_PROVISION_MANAGED_PROFILE)
+                .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE)
                 .setPackage(ROLE_HOLDER_PACKAGE_NAME);
         WizardManagerHelper.copyWizardManagerExtras(MANAGED_PROFILE_INTENT, intent);
         return intent;
     }
 
     private static Intent createTrustedSourceRoleHolderIntent() {
+        Intent intent = new Intent(ACTION_ROLE_HOLDER_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
+                .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE)
+                .setPackage(ROLE_HOLDER_PACKAGE_NAME)
+                .putExtra(EXTRA_ROLE_HOLDER_PROVISIONING_INITIATOR_PACKAGE, TEST_CALLING_PACKAGE)
+                .putExtra(EXTRA_ROLE_HOLDER_STATE, TEST_ROLE_HOLDER_STATE);
+        WizardManagerHelper.copyWizardManagerExtras(PROVISION_TRUSTED_SOURCE_INTENT, intent);
+        return intent;
+    }
+
+    private static Intent createTrustedSourceRoleHolderIntentWithMinimalExtras() {
         Intent intent = new Intent(ACTION_ROLE_HOLDER_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
                 .putExtra(TEST_EXTRA_KEY, TEST_EXTRA_VALUE)
                 .setPackage(ROLE_HOLDER_PACKAGE_NAME);
