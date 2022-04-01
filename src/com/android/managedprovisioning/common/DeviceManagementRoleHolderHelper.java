@@ -27,6 +27,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.text.TextUtils;
 
@@ -125,9 +126,11 @@ public final class DeviceManagementRoleHolderHelper {
      */
     public Intent createRoleHolderProvisioningIntent(
             Intent managedProvisioningIntent,
-            @Nullable PersistableBundle roleHolderState,
-            @Nullable String callingPackage) {
+            Bundle roleHolderAdditionalExtras,
+            @Nullable String callingPackage,
+            @Nullable PersistableBundle roleHolderState) {
         requireNonNull(managedProvisioningIntent);
+        requireNonNull(roleHolderAdditionalExtras);
         String provisioningAction = managedProvisioningIntent.getAction();
         if (!Constants.isRoleHolderProvisioningAllowedForAction(provisioningAction)) {
             throw new IllegalArgumentException("Intent action " + provisioningAction
@@ -149,6 +152,7 @@ public final class DeviceManagementRoleHolderHelper {
             roleHolderIntent.putExtra(
                     EXTRA_ROLE_HOLDER_PROVISIONING_INITIATOR_PACKAGE, callingPackage);
         }
+        roleHolderIntent.putExtras(roleHolderAdditionalExtras);
         WizardManagerHelper.copyWizardManagerExtras(managedProvisioningIntent, roleHolderIntent);
         return roleHolderIntent;
     }
@@ -166,6 +170,21 @@ public final class DeviceManagementRoleHolderHelper {
             WizardManagerHelper.copyWizardManagerExtras(parentActivityIntent, roleHolderIntent);
         }
         return roleHolderIntent;
+    }
+
+    /**
+     * Returns {@code true} if role holder-driven provisioning is enabled.
+     *
+     * <p>For role holder-driven provisioning to be enabled, the following criteria must be
+     * met:
+     * <ul>
+     *     <li>The role holder package name must be a non-null, non-empty {@link String}</li>
+     *     <li>The role holder-driven provisioning feature flag must be enabled</li>
+     * </ul>
+     */
+    public boolean isRoleHolderProvisioningEnabled() {
+        return !TextUtils.isEmpty(mRoleHolderPackageName)
+                && mFeatureFlagChecker.canDelegateProvisioningToRoleHolder();
     }
 
     private boolean isRoleHolderValid(
