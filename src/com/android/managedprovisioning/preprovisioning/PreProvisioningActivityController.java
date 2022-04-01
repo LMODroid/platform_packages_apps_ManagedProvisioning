@@ -215,11 +215,15 @@ public class PreProvisioningActivityController {
     }
 
     /**
-     * Starts provisioning via the role holder if possible, or falls back to AOSP
-     * ManagedProvisioning provisioning otherwise.
+     * Starts provisioning via the role holder if possible, or if offline provisioning is allowed,
+     * falls back to AOSP ManagedProvisioning provisioning.
+     *
+     * @return {@code true} if any form of provisioning was started (either role holder or
+     * platform).
      */
-    public void startAppropriateProvisioning(
+    boolean startAppropriateProvisioning(
             Intent managedProvisioningIntent,
+            Bundle roleHolderAdditionalExtras,
             String callingPackage) {
         boolean isRoleHolderReadyForProvisioning = mRoleHolderHelper
                 .isRoleHolderReadyForProvisioning(mContext, managedProvisioningIntent);
@@ -228,14 +232,21 @@ public class PreProvisioningActivityController {
             Intent roleHolderProvisioningIntent =
                     mRoleHolderHelper.createRoleHolderProvisioningIntent(
                             managedProvisioningIntent,
-                            mViewModel.getRoleHolderState(),
-                            callingPackage);
+                            roleHolderAdditionalExtras, callingPackage, mViewModel.getRoleHolderState()
+                    );
             mSharedPreferences.setIsProvisioningFlowDelegatedToRoleHolder(true);
             mViewModel.onRoleHolderProvisioningInitiated();
             mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
-        } else {
+            return true;
+        } else if (getParams().allowOffline
+                || !mRoleHolderHelper.isRoleHolderProvisioningEnabled()) {
+            ProvisionLogger.logw("Provisioning via platform.");
             performPlatformProvidedProvisioning();
+            return true;
         }
+        ProvisionLogger.logw("Role holder is configured, can't provision via role holder and "
+                + "PROVISIONING_ALLOW_OFFLINE is false.");
+        return false;
     }
 
     /**
@@ -245,10 +256,11 @@ public class PreProvisioningActivityController {
      * @see DevicePolicyManager#EXTRA_ROLE_HOLDER_STATE
      * @param roleHolderState
      */
-    public void startRoleHolderUpdater(@Nullable PersistableBundle roleHolderState) {
+    public void startRoleHolderUpdater(
+            boolean isRoleHolderRequestedUpdate, @Nullable PersistableBundle roleHolderState) {
         mViewModel.onRoleHolderUpdateInitiated();
         mViewModel.setRoleHolderState(roleHolderState);
-        mUi.startRoleHolderUpdater();
+        mUi.startRoleHolderUpdater(isRoleHolderRequestedUpdate);
     }
 
     /**
@@ -256,8 +268,8 @@ public class PreProvisioningActivityController {
      *
      * <p>This can be useful in update retry cases.
      */
-    public void startRoleHolderUpdaterWithLastState() {
-        startRoleHolderUpdater(mViewModel.getRoleHolderState());
+    public void startRoleHolderUpdaterWithLastState(boolean isRoleHolderRequestedUpdate) {
+        startRoleHolderUpdater(isRoleHolderRequestedUpdate, mViewModel.getRoleHolderState());
     }
 
     interface Ui {
@@ -307,7 +319,7 @@ public class PreProvisioningActivityController {
 
         void prepareAdminIntegratedFlow(ProvisioningParams params);
 
-        void startRoleHolderUpdater();
+        void startRoleHolderUpdater(boolean isRoleHolderRequestedUpdate);
 
         void startRoleHolderProvisioning(Intent intent);
 
@@ -413,9 +425,17 @@ public class PreProvisioningActivityController {
         } else if (mRoleHolderUpdaterHelper
                 .shouldStartRoleHolderUpdater(mContext, intent, params)) {
             resetRoleHolderUpdateRetryCount();
-            startRoleHolderUpdater(/* roleHolderState= */ null);
+            startRoleHolderUpdater(
+                    /* isRoleHolderRequestedUpdate= */ false, /* roleHolderState= */ null);
         } else {
-            startAppropriateProvisioning(intent, callingPackage);
+            boolean isProvisioningStarted =
+                    startAppropriateProvisioning(intent, new Bundle(), callingPackage);
+            if (!isProvisioningStarted) {
+                mUi.showErrorAndClose(
+                        R.string.cant_set_up_device,
+                        R.string.contact_your_admin_for_help,
+                        "Could not start provisioning.");
+            }
         }
     }
 
