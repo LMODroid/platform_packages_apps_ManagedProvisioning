@@ -17,6 +17,8 @@
 package com.android.managedprovisioning.common;
 
 import static android.app.admin.DevicePolicyManager.ACTION_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
+import static android.app.admin.DevicePolicyManager.EXTRA_FORCE_UPDATE_ROLE_HOLDER;
 
 import static java.util.Objects.requireNonNull;
 
@@ -96,16 +98,16 @@ public class DeviceManagementRoleHolderUpdaterHelper {
      */
     public boolean shouldPlatformDownloadRoleHolder(
             Intent managedProvisioningIntent, ProvisioningParams params) {
+        if (params.roleHolderDownloadInfo == null) {
+            ProvisionLogger.logi("Not performing platform-side role holder download, because "
+                    + "there is no role holder download info supplied.");
+            return false;
+        }
         if (!DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE.equals(
                 managedProvisioningIntent.getAction())) {
             ProvisionLogger.logi("Not performing platform-side role holder download, because "
                     + "this provisioning action is unsupported: "
                     + managedProvisioningIntent.getAction());
-            return false;
-        }
-        if (params.roleHolderDownloadInfo == null) {
-            ProvisionLogger.logi("Not performing platform-side role holder download, because "
-                    + "there is no role holder download info supplied.");
             return false;
         }
         if (!mFeatureFlagChecker.canDelegateProvisioningToRoleHolder()) {
@@ -124,12 +126,17 @@ public class DeviceManagementRoleHolderUpdaterHelper {
     /**
      * Creates an intent to be used to launch the role holder updater.
      */
-    public Intent createRoleHolderUpdaterIntent(@Nullable Intent parentActivityIntent) {
+    public Intent createRoleHolderUpdaterIntent(
+            @Nullable Intent parentActivityIntent,
+            int provisioningTrigger,
+            boolean isRoleHolderRequestedUpdate) {
         if (TextUtils.isEmpty(mRoleHolderUpdaterPackageName)) {
             throw new IllegalStateException("Role holder updater package name is null or empty.");
         }
         Intent intent = new Intent(ACTION_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER)
-                .setPackage(mRoleHolderUpdaterPackageName);
+                .setPackage(mRoleHolderUpdaterPackageName)
+                .putExtra(EXTRA_PROVISIONING_TRIGGER, provisioningTrigger)
+                .putExtra(EXTRA_FORCE_UPDATE_ROLE_HOLDER, isRoleHolderRequestedUpdate);
         if (parentActivityIntent != null) {
             WizardManagerHelper.copyWizardManagerExtras(parentActivityIntent, intent);
         }

@@ -187,12 +187,12 @@ public class TestUtils extends AndroidTestCase {
 
     public static void assertBundlesEqual(BaseBundle bundle1, BaseBundle bundle2) {
         if (bundle1 != null) {
-            assertWithMessage("Intent bundles are not equal")
+            assertWithMessage("Intent bundles are not equal, " + bundle1 + " " + bundle2)
                     .that(bundle2).isNotNull();
-            assertWithMessage("Intent bundles are not equal")
+            assertWithMessage("Intent bundles are not equal, " + bundle1 + " " + bundle2)
                     .that(bundle1.keySet().size()).isEqualTo(bundle2.keySet().size());
             for (String key : bundle1.keySet()) {
-                assertWithMessage("Intent bundles are not equal")
+                assertWithMessage("Intent bundles are not equal, " + bundle1 + " " + bundle2)
                         .that(bundle1.get(key))
                         .isEqualTo(bundle2.get(key));
             }
