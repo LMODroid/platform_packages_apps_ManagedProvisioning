@@ -16,8 +16,6 @@
 
 package com.android.managedprovisioning.common;
 
-import android.content.pm.PackageManager;
-
 /**
  * Checker that checks whether a package is installed.
  */
@@ -25,5 +23,5 @@ public interface PackageInstallChecker {
     /**
      * Returns {@code true} if the package {@code packageName} is installed.
      */
-    boolean isPackageInstalled(String packageName, PackageManager packageManager);
+    boolean isPackageInstalled(String packageName);
 }
