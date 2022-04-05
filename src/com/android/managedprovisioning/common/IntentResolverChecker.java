@@ -16,24 +16,14 @@
 
 package com.android.managedprovisioning.common;
 
-import static java.util.Objects.requireNonNull;
-
-import android.content.pm.PackageManager;
+import android.content.Intent;
 
 /**
- * A default implementation of {@link PackageInstallChecker}.
+ * Checker that checks whether an {@link Intent} is resolvable.
  */
-public final class DefaultPackageInstallChecker implements PackageInstallChecker {
-    private final PackageManager mPackageManager;
-    private final Utils mUtils;
-
-    public DefaultPackageInstallChecker(PackageManager packageManager, Utils utils) {
-        mPackageManager = requireNonNull(packageManager);
-        mUtils = requireNonNull(utils);
-    }
-
-    @Override
-    public boolean isPackageInstalled(String packageName) {
-        return mUtils.isPackageInstalled(packageName, mPackageManager);
-    }
+public interface IntentResolverChecker {
+    /**
+     * Returns {@code true} if {@code intent} can be resolved.
+     */
+    boolean canResolveIntent(Intent intent);
 }

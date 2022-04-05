@@ -413,7 +413,7 @@ public class DeviceManagementRoleHolderHelperTest {
     private DeviceManagementRoleHolderHelper createRoleHolderHelper() {
         return new DeviceManagementRoleHolderHelper(
                 ROLE_HOLDER_PACKAGE_NAME,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true,
+                /* packageInstallChecker= */ (roleHolderPackageName) -> true,
                 /* resolveIntentChecker= */ (intent, packageManager) -> true,
                 /* roleHolderStubChecker= */ (packageName, packageManager) -> false,
                 mFeatureFlagChecker);
@@ -423,7 +423,7 @@ public class DeviceManagementRoleHolderHelperTest {
             String roleHolderPackageName) {
         return new DeviceManagementRoleHolderHelper(
                 roleHolderPackageName,
-                /* packageInstallChecker= */ (packageName, packageManager) -> true,
+                /* packageInstallChecker= */ (packageName) -> true,
                 /* resolveIntentChecker= */ (intent, packageManager) -> true,
                 /* roleHolderStubChecker= */ (packageName, packageManager) -> false,
                 mFeatureFlagChecker);
@@ -432,7 +432,7 @@ public class DeviceManagementRoleHolderHelperTest {
     private DeviceManagementRoleHolderHelper createRoleHolderHelperWithRoleHolderNotInstalled() {
         return new DeviceManagementRoleHolderHelper(
                 ROLE_HOLDER_PACKAGE_NAME,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> false,
+                /* packageInstallChecker= */ (roleHolderPackageName) -> false,
                 /* resolveIntentChecker= */ (intent, packageManager) -> true,
                 /* roleHolderStubChecker= */ (packageName, packageManager) -> false,
                 mFeatureFlagChecker);
@@ -441,7 +441,7 @@ public class DeviceManagementRoleHolderHelperTest {
     private DeviceManagementRoleHolderHelper createRoleHolderHelperWithStubRoleHolder() {
         return new DeviceManagementRoleHolderHelper(
                 ROLE_HOLDER_PACKAGE_NAME,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true,
+                /* packageInstallChecker= */ (roleHolderPackageName) -> true,
                 /* resolveIntentChecker= */ (intent, packageManager) -> true,
                 /* roleHolderStubChecker= */ (packageName, packageManager) -> true,
                 mFeatureFlagChecker);
@@ -451,7 +451,7 @@ public class DeviceManagementRoleHolderHelperTest {
         // A role holder is considered invalid if it is not able to resolve all the required intents
         return new DeviceManagementRoleHolderHelper(
                 ROLE_HOLDER_PACKAGE_NAME,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true,
+                /* packageInstallChecker= */ (roleHolderPackageName) -> true,
                 /* resolveIntentChecker= */ (intent, packageManager) -> false,
                 /* roleHolderStubChecker= */ (packageName, packageManager) -> false,
                 mFeatureFlagChecker);
@@ -463,7 +463,7 @@ public class DeviceManagementRoleHolderHelperTest {
         // A role holder is considered invalid if it is not able to resolve all the required intents
         return new DeviceManagementRoleHolderHelper(
                 ROLE_HOLDER_PACKAGE_NAME,
-                /* packageInstallChecker= */ (roleHolderPackageName, packageManager) -> true,
+                /* packageInstallChecker= */ (roleHolderPackageName) -> true,
                 /* resolveIntentChecker= */ (intent, packageManager) ->
                         roleHolderHandledIntents.contains(intent.getAction()),
                 /* roleHolderStubChecker= */ (packageName, packageManager) -> false,

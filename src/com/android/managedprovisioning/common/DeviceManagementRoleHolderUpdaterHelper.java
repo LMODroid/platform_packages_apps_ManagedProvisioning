@@ -17,8 +17,9 @@
 package com.android.managedprovisioning.common;
 
 import static android.app.admin.DevicePolicyManager.ACTION_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
 import static android.app.admin.DevicePolicyManager.EXTRA_FORCE_UPDATE_ROLE_HOLDER;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
+import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 
 import static java.util.Objects.requireNonNull;
 
@@ -41,16 +42,19 @@ public class DeviceManagementRoleHolderUpdaterHelper {
     private final String mRoleHolderUpdaterPackageName;
     private final String mRoleHolderPackageName;
     private final PackageInstallChecker mPackageInstallChecker;
+    private final IntentResolverChecker mIntentResolverChecker;
     private final FeatureFlagChecker mFeatureFlagChecker;
 
     public DeviceManagementRoleHolderUpdaterHelper(
             @Nullable String roleHolderUpdaterPackageName,
             @Nullable String roleHolderPackageName,
             PackageInstallChecker packageInstallChecker,
+            IntentResolverChecker intentResolverChecker,
             FeatureFlagChecker featureFlagChecker) {
         mRoleHolderUpdaterPackageName = roleHolderUpdaterPackageName;
         mRoleHolderPackageName = roleHolderPackageName;
         mPackageInstallChecker = requireNonNull(packageInstallChecker);
+        mIntentResolverChecker = requireNonNull(intentResolverChecker);
         mFeatureFlagChecker = requireNonNull(featureFlagChecker);
     }
 
@@ -85,8 +89,22 @@ public class DeviceManagementRoleHolderUpdaterHelper {
                     + "updater package name is null or empty.");
             return false;
         }
-        return mPackageInstallChecker.isPackageInstalled(
-                mRoleHolderUpdaterPackageName, context.getPackageManager());
+        if (!mPackageInstallChecker.isPackageInstalled(mRoleHolderUpdaterPackageName)) {
+            ProvisionLogger.logi("Not starting role holder updater, because the role holder "
+                    + "updater is not installed.");
+            return false;
+        }
+        Intent roleHolderUpdaterIntent = createRoleHolderUpdaterIntent(
+                managedProvisioningIntent,
+                managedProvisioningIntent.getIntExtra(
+                        EXTRA_PROVISIONING_TRIGGER, PROVISIONING_TRIGGER_UNSPECIFIED),
+                /* isRoleHolderRequestedUpdate= */ false);
+        if (!mIntentResolverChecker.canResolveIntent(roleHolderUpdaterIntent)) {
+            ProvisionLogger.logi("Not starting role holder updater, because the role holder "
+                    + "updater does not resolve the intent " + roleHolderUpdaterIntent);
+            return false;
+        }
+        return true;
     }
 
 
