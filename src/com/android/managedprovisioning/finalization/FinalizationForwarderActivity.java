@@ -106,7 +106,7 @@ public class FinalizationForwarderActivity extends Activity implements
     private FinalizationForwarderController createFinalizationController() {
         DeviceManagementRoleHolderHelper roleHolderHelper = new DeviceManagementRoleHolderHelper(
                 RoleHolderProvider.DEFAULT.getPackageName(this),
-                new DefaultPackageInstallChecker(new Utils()),
+                new DefaultPackageInstallChecker(getPackageManager(), new Utils()),
                 new DefaultResolveIntentChecker(),
                 new DefaultRoleHolderStubChecker(),
                 new DefaultFeatureFlagChecker(getContentResolver()));

@@ -31,11 +31,10 @@ import androidx.test.filters.SmallTest;
 
 import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.ScreenManager;
-import com.android.managedprovisioning.common.DefaultPackageInstallChecker;
 import com.android.managedprovisioning.common.DeviceManagementRoleHolderHelper;
 import com.android.managedprovisioning.common.FeatureFlagChecker;
+import com.android.managedprovisioning.common.PackageInstallChecker;
 import com.android.managedprovisioning.common.SharedPreferences;
-import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.testcommon.FakeSharedPreferences;
 
 import org.junit.Before;
@@ -80,7 +79,7 @@ public class FinalizationForwarderControllerTest {
         mController = new FinalizationForwarderController(
                 new DeviceManagementRoleHolderHelper(
                     TEST_ROLE_HOLDER_PACKAGE,
-                    new DefaultPackageInstallChecker(new Utils()),
+                    new TestPackageInstallChecker(),
                     new DeviceManagementRoleHolderHelper.DefaultResolveIntentChecker(),
                     new DeviceManagementRoleHolderHelper.DefaultRoleHolderStubChecker(),
                     (FeatureFlagChecker) () -> false),
@@ -139,6 +138,13 @@ public class FinalizationForwarderControllerTest {
 
         assertThat(mRoleHolderFinalizationType).isEqualTo(
                 PROVISIONING_FINALIZATION_PLATFORM_PROVIDED);
+    }
+
+    private class TestPackageInstallChecker implements PackageInstallChecker {
+        @Override
+        public boolean isPackageInstalled(String packageName) {
+            return false;
+        }
     }
 
     private FinalizationForwarderController.Ui createUi() {
