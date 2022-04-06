@@ -103,7 +103,7 @@
              android:excludeFromRecents="true"
              android:immersive="true"
              android:launchMode="singleTop"
-             android:theme="@style/SudThemeGlifV3.DayNight">
+             android:theme="@style/SudThemeGlifV4.DayNight">
         </activity>
 
         <activity
@@ -111,7 +111,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SudThemeGlifV3.DayNight">
+            android:theme="@style/SudThemeGlifV4.DayNight">
         </activity>
 
         <activity
@@ -120,7 +120,7 @@
             android:immersive="true"
             android:launchMode="singleTop"
             android:exported="true"
-            android:theme="@style/SudThemeGlifV3.DayNight">
+            android:theme="@style/SudThemeGlifV4.DayNight">
             <intent-filter android:priority="10">
                 <action android:name="android.app.action.PROVISION_MANAGED_PROFILE" />
                 <action android:name="android.app.action.PROVISION_MANAGED_DEVICE" />
@@ -132,7 +132,7 @@
             android:name=".provisioning.ResetAndReturnDeviceActivity"
             android:excludeFromRecents="true"
             android:immersive="true"
-            android:theme="@style/SudThemeGlifV3.Light"/>
+            android:theme="@style/SudThemeGlifV4.Light"/>
 
         <!--
             Nfc bump entry for device owner provisioning, protected by a permission so only the Nfc
@@ -141,7 +141,7 @@
         <activity
             android:name=".preprovisioning.PreProvisioningActivityViaNfc"
             android:permission="android.permission.DISPATCH_NFC_MESSAGE"
-            android:theme="@style/SudThemeGlifV3.DayNight"
+            android:theme="@style/SudThemeGlifV4.DayNight"
             android:exported="true">
             <intent-filter android:priority="10">
                 <action android:name="android.nfc.action.NDEF_DISCOVERED" />
@@ -185,7 +185,7 @@
             android:excludeFromRecents="true"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SudThemeGlifV3.DayNight"/>
+            android:theme="@style/SudThemeGlifV4.DayNight"/>
         <activity
             android:name=".preprovisioning.EncryptDeviceActivity"
             android:immersive="true"
@@ -209,7 +209,7 @@
             android:name=".preprovisioning.WebActivity"
             android:immersive="true"
             android:launchMode="singleTop"
-            android:theme="@style/SudThemeGlifV3.DayNight"
+            android:theme="@style/SudThemeGlifV4.DayNight"
             android:process=":webview">
         </activity>
 
@@ -291,26 +291,26 @@
                   android:excludeFromRecents="true"
                   android:immersive="true"
                   android:launchMode="singleTop"
-                  android:theme="@style/SudThemeGlifV3.DayNight" />
+                  android:theme="@style/SudThemeGlifV4.DayNight" />
 
         <activity
             android:name=".provisioning.LandingActivity"
-            android:theme="@style/SudThemeGlifV3.DayNight"
+            android:theme="@style/SudThemeGlifV4.DayNight"
             android:immersive="true" />
 
         <activity
             android:name=".provisioning.FinancedDeviceLandingActivity"
-            android:theme="@style/SudThemeGlifV3.DayNight"
+            android:theme="@style/SudThemeGlifV4.DayNight"
             android:immersive="true" />
 
         <activity
             android:name=".preprovisioning.DownloadRoleHolderActivity"
-            android:theme="@style/SudThemeGlifV3.DayNight"
+            android:theme="@style/SudThemeGlifV4.DayNight"
             android:immersive="true" />
 
         <activity
             android:name=".common.RetryLaunchActivity"
-            android:theme="@style/SudThemeGlifV3.DayNight"
+            android:theme="@style/SudThemeGlifV4.DayNight"
             android:immersive="true" />
 
         <service
