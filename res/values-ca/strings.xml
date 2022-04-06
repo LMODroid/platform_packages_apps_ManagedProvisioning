@@ -194,12 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> pot instal·lar l\'aplicació <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> per poder fer pagaments en aquest dispositiu."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Aquest dispositiu es pot restringir"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> pot restringir l\'accés a aquest dispositiu si no fas cap pagament."</string>
-    <!-- no translation found for error_role_holder_hash_mismatch (6201584198247885437) -->
-    <skip />
-    <!-- no translation found for error_role_holder_download_install_failed (8151968372180693228) -->
-    <skip />
-    <!-- no translation found for error_role_holder_package_invalid (2631207759497988833) -->
-    <skip />
-    <!-- no translation found for setting_up (1478847967385506664) -->
-    <skip />
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"No es pot configurar el dispositiu. Contacta amb l\'administrador de TI i fes referència a \"Suma de verificació no vàlida\"."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Torna-ho a provar més tard o contacta amb l\'administrador de TI per obtenir ajuda"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"No es pot configurar el dispositiu. Contacta amb l\'administrador de TI i fes referència a \"Falten components o estan malmesos\"."</string>
+    <string name="setting_up" msgid="1478847967385506664">"S\'està configurant…"</string>
 </resources>

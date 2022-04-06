@@ -194,12 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ஆப்ஸை <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> நிறுவுவதன் மூலம் இந்தச் சாதனத்திற்கான பேமெண்ட்டுகளை நீங்கள் செலுத்த முடியும்."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"இந்தச் சாதனம் தடைசெய்யப்படலாம்"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"நீங்கள் பேமெண்ட்டுகளைச் செலுத்தவில்லையெனில் இந்தச் சாதனத்திற்கான அணுகலை <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> கட்டுப்படுத்த முடியும்."</string>
-    <!-- no translation found for error_role_holder_hash_mismatch (6201584198247885437) -->
-    <skip />
-    <!-- no translation found for error_role_holder_download_install_failed (8151968372180693228) -->
-    <skip />
-    <!-- no translation found for error_role_holder_package_invalid (2631207759497988833) -->
-    <skip />
-    <!-- no translation found for setting_up (1478847967385506664) -->
-    <skip />
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"சாதனத்தை அமைக்க முடியவில்லை. உங்கள் IT நிர்வாகியைத் தொடர்புகொண்டு பிழைக்கான காரணம் \"தவறான செக்-சம்\" எனத் தெரிவிக்கவும்."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"பிறகு முயலவும் அல்லது உதவிக்கு உங்கள் IT நிர்வாகியைத் தொடர்புகொள்ளவும்"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"சாதனத்தை அமைக்க முடியவில்லை. உங்கள் IT நிர்வாகியைத் தொடர்புகொண்டு பிழைக்கான காரணம் \"இல்லாத அல்லது சிதைந்த உறுப்புகள்\" எனத் தெரிவிக்கவும்."</string>
+    <string name="setting_up" msgid="1478847967385506664">"அமைக்கிறது…"</string>
 </resources>
