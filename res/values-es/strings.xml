@@ -194,12 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> puede instalar la aplicación <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> para hacer pagos de este dispositivo."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Este dispositivo se puede restringir"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> puede restringir el acceso a este dispositivo si no pagas."</string>
-    <!-- no translation found for error_role_holder_hash_mismatch (6201584198247885437) -->
-    <skip />
-    <!-- no translation found for error_role_holder_download_install_failed (8151968372180693228) -->
-    <skip />
-    <!-- no translation found for error_role_holder_package_invalid (2631207759497988833) -->
-    <skip />
-    <!-- no translation found for setting_up (1478847967385506664) -->
-    <skip />
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"No se puede configurar el dispositivo. Ponte en contacto con tu administrador de TI con la referencia \"Suma de comprobación no válida\"."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Vuelve a intentarlo más tarde o pide ayuda a tu administrador de TI"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"No se puede configurar el dispositivo. Ponte en contacto con tu administrador de TI con la referencia \"Componentes que faltan o dañados\"."</string>
+    <string name="setting_up" msgid="1478847967385506664">"Configurando…"</string>
 </resources>
