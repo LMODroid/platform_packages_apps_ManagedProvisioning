@@ -67,7 +67,7 @@ public class ThemeHelperTest {
         Intent intent = new Intent()
                 .putExtra(WizardManagerHelper.EXTRA_THEME, THEME_TEST_VALUE);
         int expectedResId = mSetupWizardBridge.resolveTheme(
-                R.style.SudThemeGlifV3_DayNight,
+                R.style.SudThemeGlifV4_DayNight,
                 THEME_TEST_VALUE,
                 /* suppressDayNight= */ false);
 
@@ -81,7 +81,7 @@ public class ThemeHelperTest {
         Intent intent = new Intent()
                 .putExtra(WizardManagerHelper.EXTRA_THEME, THEME_TEST_VALUE);
         int expectedResId = mSetupWizardBridge.resolveTheme(
-                R.style.SudThemeGlifV3_Light,
+                R.style.SudThemeGlifV4_Light,
                 THEME_TEST_VALUE,
                 /* suppressDayNight= */ true);
 
@@ -96,7 +96,7 @@ public class ThemeHelperTest {
         Intent intent = new Intent()
                 .putExtra(WizardManagerHelper.EXTRA_THEME, THEME_TEST_VALUE);
         int expectedResId = mSetupWizardBridge.resolveTheme(
-                R.style.SudThemeGlifV3_DayNight,
+                R.style.SudThemeGlifV4_DayNight,
                 THEME_TEST_VALUE,
                 /* suppressDayNight= */ true);
 
@@ -111,7 +111,7 @@ public class ThemeHelperTest {
         Intent intent = new Intent()
                 .putExtra(WizardManagerHelper.EXTRA_THEME, THEME_TEST_VALUE);
         int expectedResId = mSetupWizardBridge.resolveTheme(
-                R.style.SudThemeGlifV3_Light,
+                R.style.SudThemeGlifV4_Light,
                 THEME_TEST_VALUE,
                 /* suppressDayNight= */ true);
 
@@ -125,7 +125,7 @@ public class ThemeHelperTest {
                 createThemeHelperWithDayNightEnabledAndSystemPropertyTheme(
                         true, THEME_TEST_VALUE);
         int expectedResId = mSetupWizardBridge.resolveTheme(
-                R.style.SudThemeGlifV3_DayNight,
+                R.style.SudThemeGlifV4_DayNight,
                 THEME_TEST_VALUE,
                 /* suppressDayNight= */ false);
 
@@ -138,7 +138,7 @@ public class ThemeHelperTest {
         ThemeHelper themeHelper =
                 createThemeHelperWithDayNightEnabled(true);
         int expectedResId = mSetupWizardBridge.resolveTheme(
-                R.style.SudThemeGlifV3_DayNight,
+                R.style.SudThemeGlifV4_DayNight,
                 com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3,
                 /* suppressDayNight= */ false);
 
@@ -153,7 +153,7 @@ public class ThemeHelperTest {
                         /* setupWizardDayNightEnabled= */ false,
                         /* isSystemNightMode= */ true);
         int expectedResId = mSetupWizardBridge.resolveTheme(
-                R.style.SudThemeGlifV3_Light,
+                R.style.SudThemeGlifV4_Light,
                 com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3,
                 /* suppressDayNight= */ true);
 
@@ -168,7 +168,7 @@ public class ThemeHelperTest {
                         /* setupWizardDayNightEnabled= */ false,
                         /* isSystemNightMode= */ false);
         int expectedResId = mSetupWizardBridge.resolveTheme(
-                R.style.SudThemeGlifV3_Light,
+                R.style.SudThemeGlifV4_Light,
                 com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3_LIGHT,
                 /* suppressDayNight= */ true);
 
