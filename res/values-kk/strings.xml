@@ -197,5 +197,5 @@
     <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Құрылғыны реттеу мүмкін емес. Әкімшіге \"жарамсыз бақылау сомасы\" қатесі туралы хабарлаңыз."</string>
     <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Кейінірек қайталап көріңіз немесе әкімшіге хабарласыңыз."</string>
     <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Құрылғыны реттеу мүмкін емес. Әкімшіге \"жоғалған немесе бүлінген құрамдастар\" қатесі туралы хабарлаңыз."</string>
-    <string name="setting_up" msgid="1478847967385506664">"Реттеліп жатыр…"</string>
+    <string name="setting_up" msgid="1478847967385506664">"Реттелуде…"</string>
 </resources>
