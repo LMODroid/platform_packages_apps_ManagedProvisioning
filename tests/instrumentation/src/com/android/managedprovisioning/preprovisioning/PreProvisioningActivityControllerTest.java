@@ -186,7 +186,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
             DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER =
             new DeviceManagementRoleHolderHelper(
                     TEST_ROLE_HOLDER_PACKAGE_NAME,
-                    /* packageInstallChecker= */ (packageName, packageManager) -> true,
+                    /* packageInstallChecker= */ (packageName) -> true,
                     /* resolveIntentChecker= */ (intent, packageManager) -> true,
                     /* roleHolderStubChecker= */ (packageName, packageManager) -> false,
                     sFeatureFlagChecker);
@@ -194,7 +194,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
             DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_PRESENT =
             new DeviceManagementRoleHolderHelper(
                     TEST_ROLE_HOLDER_PACKAGE_NAME,
-                    /* packageInstallChecker= */ (packageName, packageManager) -> false,
+                    /* packageInstallChecker= */ (packageName) -> false,
                     /* resolveIntentChecker= */ (intent, packageManager) -> false,
                     /* roleHolderStubChecker= */ (packageName, packageManager) -> false,
                     sFeatureFlagChecker);
@@ -203,7 +203,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
             DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_CONFIGURED =
             new DeviceManagementRoleHolderHelper(
                     EMPTY_PACKAGE_NAME,
-                    /* packageInstallChecker= */ (packageName, packageManager) -> false,
+                    /* packageInstallChecker= */ (packageManager) -> false,
                     /* resolveIntentChecker= */ (intent, packageManager) -> false,
                     /* roleHolderStubChecker= */ (packageName, packageManager) -> false,
                     sFeatureFlagChecker);
@@ -212,21 +212,24 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
             new DeviceManagementRoleHolderUpdaterHelper(
                     TEST_ROLE_HOLDER_UPDATER_PACKAGE_NAME,
                     TEST_ROLE_HOLDER_PACKAGE_NAME,
-                    /* packageInstallChecker= */ (packageName, packageManager) -> true,
+                    /* packageInstallChecker= */ (packageName) -> true,
+                    /* intentResolverChecker= */ (intent) -> true,
                     sFeatureFlagChecker);
     private static final DeviceManagementRoleHolderUpdaterHelper
             ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_INSTALLED =
             new DeviceManagementRoleHolderUpdaterHelper(
                     TEST_ROLE_HOLDER_UPDATER_PACKAGE_NAME,
                     TEST_ROLE_HOLDER_PACKAGE_NAME,
-                    /* packageInstallChecker= */ (packageName, packageManager) -> false,
+                    /* packageInstallChecker= */ (packageName) -> false,
+                    /* intentResolverChecker= */ (intent) -> true,
                     sFeatureFlagChecker);
     private static final DeviceManagementRoleHolderUpdaterHelper
             ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_DEFINED =
             new DeviceManagementRoleHolderUpdaterHelper(
                     /* roleHolderUpdaterPackageName= */ null,
                     TEST_ROLE_HOLDER_PACKAGE_NAME,
-                    /* packageInstallChecker= */ (packageName, packageManager) -> false,
+                    /* packageInstallChecker= */ (packageName) -> false,
+                    /* intentResolverChecker= */ (intent) -> true,
                     sFeatureFlagChecker);
     private static final PersistableBundle ROLE_HOLDER_STATE = createRoleHolderStateBundle();
     private static final String TEST_CALLING_PACKAGE = "com.test.calling.package";
