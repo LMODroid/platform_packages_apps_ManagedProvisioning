@@ -194,4 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"ဤစက်ပစ္စည်းအတွက် ငွေပေးချေမှုများ ပြုလုပ်နိုင်ရန် <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> က <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> အက်ပ်ကို ထည့်သွင်းနိုင်သည်။"</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ဤစက်ကို ကန့်သတ်ထားနိုင်သည်"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"သင်ငွေမပေးချေလျှင် ဤစက်ပစ္စည်းအသုံးပြုခွင့်ကို <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> က ကန့်သတ်နိုင်သည်။"</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"စက်ကို စနစ်ထည့်သွင်း၍ မရပါ။ သင်၏ IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပြီး “စစ်ဆေးမှုရလဒ် မမှန်ကန်ပါ” ဟု ရည်ညွှန်းပါ။"</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"နောက်မှထပ်စမ်းကြည့်ပါ (သို့) သင့် IT စီမံခန့်ခွဲသူထံ အကူအညီတောင်းပါ"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"စက်ကို စနစ်ထည့်သွင်း၍ မရပါ။ သင်၏ IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပြီး “အစိတ်အပိုင်းများ မပါရှိပါ (သို့) ပျက်စီးနေသည်” ဟု ရည်ညွှန်းပါ။"</string>
+    <string name="setting_up" msgid="1478847967385506664">"စနစ်ထည့်သွင်းနေသည်…"</string>
 </resources>

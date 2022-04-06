@@ -194,4 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> pode instalar o app <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> para fazer pagamentos por este dispositivo."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Este dispositivo pode ser restrito"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> poderá restringir o acesso a este dispositivo quando você não fizer pagamentos."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Não é possível configurar o dispositivo. Entre em contato com o administrador de TI e cite o motivo \"Soma de verificação inválida\"."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Tente novamente mais tarde ou peça ajuda ao seu administrador de TI"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Não é possível configurar o dispositivo. Entre em contato com o administrador de TI e cite o motivo \"Componentes ausentes ou corrompidos\"."</string>
+    <string name="setting_up" msgid="1478847967385506664">"Configurando…"</string>
 </resources>
