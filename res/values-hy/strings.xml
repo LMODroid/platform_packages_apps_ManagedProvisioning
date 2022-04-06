@@ -98,7 +98,7 @@
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Դադարեցնե՞լ պրոֆիլի կարգավորումը:"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"Հետագայում կարող եք կարգավորել ձեր աշխատանքային պրոֆիլը ձեր կազմակերպության սարքի կառավարման հավելվածում"</string>
     <string name="continue_button" msgid="7177918589510964446">"Շարունակել"</string>
-    <string name="work_profile_setup_stop" msgid="6772128629992514750">"Դադարեցնել"</string>
+    <string name="work_profile_setup_stop" msgid="6772128629992514750">"Կանգնեցնել"</string>
     <string name="dismiss" msgid="9009534756748565880">"Փակել"</string>
     <string name="profile_owner_info" msgid="8975319972303812298">"Դուք պատրաստվում եք ստեղծել աշխատանքային պրոֆիլ, որը կկառավարվի և կվերահսկվի ձեր կազմակերպության կողմից: Կիրառվում են հատուկ պայմաններ։"</string>
     <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Դուք պատրաստվում եք ստեղծել աշխատանքային պրոֆիլ, որը կկառավարվի և կվերահսկվի ձեր կազմակերպության կողմից: Կիրառվում են <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> պայմանները։"</string>
@@ -194,4 +194,12 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"«<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>» ընկերությունը կարող է տեղադրել <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> հավելվածը, որպեսզի դուք կարողանաք վճարումներ կատարել։"</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Այս սարքի օգտագործումը կարող է սահմանափակվել"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"«<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>» ընկերությունը կարող է արգելափակել այս սարքը, եթե վճարումներ չկատարեք։"</string>
+    <!-- no translation found for error_role_holder_hash_mismatch (6201584198247885437) -->
+    <skip />
+    <!-- no translation found for error_role_holder_download_install_failed (8151968372180693228) -->
+    <skip />
+    <!-- no translation found for error_role_holder_package_invalid (2631207759497988833) -->
+    <skip />
+    <!-- no translation found for setting_up (1478847967385506664) -->
+    <skip />
 </resources>

@@ -194,4 +194,12 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"ဤစက်ပစ္စည်းအတွက် ငွေပေးချေမှုများ ပြုလုပ်နိုင်ရန် <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> က <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> အက်ပ်ကို ထည့်သွင်းနိုင်သည်။"</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ဤစက်ကို ကန့်သတ်ထားနိုင်သည်"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"သင်ငွေမပေးချေလျှင် ဤစက်ပစ္စည်းအသုံးပြုခွင့်ကို <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> က ကန့်သတ်နိုင်သည်။"</string>
+    <!-- no translation found for error_role_holder_hash_mismatch (6201584198247885437) -->
+    <skip />
+    <!-- no translation found for error_role_holder_download_install_failed (8151968372180693228) -->
+    <skip />
+    <!-- no translation found for error_role_holder_package_invalid (2631207759497988833) -->
+    <skip />
+    <!-- no translation found for setting_up (1478847967385506664) -->
+    <skip />
 </resources>

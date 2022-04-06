@@ -412,4 +412,14 @@
   <string name="financed_restrict_device_subheader_title">This device can be restricted</string>
   <!-- This text is letting the user know that the credit provider can restrict this device if the user doesn't make payments. The placeholder is the name of the credit provider. [CHAR LIMIT=NONE]-->
   <string name="financed_restrict_device_subheader_description"><xliff:g id="creditor_name" example="creditor_name">%1$s</xliff:g> can restrict access to this device if you don\’t make payments.</string>
+
+  <!-- Error message. This message shows up when a user can't set up their device, and they're encouraged to contact their IT admin and reference the reason for the error. [CHAR LIMIT=NONE] -->
+  <string name="error_role_holder_hash_mismatch">Can\'t set up device. Contact your IT admin and reference \"Invalid checksum\".</string>
+  <!-- Error message. This message shows up when a user can't set up their device, and they're encouraged to contact their IT admin or try again later. [CHAR LIMIT=NONE] -->
+  <string name="error_role_holder_download_install_failed">Try again later or ask your IT admin for help</string>
+  <!-- Error message. This message shows up when a user can't set up their device, and they're encouraged to contact their IT admin and reference the reason for the error. [CHAR LIMIT=NONE] -->
+  <string name="error_role_holder_package_invalid">Can\'t set up device. Contact your IT admin and reference \"Missing or corrupted components\".</string>
+
+  <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
+  <string name="setting_up">Setting up\u2026</string>
 </resources>

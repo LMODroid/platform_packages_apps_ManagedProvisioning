@@ -102,6 +102,8 @@ public final class ProvisioningParams extends PersistableBundlable {
     public static final boolean DEFAULT_EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT = false;
     public static final boolean DEFAULT_EXTRA_PROVISIONING_KEEP_SCREEN_ON = false;
     public static final boolean DEFAULT_EXTRA_ALLOW_OFFLINE = false;
+    public static final boolean DEFAULT_EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT = false;
+
 
     // Intent extra used internally for passing data between activities and service.
     public static final String EXTRA_PROVISIONING_PARAMS = "provisioningParams";
@@ -154,6 +156,8 @@ public final class ProvisioningParams extends PersistableBundlable {
     private static final String TAG_ALLOW_OFFLINE = "allow-offline";
     private static final String TAG_ROLE_HOLDER_PACKAGE_DOWNLOAD_INFO =
             "role-holder-download-info";
+    private static final String TAG_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT =
+            "provisioning-should-launch-result-intent";
 
     public static final Parcelable.Creator<ProvisioningParams> CREATOR
             = new Parcelable.Creator<ProvisioningParams>() {
@@ -333,6 +337,16 @@ public final class ProvisioningParams extends PersistableBundlable {
      */
     public final boolean allowOffline;
 
+    /**
+     * {@code true} if provisioning should launch the result intent returned by the
+     * device manager role holder.
+     *
+     * {@code false} by default.
+     *
+     * @see DevicePolicyManager#EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT
+     */
+    public final boolean provisioningShouldLaunchResultIntent;
+
     /** The download information of the role holder package. */
     @Nullable
     public final PackageDownloadInfo roleHolderDownloadInfo;
@@ -408,6 +422,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         keepScreenOn = builder.mKeepScreenOn;
         allowOffline = builder.mAllowOffline;
         roleHolderDownloadInfo = builder.mRoleHolderDownloadInfo;
+        provisioningShouldLaunchResultIntent = builder.mProvisioningShouldLaunchResultIntent;
 
         validateFields();
     }
@@ -470,6 +485,8 @@ public final class ProvisioningParams extends PersistableBundlable {
         bundle.putBoolean(TAG_ALLOW_OFFLINE, allowOffline);
         putPersistableBundlableIfNotNull(bundle, TAG_ROLE_HOLDER_PACKAGE_DOWNLOAD_INFO,
                 roleHolderDownloadInfo);
+        bundle.putBoolean(TAG_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT,
+                provisioningShouldLaunchResultIntent);
         return bundle;
     }
 
@@ -532,6 +549,8 @@ public final class ProvisioningParams extends PersistableBundlable {
                 bundle,
                 TAG_ROLE_HOLDER_PACKAGE_DOWNLOAD_INFO,
                 PackageDownloadInfo::fromPersistableBundle));
+        builder.setProvisioningShouldLaunchResultIntent(
+                bundle.getBoolean(TAG_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT));
         return builder;
     }
 
@@ -665,6 +684,8 @@ public final class ProvisioningParams extends PersistableBundlable {
         private boolean mKeepScreenOn = DEFAULT_EXTRA_PROVISIONING_KEEP_SCREEN_ON;
         private boolean mAllowOffline = DEFAULT_EXTRA_ALLOW_OFFLINE;
         public PackageDownloadInfo mRoleHolderDownloadInfo;
+        private boolean mProvisioningShouldLaunchResultIntent =
+                DEFAULT_EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT;
 
         public Builder setProvisioningId(long provisioningId) {
             mProvisioningId = provisioningId;
@@ -856,6 +877,18 @@ public final class ProvisioningParams extends PersistableBundlable {
          */
         public Builder setRoleHolderDownloadInfo(PackageDownloadInfo roleHolderDownloadInfo) {
             mRoleHolderDownloadInfo = roleHolderDownloadInfo;
+            return this;
+        }
+
+        /**
+         * Setter for whether provisioning should launch the result intent returned by the
+         * device manager role holder.
+         *
+         * @see DevicePolicyManager#EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT
+         */
+        public Builder setProvisioningShouldLaunchResultIntent(
+                boolean provisioningShouldLaunchResultIntent) {
+            mProvisioningShouldLaunchResultIntent = provisioningShouldLaunchResultIntent;
             return this;
         }
 
