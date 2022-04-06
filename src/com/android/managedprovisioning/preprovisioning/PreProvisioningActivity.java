@@ -332,7 +332,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                         || mController.getParams().allowOffline) {
                     boolean isProvisioningStarted = mController.startAppropriateProvisioning(
                             getIntent(),
-                            new Bundle(),
+                            createRoleHolderAdditionalExtras(resultCode),
                             getCallingPackage());
                     if (!isProvisioningStarted) {
                         failRoleHolderUpdate();
@@ -346,10 +346,10 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 }
                 break;
             case START_ROLE_HOLDER_REQUESTED_UPDATE_REQUEST_CODE:
-                Bundle additionalExtras = new Bundle();
-                additionalExtras.putInt(EXTRA_ROLE_HOLDER_UPDATE_RESULT_CODE, resultCode);
                 boolean isProvisioningStarted = mController.startAppropriateProvisioning(
-                        getIntent(), additionalExtras, getCallingPackage());
+                        getIntent(),
+                        createRoleHolderAdditionalExtras(resultCode),
+                        getCallingPackage());
                 if (!isProvisioningStarted) {
                     ProvisionLogger.loge("Provisioning could not be started following "
                             + "role holder-requested update.");
@@ -403,6 +403,12 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 ProvisionLogger.logw("Unknown result code :" + resultCode);
                 break;
         }
+    }
+
+    private Bundle createRoleHolderAdditionalExtras(int resultCode) {
+        Bundle additionalExtras = new Bundle();
+        additionalExtras.putInt(EXTRA_ROLE_HOLDER_UPDATE_RESULT_CODE, resultCode);
+        return additionalExtras;
     }
 
     private void maybeHandleLaunchIntent(int resultCode, Intent data) {
