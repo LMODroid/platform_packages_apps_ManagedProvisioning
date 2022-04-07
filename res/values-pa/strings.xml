@@ -195,7 +195,7 @@
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਪ੍ਰਤਿਬੰਧਿਤ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ਜੇ ਤੁਸੀਂ ਭੁਗਤਾਨ ਨਹੀਂ ਕਰਦੇ, ਤਾਂ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ਇਸ ਡੀਵਾਈਸ ਤੱਕ ਪਹੁੰਚ ਨੂੰ ਪ੍ਰਤਿਬੰਧਿਤ ਕਰ ਸਕਦਾ ਹੈ।"</string>
     <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"ਡੀਵਾਈਸ ਦਾ ਸੈੱਟਅੱਪ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ ਅਤੇ \"ਅਵੈਧ ਚੈੱਕਸਮ\" ਦਾ ਹਵਾਲਾ ਦਿਓ।"</string>
-    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਤੋਂ ਮਦਦ ਮੰਗੋ"</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"ਬਾਅਦ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਜਾਂ ਮਦਦ ਲਈ ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਕਹੋ"</string>
     <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"ਡੀਵਾਈਸ ਦਾ ਸੈੱਟਅੱਪ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਸੰਪਰਕ ਕਰੋ ਅਤੇ \"ਗੈਰ-ਮੌਜੂਦ ਜਾਂ ਖਰਾਬ ਤੱਤਾਂ\" ਦਾ ਹਵਾਲਾ ਦਿਓ।"</string>
     <string name="setting_up" msgid="1478847967385506664">"ਸੈੱਟਅੱਪ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
 </resources>
