@@ -194,8 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"「<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>」可在此裝置上安裝「<xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>」應用程式，以便您為此裝置付款。"</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"此裝置可能會受到限制"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"如果您沒有付款，「<xliff:g id="CREDITOR_NAME">%1$s</xliff:g>」可限制您使用此裝置。"</string>
-    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"無法設定裝置。請聯絡您的 IT 管理員並說明「校驗無效」。"</string>
-    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"請稍後再試或向您的 IT 管理員尋求協助"</string>
-    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"無法設定裝置。請聯絡您的 IT 管理員並說明「缺少部分元件或已損毀」。"</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"無法設定裝置。請聯絡 IT 管理員並提供錯誤原因：檢查碼無效。"</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"請稍後再試或向 IT 管理員尋求協助"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"無法設定裝置。請聯絡 IT 管理員並提供錯誤原因：缺少組件或組件毀損。"</string>
     <string name="setting_up" msgid="1478847967385506664">"正在設定…"</string>
 </resources>

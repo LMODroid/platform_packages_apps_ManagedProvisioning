@@ -194,8 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ایپ کو انسٹال کر سکتا ہے تاکہ آپ اس آلہ کے لیے ادائیگیاں کر سکیں۔"</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"اس آلے کو محدود کیا جا سکتا ہے"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"اگر آپ ادائیگیاں نہیں کرتے ہیں تو <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> اس آلے تک رسائی پر پابندی لگا سکتا ہے۔"</string>
-    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"‏آلے کو سیٹ اپ نہیں کیا جا سکتا۔ اپنے IT منتظم سے رابطہ کریں اور \"غلط چیکسم\" کا حوالہ دیں۔"</string>
-    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"‏بعد میں دوبارہ کوشش کریں یا مدد کے لیے اپنے IT منتظم سے کہیں"</string>
-    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"‏آلے کو سیٹ اپ نہیں کیا جا سکتا۔ اپنے IT منتظم سے رابطہ کریں اور \"غائب یا خراب اجزاء\" کا حوالہ دیں۔"</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"‏آلہ سیٹ اپ نہیں ہو سکتا۔ اپنے IT منتظم سے رابطہ کریں اور \"غلط checksum\" کا حوالہ دیں۔"</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"‏بعد میں دوبارہ کوشش کریں یا اپنے IT منتظم سے مدد طلب کریں"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"‏آلہ سیٹ اپ نہیں ہو سکتا۔ اپنے IT منتظم سے رابطہ کریں اور \"غائب یا خراب اجزاء\" کا حوالہ دیں۔"</string>
     <string name="setting_up" msgid="1478847967385506664">"سیٹ اپ کیا جا رہا ہے…"</string>
 </resources>

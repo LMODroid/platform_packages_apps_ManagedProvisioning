@@ -194,12 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> saab installida krediidipakkuja <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> rakenduse, et saaksite selle seadme eest makseid teha."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Seda seadet saab piirata"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Kui te nõutavaid makseid ei tee, saab <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> piirata juurdepääsu sellele seadmele."</string>
-    <!-- no translation found for error_role_holder_hash_mismatch (6201584198247885437) -->
-    <skip />
-    <!-- no translation found for error_role_holder_download_install_failed (8151968372180693228) -->
-    <skip />
-    <!-- no translation found for error_role_holder_package_invalid (2631207759497988833) -->
-    <skip />
-    <!-- no translation found for setting_up (1478847967385506664) -->
-    <skip />
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Seadet ei saa seadistada. Võtke ühendust oma IT-administraatoriga ja mainige viga „Sobimatu kontrollsumma“."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Proovige hiljem uuesti või pöörduge abi saamiseks IT-administraatori poole"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Seadet ei saa seadistada. Võtke ühendust oma IT-administraatoriga ja mainige viga „Puuduvad või rikutud komponendid“."</string>
+    <string name="setting_up" msgid="1478847967385506664">"Seadistamine …"</string>
 </resources>
