@@ -194,12 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> എന്നയാൾക്ക് <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ഇൻസ്‌റ്റാൾ ചെയ്യാനാകും, അതുവഴി നിങ്ങൾക്ക് ഈ ഉപകരണത്തിനുള്ള പേയ്‌മെന്റ് നടത്താം."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ഈ ഉപകരണം നിയന്ത്രിക്കാനാകും"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"നിങ്ങൾ പേയ്മെന്റുകൾ നടത്തിയില്ലെങ്കിൽ ഈ ഉപകരണത്തിലേക്കുള്ള ആക്‌സസ് നിയന്ത്രിക്കാൻ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> എന്നതിനാകും."</string>
-    <!-- no translation found for error_role_holder_hash_mismatch (6201584198247885437) -->
-    <skip />
-    <!-- no translation found for error_role_holder_download_install_failed (8151968372180693228) -->
-    <skip />
-    <!-- no translation found for error_role_holder_package_invalid (2631207759497988833) -->
-    <skip />
-    <!-- no translation found for setting_up (1478847967385506664) -->
-    <skip />
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"ഉപകരണം സജ്ജീകരിക്കാനാവുന്നില്ല. നിങ്ങളുടെ ഐടി അഡ്‌മിനെ ബന്ധപ്പെട്ട് \"അസാധുവായ ചെക്ക്‌സം\" റഫറൻസ് നൽകുക."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"പിന്നീട് ശ്രമിക്കുകയോ സഹായത്തിന് നിങ്ങളുടെ ഐടി അഡ്‌മിനെ ബന്ധപ്പെടുകയോ ചെയ്യുക"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"ഉപകരണം സജ്ജീകരിക്കാനാവുന്നില്ല. നിങ്ങളുടെ ഐടി അഡ്‌മിനെ ബന്ധപ്പെട്ട് \"വിട്ടുപോയതോ കേടായതോ ആയ ഘടകങ്ങളുടെ\" റഫറൻസ് നൽകുക."</string>
+    <string name="setting_up" msgid="1478847967385506664">"സജ്ജീകരിക്കുന്നു…"</string>
 </resources>
