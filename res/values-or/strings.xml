@@ -194,4 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ଆପକୁ ଇନଷ୍ଟଲ୍ କରିପାରିବ ଯାହା ଫଳରେ ଆପଣ ଏହି ଡିଭାଇସ୍ ପାଇଁ ପେମେଣ୍ଟ କରିପାରିବେ।"</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ଏହି ଡିଭାଇସକୁ ପ୍ରତିବନ୍ଧିତ କରାଯାଇପାରେ"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ଯଦି ଆପଣ ପେମେଣ୍ଟ କରୁନାହାଁନ୍ତି, ତେବେ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଏହି ଡିଭାଇସକୁ ଆକ୍ସେସ୍ ପ୍ରତିବନ୍ଧିତ କରିପାରିବ।"</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"ଡିଭାଇସକୁ ସେଟ ଅପ କରାଯାଇପାରିବ ନାହିଁ। ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ ଏବଂ \"ଅବୈଧ ଚେକସମ\"ର ରେଫରେନ୍ସ ଦିଅନ୍ତୁ।"</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ କିମ୍ବା ସହାୟତା ପାଇଁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ କୁହନ୍ତୁ"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"ଡିଭାଇସକୁ ସେଟ ଅପ କରାଯାଇପାରିବ ନାହିଁ। ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ ଏବଂ \"ଅନୁପଲବ୍ଧ କିମ୍ବା କରପ୍ଟ ହୋଇଯାଇଥିବା କମ୍ପୋନେଣ୍ଟଗୁଡ଼ିକ\"ର ରେଫରେନ୍ସ ଦିଅନ୍ତୁ।"</string>
+    <string name="setting_up" msgid="1478847967385506664">"ସେଟ ଅପ କରାଯାଉଛି…"</string>
 </resources>

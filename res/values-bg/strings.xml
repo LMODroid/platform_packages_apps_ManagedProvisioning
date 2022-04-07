@@ -194,4 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> може да инсталира приложението <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>, за да можете да плащате вноските за това устройство."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Това устройство може да бъде ограничено"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> може да ограничи достъпа до това устройство, ако не плащате вноските."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Устройството не може да бъде настроено. Свържете се със системния си администратор и съобщете за „Невалидна контролна сума“."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Опитайте отново по-късно или помолете системния си администратор за помощ"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Устройството не може да бъде настроено. Свържете се със системния си администратор и съобщете за „Липсващи или повредени компоненти“."</string>
+    <string name="setting_up" msgid="1478847967385506664">"Настройва се…"</string>
 </resources>
