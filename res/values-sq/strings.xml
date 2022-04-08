@@ -194,4 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> mund të instalojë aplikacionin <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> që të mund të kryesh pagesat për këtë pajisje."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Kjo pajisje mund të kufizohet"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> mund ta kufizojë qasjen në këtë pajisje nëse nuk bën pagesa."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Pajisja nuk mund të konfigurohet. Kontakto me administratorin e teknologjisë së informacionit dhe jep si referencë \"Kontrolli i shumës është i pavlefshëm\"."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Provo përsëri më vonë ose kërkoji ndihmë administratorit të teknologjisë së informacionit"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Pajisja nuk mund të konfigurohet. Kontakto me administratorin e teknologjisë së informacionit dhe jep si referencë \"Komponentët mungojnë ose janë dëmtuar\"."</string>
+    <string name="setting_up" msgid="1478847967385506664">"Po konfigurohet…"</string>
 </resources>

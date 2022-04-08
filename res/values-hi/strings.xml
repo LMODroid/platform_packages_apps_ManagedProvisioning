@@ -194,4 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g>, <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ऐप्लिकेशन को इंस्टॉल कर सकता है, ताकि आप इस डिवाइस के लिए पैसे चुका सकें."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"इस डिवाइस को प्रतिबंधित किया जा सकता है"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"अगर आप पैसे नहीं चुकाते, तो <xliff:g id="CREDITOR_NAME">%1$s</xliff:g>, डिवाइस को ऐक्सेस करने पर पाबंदी लगा सकता है."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"डिवाइस को सेट अप नहीं किया जा सकता. अपने आईटी एडमिन से संपर्क करें और \"अमान्य चेकसम\" के बारे में जानें."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"थोड़ी देर बाद दोबारा कोशिश करें या मदद पाने के लिए अपने आईटी एडमिन से संपर्क करें"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"डिवाइस को सेट अप नहीं किया जा सकता. अपने आईटी एडमिन से संपर्क करें और \"कुछ कॉम्पोनेंट मौजूद नहीं हैं या खराब हैं\" के बारे में जानें."</string>
+    <string name="setting_up" msgid="1478847967385506664">"सेट अप किया जा रहा है…"</string>
 </resources>

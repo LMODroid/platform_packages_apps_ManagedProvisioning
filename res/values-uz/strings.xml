@@ -194,4 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Bu qurilma toʻlovlarini amalga oshirishingiz uchun <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ilovasini oʻrnatishi mumkin."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Bu qurilmadan foydalanish cheklanishi mumkin"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Agar toʻlovlarni amalga oshirmasangiz, <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> bu qurilmadan foydalanishni cheklashi mumkin."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Qurilma sozlanmadi. AT administratoringizga murojaat qiling va Yaroqsiz nazorat summasi haqida fikr almashing."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Keyinroq qayta urining yoki yordam olish uchun AT administratoringizga murojaat qiling."</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Qurilma sozlanmadi. AT administratoringizga murojaat qiling va Yoʻqolgan yoki buzilgan komponentlar haqida fikr almashing."</string>
+    <string name="setting_up" msgid="1478847967385506664">"Sozlanmoqda…"</string>
 </resources>
