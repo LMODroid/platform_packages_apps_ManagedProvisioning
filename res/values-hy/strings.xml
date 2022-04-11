@@ -75,7 +75,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Դադարեցնե՞լ կարգավորումը և ջնջել սարքի տվյալները:"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Չեղարկել"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"Եղավ"</string>
-    <string name="reset" msgid="6467204151306265796">"Վերակայել"</string>
+    <string name="reset" msgid="6467204151306265796">"Զրոյացնել"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Հնարավոր չէ կարգավորել պրոֆիլը"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Հնարավոր չէ կարգավորել սարքը"</string>
     <string name="something_went_wrong" msgid="3593223774041784329">"Սխալ առաջացավ"</string>
