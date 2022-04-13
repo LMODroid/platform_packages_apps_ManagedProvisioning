@@ -139,7 +139,7 @@ public class ThemeHelperTest {
                 createThemeHelperWithDayNightEnabled(true);
         int expectedResId = mSetupWizardBridge.resolveTheme(
                 R.style.SudThemeGlifV4_DayNight,
-                com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3,
+                com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V4,
                 /* suppressDayNight= */ false);
 
         assertThat(themeHelper.inferThemeResId(mContext, new Intent())).isEqualTo(expectedResId);
@@ -154,7 +154,7 @@ public class ThemeHelperTest {
                         /* isSystemNightMode= */ true);
         int expectedResId = mSetupWizardBridge.resolveTheme(
                 R.style.SudThemeGlifV4_Light,
-                com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3,
+                com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V4,
                 /* suppressDayNight= */ true);
 
         assertThat(themeHelper.inferThemeResId(mContext, new Intent())).isEqualTo(expectedResId);
@@ -169,7 +169,7 @@ public class ThemeHelperTest {
                         /* isSystemNightMode= */ false);
         int expectedResId = mSetupWizardBridge.resolveTheme(
                 R.style.SudThemeGlifV4_Light,
-                com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3_LIGHT,
+                com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V4_LIGHT,
                 /* suppressDayNight= */ true);
 
         assertThat(themeHelper.inferThemeResId(mContext, new Intent())).isEqualTo(expectedResId);

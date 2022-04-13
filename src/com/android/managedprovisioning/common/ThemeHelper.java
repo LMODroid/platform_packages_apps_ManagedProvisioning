@@ -153,9 +153,9 @@ public class ThemeHelper {
         String theme = getProvidedTheme(intent);
         if (TextUtils.isEmpty(theme)) {
             if (isSystemNightMode(context)) {
-                theme = com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3;
+                theme = com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V4;
             } else {
-                theme = com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V3_LIGHT;
+                theme = com.google.android.setupdesign.util.ThemeHelper.THEME_GLIF_V4_LIGHT;
             }
         }
         return theme;
