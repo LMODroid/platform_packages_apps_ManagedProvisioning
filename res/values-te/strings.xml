@@ -37,7 +37,7 @@
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"అపహరణ జరగకుండా రక్షణనిచ్చే లక్షణాలను ఉపయోగించడానికి, మీరు మీ పరికరం కోసం తప్పనిసరిగా పాస్‌వర్డ్ సురక్షిత స్క్రీన్ లాక్‌ను కలిగి ఉండాలి."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"మీ సంస్థ గోప్యతా విధానాలతో సహా మరింత సమాచారం కోసం మీ IT నిర్వాహకులను సంప్రదించండి."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"మరింత తెలుసుకోండి"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"రద్దు చేయి"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"రద్దు చేయండి"</string>
     <string name="ok_setup" msgid="4593707675416137504">"సరే"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"నేను సమ్మతిస్తున్నాను"</string>
     <string name="url_error" msgid="5958494012986243186">"ఈ లింక్‌ని ప్రదర్శించడం సాధ్యం కాదు."</string>
@@ -51,7 +51,7 @@
     <string name="read_more_delete_profile" msgid="7789171620401666343">"కొనసాగడానికి ముందు, "<a href="#read_this_link">"దీన్ని చదవండి"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"మీరు కొనసాగిస్తే, ఈ ప్రొఫైల్‌లోని అన్ని యాప్‌లు మరియు డేటా తొలగించబడతాయి."</string>
     <string name="delete_profile" msgid="2299218578684663459">"తొలగించు"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"రద్దు చేయి"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"రద్దు చేయండి"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"మీ కార్యాలయ ప్రొఫైల్‌ని సెటప్ చేయడానికి, మొదట మీ పరికరం గుప్తీకరించబడాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"ఈ పరికరం సెటప్ చేయడానికి, మొదట అది గుప్తీకరించబడాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"ఈ పరికరాన్ని గుప్తీకరించాలా?"</string>
@@ -64,7 +64,7 @@
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"ఈ పరికరానికి కార్యాలయ ప్రొఫైల్‌ను జోడించలేరు. మీకు సందేహాలుంటే, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"పరికర లాంచర్‌‌ని మార్చండి"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"మీ కార్యాలయ ప్రొఫైల్ ద్వారా ఈ లాంచర్ యాప్ ఉపయోగించలేరు"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"రద్దు చేయి"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"రద్దు చేయండి"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"సరే"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"వినియోగదారు సెటప్ పూర్తికాలేదు"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"కార్యాలయ పరికర వినియోగదారు"</string>
@@ -73,7 +73,7 @@
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"సెటప్‌ని ఆపి &amp; పరికరాన్ని రీసెట్ చేయాలా?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"ఇది మీ పరికరాన్ని రీసెట్ చేస్తుంది మరియు మిమ్మల్ని తిరిగి సెటప్ ప్రారంభ స్క్రీన్‌కు తీసుకెళ్తుంది"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"మీ పరికరాన్ని సెటప్ చేయడం ఆపివేసి, అందులోని డేటాను తీసివేయాలా?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"రద్దు చేయి"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"రద్దు చేయండి"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"సరే"</string>
     <string name="reset" msgid="6467204151306265796">"రీసెట్ చేయి"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ప్రొఫైల్‌ని సెటప్ చేయడం సాధ్యపడదు"</string>
@@ -146,7 +146,7 @@
     <string name="close_list" msgid="9053538299788717597">"లిస్ట్‌ను మూసివేయి"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"సెటప్‌ను ముగించి, ఫ్యాక్టరీ రీసెట్ చేయాలా?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ఈ సెటప్‌ను ముగిస్తే మీ పరికరం ఫ్యాక్టరీ రీసెట్ చేయబడుతుంది మరియు మీరు తిరిగి సెటప్ ప్రారంభ స్క్రీన్‌కు తీసుకెళ్లబడతారు."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"రద్దు చేయి"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"రద్దు చేయండి"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"పరికరాన్ని రీసెట్ చేయి"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> మరియు <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> మరియు <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
