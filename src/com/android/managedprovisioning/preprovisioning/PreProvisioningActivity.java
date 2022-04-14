@@ -330,12 +330,17 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     mController.incrementRoleHolderUpdateRetryCount();
                 } else if (resultCode == RESULT_OK
                         || mController.getParams().allowOffline) {
+                    mController.resetRoleHolderUpdateRetryCount();
                     boolean isProvisioningStarted = mController.startAppropriateProvisioning(
                             getIntent(),
                             createRoleHolderAdditionalExtras(resultCode),
                             getCallingPackage());
                     if (!isProvisioningStarted) {
                         failRoleHolderUpdate();
+                        ProvisionLogger.loge("Failed to start provisioning after a "
+                                + "platform-requested role holder update. Result is " + resultCode
+                                + " and allow offline provisioning is "
+                                + mController.getParams().allowOffline);
                     }
                 } else if (resultCode
                         == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED
@@ -343,25 +348,37 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     mController.performPlatformProvidedProvisioning();
                 } else {
                     failRoleHolderUpdate();
+                    ProvisionLogger.loge("Failed to perform a platform-requested role holder "
+                            + "update. Result is " + resultCode + " and allow offline provisioning"
+                            + " is " + mController.getParams().allowOffline);
                 }
                 break;
             case START_ROLE_HOLDER_REQUESTED_UPDATE_REQUEST_CODE:
-                boolean isProvisioningStarted = mController.startAppropriateProvisioning(
-                        getIntent(),
-                        createRoleHolderAdditionalExtras(resultCode),
-                        getCallingPackage());
-                if (!isProvisioningStarted) {
-                    ProvisionLogger.loge("Provisioning could not be started following "
-                            + "role holder-requested update.");
-                    if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
-                        showFactoryResetDialog(R.string.cant_set_up_device,
-                                R.string.contact_your_admin_for_help);
-                    } else {
-                        showErrorAndClose(
-                                R.string.cant_set_up_device,
-                                R.string.contact_your_admin_for_help,
-                                "Failed to provision personally-owned device.");
+                if (resultCode
+                        == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
+                        && mController.canRetryRoleHolderUpdate()) {
+                    mController.startRoleHolderUpdaterWithLastState(
+                            /* isRoleHolderRequestedUpdate= */ true);
+                    mController.incrementRoleHolderUpdateRetryCount();
+                } else if (resultCode == RESULT_OK) {
+                    boolean isProvisioningStarted = mController.startAppropriateProvisioning(
+                            getIntent(),
+                            createRoleHolderAdditionalExtras(resultCode),
+                            getCallingPackage());
+                    if (!isProvisioningStarted) {
+                        failRoleHolderUpdate();
+                        ProvisionLogger.loge("Failed to start provisioning after a "
+                                + "role holder-requested role holder update. Result is "
+                                + resultCode + " and allow offline provisioning is "
+                                + mController.getParams().allowOffline);
                     }
+                } else if (mController.getParams().allowOffline) {
+                    mController.performPlatformProvidedProvisioning();
+                } else {
+                    failRoleHolderUpdate();
+                    ProvisionLogger.loge("Failed to perform a role holder-requested role holder "
+                            + "update. Result is " + resultCode + " and allow offline provisioning"
+                            + " is " + mController.getParams().allowOffline);
                 }
                 break;
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE:
@@ -380,7 +397,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
             case DOWNLOAD_DEVICE_MANAGEMENT_ROLE_HOLDER_FROM_PLATFORM_REQUEST_CODE:
                 if (resultCode == RESULT_OK
                         || mController.getParams().allowOffline) {
-                    isProvisioningStarted = mController.startAppropriateProvisioning(
+                    boolean isProvisioningStarted = mController.startAppropriateProvisioning(
                             getIntent(),
                             new Bundle(),
                             getCallingPackage());
