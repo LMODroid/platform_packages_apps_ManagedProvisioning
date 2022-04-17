@@ -50,7 +50,7 @@
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ఇప్పటికే మీ వద్ద కార్యాలయ ప్రొఫైల్ ఉంది. కింది యాప్ ద్వారా ఇది నిర్వహించబడుతోంది:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"కొనసాగడానికి ముందు, "<a href="#read_this_link">"దీన్ని చదవండి"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"మీరు కొనసాగిస్తే, ఈ ప్రొఫైల్‌లోని అన్ని యాప్‌లు మరియు డేటా తొలగించబడతాయి."</string>
-    <string name="delete_profile" msgid="2299218578684663459">"తొలగించు"</string>
+    <string name="delete_profile" msgid="2299218578684663459">"తొలగించండి"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"రద్దు చేయండి"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"మీ కార్యాలయ ప్రొఫైల్‌ని సెటప్ చేయడానికి, మొదట మీ పరికరం గుప్తీకరించబడాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"ఈ పరికరం సెటప్ చేయడానికి, మొదట అది గుప్తీకరించబడాలి. దీనికి కొంత సమయం పట్టవచ్చు."</string>
@@ -75,7 +75,7 @@
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"మీ పరికరాన్ని సెటప్ చేయడం ఆపివేసి, అందులోని డేటాను తీసివేయాలా?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"రద్దు చేయండి"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"సరే"</string>
-    <string name="reset" msgid="6467204151306265796">"రీసెట్ చేయి"</string>
+    <string name="reset" msgid="6467204151306265796">"రీసెట్ చేయండి"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ప్రొఫైల్‌ని సెటప్ చేయడం సాధ్యపడదు"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"పరికరాన్ని సెటప్ చేయడం సాధ్యపడదు"</string>
     <string name="something_went_wrong" msgid="3593223774041784329">"ఏదో తప్పు జరిగింది"</string>
