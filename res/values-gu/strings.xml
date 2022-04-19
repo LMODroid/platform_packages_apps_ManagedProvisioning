@@ -49,7 +49,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"વર્તમાન પ્રોફાઇલ કાઢી નાખીએ?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"તમે પહેલેથી કાર્યાલયની પ્રોફાઇલ ધરાવો છો. નિમ્નલિખિત ઍપ્લિકેશનના ઉપયોગ દ્વારા તેનું સંચાલન થાય છે:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"આગળ વધતા પહેલાં, "<a href="#read_this_link">"આ વાંચો"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"જો ચાલુ રાખો છો, તો આ પ્રોફાઇલમાંની તમામ ઍપ્લિકેશનો અને ડેટા કાઢી નાખવામાં આવશે."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"જો તમે આગળ વધો છો, તો આ પ્રોફાઇલમાંની તમામ ઍપ અને ડેટા ડિલીટ કરવામાં આવશે."</string>
     <string name="delete_profile" msgid="2299218578684663459">"ડિલીટ કરો"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"રદ કરો"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"તમારી કાર્યાલયની પ્રોફાઇલ સેટ કરવા માટે, તમારા ઉપકરણને એન્ક્રિપ્ટ કરવાની જરૂર છે. આમાં થોડો સમય લાગી શકે છે."</string>
