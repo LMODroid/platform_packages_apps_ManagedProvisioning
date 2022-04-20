@@ -28,6 +28,8 @@ import static com.google.common.truth.Truth.assertThat;
 import android.app.Instrumentation;
 import android.content.ComponentName;
 
+import androidx.test.platform.app.InstrumentationRegistry;
+
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -49,8 +51,7 @@ public class DownloadRoleHolderViewModelTest {
     private static final int DIALOG_MESSAGE_RES_ID = 2;
     private static final String DIALOG_MESSAGE = "dialog message";
     private DownloadRoleHolderViewModel mViewModel;
-    private final Instrumentation mInstrumentation =
-            androidx.test.platform.app.InstrumentationRegistry.getInstrumentation();
+    private final Instrumentation mInstrumentation = InstrumentationRegistry.getInstrumentation();
 
     @Before
     public void setUp() {
@@ -60,49 +61,42 @@ public class DownloadRoleHolderViewModelTest {
 
     @Test
     public void constructor_initialStateIdle() {
-        mInstrumentation.runOnMainSync(
-                () -> assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_IDLE));
+        blockUntilNextUiThreadCycle();
+
+        assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_IDLE);
     }
 
     @Test
     public void connectToNetworkAndDownloadRoleHolder_goesToDownloadingState() {
-        mInstrumentation.runOnMainSync(
-                () -> {
-                    mViewModel.connectToNetworkAndDownloadRoleHolder(
-                             mInstrumentation.getContext());
+        mViewModel.connectToNetworkAndDownloadRoleHolder(
+                 mInstrumentation.getContext());
+        blockUntilNextUiThreadCycle();
 
-                    assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_DOWNLOADING);
-                });
+        assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_DOWNLOADING);
     }
 
     @Test
     public void provisioningTasksCompleted_goesToDownloadedState() {
-        mInstrumentation.runOnMainSync(
-                () -> {
-                    mViewModel.provisioningTasksCompleted();
+        mViewModel.provisioningTasksCompleted();
+        blockUntilNextUiThreadCycle();
 
-                    assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_DOWNLOADED);
-                });
+        assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_DOWNLOADED);
     }
 
     @Test
     public void error_withMessageResId_goesToErrorState() {
-        mInstrumentation.runOnMainSync(
-                () -> {
-                    mViewModel.error(DIALOG_TITLE_RES_ID, DIALOG_MESSAGE_RES_ID, false);
+        mViewModel.error(DIALOG_TITLE_RES_ID, DIALOG_MESSAGE_RES_ID, false);
+        blockUntilNextUiThreadCycle();
 
-                    assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_ERROR);
-                });
+        assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_ERROR);
     }
 
     @Test
     public void error_withMessageText_goesToErrorState() {
-        mInstrumentation.runOnMainSync(
-                () -> {
-                    mViewModel.error(DIALOG_TITLE_RES_ID, DIALOG_MESSAGE, false);
+        mViewModel.error(DIALOG_TITLE_RES_ID, DIALOG_MESSAGE, false);
+        blockUntilNextUiThreadCycle();
 
-                    assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_ERROR);
-                });
+        assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_ERROR);
     }
 
     @Test
@@ -145,5 +139,9 @@ public class DownloadRoleHolderViewModelTest {
     @Test
     public void getError_nullByDefault() {
         assertThat(mViewModel.getError()).isNull();
+    }
+
+    private void blockUntilNextUiThreadCycle() {
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {});
     }
 }
