@@ -162,7 +162,7 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Kudeatuta dago kontua"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Gailu mugikorren kudeaketa erabiltzen du IKT saileko administratzaileak segurtasun-gidalerroak aplikatzeko"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Laneko konfigurazioa gauzatzeko prestatzen…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Konfiguratu laneko profila"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Konfigura dezagun laneko profila"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Laneko profilean gordetzen dira laneko aplikazioak"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Laneguna amaitzean, pausatu laneko aplikazioak"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"IKT saileko administratzaileak ikusi egin ditzake laneko profilean dituzun datuak"</string>
