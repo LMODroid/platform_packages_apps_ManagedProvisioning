@@ -162,7 +162,7 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Reikningnum þínum er stjórnað"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Kerfisstjórinn notar snjalltækjastjórnun til að framfylgja öryggisreglum"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Undirbýr uppsetningu fyrir vinnu…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Setjum upp vinnusniðið þitt"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Setjum upp vinnuprófílinn þinn"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Vinnuforrit eru geymd á vinnusniðinu"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Gerðu hlé á vinnuforritum í lok vinnudags"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Gögn á vinnusniðinu þínu eru sýnileg kerfisstjóranum þínum"</string>
