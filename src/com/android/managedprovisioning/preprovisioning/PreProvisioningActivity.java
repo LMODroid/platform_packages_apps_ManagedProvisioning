@@ -22,6 +22,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_ROLE_HOLDER_UPDATE_RES
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR;
+import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_UNRECOVERABLE_ERROR;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_ROLE_HOLDER;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
@@ -324,39 +325,10 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 }
                 break;
             case START_PLATFORM_REQUESTED_ROLE_HOLDER_UPDATE_REQUEST_CODE:
-                if (resultCode
-                        == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
-                        && mController.canRetryRoleHolderUpdate()) {
-                    mController.startRoleHolderUpdaterWithLastState(
-                            /* isRoleHolderRequestedUpdate= */ false);
-                    mController.incrementRoleHolderUpdateRetryCount();
-                } else if (resultCode == RESULT_OK
-                        || mController.getParams().allowOffline) {
-                    mController.resetRoleHolderUpdateRetryCount();
-                    boolean isProvisioningStarted = mController.startAppropriateProvisioning(
-                            getIntent(),
-                            createRoleHolderAdditionalExtras(resultCode),
-                            getCallingPackage());
-                    if (!isProvisioningStarted) {
-                        failRoleHolderUpdate();
-                        ProvisionLogger.loge("Failed to start provisioning after a "
-                                + "platform-requested role holder update. Result is " + resultCode
-                                + " and allow offline provisioning is "
-                                + mController.getParams().allowOffline);
-                    }
-                } else if (resultCode
-                        == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED
-                ) {
-                    mController.performPlatformProvidedProvisioning();
-                } else {
-                    failRoleHolderUpdate();
-                    ProvisionLogger.loge("Failed to perform a platform-requested role holder "
-                            + "update. Result is " + resultCode + " and allow offline provisioning"
-                            + " is " + mController.getParams().allowOffline);
-                }
+                handlePlatformRequestedUpdateResult(resultCode);
                 break;
             case START_ROLE_HOLDER_REQUESTED_UPDATE_REQUEST_CODE:
-                handleRoleHolderRequestedResult(resultCode);
+                handleRoleHolderRequestedUpdateResult(resultCode);
                 break;
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE:
                 ProvisionLogger.logw("Role holder returned result code " + resultCode);
@@ -450,14 +422,54 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         return additionalExtras;
     }
 
-    private void handleRoleHolderRequestedResult(int resultCode) {
-        if (resultCode
+    private void handlePlatformRequestedUpdateResult(int resultCode) {
+        if ((resultCode
                 == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
+                || resultCode == RESULT_CANCELED)
+                && mController.canRetryRoleHolderUpdate()) {
+            mController.startRoleHolderUpdaterWithLastState(
+                    /* isRoleHolderRequestedUpdate= */ false);
+            mController.incrementRoleHolderUpdateRetryCount();
+        } else if (resultCode
+                == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED
+        ) {
+            mController.performPlatformProvidedProvisioning();
+        } else if (resultCode
+                != RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_UNRECOVERABLE_ERROR
+                || mController.getParams().allowOffline) {
+            mController.resetRoleHolderUpdateRetryCount();
+            boolean isProvisioningStarted = mController.startAppropriateProvisioning(
+                    getIntent(),
+                    createRoleHolderAdditionalExtras(resultCode),
+                    getCallingPackage());
+            if (!isProvisioningStarted) {
+                failRoleHolderUpdate();
+                ProvisionLogger.loge("Failed to start provisioning after a "
+                        + "platform-requested role holder update. Result is " + resultCode
+                        + " and allow offline provisioning is "
+                        + mController.getParams().allowOffline);
+            }
+        } else {
+            failRoleHolderUpdate();
+            ProvisionLogger.loge("Failed to perform a platform-requested role holder "
+                    + "update. Result is " + resultCode + " and allow offline provisioning"
+                    + " is " + mController.getParams().allowOffline);
+        }
+    }
+
+    private void handleRoleHolderRequestedUpdateResult(int resultCode) {
+        if ((resultCode
+                == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
+                || resultCode == RESULT_CANCELED)
                 && mController.canRetryRoleHolderUpdate()) {
             mController.startRoleHolderUpdaterWithLastState(
                     /* isRoleHolderRequestedUpdate= */ true);
             mController.incrementRoleHolderUpdateRetryCount();
-        } else if (resultCode == RESULT_OK) {
+        } else if (resultCode
+                == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED) {
+            mController.performPlatformProvidedProvisioning();
+        } else if (resultCode
+                != RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_UNRECOVERABLE_ERROR) {
             boolean isProvisioningStarted = mController.startAppropriateProvisioning(
                     getIntent(),
                     createRoleHolderAdditionalExtras(resultCode),
