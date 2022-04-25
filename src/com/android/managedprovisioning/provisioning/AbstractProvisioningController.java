@@ -78,7 +78,7 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
 
     protected int mCurrentTaskIndex;
 
-    AbstractProvisioningController(
+    public AbstractProvisioningController(
             Context context,
             ProvisioningParams params,
             int userId,
