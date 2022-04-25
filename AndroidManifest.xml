@@ -313,6 +313,20 @@
             android:theme="@style/SudThemeGlifV4.DayNight"
             android:immersive="true" />
 
+        <activity
+            android:name=".networkconnection.EstablishNetworkConnectionActivity"
+            android:excludeFromRecents="true"
+            android:immersive="true"
+            android:launchMode="singleTop"
+            android:theme="@style/SudThemeGlifV3.DayNight"
+            android:permission="android.permission.DISPATCH_PROVISIONING_MESSAGE"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.app.action.ESTABLISH_NETWORK_CONNECTION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <service
             android:name=".analytics.ProcessMetricsJobService"
             android:permission="android.permission.BIND_JOB_SERVICE"/>
