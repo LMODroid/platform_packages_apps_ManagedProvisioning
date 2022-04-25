@@ -41,6 +41,7 @@ import androidx.test.filters.SmallTest;
 import com.android.managedprovisioning.TestUtils;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.parser.MessageParser;
 
 import org.junit.Before;
@@ -63,7 +64,7 @@ public final class PreProvisioningViewModelTest {
     @Before
     public void setUp()  {
         mTimeLogger = new TimeLogger(mContext, /* category */ 0);
-        MessageParser messageParser = new MessageParser(mContext);
+        MessageParser messageParser = new MessageParser(mContext, new Utils());
         mEncryptionController = TestUtils.createEncryptionController(mContext);
         mViewModel = new PreProvisioningViewModel(
                 mTimeLogger,
