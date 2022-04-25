@@ -187,6 +187,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         } catch (BackgroundServiceStartNotAllowedException e) {
             ProvisionLogger.loge(e);
         }
+        mController.getState().observe(this, this::onStateChanged);
     }
 
     @Override
