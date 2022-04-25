@@ -37,12 +37,13 @@ import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_QR_CODE
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 
 import static com.android.internal.util.Preconditions.checkArgument;
-import static com.android.internal.util.Preconditions.checkNotNull;
 import static com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences.DEFAULT_PROVISIONING_ID;
 import static com.android.managedprovisioning.common.StoreUtils.accountToPersistableBundle;
 import static com.android.managedprovisioning.common.StoreUtils.getObjectAttrFromPersistableBundle;
 import static com.android.managedprovisioning.common.StoreUtils.getStringAttrFromPersistableBundle;
 import static com.android.managedprovisioning.common.StoreUtils.putPersistableBundlableIfNotNull;
+
+import static java.util.Objects.requireNonNull;
 
 import android.accounts.Account;
 import android.annotation.IntDef;
@@ -406,7 +407,7 @@ public final class ProvisioningParams extends PersistableBundlable {
         leaveAllSystemAppsEnabled = builder.mLeaveAllSystemAppsEnabled;
         skipEncryption = builder.mSkipEncryption;
         accountToMigrate = builder.mAccountToMigrate;
-        provisioningAction = checkNotNull(builder.mProvisioningAction);
+        provisioningAction = builder.mProvisioningAction;
         skipEducationScreens = builder.mSkipEducationScreens;
         keepAccountMigrated = builder.mKeepAccountMigrated;
 
@@ -424,7 +425,10 @@ public final class ProvisioningParams extends PersistableBundlable {
         roleHolderDownloadInfo = builder.mRoleHolderDownloadInfo;
         provisioningShouldLaunchResultIntent = builder.mProvisioningShouldLaunchResultIntent;
 
-        validateFields();
+        if (!builder.mSkipValidation) {
+            requireNonNull(provisioningAction);
+            validateFields();
+        }
     }
 
     private ProvisioningParams(Parcel in) {
@@ -495,7 +499,7 @@ public final class ProvisioningParams extends PersistableBundlable {
     }
 
     private static Builder createBuilderFromPersistableBundle(PersistableBundle bundle) {
-        Builder builder = new Builder();
+        Builder builder = new Builder(/* skipValidation= */ false);
         builder.setProvisioningId(bundle.getLong(TAG_PROVISIONING_ID, DEFAULT_PROVISIONING_ID));
         builder.setTimeZone(bundle.getString(EXTRA_PROVISIONING_TIME_ZONE));
         builder.setLocalTime(bundle.getLong(EXTRA_PROVISIONING_LOCAL_TIME));
@@ -640,10 +644,11 @@ public final class ProvisioningParams extends PersistableBundlable {
                              PersistableBundle.restoreFromXml(parser)).build();
              }
         }
-        return new Builder().build();
+        return new Builder(/* skipValidation= */ false).build();
     }
 
     public final static class Builder {
+        private final boolean mSkipValidation;
         private long mProvisioningId;
         private String mTimeZone;
         private long mLocalTime = DEFAULT_LOCAL_TIME;
@@ -686,6 +691,14 @@ public final class ProvisioningParams extends PersistableBundlable {
         public PackageDownloadInfo mRoleHolderDownloadInfo;
         private boolean mProvisioningShouldLaunchResultIntent =
                 DEFAULT_EXTRA_PROVISIONING_SHOULD_LAUNCH_RESULT_INTENT;
+
+        public Builder() {
+            this(/* skipValidation= */ false);
+        }
+
+        public Builder(boolean skipValidation) {
+            mSkipValidation = skipValidation;
+        }
 
         public Builder setProvisioningId(long provisioningId) {
             mProvisioningId = provisioningId;
@@ -903,6 +916,13 @@ public final class ProvisioningParams extends PersistableBundlable {
 
         public static Builder builder() {
             return new Builder();
+        }
+
+        /**
+         * Creates a {@link Builder} with the option to skip validation.
+         */
+        public static Builder builder(boolean skipValidation) {
+            return new Builder(skipValidation);
         }
     }
 }
