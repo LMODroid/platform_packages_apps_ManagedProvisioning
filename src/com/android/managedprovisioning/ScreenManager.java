@@ -19,6 +19,7 @@ package com.android.managedprovisioning;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.ADMIN_INTEGRATED_PREPARE;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.DOWNLOAD_ROLE_HOLDER;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.ENCRYPT;
+import static com.android.managedprovisioning.ManagedProvisioningScreens.ESTABLISH_NETWORK_CONNECTION;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.FINALIZATION_INSIDE_SUW;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.FINANCED_DEVICE_LANDING;
 import static com.android.managedprovisioning.ManagedProvisioningScreens.LANDING;
@@ -35,6 +36,7 @@ import android.app.Activity;
 
 import com.android.managedprovisioning.common.RetryLaunchActivity;
 import com.android.managedprovisioning.finalization.FinalizationInsideSuwActivity;
+import com.android.managedprovisioning.networkconnection.EstablishNetworkConnectionActivity;
 import com.android.managedprovisioning.preprovisioning.DownloadRoleHolderActivity;
 import com.android.managedprovisioning.preprovisioning.EncryptDeviceActivity;
 import com.android.managedprovisioning.preprovisioning.PostEncryptionActivity;
@@ -110,6 +112,7 @@ public final class ScreenManager {
         map.put(FINANCED_DEVICE_LANDING, FinancedDeviceLandingActivity.class);
         map.put(RETRY_LAUNCH, RetryLaunchActivity.class);
         map.put(DOWNLOAD_ROLE_HOLDER, DownloadRoleHolderActivity.class);
+        map.put(ESTABLISH_NETWORK_CONNECTION, EstablishNetworkConnectionActivity.class);
         return map;
     }
 

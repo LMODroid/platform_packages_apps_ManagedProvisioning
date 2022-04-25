@@ -35,6 +35,7 @@ import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.analytics.TimeLogger;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ProvisionLogger;
+import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
 
@@ -272,12 +273,15 @@ public final class PreProvisioningViewModel extends ViewModel {
     static class PreProvisioningViewModelFactory implements ViewModelProvider.Factory {
         private final ManagedProvisioningBaseApplication mApplication;
         private final Config mConfig;
+        private final Utils mUtils;
 
         PreProvisioningViewModelFactory(
                 ManagedProvisioningBaseApplication application,
-                Config config) {
+                Config config,
+                Utils utils) {
             mApplication = requireNonNull(application);
             mConfig = requireNonNull(config);
+            mUtils = requireNonNull(utils);
         }
 
         @Override
@@ -288,7 +292,7 @@ public final class PreProvisioningViewModel extends ViewModel {
             }
             return (T) new PreProvisioningViewModel(
                     new TimeLogger(mApplication, PROVISIONING_PREPROVISIONING_ACTIVITY_TIME_MS),
-                    new MessageParser(mApplication),
+                    new MessageParser(mApplication, mUtils),
                     mApplication.getEncryptionController(),
                     mConfig);
         }
