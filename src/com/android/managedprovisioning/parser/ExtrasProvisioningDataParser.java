@@ -16,6 +16,7 @@
 
 package com.android.managedprovisioning.parser;
 
+import static android.app.admin.DevicePolicyManager.ACTION_ESTABLISH_NETWORK_CONNECTION;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_FINANCED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE;
@@ -373,6 +374,8 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
         } else if (PROVISIONING_ACTIONS_SUPPORT_ALL_PROVISIONING_DATA.contains(
                 provisioningAction)) {
             return parseAllSupportedProvisioningData(provisioningIntent, mContext);
+        } else if (ACTION_ESTABLISH_NETWORK_CONNECTION.equals(provisioningAction)) {
+            return parseNetworkProvisioningData(provisioningIntent);
         } else {
             throw new IllegalProvisioningArgumentException("Unsupported provisioning action: "
                     + provisioningAction);
@@ -708,6 +711,31 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                     // 2. the intent is from a trusted source, for example QR provisioning.
                     .setStartedByTrustedSource(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE
                             .equals(intent.getAction()))
+                    .build();
+        }  catch (IllegalArgumentException e) {
+            throw new IllegalProvisioningArgumentException("Invalid parameter found!", e);
+        }  catch (IllformedLocaleException e) {
+            throw new IllegalProvisioningArgumentException("Invalid locale format!", e);
+        }  catch (NullPointerException e) {
+            throw new IllegalProvisioningArgumentException("Compulsory parameter not found!", e);
+        }
+    }
+
+    /**
+     * Parses an intent and return a corresponding {@link ProvisioningParams} object.
+     *
+     * @param intent intent to be parsed.
+     */
+    private ProvisioningParams parseNetworkProvisioningData(Intent intent)
+            throws IllegalProvisioningArgumentException {
+        try {
+            ProvisionLogger.logi("Processing network-related extras intent: " + intent.getAction());
+            return ProvisioningParams.Builder.builder(/* skipValidation= */ true)
+                    .setUseMobileData(
+                            getBooleanExtraFromLongName(
+                                    intent, EXTRA_PROVISIONING_USE_MOBILE_DATA,
+                                    DEFAULT_EXTRA_PROVISIONING_USE_MOBILE_DATA))
+                    .setWifiInfo(parseWifiInfoFromExtras(intent))
                     .build();
         }  catch (IllegalArgumentException e) {
             throw new IllegalProvisioningArgumentException("Invalid parameter found!", e);

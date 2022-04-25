@@ -161,7 +161,8 @@ public class PreProvisioningActivityController {
                         activity,
                         new PreProvisioningViewModelFactory(
                                 (ManagedProvisioningBaseApplication) activity.getApplication(),
-                                new DefaultConfig()))
+                                new DefaultConfig(),
+                                new Utils()))
                                         .get(PreProvisioningViewModel.class),
                 DisclaimersParserImpl::new,
                 new DeviceManagementRoleHolderHelper(
