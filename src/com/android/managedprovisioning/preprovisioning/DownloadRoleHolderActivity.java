@@ -18,29 +18,31 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PROVISIONING_PARAMS;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.lifecycle.ViewModelProvider;
 
 import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ErrorDialogUtils;
+import com.android.managedprovisioning.common.ErrorWrapper;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.DownloadRoleHolderViewModel.DownloadRoleHolderViewModelFactory;
-import com.android.managedprovisioning.preprovisioning.DownloadRoleHolderViewModel.ErrorWrapper;
 
 /**
  * Spinner which takes care of network connectivity if needed, and downloading of the role holder.
+ *
+ * <p>If successfully connected to network and downloaded the role holder, {@link #RESULT_OK} is
+ * returned. Otherwise the result is {@link #RESULT_CANCELED}.
+ *
+ * <p>If the result is {@link #RESULT_CANCELED}, it may be accompanied by
+ * {@link ErrorDialogUtils#EXTRA_DIALOG_TITLE_ID}, {@link
+ * ErrorDialogUtils#EXTRA_ERROR_MESSAGE_RES_ID} and {@link
+ * ErrorDialogUtils#EXTRA_FACTORY_RESET_REQUIRED} which can be used to display in a user-visible
+ * dialog.
  */
 public class DownloadRoleHolderActivity extends SetupGlifLayoutActivity {
-
-    public static final String EXTRA_DIALOG_TITLE_ID = "dialog_title_id";
-    public static final String EXTRA_ERROR_MESSAGE_RES_ID =
-            "dialog_error_message_res_id";
-    public static final String EXTRA_FACTORY_RESET_REQUIRED =
-            "factory_reset_required";
-
     private DownloadRoleHolderViewModel mViewModel;
 
     @Override
@@ -79,22 +81,10 @@ public class DownloadRoleHolderActivity extends SetupGlifLayoutActivity {
                 break;
             case DownloadRoleHolderViewModel.STATE_ERROR:
                 ErrorWrapper error = mViewModel.getError();
-                setResult(RESULT_CANCELED, createResultIntent(error));
+                setResult(RESULT_CANCELED, ErrorDialogUtils.createResultIntent(error));
                 getTransitionHelper().finishActivity(this);
                 break;
         }
-    }
-
-    private Intent createResultIntent(ErrorWrapper error) {
-        Intent intent = new Intent();
-        if (error.dialogTitleId != 0) {
-            intent.putExtra(EXTRA_DIALOG_TITLE_ID, error.dialogTitleId);
-        }
-        if (error.errorMessageResId != 0) {
-            intent.putExtra(EXTRA_ERROR_MESSAGE_RES_ID, error.errorMessageResId);
-        }
-        intent.putExtra(EXTRA_FACTORY_RESET_REQUIRED, error.factoryResetRequired);
-        return intent;
     }
 
     private void initializeUi() {

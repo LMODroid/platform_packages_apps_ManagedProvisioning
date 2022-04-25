@@ -27,10 +27,11 @@ import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 
 import static com.android.managedprovisioning.ManagedProvisioningScreens.RETRY_LAUNCH;
+import static com.android.managedprovisioning.common.ErrorDialogUtils.EXTRA_DIALOG_TITLE_ID;
+import static com.android.managedprovisioning.common.ErrorDialogUtils.EXTRA_ERROR_MESSAGE_RES_ID;
+import static com.android.managedprovisioning.common.ErrorDialogUtils.EXTRA_FACTORY_RESET_REQUIRED;
 import static com.android.managedprovisioning.common.RetryLaunchActivity.EXTRA_INTENT_TO_LAUNCH;
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_LEGACY;
-import static com.android.managedprovisioning.preprovisioning.DownloadRoleHolderActivity.EXTRA_DIALOG_TITLE_ID;
-import static com.android.managedprovisioning.preprovisioning.DownloadRoleHolderActivity.EXTRA_ERROR_MESSAGE_RES_ID;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_PREPROVISIONING_INITIALIZING;
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
 import static com.android.managedprovisioning.provisioning.Constants.PROVISIONING_SERVICE_INTENT;
@@ -468,7 +469,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         int dialogMessageResId = data.getIntExtra(
                 EXTRA_ERROR_MESSAGE_RES_ID,
                 R.string.contact_your_admin_for_help);
-        if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
+        if (data.getBooleanExtra(EXTRA_FACTORY_RESET_REQUIRED, /* defaultValue= */ false)) {
             showFactoryResetDialog(
                     dialogTitleResId,
                     dialogMessageResId);
