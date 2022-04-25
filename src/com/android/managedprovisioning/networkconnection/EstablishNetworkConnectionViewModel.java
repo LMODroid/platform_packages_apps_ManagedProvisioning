@@ -137,7 +137,7 @@ public final class EstablishNetworkConnectionViewModel extends ViewModel impleme
         if (stateDownloading != STATE_ERROR) {
             mErrorWrapper = null;
         }
-        mState.setValue(stateDownloading);
+        mState.postValue(stateDownloading);
     }
 
     /**
