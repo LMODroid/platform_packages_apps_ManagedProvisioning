@@ -23,6 +23,7 @@ import com.android.managedprovisioning.common.SharedPreferences;
  */
 public class FakeSharedPreferences implements SharedPreferences {
     private boolean mIsProvisioningFlowDelegatedToRoleHolder;
+    private boolean mIsEstablishNetworkConnectionRun;
 
     @Override
     public void setIsProvisioningFlowDelegatedToRoleHolder(boolean value) {
@@ -32,5 +33,15 @@ public class FakeSharedPreferences implements SharedPreferences {
     @Override
     public boolean isProvisioningFlowDelegatedToRoleHolder() {
         return mIsProvisioningFlowDelegatedToRoleHolder;
+    }
+
+    @Override
+    public void setIsEstablishNetworkConnectionRun(boolean value) {
+        mIsEstablishNetworkConnectionRun = true;
+    }
+
+    @Override
+    public boolean isEstablishNetworkConnectionRun() {
+        return mIsEstablishNetworkConnectionRun;
     }
 }

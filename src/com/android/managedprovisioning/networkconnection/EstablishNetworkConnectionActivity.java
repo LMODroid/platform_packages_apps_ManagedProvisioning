@@ -26,6 +26,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ErrorDialogUtils;
 import com.android.managedprovisioning.common.ErrorWrapper;
+import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.Utils;
@@ -63,7 +64,8 @@ public final class EstablishNetworkConnectionActivity extends SetupGlifLayoutAct
         mViewModel = new ViewModelProvider(this,
                 new EstablishNetworkConnectionViewModelFactory(
                         new Utils(),
-                        new SettingsFacade()))
+                        new SettingsFacade(),
+                        new ManagedProvisioningSharedPreferences(this)))
                 .get(EstablishNetworkConnectionViewModel.class);
         mViewModel.observeState().observe(this, this::onStateChanged);
     }
