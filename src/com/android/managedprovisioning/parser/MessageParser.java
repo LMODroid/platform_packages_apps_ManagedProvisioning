@@ -41,8 +41,8 @@ public class MessageParser implements ProvisioningDataParser {
     private final SettingsFacade mSettingsFacade;
     private final Context mContext;
 
-    public MessageParser(Context context) {
-        this(context, new Utils(), new ParserUtils(), new SettingsFacade());
+    public MessageParser(Context context, Utils utils) {
+        this(context, utils, new ParserUtils(), new SettingsFacade());
     }
 
     @VisibleForTesting
