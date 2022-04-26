@@ -14,51 +14,68 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning.preprovisioning;
+package com.android.managedprovisioning.networkconnection;
 
 import static java.util.Objects.requireNonNull;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.UserHandle;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.common.ErrorWrapper;
+import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.android.managedprovisioning.provisioning.DownloadRoleHolderController;
+import com.android.managedprovisioning.parser.MessageParser;
 import com.android.managedprovisioning.provisioning.ProvisioningControllerCallback;
 import com.android.managedprovisioning.provisioning.ProvisioningManagerHelper;
+import com.android.managedprovisioning.task.TaskFactory;
 
 /**
- * A {@link ViewModel} which manages the state for the download role holder screen.
+ * A {@link ViewModel} which manages the state for the network connection establishing screen.
  */
-public class DownloadRoleHolderViewModel extends ViewModel implements
+public final class EstablishNetworkConnectionViewModel extends ViewModel implements
         ProvisioningControllerCallback {
+
     public static final int STATE_IDLE = 1;
-    public static final int STATE_DOWNLOADING = 2;
-    public static final int STATE_DOWNLOADED = 3;
+    public static final int STATE_CONNECTING = 2;
+    public static final int STATE_SHOW_NETWORK_PICKER = 3;
     public static final int STATE_ERROR = 4;
+    public static final int STATE_CONNECTED = 5;
 
     private final ProvisioningManagerHelper mProvisioningManagerHelper =
             new ProvisioningManagerHelper();
     private final MutableLiveData<Integer> mState = new MutableLiveData<>(STATE_IDLE);
-    private final ProvisioningParams mParams;
     private final Utils mUtils;
     private final SettingsFacade mSettingsFacade;
     private ErrorWrapper mErrorWrapper;
 
-    public DownloadRoleHolderViewModel(
-            ProvisioningParams params,
+    public EstablishNetworkConnectionViewModel(
             Utils utils,
             SettingsFacade settingsFacade) {
-        mParams = requireNonNull(params);
         mUtils = requireNonNull(utils);
         mSettingsFacade = requireNonNull(settingsFacade);
+    }
+
+    /**
+     * Parses and returns the provisioning extras contained in {@code intent}.
+     */
+    public ProvisioningParams parseExtras(Context context, Intent intent) {
+        requireNonNull(context);
+        requireNonNull(intent);
+        ProvisioningParams params = null;
+        try {
+            params = new MessageParser(context, mUtils).parse(intent);
+        } catch (IllegalProvisioningArgumentException e) {
+            ProvisionLogger.loge("Error parsing intent extras", e);
+        }
+        return params;
     }
 
     /**
@@ -69,18 +86,27 @@ public class DownloadRoleHolderViewModel extends ViewModel implements
     }
 
     /**
-     * Connects to wifi or mobile data if needed, and downloads the role holder.
+     * Connects to wifi or mobile data if needed.
      */
-    public void connectToNetworkAndDownloadRoleHolder(Context context) {
+    public void connectToNetwork(Context context,
+            ProvisioningParams params) {
+        requireNonNull(context);
+        requireNonNull(params);
+        if (params.wifiInfo == null
+                && !params.useMobileData) {
+            updateState(STATE_SHOW_NETWORK_PICKER);
+            return;
+        }
         mProvisioningManagerHelper.startNewProvisioningLocked(
-                DownloadRoleHolderController.createInstance(
+                EstablishNetworkConnectionController.createInstance(
                         context,
-                        mParams,
+                        params,
                         UserHandle.USER_SYSTEM,
                         this,
                         mUtils,
-                        mSettingsFacade));
-        updateState(STATE_DOWNLOADING);
+                        mSettingsFacade,
+                        new TaskFactory()));
+        updateState(STATE_CONNECTING);
     }
 
     @Override
@@ -90,7 +116,7 @@ public class DownloadRoleHolderViewModel extends ViewModel implements
 
     @Override
     public void provisioningTasksCompleted() {
-        updateState(STATE_DOWNLOADED);
+        updateState(STATE_CONNECTED);
     }
 
     @Override
@@ -107,8 +133,12 @@ public class DownloadRoleHolderViewModel extends ViewModel implements
         updateState(STATE_ERROR);
     }
 
-    @Override
-    public void preFinalizationCompleted() {}
+    private void updateState(int stateDownloading) {
+        if (stateDownloading != STATE_ERROR) {
+            mErrorWrapper = null;
+        }
+        mState.postValue(stateDownloading);
+    }
 
     /**
      * Returns an {@link ErrorWrapper} which describes the last error that happened. This will
@@ -118,38 +148,27 @@ public class DownloadRoleHolderViewModel extends ViewModel implements
         return mErrorWrapper;
     }
 
-    private void updateState(int stateDownloading) {
-        if (stateDownloading != STATE_ERROR) {
-            mErrorWrapper = null;
-        }
-        mState.postValue(stateDownloading);
-    }
+    @Override
+    public void preFinalizationCompleted() {}
 
-    /**
-     * A factory for {@link DownloadRoleHolderViewModel}.
-     */
-    public static class DownloadRoleHolderViewModelFactory implements ViewModelProvider.Factory {
-        private final ProvisioningParams mParams;
+    static class EstablishNetworkConnectionViewModelFactory implements ViewModelProvider.Factory {
         private final Utils mUtils;
         private final SettingsFacade mSettingsFacade;
 
-        public DownloadRoleHolderViewModelFactory(
-                ManagedProvisioningBaseApplication application,
-                ProvisioningParams params,
+        EstablishNetworkConnectionViewModelFactory(
                 Utils utils,
                 SettingsFacade settingsFacade) {
-            mParams = requireNonNull(params);
             mUtils = requireNonNull(utils);
             mSettingsFacade = requireNonNull(settingsFacade);
         }
 
         @Override
         public <T extends ViewModel> T create(Class<T> modelClass) {
-            if (!DownloadRoleHolderViewModel.class.isAssignableFrom(modelClass)) {
+            if (!EstablishNetworkConnectionViewModel.class.isAssignableFrom(modelClass)) {
                 throw new IllegalArgumentException("Invalid class for creating a "
-                        + "DownloadRoleHolderViewModel: " + modelClass);
+                        + "EstablishNetworkConnectionViewModel: " + modelClass);
             }
-            return (T) new DownloadRoleHolderViewModel(mParams, mUtils, mSettingsFacade);
+            return (T) new EstablishNetworkConnectionViewModel(mUtils, mSettingsFacade);
         }
     }
 }
