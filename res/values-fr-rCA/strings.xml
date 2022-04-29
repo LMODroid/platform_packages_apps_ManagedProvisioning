@@ -28,9 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"L\'application suivante va gérer votre appareil :"</string>
     <string name="next" msgid="1004321437324424398">"Suivant"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Configuration du profil professionnel en cours…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Votre administrateur informatique peut contrôler et gérer les paramètres, l\'accès aux contenus de l\'entreprise, les applications, les autorisations et les données associées à ce profil, y compris votre activité réseau et les données de localisation, l\'historique des appels et l\'historique des recherches de contacts de votre appareil.<xliff:g id="LINE_BREAK">
-
-</xliff:g>Pour consulter plus d\'information, y compris les politiques de confidentialité de votre entreprise, communiquez avec votre administrateur informatique."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (1018585795537086728) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Votre administrateur informatique peut contrôler et gérer les paramètres, l\'accès aux contenus de l\'entreprise, les applications, les autorisations et les données associées à cet appareil, y compris votre activité réseau et les données de localisation, l\'historique des appels et l\'historique des recherches de contacts de votre appareil.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Pour consulter plus d\'information, y compris les politiques de confidentialité de votre entreprise, communiquez avec votre administrateur informatique."</string>
