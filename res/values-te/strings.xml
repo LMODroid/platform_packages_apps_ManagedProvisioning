@@ -115,8 +115,8 @@
     <string name="your_org_app_used" msgid="5336414768293540831">"కింది యాప్‌ను ఉపయోగించి <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ఈ పరికరాన్ని నిర్వహిస్తుంది మరియు పర్యవేక్షిస్తుంది:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"మీ సంస్థ"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"మీ సంస్థ"</string>
-    <string name="view_terms" msgid="7230493092383341605">"నిబంధనలను చూడండి"</string>
-    <string name="accept_and_continue" msgid="1632679734918410653">"ఆమోదించు, కొనసాగించు"</string>
+    <string name="view_terms" msgid="7230493092383341605">"నియమాలను చూడండి"</string>
+    <string name="accept_and_continue" msgid="1632679734918410653">"ఆమోదించి, కొనసాగండి"</string>
     <string name="back" msgid="6455622465896147127">"వెనుకకు"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"మీ పరికరాన్ని సెటప్ చేయండి"</string>
     <string name="info_anim_title_0" msgid="3285414600215959704">"మీరు పని చేసే విధానాన్ని మార్చేయండి"</string>
@@ -162,10 +162,10 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"మీ ఖాతా మేనేజ్ చేయబడింది"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"సెక్యూరిటీ పాలసీలను అమలు చేయడానికి మీ IT అడ్మిన్, \'మొబైల్ పరికర మేనేజ్‌మెంట్‌\'ను ఉపయోగిస్తారు"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"కార్యాలయ సెటప్ కోసం సిద్ధం చేయబడుతోంది…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ముందుగా, మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయండి"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"మీ రోజువారీ పని పూర్తయినప్పుడు కార్యాలయ యాప్‌లను పాజ్ చేయండి"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"మీ ఆఫీస్ ప్రొఫైల్‌లోని డేటా మీ IT అడ్మిన్‌లకు కనిపిస్తుంది"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ముందుగా, మీ వర్క్ ప్రొఫైల్‌ను సెటప్ చేద్దాం"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"వర్క్ యాప్‌లు మీ వర్క్ ప్రొఫైల్‌లో ఉంచబడతాయి"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"మీ రోజువారీ పని పూర్తయినప్పుడు వర్క్ యాప్‌లను పాజ్ చేయండి"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"మీ ఆఫీస్ ప్రొఫైల్‌లోని డేటా మీ IT అడ్మిన్‌కు కనిపిస్తుంది"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"మీ ఆఫీస్ ప్రొఫైల్‌ను సెటప్ చేస్తోంది…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి. మీ రోజువారీ పని పూర్తయినప్పుడు మీ కార్యాలయ యాప్‌లను మీరు పాజ్ చేయవచ్చు. మీ కార్యాలయ ప్రొఫైల్‌లోని డేటా మీ IT అడ్మిన్‌లకు కనిపిస్తుంది"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"మీ కార్యాలయ పరికరాన్ని సెటప్ చేయండి"</string>

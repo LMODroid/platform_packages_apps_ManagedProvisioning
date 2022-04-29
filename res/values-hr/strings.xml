@@ -115,7 +115,7 @@
     <string name="your_org_app_used" msgid="5336414768293540831">"Organizacija <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> upravljat će ovim uređajem i nadzirati ga pomoću sljedeće aplikacije:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"Vaša organizacija"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"vaša organizacija"</string>
-    <string name="view_terms" msgid="7230493092383341605">"Prikaz uvjeta"</string>
+    <string name="view_terms" msgid="7230493092383341605">"Pregledajte uvjete"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Prihvati i nastavi"</string>
     <string name="back" msgid="6455622465896147127">"Natrag"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Postavljanje uređaja"</string>
@@ -163,8 +163,8 @@
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Vaš IT administrator upotrebljava upravljanje mobilnim uređajima za provedbu sigurnosnih pravila"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Priprema za postavljanje radnog profila…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Postavimo vaš poslovni profil"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Radne aplikacije nalaze se na vašem radnom profilu"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pauzirajte radne aplikacije kad završite s poslom za taj dan"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Poslovne aplikacije nalaze se na vašem poslovnom profilu"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pauzirajte poslovne aplikacije kad završite s poslom za taj dan"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Podaci na vašem poslovnom profilu vidljivi su vašem IT administratoru"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Postavljanje poslovnog profila…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Poslovne aplikacije nalaze se na vašem poslovnom profilu. Poslovne aplikacije možete pauzirati kad završite s poslom za taj dan. Podaci na vašem poslovnom profilu vidljivi su vašem IT administratoru."</string>

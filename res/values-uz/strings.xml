@@ -162,9 +162,9 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Hisobingiz boshqariladi"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Xavfsizlik qoidalarini kuzatish uchun administrator mobil qurilmalarni boshqarish tizimidan foydalanadi."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Sozlash uchun tayyorlanmoqda…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Keling, ishchi profilingizni sozlaymiz"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Keling, ish profilingizni sozlaymiz"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Ishga oid ilovalar ishchi profilda saqlanadi"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Ishni tugatganingizdan keyin ishchi ilovalarni pauza qilish"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Ishni tugatganingizdan keyin ish ilovalarini pauzalash"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Ish profilingizdagi maʼlumotlar faqat administratoringizga koʻrinadi"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Ish profilingiz sozlanmoqda…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Ishga oid ilovalar ish profilida saqlanadi. Ishni tugatganingizdan keyin ishga oid ilovalarni pauza qilishingiz mumkin. Ish profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi."</string>

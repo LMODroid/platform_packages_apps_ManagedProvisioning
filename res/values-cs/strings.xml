@@ -162,9 +162,9 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Váš účet je spravován"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Váš správce IT vynucuje dodržování bezpečnostních zásad prostřednictvím správy mobilních zařízení"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Příprava na nastavení pro práci…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Teď nastavíme váš pracovní profil"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Pojďme nastavit váš pracovní profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Pracovní aplikace jsou uložené v pracovním profilu"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Až budete mít hotovo, pracovní aplikace pozastavte"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Až s prací skončíte, pracovní aplikace pozastavte"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Údaje v pracovním profilu může vidět administrátor IT"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Nastavování pracovního profilu…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Pracovní aplikace jsou uložené v pracovním profilu. Když pro daný den skončíte s prací, můžete je pozastavit. Údaje v pracovním profilu může vidět administrátor IT."</string>

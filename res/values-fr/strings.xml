@@ -162,7 +162,7 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Votre compte est géré"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Votre administrateur informatique utilise la gestion des appareils mobiles afin d\'appliquer les règles de sécurité"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Préparation pour la configuration professionnelle…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configurer votre profil professionnel"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configurons votre profil professionnel"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Les applis professionnelles sont dans votre profil professionnel"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Mettez vos applis professionnelles en pause quand vous avez fini de travailler"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Votre administrateur informatique a accès aux données du profil professionnel"</string>
