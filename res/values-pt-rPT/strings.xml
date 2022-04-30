@@ -163,8 +163,8 @@
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"O seu administrador de TI utiliza a gestão de dispositivos móveis para aplicar as políticas de segurança."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"A preparar-se para a configuração de trabalho…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Vamos configurar o seu perfil de trabalho"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"As aplicações de trabalho são mantidas no seu perfil de trabalho"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Coloque as aplicações de trabalho em pausa quando terminar o seu dia"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"As apps de trabalho são mantidas no seu perfil de trabalho"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pause as apps de trabalho quando terminar o seu dia"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Os dados no seu perfil de trabalho estão visíveis para o seu administrador de TI"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"A configurar o perfil de trabalho…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"As apps de trabalho são mantidas no seu perfil de trabalho. Pode colocá-las em pausa quando terminar o seu dia. Os dados no seu perfil de trabalho estão visíveis para o administrador de TI."</string>
