@@ -502,6 +502,9 @@ public class PreProvisioningActivityController {
     }
 
     private boolean shouldShowWifiPicker(Intent intent) {
+        if (mSharedPreferences.isEstablishNetworkConnectionRun()) {
+            return false;
+        }
         ProvisioningParams params = mViewModel.getParams();
         if (params.wifiInfo != null) {
             return false;
