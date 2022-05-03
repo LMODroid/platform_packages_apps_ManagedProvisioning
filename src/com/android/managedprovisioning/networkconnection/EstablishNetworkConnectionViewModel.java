@@ -30,6 +30,7 @@ import com.android.managedprovisioning.common.ErrorWrapper;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.SharedPreferences;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.parser.MessageParser;
@@ -54,13 +55,16 @@ public final class EstablishNetworkConnectionViewModel extends ViewModel impleme
     private final MutableLiveData<Integer> mState = new MutableLiveData<>(STATE_IDLE);
     private final Utils mUtils;
     private final SettingsFacade mSettingsFacade;
+    private final SharedPreferences mSharedPreferences;
     private ErrorWrapper mErrorWrapper;
 
     public EstablishNetworkConnectionViewModel(
             Utils utils,
-            SettingsFacade settingsFacade) {
+            SettingsFacade settingsFacade,
+            SharedPreferences sharedPreferences) {
         mUtils = requireNonNull(utils);
         mSettingsFacade = requireNonNull(settingsFacade);
+        mSharedPreferences = requireNonNull(sharedPreferences);
     }
 
     /**
@@ -92,6 +96,7 @@ public final class EstablishNetworkConnectionViewModel extends ViewModel impleme
             ProvisioningParams params) {
         requireNonNull(context);
         requireNonNull(params);
+        mSharedPreferences.setIsEstablishNetworkConnectionRun(true);
         if (params.wifiInfo == null
                 && !params.useMobileData) {
             updateState(STATE_SHOW_NETWORK_PICKER);
@@ -154,12 +159,15 @@ public final class EstablishNetworkConnectionViewModel extends ViewModel impleme
     static class EstablishNetworkConnectionViewModelFactory implements ViewModelProvider.Factory {
         private final Utils mUtils;
         private final SettingsFacade mSettingsFacade;
+        private final SharedPreferences mSharedPreferences;
 
         EstablishNetworkConnectionViewModelFactory(
                 Utils utils,
-                SettingsFacade settingsFacade) {
+                SettingsFacade settingsFacade,
+                SharedPreferences sharedPreferences) {
             mUtils = requireNonNull(utils);
             mSettingsFacade = requireNonNull(settingsFacade);
+            mSharedPreferences = requireNonNull(sharedPreferences);
         }
 
         @Override
@@ -168,7 +176,8 @@ public final class EstablishNetworkConnectionViewModel extends ViewModel impleme
                 throw new IllegalArgumentException("Invalid class for creating a "
                         + "EstablishNetworkConnectionViewModel: " + modelClass);
             }
-            return (T) new EstablishNetworkConnectionViewModel(mUtils, mSettingsFacade);
+            return (T) new EstablishNetworkConnectionViewModel(
+                    mUtils, mSettingsFacade, mSharedPreferences);
         }
     }
 }
