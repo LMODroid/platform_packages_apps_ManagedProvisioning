@@ -52,6 +52,8 @@ public class ManagedProvisioningSharedPreferences implements
     private static final String KEY_ACCENT_COLOR = "accent_color";
     private static final String KEY_IS_PROVISIONING_FLOW_DELEGATED_TO_ROLE_HOLDER =
             "is_provisioning_flow_delegated_to_role_holder";
+    private static final String KEY_IS_ESTABLISH_NETWORK_CONNECTION_RUN =
+            "is_establish_network_connection_run";
 
     private final SharedPreferences mSharedPreferences;
 
@@ -217,6 +219,20 @@ public class ManagedProvisioningSharedPreferences implements
     public boolean isProvisioningFlowDelegatedToRoleHolder() {
         return mSharedPreferences.getBoolean(
                 KEY_IS_PROVISIONING_FLOW_DELEGATED_TO_ROLE_HOLDER,
+                /* defaultValue= */ false);
+    }
+
+    @Override
+    public void setIsEstablishNetworkConnectionRun(boolean value) {
+        mSharedPreferences.edit()
+                .putBoolean(KEY_IS_ESTABLISH_NETWORK_CONNECTION_RUN, value)
+                .apply();
+    }
+
+    @Override
+    public boolean isEstablishNetworkConnectionRun() {
+        return mSharedPreferences.getBoolean(
+                KEY_IS_ESTABLISH_NETWORK_CONNECTION_RUN,
                 /* defaultValue= */ false);
     }
 }
