@@ -28,9 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"내 기기를 관리하는 앱:"</string>
     <string name="next" msgid="1004321437324424398">"다음"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"직장 프로필 설정 중..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"IT 관리자는 설정, 기업 액세스, 앱, 권한과 사용자의 네트워크 활동, 기기 위치, 통화 기록, 연락처 검색 기록 등 이 프로필과 연결된 데이터를 모니터링하고 관리할 수 있습니다.<xliff:g id="LINE_BREAK">
-
-</xliff:g>조직의 개인정보처리방침을 포함한 자세한 내용을 알아보려면 IT 관리자에게 문의하세요."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (1018585795537086728) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT 관리자는 설정, 기업 액세스, 앱, 권한과 사용자의 네트워크 활동, 기기 위치, 통화 기록, 연락처 검색 기록 등 이 기기와 연결된 데이터를 모니터링하고 관리할 수 있습니다.<xliff:g id="LINE_BREAK">
 
 </xliff:g>조직의 개인정보처리방침을 포함한 자세한 내용을 알아보려면 IT 관리자에게 문의하세요."</string>
