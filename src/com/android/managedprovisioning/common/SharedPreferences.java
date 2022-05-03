@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.common;
 
+import com.android.managedprovisioning.networkconnection.EstablishNetworkConnectionActivity;
+
 /**
  * An interface which describes methods to keep data in store and retrieve it.
  */
@@ -31,4 +33,14 @@ public interface SharedPreferences {
      * role holder.
      */
     boolean isProvisioningFlowDelegatedToRoleHolder();
+
+    /**
+     * Marks that {@link EstablishNetworkConnectionActivity} was run prior to provisioning.
+     */
+    void setIsEstablishNetworkConnectionRun(boolean value);
+
+    /**
+     * Returns {@code true} if {@link EstablishNetworkConnectionActivity} was previously run.
+     */
+    boolean isEstablishNetworkConnectionRun();
 }
