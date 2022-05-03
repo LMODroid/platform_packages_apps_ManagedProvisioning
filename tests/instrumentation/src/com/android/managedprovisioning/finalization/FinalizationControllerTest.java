@@ -18,7 +18,6 @@ package com.android.managedprovisioning.finalization;
 
 import static com.google.common.truth.Truth.assertThat;
 
-import android.app.Activity;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
@@ -36,6 +35,7 @@ import com.android.managedprovisioning.provisioning.Constants;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
@@ -63,6 +63,7 @@ public class FinalizationControllerTest {
         mTempFile.delete();
     }
 
+    @Test
     public void shouldKeepScreenOn_setTrue_works() {
         ProvisioningParams params = createProvisioningParamsBuilder()
                 .setKeepScreenOn(true)
@@ -73,6 +74,7 @@ public class FinalizationControllerTest {
         assertThat(mFinalizationController.shouldKeepScreenOn()).isTrue();
     }
 
+    @Test
     public void shouldKeepScreenOn_setFalse_works() {
         ProvisioningParams params = createProvisioningParamsBuilder()
                 .setKeepScreenOn(false)
@@ -83,6 +85,7 @@ public class FinalizationControllerTest {
         assertThat(mFinalizationController.shouldKeepScreenOn()).isFalse();
     }
 
+    @Test
     public void shouldKeepScreenOn_notSet_works() {
         ProvisioningParams params = createProvisioningParamsBuilder()
                 .build();
@@ -101,7 +104,7 @@ public class FinalizationControllerTest {
     private FinalizationController createFinalizationController(File provisioningParamsFile) {
 
         return new FinalizationController(
-                createActivity(),
+                mContext,
                 new TestFinalizationControllerLogic(),
                 new Utils(),
                 new SettingsFacade(),
@@ -109,10 +112,6 @@ public class FinalizationControllerTest {
                 new NotificationHelper(mContext),
                 new DeferredMetricsReader(Constants.getDeferredMetricsFile(mContext)),
                 new ProvisioningParamsUtils(context -> provisioningParamsFile));
-    }
-
-    private Activity createActivity() {
-        return new Activity();
     }
 
     private File createTempFile() throws IOException {
