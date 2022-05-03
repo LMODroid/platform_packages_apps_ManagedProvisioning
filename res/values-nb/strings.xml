@@ -28,9 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Denne appen kommer til å administrere enheten din:"</string>
     <string name="next" msgid="1004321437324424398">"Neste"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Konfigurerer jobbprofilen …"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"IT-administratoren din har evnen til å overvåke og administrere innstillinger, bedriftstilgang, apper, tillatelser og data knyttet til denne profilen, inkludert nettverksaktiviteten din samt enhetens posisjon, samtalelogg og søkelogg for kontakter.<xliff:g id="LINE_BREAK">
-
-</xliff:g>Ta kontakt med IT-administratoren din for å få mer informasjon, inkludert organisasjonens personvernregler."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (1018585795537086728) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT-administratoren din har evnen til å overvåke og administrere innstillinger, bedriftstilgang, apper, tillatelser og data knyttet til denne enheten, inkludert nettverksaktiviteten din samt enhetens posisjon, samtalelogg og søkelogg for kontakter.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Ta kontakt med IT-administratoren din for å få mer informasjon, inkludert organisasjonens personvernregler."</string>
@@ -165,7 +164,7 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"La oss konfigurere jobbprofilen din"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Jobbapper oppbevares i jobbprofilen din"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Sett jobbapper på pause når du er ferdig for dagen"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Dataene i jobbprofilen din er synlige for IT-administratoren din"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Data i jobbprofilen din er synlige for IT-administratoren"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Konfigurerer jobbprofilen din …"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Jobbapper oppbevares i jobbprofilen din. Du kan sette jobbappene dine på pause når du er ferdig for dagen. Dataene i jobbprofilen din er synlige for IT-administratoren din."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"La oss konfigurere jobbenheten din"</string>
@@ -195,7 +194,7 @@
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Denne enheten kan bli begrenset"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan begrense tilgangen til denne enheten hvis du ikke betaler."</string>
     <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Kan ikke konfigurere enheten. Kontakt IT-administratoren din, og oppgi feilmeldingen «ugyldig sjekksum»."</string>
-    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Prøv igjen senere, eller be IT-administratoren din om hjelp"</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Prøv på nytt senere, eller be IT-administratoren din om hjelp"</string>
     <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Kan ikke konfigurere enheten. Kontakt IT-administratoren din, og oppgi feilmeldingen «komponenter mangler eller er skadet»."</string>
     <string name="setting_up" msgid="1478847967385506664">"Konfigurerer …"</string>
 </resources>
