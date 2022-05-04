@@ -64,6 +64,7 @@ import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
+import com.android.managedprovisioning.testcommon.FakeSharedPreferences;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -142,6 +143,7 @@ public final class EstablishNetworkConnectionViewModelTest {
     private Utils mUtils;
     private final Instrumentation mInstrumentation =
             androidx.test.platform.app.InstrumentationRegistry.getInstrumentation();
+    private final FakeSharedPreferences mSharedPreferences = new FakeSharedPreferences();
 
     @Before
     public void setUp() throws IllegalProvisioningArgumentException {
@@ -149,7 +151,8 @@ public final class EstablishNetworkConnectionViewModelTest {
         when(mUtils.findDeviceAdmin(anyString(), any(), any(), anyInt())).thenReturn(ADMIN);
         when(mUtils.containsBinaryFlags(anyInt(), eq(FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED)))
                 .thenReturn(true);
-        mViewModel = new EstablishNetworkConnectionViewModel(mUtils, new SettingsFacade());
+        mViewModel = new EstablishNetworkConnectionViewModel(
+                mUtils, new SettingsFacade(), mSharedPreferences);
     }
 
     @Test
@@ -157,6 +160,19 @@ public final class EstablishNetworkConnectionViewModelTest {
         blockUntilNextUiThreadCycle();
 
         assertThat(mViewModel.observeState().getValue()).isEqualTo(STATE_IDLE);
+    }
+
+    @Test
+    public void connectToNetwork_updatesSharedPreference() {
+        mViewModel.connectToNetwork(mInstrumentation.getContext(), PARAMS);
+        blockUntilNextUiThreadCycle();
+
+        assertThat(mSharedPreferences.isEstablishNetworkConnectionRun()).isTrue();
+    }
+
+    @Test
+    public void connectToNetwork_defaultSharedPreferenceIsFalse() {
+        assertThat(mSharedPreferences.isEstablishNetworkConnectionRun()).isFalse();
     }
 
     @Test
