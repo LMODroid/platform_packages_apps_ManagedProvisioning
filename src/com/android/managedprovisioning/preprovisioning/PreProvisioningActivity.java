@@ -18,12 +18,15 @@ package com.android.managedprovisioning.preprovisioning;
 
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_TRIGGER;
 import static android.app.admin.DevicePolicyManager.EXTRA_RESULT_LAUNCH_INTENT;
+import static android.app.admin.DevicePolicyManager.EXTRA_ROLE_HOLDER_UPDATE_FAILURE_STRATEGY;
 import static android.app.admin.DevicePolicyManager.EXTRA_ROLE_HOLDER_UPDATE_RESULT_CODE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_UNSPECIFIED;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_PROVISIONING_DISABLED;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_UNRECOVERABLE_ERROR;
 import static android.app.admin.DevicePolicyManager.RESULT_UPDATE_ROLE_HOLDER;
+import static android.app.admin.DevicePolicyManager.ROLE_HOLDER_UPDATE_FAILURE_STRATEGY_FAIL_PROVISIONING;
+import static android.app.admin.DevicePolicyManager.ROLE_HOLDER_UPDATE_FAILURE_STRATEGY_FALLBACK_TO_PLATFORM_PROVISIONING;
 import static android.content.res.Configuration.UI_MODE_NIGHT_MASK;
 import static android.content.res.Configuration.UI_MODE_NIGHT_YES;
 
@@ -42,6 +45,7 @@ import static com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_S
 import static java.util.Objects.requireNonNull;
 
 import android.annotation.NonNull;
+import android.annotation.Nullable;
 import android.app.Activity;
 import android.app.BackgroundServiceStartNotAllowedException;
 import android.app.DialogFragment;
@@ -325,10 +329,10 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                 }
                 break;
             case START_PLATFORM_REQUESTED_ROLE_HOLDER_UPDATE_REQUEST_CODE:
-                handlePlatformRequestedUpdateResult(resultCode);
+                handlePlatformRequestedUpdateResult(resultCode, data);
                 break;
             case START_ROLE_HOLDER_REQUESTED_UPDATE_REQUEST_CODE:
-                handleRoleHolderRequestedUpdateResult(resultCode);
+                handleRoleHolderRequestedUpdateResult(resultCode, data);
                 break;
             case START_DEVICE_MANAGEMENT_ROLE_HOLDER_PROVISIONING_REQUEST_CODE:
                 ProvisionLogger.logw("Role holder returned result code " + resultCode);
@@ -422,7 +426,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         return additionalExtras;
     }
 
-    private void handlePlatformRequestedUpdateResult(int resultCode) {
+    private void handlePlatformRequestedUpdateResult(int resultCode, @Nullable Intent resultData) {
         if ((resultCode
                 == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
                 || resultCode == RESULT_CANCELED)
@@ -449,6 +453,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                         + " and allow offline provisioning is "
                         + mController.getParams().allowOffline);
             }
+        } else if (isRoleHolderUpdaterRequestingPlatformDrivenProvisioning(resultData)) {
+            mController.performPlatformProvidedProvisioning();
         } else {
             failRoleHolderUpdate();
             ProvisionLogger.loge("Failed to perform a platform-requested role holder "
@@ -457,7 +463,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         }
     }
 
-    private void handleRoleHolderRequestedUpdateResult(int resultCode) {
+    private void handleRoleHolderRequestedUpdateResult(int resultCode, Intent resultData) {
         if ((resultCode
                 == RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_RECOVERABLE_ERROR
                 || resultCode == RESULT_CANCELED)
@@ -481,7 +487,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                         + resultCode + " and allow offline provisioning is "
                         + mController.getParams().allowOffline);
             }
-        } else if (mController.getParams().allowOffline) {
+        } else if (mController.getParams().allowOffline
+                || isRoleHolderUpdaterRequestingPlatformDrivenProvisioning(resultData)) {
             mController.performPlatformProvidedProvisioning();
         } else {
             failRoleHolderUpdate();
@@ -489,6 +496,17 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                     + "update. Result is " + resultCode + " and allow offline provisioning"
                     + " is " + mController.getParams().allowOffline);
         }
+    }
+
+    private boolean isRoleHolderUpdaterRequestingPlatformDrivenProvisioning(
+            @Nullable Intent resultData) {
+        if (resultData == null) {
+            return false;
+        }
+        return resultData.getIntExtra(
+                EXTRA_ROLE_HOLDER_UPDATE_FAILURE_STRATEGY,
+                ROLE_HOLDER_UPDATE_FAILURE_STRATEGY_FAIL_PROVISIONING)
+                == ROLE_HOLDER_UPDATE_FAILURE_STRATEGY_FALLBACK_TO_PLATFORM_PROVISIONING;
     }
 
     private void maybeHandleLaunchIntent(int resultCode, Intent data) {
