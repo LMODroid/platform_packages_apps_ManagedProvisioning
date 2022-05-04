@@ -22,8 +22,8 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.annotation.IntDef;
-import android.app.Activity;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.UserManager;
 
@@ -63,7 +63,7 @@ public final class FinalizationController {
     private static final int FINAL_SCREEN_REQUEST_CODE = 2;
 
     private final FinalizationControllerLogic mFinalizationControllerLogic;
-    private final Activity mActivity;
+    private final Context mContext;
     private final Utils mUtils;
     private final SettingsFacade mSettingsFacade;
     private final UserProvisioningStateHelper mUserProvisioningStateHelper;
@@ -73,39 +73,39 @@ public final class FinalizationController {
     private @ProvisioningFinalizedResult int mProvisioningFinalizedResult;
     private ProvisioningParamsUtils mProvisioningParamsUtils;
 
-    public FinalizationController(Activity activity,
+    public FinalizationController(Context context,
             FinalizationControllerLogic finalizationControllerLogic,
             UserProvisioningStateHelper userProvisioningStateHelper) {
         this(
-                activity,
+                context,
                 finalizationControllerLogic,
                 new Utils(),
                 new SettingsFacade(),
                 userProvisioningStateHelper,
-                new NotificationHelper(activity),
+                new NotificationHelper(context),
                 new DeferredMetricsReader(
-                        Constants.getDeferredMetricsFile(activity)),
+                        Constants.getDeferredMetricsFile(context)),
                 new ProvisioningParamsUtils(
                         ProvisioningParamsUtils.DEFAULT_PROVISIONING_PARAMS_FILE_PROVIDER));
     }
 
-    public FinalizationController(Activity activity,
+    public FinalizationController(Context context,
             FinalizationControllerLogic finalizationControllerLogic) {
         this(
-                activity,
+                context,
                 finalizationControllerLogic,
                 new Utils(),
                 new SettingsFacade(),
-                new UserProvisioningStateHelper(activity),
-                new NotificationHelper(activity),
+                new UserProvisioningStateHelper(context),
+                new NotificationHelper(context),
                 new DeferredMetricsReader(
-                        Constants.getDeferredMetricsFile(activity)),
+                        Constants.getDeferredMetricsFile(context)),
                 new ProvisioningParamsUtils(
                         ProvisioningParamsUtils.DEFAULT_PROVISIONING_PARAMS_FILE_PROVIDER));
     }
 
     @VisibleForTesting
-    FinalizationController(Activity activity,
+    FinalizationController(Context context,
             FinalizationControllerLogic finalizationControllerLogic,
             Utils utils,
             SettingsFacade settingsFacade,
@@ -113,7 +113,7 @@ public final class FinalizationController {
             NotificationHelper notificationHelper,
             DeferredMetricsReader deferredMetricsReader,
             ProvisioningParamsUtils provisioningParamsUtils) {
-        mActivity = checkNotNull(activity);
+        mContext = checkNotNull(context);
         mFinalizationControllerLogic = checkNotNull(finalizationControllerLogic);
         mUtils = checkNotNull(utils);
         mSettingsFacade = checkNotNull(settingsFacade);
@@ -128,7 +128,7 @@ public final class FinalizationController {
     PrimaryProfileFinalizationHelper getPrimaryProfileFinalizationHelper(
             ProvisioningParams params) {
         return new PrimaryProfileFinalizationHelper(params.accountToMigrate,
-                mUtils.getManagedProfile(mActivity), params.inferDeviceAdminPackageName());
+                mUtils.getManagedProfile(mContext), params.inferDeviceAdminPackageName());
     }
 
     /**
@@ -164,8 +164,8 @@ public final class FinalizationController {
 
         mProvisioningFinalizedResult = PROVISIONING_FINALIZED_RESULT_NO_CHILD_ACTIVITY_LAUNCHED;
         if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
-            UserManager userManager = mActivity.getSystemService(UserManager.class);
-            if (!userManager.isUserUnlocked(mUtils.getManagedProfile(mActivity))) {
+            UserManager userManager = mContext.getSystemService(UserManager.class);
+            if (!userManager.isUserUnlocked(mUtils.getManagedProfile(mContext))) {
                 mProvisioningFinalizedResult =
                         PROVISIONING_FINALIZED_RESULT_WAIT_FOR_WORK_PROFILE_AVAILABLE;
             } else {
@@ -192,14 +192,14 @@ public final class FinalizationController {
 
     @VisibleForTesting
     void clearParamsFile() {
-        final File file = mProvisioningParamsUtils.getProvisioningParamsFile(mActivity);
+        final File file = mProvisioningParamsUtils.getProvisioningParamsFile(mContext);
         if (file != null) {
             file.delete();
         }
     }
 
     private ProvisioningParams loadProvisioningParams() {
-        final File file = mProvisioningParamsUtils.getProvisioningParamsFile(mActivity);
+        final File file = mProvisioningParamsUtils.getProvisioningParamsFile(mContext);
         return ProvisioningParams.load(file);
     }
 
@@ -210,16 +210,16 @@ public final class FinalizationController {
     private void commitFinalizedState(ProvisioningParams params) {
         if (ACTION_PROVISION_MANAGED_DEVICE.equals(params.provisioningAction)) {
             mNotificationHelper.showPrivacyReminderNotification(
-                    mActivity, NotificationManager.IMPORTANCE_DEFAULT);
+                    mContext, NotificationManager.IMPORTANCE_DEFAULT);
         } else if (ACTION_PROVISION_MANAGED_PROFILE.equals(params.provisioningAction)
                 && mFinalizationControllerLogic.shouldFinalizePrimaryProfile(params)) {
             getPrimaryProfileFinalizationHelper(params)
-                    .finalizeProvisioningInPrimaryProfile(mActivity, null);
+                    .finalizeProvisioningInPrimaryProfile(mContext, null);
         }
 
         mUserProvisioningStateHelper.markUserProvisioningStateFinalized(params);
 
-        mDeferredMetricsReader.scheduleDumpMetrics(mActivity);
+        mDeferredMetricsReader.scheduleDumpMetrics(mContext);
         clearParamsFile();
     }
 

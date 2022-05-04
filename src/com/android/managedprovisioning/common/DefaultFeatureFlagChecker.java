@@ -32,7 +32,7 @@ public class DefaultFeatureFlagChecker implements FeatureFlagChecker {
      * Default value for {@link
      * Settings.Global#MANAGED_PROVISIONING_DEFER_PROVISIONING_TO_ROLE_HOLDER}.
      */
-    private static final int DEFAULT_DEFER_PROVISIONING_TO_ROLE_HOLDER = 0;
+    private static final int DEFAULT_DEFER_PROVISIONING_TO_ROLE_HOLDER = 1;
 
     private final ContentResolver mContentResolver;
 
