@@ -28,9 +28,8 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Sledeća aplikacija će upravljati uređajem:"</string>
     <string name="next" msgid="1004321437324424398">"Dalje"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Podešava se poslovni profil..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Administrator može da nadgleda podešavanja, korporativni pristup, aplikacije, dozvole i podatke povezane sa ovim profilom, kao i da upravlja njima. Tu spadaju aktivnosti na mreži, lokacija uređaja, istorija poziva i istorija pretrage kontakata.<xliff:g id="LINE_BREAK">
-
-</xliff:g>Kontaktirajte IT administratora za više informacija, uključujući politiku privatnosti organizacije."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_profile (1018585795537086728) -->
+    <skip />
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT administrator može da nadgleda podešavanja, korporativni pristup, aplikacije, dozvole i podatke povezane sa ovim uređajem, kao i da upravlja njima. Tu spadaju aktivnosti na mreži, lokacija uređaja, istorija poziva i istorija pretrage kontakata.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Kontaktirajte administratora za više informacija, uključujući politiku privatnosti organizacije."</string>
