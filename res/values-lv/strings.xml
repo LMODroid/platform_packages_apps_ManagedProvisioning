@@ -28,7 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Šī lietotne pārvaldīs jūsu ierīci:"</string>
     <string name="next" msgid="1004321437324424398">"Tālāk"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Notiek darba profila iestatīšana..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"IT administrators var pārraudzīt un pārvaldīt ar šo profilu saistītos iestatījumus, korporatīvo piekļuvi, lietotnes, atļaujas un datus, tostarp aktivitāti tīklā, kā arī informāciju par ierīces atrašanās vietu, zvanu vēsturi un kontaktpersonu meklēšanas vēsturi.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Jūsu IT administrators var pārraudzīt un pārvaldīt ar šo profilu saistītos iestatījumus, korporatīvo piekļuvi, lietotnes, atļaujas un datus, tostarp darbības tīklā, kā arī informāciju par ierīces atrašanās vietu, zvanu vēsturi un kontaktpersonu meklēšanas vēsturi.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Lai iegūtu plašāku informāciju, tostarp informāciju par organizācijas konfidencialitātes politikām, sazinieties ar IT administratoru."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT administrators var pārraudzīt un pārvaldīt ar šo ierīci saistītos iestatījumus, korporatīvo piekļuvi, lietotnes, atļaujas un datus, tostarp aktivitāti tīklā, kā arī informāciju par ierīces atrašanās vietu, zvanu vēsturi un kontaktpersonu meklēšanas vēsturi.<xliff:g id="LINE_BREAK">
