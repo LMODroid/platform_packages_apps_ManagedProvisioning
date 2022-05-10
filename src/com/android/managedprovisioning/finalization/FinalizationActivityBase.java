@@ -34,7 +34,6 @@ import android.os.UserHandle;
 import android.os.UserManager;
 import android.view.WindowManager;
 
-import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.TransitionHelper;
 
@@ -87,13 +86,6 @@ public abstract class FinalizationActivityBase extends Activity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         mFinalizationController = createFinalizationController();
-
-        if (mFinalizationController.shouldKeepScreenOn()) {
-            ManagedProvisioningBaseApplication application =
-                    (ManagedProvisioningBaseApplication) getApplication();
-            application.markKeepScreenOn();
-            application.maybeKeepScreenOn(this);
-        }
 
         if (savedInstanceState != null) {
             final Bundle controllerState = savedInstanceState.getBundle(CONTROLLER_STATE_KEY);
