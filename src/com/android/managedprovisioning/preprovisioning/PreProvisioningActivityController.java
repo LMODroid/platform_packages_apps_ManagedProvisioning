@@ -117,6 +117,7 @@ import com.android.managedprovisioning.parser.DisclaimerParser;
 import com.android.managedprovisioning.parser.DisclaimersParserImpl;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.DefaultConfig;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.PreProvisioningViewModelFactory;
+import com.android.managedprovisioning.provisioning.Constants;
 
 import java.util.IllformedLocaleException;
 import java.util.List;
@@ -230,7 +231,10 @@ public class PreProvisioningActivityController {
             String callingPackage) {
         boolean isRoleHolderReadyForProvisioning = mRoleHolderHelper
                 .isRoleHolderReadyForProvisioning(mContext, managedProvisioningIntent);
-        if (isRoleHolderReadyForProvisioning) {
+        boolean isRoleHolderProvisioningAllowed =
+                Constants.isRoleHolderProvisioningAllowedForAction(
+                        managedProvisioningIntent.getAction());
+        if (isRoleHolderReadyForProvisioning && isRoleHolderProvisioningAllowed) {
             ProvisionLogger.logw("Provisioning via role holder.");
             Intent roleHolderProvisioningIntent =
                     mRoleHolderHelper.createRoleHolderProvisioningIntent(
@@ -242,7 +246,8 @@ public class PreProvisioningActivityController {
             mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
             return true;
         } else if (getParams().allowOffline
-                || !mRoleHolderHelper.isRoleHolderProvisioningEnabled()) {
+                || !mRoleHolderHelper.isRoleHolderProvisioningEnabled()
+                || !isRoleHolderProvisioningAllowed) {
             ProvisionLogger.logw("Provisioning via platform.");
             performPlatformProvidedProvisioning();
             return true;
