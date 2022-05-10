@@ -261,8 +261,4 @@ public final class FinalizationController {
     void activityDestroyed(boolean isFinishing) {
         mFinalizationControllerLogic.activityDestroyed(isFinishing);
     }
-
-    boolean shouldKeepScreenOn() {
-        return loadProvisioningParams().keepScreenOn;
-    }
 }
