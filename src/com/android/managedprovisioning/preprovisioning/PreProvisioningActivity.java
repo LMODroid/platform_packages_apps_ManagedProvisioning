@@ -439,8 +439,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         ) {
             mController.performPlatformProvidedProvisioning();
         } else if (resultCode
-                != RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_UNRECOVERABLE_ERROR
-                || mController.getParams().allowOffline) {
+                != RESULT_UPDATE_DEVICE_POLICY_MANAGEMENT_ROLE_HOLDER_UNRECOVERABLE_ERROR) {
             mController.resetRoleHolderUpdateRetryCount();
             boolean isProvisioningStarted = mController.startAppropriateProvisioning(
                     getIntent(),
@@ -453,7 +452,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
                         + " and allow offline provisioning is "
                         + mController.getParams().allowOffline);
             }
-        } else if (isRoleHolderUpdaterRequestingPlatformDrivenProvisioning(resultData)) {
+        } else if (isRoleHolderUpdaterRequestingPlatformDrivenProvisioning(resultData)
+                || mController.getParams().allowOffline) {
             mController.performPlatformProvidedProvisioning();
         } else {
             failRoleHolderUpdate();
