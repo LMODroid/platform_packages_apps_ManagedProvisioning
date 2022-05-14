@@ -373,6 +373,62 @@ public class ProvisioningAnalyticsTracker {
         }
     }
 
+    public void logRoleHolderProvisioningStart() {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.ROLE_HOLDER_PROVISIONING_START)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    public void logRoleHolderProvisioningFinish() {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.ROLE_HOLDER_PROVISIONING_FINISH)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    public void logPlatformRoleHolderUpdateStart() {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PLATFORM_ROLE_HOLDER_UPDATE_START)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    public void logPlatformRoleHolderUpdateFailed() {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PLATFORM_ROLE_HOLDER_UPDATE_FAILED)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    public void logPlatformRoleHolderUpdateFinished(int resultCode) {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.PLATFORM_ROLE_HOLDER_UPDATE_FINISHED)
+                        .setInt(resultCode)
+                        .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    public void logRoleHolderUpdaterUpdateStart() {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.ROLE_HOLDER_UPDATER_UPDATE_START)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    public void logRoleHolderUpdaterUpdateFinish(int resultCode) {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.ROLE_HOLDER_UPDATER_UPDATE_FINISH)
+                .setInt(resultCode)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    public void logRoleHolderUpdaterUpdateRetry() {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.ROLE_HOLDER_UPDATER_UPDATE_RETRY)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
+    public void logRoleHolderUpdaterUpdateFailed() {
+        mMetricsWriter.write(DevicePolicyEventLogger
+                .createEvent(DevicePolicyEnums.ROLE_HOLDER_UPDATER_UPDATE_FAILED)
+                .setTimePeriod(AnalyticsUtils.getProvisioningTime(mSharedPreferences)));
+    }
+
     private void logProvisionedFromTrustedSource(Context context, Intent intent,
             SettingsFacade settingsFacade) {
         mMetricsLoggerWrapper.logAction(context, PROVISIONING_ENTRY_POINT_TRUSTED_SOURCE);
