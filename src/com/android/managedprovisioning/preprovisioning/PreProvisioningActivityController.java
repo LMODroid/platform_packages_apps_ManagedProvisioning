@@ -333,7 +333,7 @@ public class PreProvisioningActivityController {
 
         void onParamsValidated(ProvisioningParams params);
 
-        void startRoleHolderDownload();
+        void startPlatformDrivenRoleHolderDownload();
     }
 
     /**
@@ -431,7 +431,7 @@ public class PreProvisioningActivityController {
         // TODO(b/207376815): Have a PreProvisioningForwarderActivity to forward to either
         //  platform-provided provisioning or DMRH
         if (mRoleHolderUpdaterHelper.shouldPlatformDownloadRoleHolder(intent, params)) {
-            mUi.startRoleHolderDownload();
+            mUi.startPlatformDrivenRoleHolderDownload();
         } else if (mRoleHolderUpdaterHelper
                 .shouldStartRoleHolderUpdater(mContext, intent, params)) {
             resetRoleHolderUpdateRetryCount();

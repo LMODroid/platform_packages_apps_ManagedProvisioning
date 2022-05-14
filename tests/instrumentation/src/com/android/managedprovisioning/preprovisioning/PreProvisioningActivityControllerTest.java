@@ -430,7 +430,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
 
         // THEN download role holder
         verify(mUi).onParamsValidated(DOWNLOAD_ROLE_HOLDER_PARAMS);
-        verify(mUi).startRoleHolderDownload();
+        verify(mUi).startPlatformDrivenRoleHolderDownload();
         verifyNoMoreInteractions(mUi);
     }
 
