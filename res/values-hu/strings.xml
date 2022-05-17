@@ -28,8 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"A következő alkalmazás kezelni fogja az eszközt:"</string>
     <string name="next" msgid="1004321437324424398">"Tovább"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Munkaprofil beállítása…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (1018585795537086728) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"A rendszergazda felügyelheti és kezelheti a profillal kapcsolatos beállításokat, vállalati hozzáférést, alkalmazásokat, engedélyeket, adatokat és hálózati tevékenységeket, valamint a híváslistát és névjegykeresési előzményeket. Vegye fel a kapcsolatot rendszergazdájával, ha további információt szeretne megtudni, és tájékozódni szeretne szervezete adatvédelmi irányelveiről."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"A rendszergazda figyelheti és kezelheti a beállításokat, a vállalati hozzáférést, az alkalmazásokat, az engedélyeket, az ehhez az eszközhöz tartozó adatokat, például a hálózati tevékenységet, az eszköz helyadatait, a híváselőzményeket és a névjegykeresési előzményeket.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Ha további információra van szüksége (például a szervezete adatvédelmi irányelveivel kapcsolatban), vegye fel a kapcsolatot a rendszergazdával."</string>
