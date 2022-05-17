@@ -28,8 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"A seguinte aplicación xestionará o teu dispositivo:"</string>
     <string name="next" msgid="1004321437324424398">"Seguinte"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Configurando o perfil de traballo..."</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (1018585795537086728) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"O teu administrador de TI pode controlar e xestionar a configuración, o acceso corporativo, as aplicacións, os permisos, a actividade da rede e os datos asociados a este perfil, así como o historial de chamadas e o de busca de contactos. Ponte en contacto co teu administrador de TI para recibir máis información sobre as políticas de privacidade da túa organización."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"O teu administrador de TI pode controlar e xestionar a configuración, o acceso corporativo, as aplicacións, os permisos e os datos asociados con este dispositivo (entre os que se inclúe a actividade da túa rede); así como a localización do dispositivo, o historial de chamadas e o historial de busca de contactos.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Ponte en contacto co teu administrador de TI para recibir máis información e consultar as políticas de privacidade da túa organización."</string>

@@ -28,8 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Laitettasi hallinnoi seuraava sovellus:"</string>
     <string name="next" msgid="1004321437324424398">"Seuraava"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Työprofiilia luodaan…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (1018585795537086728) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"IT-järjestelmänvalvoja voi valvoa ja ylläpitää tämän profiilin asetuksia, yrityskäyttöä, sovelluksia, lupia ja verkkotoimintaa sekä puheluhistoriaasi ja yhteystietojen hakuhistoriaa. Pyydä IT-järjestelmänvalvojalta lisätietoa tästä ja organisaation tietosuojakäytännöistä."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"IT-järjestelmänvalvoja voi valvoa ja ylläpitää asetuksia, yrityskäyttöä, sovelluksia, käyttöoikeuksia ja tähän laitteeseen liittyvää dataa (mukaan lukien verkkotoimintaa) sekä puheluhistoriaa ja yhteystietojen hakuhistoriaa.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Saat IT-järjestelmänvalvojalta lisätietoja esimerkiksi organisaation tietosuojakäytännöistä."</string>
