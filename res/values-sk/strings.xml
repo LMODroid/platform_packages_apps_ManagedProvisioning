@@ -28,8 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Vaše zariadenie bude spravovať nasledujúca aplikácia:"</string>
     <string name="next" msgid="1004321437324424398">"Ďalej"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Nastavuje sa pracovný profil…"</string>
-    <!-- no translation found for admin_has_ability_to_monitor_profile (1018585795537086728) -->
-    <skip />
+    <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"Váš správca IT môže sledovať a spravovať nastavenia, podnikový prístup, aplikácie, povolenia, údaje, aktivitu v sieti spojenú s týmto profilom, ako aj vašu históriu hovorov a históriu vyhľadávania kontaktov. Ak chcete získať ďalšie informácie a dozvedieť sa viac o pravidlách ochrany súkromia svojej organizácie, kontaktujte svojho správcu IT."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Správca IT môže sledovať a spravovať nastavenia, firemný prístup, aplikácie, povolenia a údaje spojené s týmto profilom vrátane aktivity v sieti a informácií o polohe zariadenia, histórie hovorov a histórie vyhľadávania kontaktov.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Ak potrebujete ďalšie informácie vrátane informácií o pravidlách ochrany súkromia svojej organizácie, kontaktujte správcu."</string>
