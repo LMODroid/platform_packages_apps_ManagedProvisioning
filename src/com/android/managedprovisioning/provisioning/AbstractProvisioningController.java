@@ -200,7 +200,8 @@ public abstract class AbstractProvisioningController implements AbstractProvisio
         addTasks(downloadTask,
                 new VerifyAdminPackageTask(
                         downloadTask, mContext, mParams, mParams.deviceAdminDownloadInfo, this),
-                new InstallPackageTask(downloadTask, mContext, mParams, this));
+                new InstallPackageTask(downloadTask, mContext, mParams, this,
+                        mParams.inferDeviceAdminPackageName()));
 
         // TODO(b/170333009): add unit test for headless system user mode
         if (UserManager.isHeadlessSystemUserMode() && mUserId != UserHandle.USER_SYSTEM) {
