@@ -47,6 +47,7 @@ public class DownloadRoleHolderViewModelTest {
             .setProvisioningAction(ACTION_PROVISION_MANAGED_PROFILE)
             .setDeviceAdminComponentName(ADMIN)
             .build();
+    private static final String ROLE_HOLDER_PACKAGE_NAME = "test.roleholder.package";
     private static final int DIALOG_TITLE_RES_ID = 1;
     private static final int DIALOG_MESSAGE_RES_ID = 2;
     private static final String DIALOG_MESSAGE = "dialog message";
@@ -56,7 +57,7 @@ public class DownloadRoleHolderViewModelTest {
     @Before
     public void setUp() {
         mViewModel = new DownloadRoleHolderViewModel(
-                PROVISIONING_PARAMS, new Utils(), new SettingsFacade());
+                PROVISIONING_PARAMS, new Utils(), new SettingsFacade(), ROLE_HOLDER_PACKAGE_NAME);
     }
 
     @Test
