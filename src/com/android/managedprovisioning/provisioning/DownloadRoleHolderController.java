@@ -40,6 +40,7 @@ public class DownloadRoleHolderController extends AbstractProvisioningController
 
     private final Utils mUtils;
     private final SettingsFacade mSettingsFacade;
+    private final String mRoleHolderPackageName;
 
     /**
      * Instantiates a new {@link DownloadRoleHolderController} instance and creates the
@@ -53,10 +54,11 @@ public class DownloadRoleHolderController extends AbstractProvisioningController
             int userId,
             ProvisioningControllerCallback callback,
             Utils utils,
-            SettingsFacade settingsFacade) {
+            SettingsFacade settingsFacade,
+            String roleHolderPackageName) {
         DownloadRoleHolderController controller =
                 new DownloadRoleHolderController(context, params, userId, callback,
-                        utils, settingsFacade);
+                        utils, settingsFacade, roleHolderPackageName);
         controller.setUpTasks();
         return controller;
     }
@@ -65,10 +67,12 @@ public class DownloadRoleHolderController extends AbstractProvisioningController
             ProvisioningParams params, int userId,
             ProvisioningControllerCallback callback,
             Utils utils,
-            SettingsFacade settingsFacade) {
+            SettingsFacade settingsFacade,
+            String roleHolderPackageName) {
         super(context, params, userId, callback);
         mUtils = requireNonNull(utils);
         mSettingsFacade = requireNonNull(settingsFacade);
+        mRoleHolderPackageName = requireNonNull(roleHolderPackageName);
     }
 
     @Override
@@ -92,7 +96,8 @@ public class DownloadRoleHolderController extends AbstractProvisioningController
         addTasks(downloadTask,
                 new VerifyRoleHolderPackageTask(
                         downloadTask, mContext, mParams, mParams.roleHolderDownloadInfo, this),
-                new InstallPackageTask(downloadTask, mContext, mParams, this));
+                new InstallPackageTask(downloadTask, mContext, mParams, this,
+                        mRoleHolderPackageName));
     }
 
     @Override
