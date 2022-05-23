@@ -50,15 +50,18 @@ public class DownloadRoleHolderViewModel extends ViewModel implements
     private final ProvisioningParams mParams;
     private final Utils mUtils;
     private final SettingsFacade mSettingsFacade;
+    private final String mRoleHolderPackageName;
     private ErrorWrapper mErrorWrapper;
 
     public DownloadRoleHolderViewModel(
             ProvisioningParams params,
             Utils utils,
-            SettingsFacade settingsFacade) {
+            SettingsFacade settingsFacade,
+            String roleHolderPackageName) {
         mParams = requireNonNull(params);
         mUtils = requireNonNull(utils);
         mSettingsFacade = requireNonNull(settingsFacade);
+        mRoleHolderPackageName = requireNonNull(roleHolderPackageName);
     }
 
     /**
@@ -79,7 +82,8 @@ public class DownloadRoleHolderViewModel extends ViewModel implements
                         UserHandle.USER_SYSTEM,
                         this,
                         mUtils,
-                        mSettingsFacade));
+                        mSettingsFacade,
+                        mRoleHolderPackageName));
         updateState(STATE_DOWNLOADING);
     }
 
@@ -132,15 +136,18 @@ public class DownloadRoleHolderViewModel extends ViewModel implements
         private final ProvisioningParams mParams;
         private final Utils mUtils;
         private final SettingsFacade mSettingsFacade;
+        private final String mRoleHolderPackageName;
 
         public DownloadRoleHolderViewModelFactory(
                 ManagedProvisioningBaseApplication application,
                 ProvisioningParams params,
                 Utils utils,
-                SettingsFacade settingsFacade) {
+                SettingsFacade settingsFacade,
+                String roleHolderPackageName) {
             mParams = requireNonNull(params);
             mUtils = requireNonNull(utils);
             mSettingsFacade = requireNonNull(settingsFacade);
+            mRoleHolderPackageName = requireNonNull(roleHolderPackageName);
         }
 
         @Override
@@ -149,7 +156,8 @@ public class DownloadRoleHolderViewModel extends ViewModel implements
                 throw new IllegalArgumentException("Invalid class for creating a "
                         + "DownloadRoleHolderViewModel: " + modelClass);
             }
-            return (T) new DownloadRoleHolderViewModel(mParams, mUtils, mSettingsFacade);
+            return (T) new DownloadRoleHolderViewModel(
+                    mParams, mUtils, mSettingsFacade, mRoleHolderPackageName);
         }
     }
 }

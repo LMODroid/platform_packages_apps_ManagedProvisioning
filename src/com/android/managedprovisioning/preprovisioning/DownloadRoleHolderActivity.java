@@ -26,6 +26,7 @@ import com.android.managedprovisioning.ManagedProvisioningBaseApplication;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ErrorDialogUtils;
 import com.android.managedprovisioning.common.ErrorWrapper;
+import com.android.managedprovisioning.common.RoleHolderProvider;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.DownloadRoleHolderViewModel.DownloadRoleHolderViewModelFactory;
@@ -62,7 +63,8 @@ public class DownloadRoleHolderActivity extends SetupGlifLayoutActivity {
                         (ManagedProvisioningBaseApplication) getApplication(),
                         params,
                         mUtils,
-                        mSettingsFacade))
+                        mSettingsFacade,
+                        RoleHolderProvider.DEFAULT.getPackageName(this)))
                 .get(DownloadRoleHolderViewModel.class);
         mViewModel.observeState().observe(this, this::onStateChanged);
         mViewModel.connectToNetworkAndDownloadRoleHolder(getApplicationContext());
