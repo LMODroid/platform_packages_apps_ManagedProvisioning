@@ -128,6 +128,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     private static final String ERROR_DIALOG_RESET = "ErrorDialogReset";
     private ProvisioningAnalyticsTracker mAnalyticsTracker;
+    private boolean mAlreadyInitialized;
 
     public PreProvisioningActivity() {
         this(activity ->
@@ -168,6 +169,9 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         }
 
         super.onCreate(savedInstanceState);
+        if (savedInstanceState == null) {
+            mAlreadyInitialized = false;
+        }
         mController = mControllerProvider.getInstance(this);
         mBridge = createBridge();
         mController.getState().observe(this, this::onStateChanged);
@@ -227,7 +231,10 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     private void onStateChanged(Integer state) {
         switch (state) {
             case STATE_PREPROVISIONING_INITIALIZING:
-                mController.initiateProvisioning(getIntent(), getCallingPackage());
+                if (!mAlreadyInitialized) {
+                    mController.initiateProvisioning(getIntent(), getCallingPackage());
+                    mAlreadyInitialized = true;
+                }
                 break;
             case STATE_SHOWING_USER_CONSENT:
                 mController.showUserConsentScreen();
