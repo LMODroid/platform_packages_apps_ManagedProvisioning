@@ -527,6 +527,26 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         verifyNoMoreInteractions(mUi);
     }
 
+    public void
+            testManagedProfile_withoutRoleHolderUpdaterAndNoRoleHolderInstalled_startsPlatformProvidedProvisioning()
+            throws Exception {
+        enableRoleHolderDelegation();
+        mController = createControllerWithRoleHolderHelpers(
+                DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_CONFIGURED,
+                ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_DEFINED);
+        // GIVEN an intent to provision a managed profile
+        prepareMocksForManagedProfileIntent(false);
+        // WHEN initiating provisioning
+        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
+            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
+        });
+
+        // THEN start profile provisioning
+        verify(mUi).onParamsValidated(mParams);
+        verify(mUi).initiateUi(any(UiParams.class));
+        verifyNoMoreInteractions(mUi);
+        verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
+    }
 
     public void testFinancedDevice_provisioningStarted()
             throws Exception {
@@ -633,26 +653,6 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         assertThat(resultIntent.getIntExtra(EXTRA_ROLE_HOLDER_UPDATE_RESULT_CODE, RESULT_CANCELED))
                 .isEqualTo(RESULT_OK);
         verifyNoMoreInteractions(mUi);
-    }
-
-    public void testManagedProfile_noRoleHolderAndOfflineDisallowed_provisioningFails()
-            throws Exception {
-        enableRoleHolderDelegation();
-        mController = createControllerWithRoleHolderHelpers(
-                DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_PRESENT,
-                ROLE_HOLDER_UPDATER_HELPER_UPDATER_NOT_DEFINED);
-        // GIVEN an intent to provision a managed profile
-        prepareMocksForManagedProfileIntent(false);
-        // WHEN initiating provisioning
-        InstrumentationRegistry.getInstrumentation().runOnMainSync(() -> {
-            mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
-        });
-
-        // THEN start profile provisioning
-        verify(mUi).onParamsValidated(mParams);
-        verify(mUi).showErrorAndClose(any(), anyInt(), anyString());
-        verifyNoMoreInteractions(mUi);
-        verify(mSharedPreferences).setIsProvisioningFlowDelegatedToRoleHolder(false);
     }
 
     public void testManagedProfile_roleHolderReady_startsRoleHolderProvisioning()
