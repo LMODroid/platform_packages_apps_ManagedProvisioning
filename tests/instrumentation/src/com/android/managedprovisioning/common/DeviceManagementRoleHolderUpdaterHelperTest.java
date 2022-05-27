@@ -370,6 +370,25 @@ public class DeviceManagementRoleHolderUpdaterHelperTest {
                         PARAMS_WITH_ROLE_HOLDER_DOWNLOAD_INFO)).isFalse();
     }
 
+    @Test
+    public void isRoleHolderUpdaterDefined_actuallyDefined_returnsTrue() {
+        enableRoleHolderDelegation();
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                createRoleHolderUpdaterHelper();
+
+        assertThat(roleHolderUpdaterHelper.isRoleHolderUpdaterDefined()).isTrue();
+    }
+
+    @Test
+    public void isRoleHolderUpdaterDefined_actuallyNotDefined_returnsFalse() {
+        enableRoleHolderDelegation();
+        DeviceManagementRoleHolderUpdaterHelper roleHolderUpdaterHelper =
+                createRoleHolderUpdaterHelperWithUpdaterPackageName(
+                        ROLE_HOLDER_UPDATER_EMPTY_PACKAGE_NAME);
+
+        assertThat(roleHolderUpdaterHelper.isRoleHolderUpdaterDefined()).isFalse();
+    }
+
     private FeatureFlagChecker createFeatureFlagChecker() {
         return () -> mCanDelegateProvisioningToRoleHolder;
     }
