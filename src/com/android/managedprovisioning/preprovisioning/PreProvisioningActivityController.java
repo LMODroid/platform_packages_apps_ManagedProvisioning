@@ -247,6 +247,7 @@ public class PreProvisioningActivityController {
             return true;
         } else if (getParams().allowOffline
                 || !mRoleHolderHelper.isRoleHolderProvisioningEnabled()
+                || !mRoleHolderUpdaterHelper.isRoleHolderUpdaterDefined()
                 || !isRoleHolderProvisioningAllowed) {
             ProvisionLogger.logw("Provisioning via platform.");
             performPlatformProvidedProvisioning();
