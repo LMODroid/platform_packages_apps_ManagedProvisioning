@@ -160,4 +160,8 @@ public class DeviceManagementRoleHolderUpdaterHelper {
         }
         return intent;
     }
+
+    public boolean isRoleHolderUpdaterDefined() {
+        return !TextUtils.isEmpty(mRoleHolderUpdaterPackageName);
+    }
 }
