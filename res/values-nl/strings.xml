@@ -40,7 +40,7 @@
     <string name="cancel_setup" msgid="2949928239276274745">"Annuleren"</string>
     <string name="ok_setup" msgid="4593707675416137504">"OK"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Ik ga akkoord"</string>
-    <string name="url_error" msgid="5958494012986243186">"Kan deze link niet weergeven."</string>
+    <string name="url_error" msgid="5958494012986243186">"Kan deze link niet bekijken."</string>
     <string name="navigation_button_description" msgid="6106309408994461239">"Terug"</string>
     <string name="terms" msgid="8295436105384703903">"Voorwaarden"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"Informatie over werkprofiel"</string>
@@ -115,7 +115,7 @@
     <string name="your_org_app_used" msgid="5336414768293540831">"Dit apparaat wordt beheerd en bijgehouden door <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> met de volgende app:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"Je organisatie"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"je organisatie"</string>
-    <string name="view_terms" msgid="7230493092383341605">"Servicevoorwaarden bekijken"</string>
+    <string name="view_terms" msgid="7230493092383341605">"Voorwaarden bekijken"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"Akkoord en doorgaan"</string>
     <string name="back" msgid="6455622465896147127">"Terug"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"Je apparaat instellen"</string>

@@ -162,7 +162,7 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Аккаунтыңыз басқарылады"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Қауіпсіздік саясатының талаптарын іске асыру үшін жүйе әкімшісі мобильдік құрылғыны басқару процесін қолданады."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Жұмысқа реттеуге дайындалуда…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Алдымен жұмыс профиліңізді реттеп алайық."</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Жұмыс профиліңізді реттеп алайық"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Жұмыс қолданбалары жұмыс профилінде сақталады"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Күннің соңында жұмыс қолданбаларын тоқтатып қою"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Әкімші жұмыс профиліңіздегі деректерді көреді"</string>

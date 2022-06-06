@@ -28,9 +28,9 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ứng dụng sau sẽ quản lý thiết bị của bạn:"</string>
     <string name="next" msgid="1004321437324424398">"Tiếp theo"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Đang thiết lập hồ sơ công việc..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Quản trị viên CNTT của bạn có thể giám sát và quản lý tùy chọn cài đặt, quyền truy cập vào dữ liệu công ty, ứng dụng, quyền và dữ liệu liên kết với hồ sơ này, bao gồm cả hoạt động mạng cũng như vị trí của thiết bị, nhật ký cuộc gọi và lịch sử tìm kiếm liên hệ.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Quản trị viên CNTT của bạn có quyền giám sát và quản lý chế độ cài đặt, quyền truy cập vào dữ liệu công ty, ứng dụng, quyền và dữ liệu liên kết với hồ sơ này, bao gồm cả hoạt động mạng cũng như vị trí của thiết bị, nhật ký cuộc gọi và nhật ký tìm kiếm danh bạ.<xliff:g id="LINE_BREAK">
 
-</xliff:g>Hãy liên hệ với quản trị viên CNTT để biết thêm thông tin, kể cả chính sách quyền riêng tư của tổ chức bạn."</string>
+</xliff:g>Hãy liên hệ quản trị viên CNTT của bạn để biết thêm thông tin, bao gồm cả chính sách quyền riêng tư của tổ chức."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Quản trị viên CNTT của bạn có thể giám sát và quản lý tùy chọn cài đặt, quyền truy cập vào dữ liệu công ty, ứng dụng, quyền và dữ liệu liên kết với thiết bị này, bao gồm cả hoạt động mạng cũng như vị trí của thiết bị, nhật ký cuộc gọi và lịch sử tìm kiếm liên hệ.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Hãy liên hệ với quản trị viên CNTT để biết thêm thông tin, kể cả chính sách quyền riêng tư của tổ chức bạn."</string>
