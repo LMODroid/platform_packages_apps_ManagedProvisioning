@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"Ok"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Razıyam"</string>
     <string name="url_error" msgid="5958494012986243186">"Bu linki göstərmək olmur."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"Yuxarı keçin"</string>
     <string name="terms" msgid="8295436105384703903">"Şərtlər"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"İş profili məlumatı"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"İdarə edilən cihaz məlumatı"</string>
@@ -169,7 +170,7 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"İş tətbiqləri iş profilində saxlanılır. İşiniz bitdikdə iş tətbiqlərinə fasilə verə bilərsiz. İş profilinizdəki datanı IT admininiz görə bilir."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"İş cihazı quraşdırın"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"İş tətbiqlərini əlinizin altında saxlayın"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Bu cihaz şəxsidir"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Bu cihaz şəxsi deyil"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"IT admini bu cihazda data və fəaliyyətinizə baxa bilər."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Fəaliyyət və datanız"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Tətbiq icazələri"</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Məxfilik xatırlatması"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT admini bu cihazda data və fəaliyyətinizə baxa bilər"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"Bu cihaz <xliff:g id="CREDITOR_NAME">%s</xliff:g> tərəfindən təmin edilib"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> tətbiqi ilə ödəniş edin"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Bu cihaz üçün ödənişlər edin"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Bu cihaz üçün ödəniş etmək üçün <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> tətbiqini quraşdıra bilər."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> bu cihazı məhdudlaşdıra bilər"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Bu cihaz məhdudlaşdırıla bilər"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ödəniş etməsəniz, bu cihaza girişi məhdudlaşdıra bilər."</string>
 </resources>

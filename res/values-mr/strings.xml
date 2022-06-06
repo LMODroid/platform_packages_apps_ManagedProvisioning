@@ -28,9 +28,9 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"खालील अ‍ॅप तुमचे डिव्हाइस व्यवस्‍थापित करेल:"</string>
     <string name="next" msgid="1004321437324424398">"पुढील"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"कार्य प्रोफाइल सेट अप करत आहे..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"तुमच्या IT अ‍ॅडमिनकडे सेटिंग्ज, कॉर्पोरेट अ‍ॅक्सेस, अ‍ॅप्स, परवानग्या आणि या प्रोफाइलशी संबंधित तुमच्या नेटवर्क अ‍ॅक्टिव्हिटीसह डेटा, त्याचप्रमाणे तुमच्या डिव्हाइसचे स्थान, कॉल इतिहास आणि संपर्क शोध इतिहास यांचे परीक्षण आणि व्यवस्थापन करण्याची क्षमता आहे.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"तुमच्या IT अ‍ॅडमिनकडे सेटिंग्ज, कॉर्पोरेट अ‍ॅक्सेस, अ‍ॅप्स, परवानग्या आणि या प्रोफाइलशी संलग्न तुमच्या नेटवर्क अ‍ॅक्टिव्हिटीसह डेटा, त्याचप्रमाणे तुमच्या डिव्हाइसचे स्थान, कॉल इतिहास व संपर्क शोध इतिहास यांचे परीक्षण आणि व्यवस्थापन करण्याची क्षमता आहे.<xliff:g id="LINE_BREAK">
 
-</xliff:g>तुमच्या संस्थेच्या गोपनीयता धोरणांसह अधिक माहितीसाठी तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
+</xliff:g>तुमच्या संस्थेच्या गोपनीयता धोरणांच्या समावेशासह अधिक माहितीसाठी तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"तुमच्या IT अ‍ॅडमिनकडे सेटिंग्ज, कॉर्पोरेट अ‍ॅक्सेस, अ‍ॅप्स, परवानग्या आणि या डिव्हाइसशी संबंधित तुमच्या नेटवर्क अ‍ॅक्टिव्हिटीसह डेटा, त्याचप्रमाणे तुमच्या डिव्हाइसचे स्थान, कॉल इतिहास आणि संपर्क शोध इतिहास यांचे परीक्षण आणि व्यवस्थापन करण्याची क्षमता आहे.<xliff:g id="LINE_BREAK">
 
 </xliff:g>तुमच्या संस्थेच्या गोपनीयता धोरणांसह अधिक माहितीसाठी तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
@@ -41,6 +41,7 @@
     <string name="ok_setup" msgid="4593707675416137504">"ठीक आहे"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"मी संमती देतो"</string>
     <string name="url_error" msgid="5958494012986243186">"ही लिंक प्रदर्शित करता येणार नाही."</string>
+    <string name="navigation_button_description" msgid="6106309408994461239">"वर नेव्‍हिगेट करा"</string>
     <string name="terms" msgid="8295436105384703903">"अटी"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"कार्य प्रोफाइल माहिती"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"व्यवस्थापित डिव्हाइस माहिती"</string>
@@ -189,8 +190,8 @@
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयता रिमाइंडर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"हे डिव्हाइस <xliff:g id="CREDITOR_NAME">%s</xliff:g> द्वारे पुरवले गेले आहे"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7517793486744056995">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> ॲप वापरून पेमेंट करा"</string>
+    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"या डिव्हाइससाठी पेमेंट करा"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g><xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ॲप इंस्टॉल करू शकतो जेणेकरून, तुम्ही हे डिव्हाइस वापरून पेमेंट करू शकता."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="5218186267108559679">"<xliff:g id="CREDITOR_NAME">%s</xliff:g> या डिव्हाइसवरील अ‍ॅक्सेस मर्यादित करू शकतो"</string>
+    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"हे डिव्हाइस प्रतिबंधित केले जाऊ शकते"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"तुम्ही पेमेंट न केल्यास, <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> या डिव्हाइसवरील अ‍ॅक्सेस मर्यादित करू शकतो."</string>
 </resources>
