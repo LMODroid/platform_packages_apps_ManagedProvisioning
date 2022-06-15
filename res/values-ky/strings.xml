@@ -105,7 +105,7 @@
     <string name="device_owner_info" msgid="3716661456037934467">"Бул түзмөк <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> тарабынан башкарылып, көзөмөлдөнүп, коопсуздугу сакталат. Шарттар колдонулат. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Бул түзмөк <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> тарабынан башкарылып, көзөмөлдөнүп, коопсуздугу сакталат. <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> шарттары колдонулат. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"Бул шилтеме кооптуу жана түзмөк жөндөлмөйүнчө аны ачууга болбойт: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="2843488903902493030">"Кеңири маалымат алуу үчүн, <xliff:g id="IT_ADMIN">%1$s</xliff:g> менен байланышыңыз."</string>
+    <string name="contact_device_provider" msgid="2843488903902493030">"Кошумча суроолоруңузга <xliff:g id="IT_ADMIN">%1$s</xliff:g> жооп берет."</string>
     <string name="if_questions_contact_admin" msgid="3509427015901582047">"Суроолоруңуз болсо, IT администраторуңузга кайрылыңыз"</string>
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"Жөндөө аягына чыккан жок. Жардам алуу үчүн, IT администраторуңузга кайрылыңыз."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"Жардам алуу үчүн, IT администраторуңузга кайрылыңыз"</string>
@@ -159,12 +159,12 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Бул телефон төмөнкү колдонмо аркылуу башкарылып, көзөмөлдөнөт"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Аккаунтуңуз башкарылып жатат"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"IT администраторуңуз мобилдик түзмөктөгү коопсуздук саясаттарын иштетүүдө"</string>
-    <string name="downloading_administrator_header" msgid="8660294318893902915">"Жумушка жөндөөгө даярдалууда…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Келиңиз, жумуш профилиңизди жөндөп алалы"</string>
+    <string name="downloading_administrator_header" msgid="8660294318893902915">"Жумуш профилин түзүүгө даярдык көрүлүүдө…"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Келиңиз, жумуш профилиңизди түзүп алалы"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Жумуш колдонмолору жумуш профилиңизде сакталат"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Иштеп бүткөндөн кийин, жумуш колдонмолорун тындырып коюңуз"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"IT администраторуңузга жумуш профилиңиздеги нерселер көрүнөт"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Жумуш профилиңиз жөндөлүүдө…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Жумуш профилиңиз түзүлүүдө…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Жумуш колдонмолору жумуш профилиңизде сакталат. Иштеп бүткөндөн кийин, жумуш колдонмолоруңузду тындырып койсоңуз болот. IT администраторуңузга жумуш профилиңиздеги нерселер көрүнөт."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Келиңиз, жумуш телефонуңузду жөндөп алалы"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Жумуш колдонмолоруңузга оңой кире аласыз"</string>
@@ -180,10 +180,10 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Мурунку экранга кайтыңыз, же болбосо бул түзмөктү баштапкы абалга келтирип, IT администраторуңузга кайтарыңыз."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Жөндөөнү токтотуу"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Түзмөктү баштапкы абалга келтирип, кайтаруу"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Жумуш колдонмолоруңуз жумуш профилинде сакталып, IT администраторуңуз тарабынан башкарылат"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Жумуш колдонмолоруңуз жумуш профилинде сакталып, аларды IT администраторуңуз тескейт"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Жеке колдонмолор жумуш колдонмолорунан өзүнчө жана жашыруун сакталат"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT администраторуңуз бул түзмөктү көзөмөлдөп, белгилүү бир колдонмолорду бөгөттөй алат"</string>
-    <string name="cope_provisioning_summary" msgid="993014104601034878">"Жумуш колдонмолоруңуз жумуш профилинде сакталып, IT администраторуңуз тарабынан башкарылат. Жеке колдонмолор жумуш колдонмолорунан өзүнчө сакталат. IT администраторуңуз бул түзмөктү көзөмөлдөп, белгилүү бир колдонмолорду бөгөттөй алат."</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT администраторуңуз бул түзмөктү көзөмөлдөп, айрым колдонмолорду бөгөттөй алат"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"Жумуш колдонмолоруңуз жумуш профилинде сакталып, аларды IT администраторуңуз тескейт. Жеке колдонмолор жумуш колдонмолорунан өзүнчө сакталат. IT администраторуңуз бул түзмөктү көзөмөлдөп, айрым колдонмолорду бөгөттөй алат."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Бир секунд…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Купуялык жөнүндө эстеткич"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT администраторуңуз бул түзмөктөгү дайын-даректериңизди жана аракеттериңизди көрө алат"</string>
