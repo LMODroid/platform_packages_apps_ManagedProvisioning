@@ -334,6 +334,8 @@ public final class ProvisioningParams extends PersistableBundlable {
     /**
      * {@code true} if offline provisioning is allowed
      *
+     * <p>In T this can also be used to force platform side provisioning.
+     *
      * @see DevicePolicyManager#EXTRA_PROVISIONING_ALLOW_OFFLINE
      */
     public final boolean allowOffline;
