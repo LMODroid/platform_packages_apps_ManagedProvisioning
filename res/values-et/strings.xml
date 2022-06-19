@@ -105,7 +105,7 @@
     <string name="device_owner_info" msgid="3716661456037934467">"Seda seadet haldab, jälgib ja hoiab turvalisena <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Kehtivad tingimused. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"Seda seadet haldab, jälgib ja hoiab turvalisena <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>. Kehtivad teenuste <xliff:g id="TERMS_HEADERS">%2$s</xliff:g> tingimused. <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"See link ei ole turvaline ja seda ei saa avada enne, kui seadme seadistamine on lõpetatud: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="2843488903902493030">"Lisateabe saamiseks võtke ühendust administraatoriga <xliff:g id="IT_ADMIN">%1$s</xliff:g>."</string>
+    <string name="contact_device_provider" msgid="2843488903902493030">"Lisateabe saamiseks võtke ühendust <xliff:g id="IT_ADMIN">%1$s</xliff:g>iga."</string>
     <string name="if_questions_contact_admin" msgid="3509427015901582047">"Küsimuste korral võtke ühendust IT-administraatoriga"</string>
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"Seadistamine pole lõpetatud. Abi saamiseks võtke ühendust IT-administraatoriga."</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"Abi saamiseks võtke ühendust IT-administraatoriga"</string>
