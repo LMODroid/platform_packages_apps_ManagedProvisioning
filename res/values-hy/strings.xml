@@ -182,7 +182,7 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Վերադարձեք նախորդ էկրան կամ վերակայեք այս սարքը և վերադարձրեք այն ձեր ՏՏ ադմինիստրատորին։"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Չեղարկել կարգավորումը"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Վերակայել և վերադարձներ սարքը"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Աշխատանքային հավելվածները ձեր աշխատանքային պրոֆիլում են, կառավարիչ՝ ՏՏ ադմինիստրատորը"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Աշխատանքային հավելվածները ձեր աշխատանքային պրոֆիլում են, կառավարիչը՝ ՏՏ ադմինիստրատորը"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Անձնական հավելվածները թաքցված են և առանձին են աշխատանքայիններից"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ՏՏ ադմինիստրատորը կարող է վերահսկել սարքը և արգելափակել որոշ հավելվածներ"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Աշխատանքային հավելվածները պահվում են ձեր աշխատանքային պրոֆիլում և կառավարվում են ձեր ՏՏ ադմինիստրատորի կողմից։ Անձնական հավելվածները առանձին են և թաքցված են, երբ ցուցադրվում են աշխատանքայինները։ Ձեր ՏՏ ադմինիստրատորը կարող է վերահսկել այս սարքը և արգելափակել որոշակի հավելվածներ։"</string>
