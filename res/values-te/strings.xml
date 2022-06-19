@@ -33,7 +33,7 @@
 
 </xliff:g>మీ సంస్థ గోప్యతా పాలసీలతో పాటు మరింత సమాచారం కోసం మీ IT అడ్మిన్‌ను సంప్రదించండి."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"అపహరణ జరగకుండా రక్షణనిచ్చే లక్షణాలను ఉపయోగించడానికి, మీరు మీ పరికరం కోసం తప్పనిసరిగా పాస్‌వర్డ్ సురక్షిత స్క్రీన్ లాక్‌ను కలిగి ఉండాలి."</string>
-    <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"మీ సంస్థ గోప్యతా విధానాలతో సహా మరింత సమాచారం కోసం మీ IT నిర్వాహకులను సంప్రదించండి."</string>
+    <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"మీ సంస్థ గోప్యతా పాలసీలతో సహా మరింత సమాచారం కోసం మీ IT నిర్వాహకులను సంప్రదించండి."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"మరింత తెలుసుకోండి"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"రద్దు చేయండి"</string>
     <string name="ok_setup" msgid="4593707675416137504">"సరే"</string>
@@ -159,7 +159,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ఈ ఫోన్‌ని నిర్వహించేందుకు మరియు పర్యవేక్షించడానికి ఈ యాప్‌ ఉపయోగపడుతుంది"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"మీ ఖాతా మేనేజ్ చేయబడింది"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"సెక్యూరిటీ పాలసీలను అమలు చేయడానికి మీ IT అడ్మిన్, \'మొబైల్ పరికర మేనేజ్‌మెంట్‌\'ను ఉపయోగిస్తారు"</string>
-    <string name="downloading_administrator_header" msgid="8660294318893902915">"కార్యాలయ సెటప్ కోసం సిద్ధం చేయబడుతోంది…"</string>
+    <string name="downloading_administrator_header" msgid="8660294318893902915">"వర్క్ సెటప్ కోసం సిద్ధం చేయబడుతోంది…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ముందుగా, మీ వర్క్ ప్రొఫైల్‌ను సెటప్ చేద్దాం"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"వర్క్ యాప్‌లు మీ వర్క్ ప్రొఫైల్‌లో ఉంచబడతాయి"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"మీ రోజువారీ పని పూర్తయినప్పుడు వర్క్ యాప్‌లను పాజ్ చేయండి"</string>
@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"వెనుకకు మునుపటి స్క్రీన్‌కు వెళ్లండి లేదా ఈ పరికరాన్ని రీసెట్ చేసి, దీన్ని మీ IT అడ్మిన్‌కు తిరిగి ఇవ్వండి."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"సెటప్‌ను రద్దు చేయండి"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"రీసెట్ చేయండి &amp; పరికరాన్ని తిరిగి ఇవ్వండి"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ఆఫీస్ యాప్‌లను అడ్మిన్ నిర్వహిస్తారు &amp; ఆఫీస్ ప్రొఫైల్‌లో ఉంటాయి"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ఆఫీస్ యాప్‌లు మీ వర్క్ ప్రొఫైల్‌లో ఉంటాయి &amp; మీ IT అడ్మిన్ చేత మేనేజ్ చేయబడతాయి"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"వ్యక్తిగత యాప్‌లు విడిగా ఉంటాయి &amp; ఆఫీస్ యాప్‌లకు కనిపించవు"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"మీ IT అడ్మిన్ ఈ పరికరాన్ని నియంత్రించగలరు &amp; కొన్ని యాప్‌లను బ్లాక్ చేయగలరు"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"మీ IT అడ్మిన్ ఈ పరికరాన్ని కంట్రోల్ చేయగలరు &amp; కొన్ని యాప్‌లను బ్లాక్ చేయగలరు"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"కార్యాలయ యాప్‌లు మీ కార్యాలయ ప్రొఫైల్‌లో ఉంచబడతాయి, అలాగే మీ IT అడ్మిన్ ద్వారా నిర్వహించబడతాయి. వ్యక్తిగత యాప్‌లు అన్నవి విడిగా ఉంటాయి, అలాగే కార్యాలయ యాప్‌లలో కనిపించవు మీ IT అడ్మిన్ ఈ పరికరాన్ని నియంత్రించవచ్చు మరియు కొన్ని యాప్‌లను నిరోధించవచ్చు"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"ఒక్క క్షణం ఆగండి…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"గోప్యతా రిమైండర్"</string>
