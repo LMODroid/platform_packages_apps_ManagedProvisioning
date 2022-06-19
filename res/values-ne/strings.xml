@@ -181,7 +181,7 @@
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"सेटअप प्रक्रिया रद्द गर्नुहोस्"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"यन्त्र रिसेट गर्नुहोस् र फिर्ता गर्नुहोस्"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"IT एडमिन कार्य प्रोफाइलमा राखिने कार्य एप व्यवस्थित गर्छन्"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"छुट्टै राखिने व्यक्तिगत एप कामसम्बन्धी एपसँगै देखिँदैनन्"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"व्यक्तिगत एप छुट्टै राखिन्छन् र कामसम्बन्धी एपसँगै देखिँदैनन्"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT एडमिन यो डिभाइस र यसका केही एपहरू नियन्त्रण गर्न सक्छन्"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"कामसम्बन्धी एपहरू तपाईंको कार्यलयको प्रोफाइलमा राखिन्छन् र तपाईंका IT एडमिनले तिनको व्यवस्थापन गर्छन्। व्यक्तिगत एपहरू छुट्टै राखिन्छन् र ती एपहरू कामसम्बन्धी अनुप्रयोगसँगै देखिँदैनन्। तपाईंका IT एडमिनले यो यन्त्रलाई नियन्त्रण गर्न तथा यसमा चल्ने केही निश्चित एपहरूमाथि रोक लगाउन सक्छन्।"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"एकै छिन पर्खनुहोस्…"</string>
