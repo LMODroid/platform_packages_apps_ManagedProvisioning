@@ -157,7 +157,7 @@
     <string name="device_owner_description" msgid="168013145812679664">"這個裝置將由貴機構負責管理，並確保其安全"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"正在準備設定工作用裝置…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"設定管理員應用程式"</string>
-    <string name="brand_screen_header" msgid="8865808542690116648">"這個裝置為貴機構所有"</string>
+    <string name="brand_screen_header" msgid="8865808542690116648">"此裝置屬於你的機構"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"以下應用程式將用於管理及監控這支手機"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"你的帳戶是受管理的帳戶"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"你的 IT 管理員透過行動裝置管理服務強制執行安全性政策"</string>
@@ -183,9 +183,9 @@
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"取消設定"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"重設並歸還裝置"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"工作應用程式會保存在工作資料夾中，並由你的 IT 管理員管理"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"系統會區隔個人與工作應用程式，因此兩者不會同時顯示"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人與工作應用程式相互獨立，兩者不會同時顯示"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"你的 IT 管理員可以控制這部裝置及封鎖特定應用程式"</string>
-    <string name="cope_provisioning_summary" msgid="993014104601034878">"工作應用程式會保存在你的工作資料夾中，並由你的 IT 管理員管理。系統會區隔個人應用程式與工作應用程式，因此兩者不會同時顯示。你的 IT 管理員可以控制這部裝置及封鎖特定應用程式。"</string>
+    <string name="cope_provisioning_summary" msgid="993014104601034878">"工作應用程式會保存在你的工作資料夾中，並由你的 IT 管理員管理。個人與工作應用程式相互獨立，兩者不會同時顯示。你的 IT 管理員可以控制這部裝置及封鎖特定應用程式。"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"請稍候…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"隱私權提醒"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"IT 管理員或許可以查看你在這個裝置的資料和活動"</string>
