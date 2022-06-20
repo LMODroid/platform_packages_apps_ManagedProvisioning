@@ -159,7 +159,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Følgende app brukes til å administrere og overvåke denne telefonen"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Kontoen din administreres"</string>
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"IT-administratoren din bruker administrering av mobilenheter for å håndheve retningslinjene for sikkerhet"</string>
-    <string name="downloading_administrator_header" msgid="8660294318893902915">"Forbereder til jobbkonfigurering …"</string>
+    <string name="downloading_administrator_header" msgid="8660294318893902915">"Klargjør for jobbkonfigurering …"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"La oss konfigurere jobbprofilen din"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Jobbapper oppbevares i jobbprofilen din"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Sett jobbapper på pause når du er ferdig for dagen"</string>
