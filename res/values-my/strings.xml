@@ -113,7 +113,7 @@
     <string name="your_org_app_used" msgid="5336414768293540831">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> သည် အောက်ပါအက်ပ်ကို သုံးပြီး ဤစက်ပစ္စည်းကို စောင့်ကြည့်စီမံခန့်ခွဲသွားပါမည်−"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"သင်၏အဖွဲ့အစည်း"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"သင်၏အဖွဲ့အစည်း"</string>
-    <string name="view_terms" msgid="7230493092383341605">"စည်းကမ်းချက်များ ကြည့်ရန်"</string>
+    <string name="view_terms" msgid="7230493092383341605">"စည်းမျဉ်းများကြည့်ရန်"</string>
     <string name="accept_and_continue" msgid="1632679734918410653">"လက်ခံပြီး ရှေ့ဆက်ရန်"</string>
     <string name="back" msgid="6455622465896147127">"နောက်သို့"</string>
     <string name="set_up_your_device" msgid="1896651520959894681">"သင့်စက်ပစ္စည်းကို စနစ်ထည့်သွင်းပါ"</string>
