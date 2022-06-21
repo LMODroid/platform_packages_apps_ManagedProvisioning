@@ -234,6 +234,14 @@ public class PreProvisioningActivityController {
         boolean isRoleHolderProvisioningAllowed =
                 Constants.isRoleHolderProvisioningAllowedForAction(
                         managedProvisioningIntent.getAction());
+
+        // In T allowOffline is used here to force platform provisioning.
+        if (getParams().allowOffline) {
+            ProvisionLogger.logw("allowOffline set, provisioning via platform.");
+            performPlatformProvidedProvisioning();
+            return true;
+        }
+
         if (isRoleHolderReadyForProvisioning && isRoleHolderProvisioningAllowed) {
             ProvisionLogger.logw("Provisioning via role holder.");
             Intent roleHolderProvisioningIntent =
@@ -245,8 +253,7 @@ public class PreProvisioningActivityController {
             mViewModel.onRoleHolderProvisioningInitiated();
             mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
             return true;
-        } else if (getParams().allowOffline
-                || !mRoleHolderHelper.isRoleHolderProvisioningEnabled()
+        } else if (!mRoleHolderHelper.isRoleHolderProvisioningEnabled()
                 || !mRoleHolderUpdaterHelper.isRoleHolderUpdaterDefined()
                 || !isRoleHolderProvisioningAllowed) {
             ProvisionLogger.logw("Provisioning via platform.");
@@ -431,10 +438,11 @@ public class PreProvisioningActivityController {
 
         // TODO(b/207376815): Have a PreProvisioningForwarderActivity to forward to either
         //  platform-provided provisioning or DMRH
-        if (mRoleHolderUpdaterHelper.shouldPlatformDownloadRoleHolder(intent, params)) {
+        if (mRoleHolderUpdaterHelper.shouldPlatformDownloadRoleHolder(intent, params)
+                && !params.allowOffline) {
             mUi.startPlatformDrivenRoleHolderDownload();
         } else if (mRoleHolderUpdaterHelper
-                .shouldStartRoleHolderUpdater(mContext, intent, params)) {
+                .shouldStartRoleHolderUpdater(mContext, intent, params) && !params.allowOffline) {
             resetRoleHolderUpdateRetryCount();
             startRoleHolderUpdater(
                     /* isRoleHolderRequestedUpdate= */ false, /* roleHolderState= */ null);
