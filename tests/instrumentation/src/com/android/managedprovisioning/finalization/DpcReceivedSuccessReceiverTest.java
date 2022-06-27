@@ -30,6 +30,7 @@ import android.test.suitebuilder.annotation.SmallTest;
 
 import com.android.managedprovisioning.common.Utils;
 
+import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -68,6 +69,7 @@ public class DpcReceivedSuccessReceiverTest extends AndroidTestCase {
         receiver.onReceive(mContext, TEST_INTENT);
 
         // THEN the system should be told to finalize the provisioning
+        ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mDevicePolicyManager).finalizeWorkProfileProvisioning(
                 MANAGED_PROFILE_USER_HANDLE, /* migratedAccount= */ null);
     }

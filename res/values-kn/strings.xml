@@ -194,4 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> ಅವರು <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ಆ್ಯಪ್ ಅನ್ನು ಇನ್‌ಸ್ಟಾಲ್ ಮಾಡಬಹುದು, ಇದರಿಂದ ನೀವು ಈ ಸಾಧನಕ್ಕಾಗಿ ಪಾವತಿಗಳನ್ನು ಮಾಡಬಹುದು."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ಈ ಸಾಧನವನ್ನು ನಿರ್ಬಂಧಿಸಬಹುದು"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ನೀವು ಪಾವತಿಗಳನ್ನು ಮಾಡದೇ ಇದ್ದರೆ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ಅವರು ಈ ಸಾಧನಕ್ಕೆ ನಿಮ್ಮ ಪ್ರವೇಶವನ್ನು ನಿರ್ಬಂಧಿಸಬಹುದು."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"ಸಾಧನವನ್ನು ಸೆಟಪ್ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ. ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ ಹಾಗೂ \"ಅಮಾನ್ಯ ಚೆಕ್‌ಸಮ್\" ಎಂದು ಉಲ್ಲೇಖಿಸಿ."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"ನಂತರ ಪುನಃ ಪ್ರಯತ್ನಿಸಿ ಅಥವಾ ಸಹಾಯಕ್ಕಾಗಿ ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"ಸಾಧನವನ್ನು ಸೆಟಪ್ ಮಾಡಲು ಸಾಧ್ಯವಿಲ್ಲ. ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ ಹಾಗೂ \"ಕಾಂಪೊನೆಂಟ್‌ಗಳು ಕಾಣೆಯಾಗಿವೆ ಅಥವಾ ದೋಷಪೂರಿತವಾಗಿವೆ\" ಎಂದು ಉಲ್ಲೇಖಿಸಿ."</string>
+    <string name="setting_up" msgid="1478847967385506664">"ಸೆಟಪ್ ಮಾಡಲಾಗುತ್ತಿದೆ…"</string>
 </resources>

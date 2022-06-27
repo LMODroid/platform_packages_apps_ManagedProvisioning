@@ -28,9 +28,9 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Aplikasi berikut akan mengelola perangkat Anda:"</string>
     <string name="next" msgid="1004321437324424398">"Berikutnya"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Menyiapkan profil kerja..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Admin IT Anda memiliki kemampuan untuk memantau dan mengelola setelan, akses perusahaan, aplikasi, izin, dan data yang terkait dengan profil ini, termasuk aktivitas jaringan, serta lokasi, histori panggilan, dan histori penelusuran kontak perangkat Anda.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Admin IT Anda memiliki kemampuan untuk memantau dan mengelola setelan, akses perusahaan, aplikasi, izin, dan data yang terkait dengan profil ini, termasuk aktivitas jaringan, lokasi perangkat, histori panggilan, dan histori penelusuran kontak Anda.<xliff:g id="LINE_BREAK">
 
-</xliff:g>Untuk informasi selengkapnya, termasuk kebijakan privasi organisasi Anda, hubungi admin IT."</string>
+</xliff:g>Untuk informasi selengkapnya, termasuk kebijakan privasi organisasi Anda, hubungi admin IT Anda."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Admin IT Anda memiliki kemampuan untuk memantau dan mengelola setelan, akses perusahaan, aplikasi, izin, dan data yang terkait dengan perangkat ini, termasuk aktivitas jaringan, lokasi perangkat, histori panggilan, dan histori penelusuran kontak Anda.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Untuk informasi selengkapnya, termasuk kebijakan privasi organisasi Anda, hubungi admin IT Anda."</string>
@@ -194,4 +194,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> dapat menginstal aplikasi <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> sehingga Anda dapat melakukan pembayaran untuk perangkat ini."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Perangkat ini dapat dibatasi"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> dapat membatasi akses ke perangkat ini jika Anda tidak melakukan pembayaran."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Tidak dapat menyiapkan perangkat. Hubungi admin IT Anda dan sebutkan error \"Checksum tidak valid\"."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Coba lagi nanti atau minta bantuan admin IT Anda"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Tidak dapat menyiapkan perangkat. Hubungi admin IT Anda dan sebutkan error \"Komponen hilang atau rusak\"."</string>
+    <string name="setting_up" msgid="1478847967385506664">"Menyiapkan …"</string>
 </resources>
