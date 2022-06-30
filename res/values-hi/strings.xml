@@ -159,8 +159,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"एडमिन ऐप्लिकेशन सेट अप किया जा रहा है"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"यह डिवाइस आपके संगठन का है"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"आगे बताए गए ऐप्लिकेशन का इस्तेमाल इस फ़ोन को प्रबंधित करने और इसकी निगरानी करने के लिए किया जाएगा"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"आपका खाता अब नए डिवाइस पर प्रबंधित किया जाएगा"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"आपका आईटी एडमिन, सुरक्षा नीतियों को लागू करने के लिए मोबाइल डिवाइस प्रबंधन का इस्तेमाल करता है"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"आपका खाता अब नए डिवाइस पर मैनेज किया जाएगा"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"आपका आईटी एडमिन, सुरक्षा नीतियों को लागू करने के लिए मोबाइल डिवाइस मैनेजमेंट का इस्तेमाल करता है"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"काम के लिए सेटअप किया जा रहा है…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"चलिए, आपकी वर्क प्रोफ़ाइल सेट अप करते हैं"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ऑफ़िस के काम से जुड़े ऐप्लिकेशन, आपकी वर्क प्रोफ़ाइल में रखे जाते हैं"</string>
@@ -169,7 +169,7 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"वर्क प्रोफ़ाइल सेट की जा रही है…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ऑफ़िस के काम से जुड़े ऐप्लिकेशन, काम से जुड़ी आपकी प्रोफ़ाइल में रखे जाते हैं. दिन भर का काम खत्म हो जाने के बाद आप काम से जुड़े अपने ऐप्लिकेशन को रोक सकते हैं. काम से जुड़ी आपकी प्रोफ़ाइल में सेव डेटा आपके आईटी एडमिन को दिखता है."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"चलिए, काम से जुड़ा आपका फ़ोन सेट अप करते हैं"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"काम के लिए इस्तेमाल किए जाने वाले ऐप्लिकेशन अपनी उंगली की नोक पर रखें"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"जब मन चाहे, तब आसानी से वर्क ऐप्लिकेशन इस्तेमाल करें"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"यह डिवाइस निजी नहीं है"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"आपका आईटी एडमिन इस डिवाइस पर आपका डेटा और गतिविधि देख सकता है."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"आपकी गतिविधि और डेटा"</string>
