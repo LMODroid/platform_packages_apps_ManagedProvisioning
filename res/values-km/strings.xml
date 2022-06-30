@@ -167,7 +167,7 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"កំពុងរៀបចំកម្រង​ព័ត៌មាន​ការងាររបស់អ្នក…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"កម្មវិធី​ការងារ​ត្រូវបាន​រក្សាទុក​នៅក្នុងកម្រង​ព័ត៌មាន​ការងារ​របស់អ្នក។ អ្នក​អាច​ផ្អាកកម្មវិធី​ការងាររបស់អ្នក នៅពេលអ្នក​បញ្ចប់​ការងារ​ប្រចាំថ្ងៃ។ ទិន្នន័យ​នៅក្នុង​កម្រងព័ត៌មាន​ការងារ​របស់អ្នក​គឺអាចមើលឃើញដោយ​អ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យា​របស់អ្នក។"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"សូម​រៀបចំ​ឧបករណ៍​​ការងារ​របស់អ្នក"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"រក្សាកម្មវិធី​ការងារ​របស់អ្នកនៅចុងម្រាមដៃ"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ចូលប្រើ​កម្មវិធី​ការងារ​របស់អ្នក​បានយ៉ាង​ងាយស្រួល"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ឧបករណ៍​នេះ​មិនមាន​លក្ខណៈឯកជនទេ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"អ្នក​គ្រប់គ្រងផ្នែក​ព័ត៌មាន​វិទ្យា​របស់អ្នក​ប្រហែលជាអាច​មើលឃើញទិន្នន័យ និងសកម្មភាព​របស់អ្នក​នៅលើ​ឧបករណ៍​នេះ។"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"ទិន្នន័យ និងសកម្មភាព​របស់អ្នក"</string>
