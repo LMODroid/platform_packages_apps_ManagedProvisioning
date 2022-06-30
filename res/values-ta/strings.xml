@@ -169,7 +169,7 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"பணிக் கணக்கை அமைக்கிறது…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"பணிக்கான ஆப்ஸ் உங்கள் பணிக் கணக்கில் இருக்கும். ஒரு நாளின் வேலை நேரம் முடிந்ததும் பணிக்கான ஆப்ஸை இடைநிறுத்தலாம். உங்கள் பணிக் கணக்கில் உள்ள தரவை IT நிர்வாகியால் பார்க்க முடியும்."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"பணி மொபைலை அமைத்தல்"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"பணிக் கணக்கிற்கான ஆப்ஸை உபயோகிக்கத் தயாராக வைக்கவும்"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"பணிக் கணக்கிற்கான ஆப்ஸை எளிதில் அணுகலாம்"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"இந்தச் சாதனம் தனிப்பட்டது இல்லை"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"இந்தச் சாதனத்தில் உள்ள தரவையும் செயல்பாட்டையும் உங்கள் IT நிர்வாகி பார்க்கக்கூடும்."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"உங்கள் செயல்பாடு &amp; தரவு"</string>
