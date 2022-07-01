@@ -77,7 +77,7 @@
     <string name="cant_set_up_profile" msgid="4341825293970158436">"प्रोफाइललाई सेटअप गर्न सकिँदैन"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"यन्त्रलाई सेटअप गर्न सकिँदैन"</string>
     <string name="something_went_wrong" msgid="3593223774041784329">"केही चिज गडबड भयो"</string>
-    <string name="couldnt_set_up_device" msgid="5137950404283642302">"यन्त्र सेट अप गर्न सकिएन। मद्दतका लागि, आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्।"</string>
+    <string name="couldnt_set_up_device" msgid="5137950404283642302">"डिभाइस सेट अप गर्न सकिएन। मद्दतका लागि, आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्।"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"मद्दतका लागि आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्"</string>
     <string name="reset_device" msgid="5483853913241939262">"यो डिभाइस रिसेट गरेर यसलाई फेरि सेटअप गरी हेर्नुहोस्"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"यो यन्त्रलाई पहिला नै सेटअप गरिसकिएको छ"</string>
@@ -166,7 +166,7 @@
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"तपाईंका IT एडमिनले तपाईंको कार्यलयको प्रोफाइलमा भएका डेटा हेर्न सक्छन्"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"तपाईंको कार्य प्रोफाइल सेट गरिँदै छ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"कामसम्बन्धी एपहरू तपाईंको कार्यलयको प्रोफाइलमा राखिन्छन्। तपाईंले दिनभरिको काम सकेपछि तपाईं कामसम्बन्धी एपहरू पज गर्न सक्नुहुन्छ। तपाईंका IT एडमिनले तपाईंको कार्यलयको प्रोफाइलमा भएका डेटा हेर्न सक्छन्।"</string>
-    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"तपाईंको कार्यस्थलको यन्त्र सेट अप गरौँ"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"तपाईंको कार्यस्थलको डिभाइस सेट अप गरौँ"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"आफ्ना कार्यस्थलसम्बन्धी एपहरू सजिलै प्राप्त गर्नुहोस्"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"यो डिभाइस निजी होइन"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"तपाईंका IT व्यवस्थापकले तपाईंको यस डिभाइसका डेटा र गतिविधि हेर्न सक्ने सम्भावना हुन्छ।"</string>
