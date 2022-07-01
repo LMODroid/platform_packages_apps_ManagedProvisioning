@@ -171,7 +171,7 @@
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Seade ei ole privaatne"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Teie IT-administraator võib selles seadmes teie andmeid ja tegevusi näha."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Teie tegevused ja andmed"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Rakenduse load"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Rakenduste load"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Teie IT-administraator võib seadistada selle seadme rakenduste lubasid, näiteks mikrofoni, kaamera ja asukohale juurdepääsu lubasid."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Teie seadme seadistamine …"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Kasutage seda seadet, et töörakendustele hõlpsasti juurde pääseda. Seade ei ole privaatne, nii et IT-administraator võib teie andmeid ja tegevusi näha."</string>
