@@ -167,7 +167,7 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Menyiapkan profil kerja…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Aplikasi kerja disimpan dalam profil kerja Anda. Aplikasi kerja dapat dijeda setelah Anda selesai bekerja untuk hari itu. Data dalam profil kerja Anda dapat dilihat oleh admin IT Anda."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Mari siapkan perangkat kerja Anda"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Simpan aplikasi kerja di tempat yang mudah Anda akses"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Akses aplikasi kerja Anda dengan mudah"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Perangkat ini tidak bersifat pribadi"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Admin IT mungkin dapat melihat data dan aktivitas Anda di perangkat ini."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Aktivitas &amp; data Anda"</string>
