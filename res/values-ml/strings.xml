@@ -167,13 +167,13 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈൽ സജ്ജീകരിക്കുന്നു…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ഔദ്യോഗിക ആപ്പുകൾ നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിൽ സൂക്ഷിച്ചിരിക്കുന്നു. ജോലി പൂർത്തിയായാൽ ഔദ്യോഗിക ആപ്പുകൾ നിങ്ങൾക്ക് തൽക്കാലം നിർത്താം. നിങ്ങളുടെ ഔദ്യോഗിക പ്രൊഫൈലിലുള്ള ഡാറ്റ ഐടി അഡ്‌മിന് ദൃശ്യമാണ്."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"നിങ്ങളുടെ ഔദ്യോഗിക ഉപകരണം സജ്ജീകരിക്കാം"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ വിരൽത്തുമ്പിൽ നിലനിർത്തുക"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ എളുപ്പം ആക്സസ് ചെയ്യൂ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ഈ ഉപകരണം സ്വകാര്യമല്ല"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ഈ ഉപകരണത്തിലുള്ള നിങ്ങളുടെ ഡാറ്റയും ആക്‌റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"നിങ്ങളുടെ ആക്റ്റിവിറ്റിയും ഡാറ്റയും"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ആപ്പ് അനുമതികൾ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"മെെക്രോഫോൺ, ക്യാമറ, ലൊക്കേഷൻ അനുമതികൾ എന്നിവ പോലുള്ള, ഈ ഉപകരണത്തിലെ ആപ്പുകൾക്കുള്ള അനുമതികൾ സജ്ജീകരിക്കാൻ നിങ്ങളുടെ ഐടി അഡ്‌മിന് കഴിയും."</string>
-    <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"നിങ്ങളുടെ ഉപകരണം സജ്ജമാക്കുന്നു…"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"നിങ്ങളുടെ ഉപകരണം സജ്ജീകരിക്കുന്നു…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ എളുപ്പത്തിൽ ആക്‌സസ് ചെയ്യാൻ ഈ ഉപകരണം ഉപയോഗിക്കുക. ഈ ഉപകരണം സ്വകാര്യമല്ലാത്തതിനാൽ നിങ്ങളുടെ ഡാറ്റയും ആക്റ്റിവിറ്റിയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം."</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"നിങ്ങളുടെ ഔദ്യോഗിക ആപ്പുകൾ എളുപ്പത്തിൽ ആക്‌സസ് ചെയ്യാൻ ഈ ഉപകരണം ഉപയോഗിക്കുക. ഈ ഉപകരണം സ്വകാര്യമല്ലാത്തതിനാൽ നിങ്ങളുടെ ആക്‌റ്റിവിറ്റിയും ഡാറ്റയും ഐടി അഡ്‌മിന് കാണാനായേക്കാം. മെെക്രോഫോൺ, ക്യാമറ, ലൊക്കേഷൻ അനുമതികൾ എന്നിവ പോലുള്ള, ഈ ഉപകരണത്തിലെ ആപ്പുകൾക്കുള്ള അനുമതികൾ സജ്ജീകരിക്കാനും നിങ്ങളുടെ ഐടി അഡ്‌മിന് കഴിയും."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ഈ ഉപകരണം നിങ്ങളുടെ ഐടി അഡ്‌മിന് മടക്കി നൽകുക"</string>
