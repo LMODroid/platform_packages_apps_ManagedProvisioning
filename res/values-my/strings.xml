@@ -168,7 +168,7 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"အလုပ်သုံးအက်ပ်များကို သင့်အလုပ်ပရိုဖိုင်တွင် သိမ်းထားသည်။ တစ်နေ့တာအပြီးတွင် သင့်အလုပ်သုံးအက်ပ်များကို ခဏရပ်နိုင်သည်။ သင့်အလုပ်ပရိုဖိုင်ရှိ ဒေတာများကို သင်၏ IT စီမံခန့်ခွဲသူက မြင်ရပါသည်။"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"သင့်အလုပ်သုံး စက်ပစ္စည်းကို စနစ်ထည့်သွင်းရအောင်"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူသုံးနိုင်အောင် ပြုလုပ်ပါ"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ဤစက်ပစ္စည်းသည် သီးသန့်မဟုတ်ပါ"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ဤစက်ပစ္စည်းသည် သီးသန့်ဖြစ်မနေပါ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"သင်၏ IT စီမံခန့်ခွဲသူက ဤစက်ပစ္စည်းပေါ်ရှိ သင့်ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်ပါသည်။"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"သင့်လုပ်ဆောင်ချက်နှင့် ဒေတာ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"အက်ပ်ခွင့်ပြုချက်များ"</string>

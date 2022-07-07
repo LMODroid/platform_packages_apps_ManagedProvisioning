@@ -157,8 +157,8 @@
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ਪ੍ਰਸ਼ਾਸਕ ਐਪ ਸੈੱਟਅੱਪ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"ਇਹ ਡੀਵਾਈਸ ਤੁਹਾਡੀ ਸੰਸਥਾ ਨਾਲ ਸੰਬੰਧਿਤ ਹੈ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ਅੱਗੇ ਦਿੱਤੀ ਐਪ ਦੀ ਵਰਤੋਂ ਇਸ ਫ਼ੋਨ ਦਾ ਪ੍ਰਬੰਧਨ ਅਤੇ ਨਿਗਰਾਨੀ ਕਰਨ ਲਈ ਕੀਤੀ ਜਾਵੇਗੀ"</string>
-    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"ਤੁਹਾਡੇ ਖਾਤੇ ਦਾ ਪ੍ਰਬੰਧਨ ਕੀਤਾ ਗਿਆ"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"ਤੁਹਾਡਾ IT ਪ੍ਰਸ਼ਾਸਕ ਸੁਰੱਖਿਆ ਨੀਤੀਆਂ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਮੋਬਾਈਲ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਨ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ"</string>
+    <string name="account_management_disclaimer_header" msgid="8013083414694316564">"ਤੁਹਾਡਾ ਖਾਤਾ ਪ੍ਰਬੰਧਿਤ ਹੈ"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਸੁਰੱਖਿਆ ਨੀਤੀਆਂ ਨੂੰ ਲਾਗੂ ਕਰਨ ਲਈ ਮੋਬਾਈਲ ਡੀਵਾਈਸ ਪ੍ਰਬੰਧਨ ਦੀ ਵਰਤੋਂ ਕਰਦਾ ਹੈ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ਕਾਰਜ ਸੈੱਟਅੱਪ ਲਈ ਤਿਆਰੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ਚਲੋ ਤੁਹਾਡਾ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਸੈੱਟਅੱਪ ਕਰੀਏ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ"</string>
@@ -167,13 +167,13 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਦਾ ਸੈੱਟਅੱਪ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਰੱਖੀਆਂ ਜਾਂਦੀਆਂ ਹਨ। ਦਿਨ ਦਾ ਕੰਮ ਪੂਰਾ ਹੋਣ \'ਤੇ ਤੁਸੀਂ ਆਪਣੀਆਂ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਨੂੰ ਰੋਕ ਸਕਦੇ ਹੋ। ਤੁਹਾਡੇ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਿੱਚ ਡਾਟਾ ਤੁਹਾਡੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਦਿਸੇਗਾ।"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ਚਲੋ ਤੁਹਾਡਾ ਕਾਰਜ ਪ੍ਰੋਫਾਈਲ ਵਾਲਾ ਡੀਵਾਈਸ ਸੈੱਟਅੱਪ ਕਰੀਏ"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ਆਪਣੀਆਂ ਕਾਰਜ ਐਪਾਂ ਆਪਣੇ ਕੋਲ ਰੱਖੋ"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"ਆਪਣੀਆਂ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਆਪਣੇ ਕੋਲ ਰੱਖੋ"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ਇਹ ਡੀਵਾਈਸ ਨਿੱਜੀ ਨਹੀਂ ਹੈ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ਸ਼ਾਇਦ ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਤੁਹਾਡਾ ਡਾਟਾ ਅਤੇ ਸਰਗਰਮੀ ਦੇਖ ਸਕਦਾ ਹੈ।"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"ਤੁਹਾਡੀ ਸਰਗਰਮੀ ਅਤੇ ਡਾਟਾ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ਐਪ ਇਜਾਜ਼ਤਾਂ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਐਪਾਂ ਵਾਸਤੇ ਇਜਾਜ਼ਤਾਂ ਸੈੱਟ ਕਰ ਸਕਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਮਾਈਕ੍ਰੋਫ਼ੋਨ, ਕੈਮਰਾ, ਅਤੇ ਟਿਕਾਣਾ ਇਜਾਜ਼ਤਾਂ।"</string>
-    <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਨੂੰ ਸੈੱਟਅੱਪ ਕਰ ਰਿਹਾ ਹੈ…"</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ਤੁਹਾਡੇ ਡੀਵਾਈਸ ਦਾ ਸੈੱਟਅੱਪ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"ਆਪਣੀਆਂ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੱਕ ਆਸਾਨੀ ਨਾਲ ਪਹੁੰਚ ਕਰਨ ਲਈ ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਵਰਤੋ। ਇਹ ਡੀਵਾਈਸ ਨਿੱਜੀ ਨਹੀਂ ਹੈ, ਇਸ ਲਈ ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਤੁਹਾਡਾ ਡਾਟਾ ਅਤੇ ਸਰਗਰਮੀ ਦੇਖ ਸਕਦਾ ਹੈ।"</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"ਆਪਣੀਆਂ ਕੰਮ ਸੰਬੰਧੀ ਐਪਾਂ ਤੱਕ ਆਸਾਨੀ ਨਾਲ ਪਹੁੰਚ ਕਰਨ ਲਈ ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਵਰਤੋ। ਇਹ ਡੀਵਾਈਸ ਨਿੱਜੀ ਨਹੀਂ ਹੈ, ਇਸ ਲਈ ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਤੁਹਾਡੀ ਸਰਗਰਮੀ ਅਤੇ ਡਾਟਾ ਦੇਖ ਸਕਦਾ ਹੈ। ਤੁਹਾਡਾ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਇਸ ਡੀਵਾਈਸ \'ਤੇ ਐਪਾਂ ਵਾਸਤੇ ਇਜਾਜ਼ਤਾਂ ਵੀ ਸੈੱਟ ਕਰ ਸਕਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਮਾਈਕ੍ਰੋਫ਼ੋਨ, ਕੈਮਰਾ ਅਤੇ ਟਿਕਾਣਾ ਇਜਾਜ਼ਤਾਂ।"</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ਇਸ ਡੀਵਾਈਸ ਨੂੰ ਆਪਣੇ ਆਈ.ਟੀ. ਪ੍ਰਸ਼ਾਸਕ ਨੂੰ ਵਾਪਸ ਕਰੋ"</string>
