@@ -35,7 +35,7 @@
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ଚୋରି-ପ୍ରତିରକ୍ଷା ବିଶେଷତା ବ୍ୟବହାର କରିବାକୁ, ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ ଏକ ପାସ୍‌ୱର୍ଡ-ସୁରକ୍ଷିତ ସ୍କ୍ରୀନ୍‍ ଲକ୍‍ ଥିବା ଜରୁରୀ।"</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"ଆପଣଙ୍କ ସଂସ୍ଥାର ଗୋପନିୟତା ନୀତି ସମେତ ଅଧିକ ସୂଚନା ପାଇଁ ଆପଣଙ୍କର IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ଅଧିକ ଜାଣନ୍ତୁ"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"ବାତିଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"ବାତିଲ କରନ୍ତୁ"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ଠିକ୍‌ ଅଛି"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ମୁଁ ସହମତି ଦେଉଛି"</string>
     <string name="url_error" msgid="5958494012986243186">"ଏହି ଲିଙ୍କ ଡିସପ୍ଲେ କରାଯାଇପାରିବ ନାହିଁ।"</string>
@@ -49,7 +49,7 @@
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ଆଗକୁ ବଢ଼ିବା ପୂର୍ବରୁ, "<a href="#read_this_link">"ଏହା ପଢ଼ନ୍ତୁ"</a>"।"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ଯଦି ଆପଣ ଜାରି ରଖନ୍ତି, ଏହି ପ୍ରୋଫାଇଲ୍‌ରେ ଥିବା ସମସ୍ତ ଆପ୍‍ ଓ ଡାଟା ଡିଲିଟ୍‍ ହୋଇଯିବ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ଡିଲିଟ୍‌ କରନ୍ତୁ"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"ବାତିଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"ବାତିଲ କରନ୍ତୁ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍ କରିବାକୁ, ଆପଣଙ୍କ ଡିଭାଇସକୁ ପ୍ରଥମେ ଏନକ୍ରୀପ୍ଟ କରିବା ଆବଶ୍ୟକ। ଏହା କିଛି ସମୟ ନେଇପାରେ।"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"ଏହି ଡିଭାଇସ୍‍ ସେଟଅପ୍‍ କରିବାକୁ, ଏହାକୁ ପ୍ରଥମେ ଏନକ୍ରୀପ୍ଟ କରିବା ଆବଶ୍ୟକ। ଏହା କିଛି ସମୟ ନେଇପାରେ।"</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"ଏହି ଡିଭାଇସକୁ ଏନକ୍ରୀପ୍ଟ କରିବେ?"</string>
@@ -62,7 +62,7 @@
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"ଏହି ଡିଭାଇସ୍‌ରେ ଏକ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ଯୋଗ କରାଯାଇପାରିବ ନାହିଁ। ଯଦି ଆପଣଙ୍କର କୌଣସି ପ୍ରଶ୍ନ ରହିଥାଏ, ତେବେ ନିଜ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"ଡିଭାଇସ୍‍ ଲଞ୍ଚର୍‍ ବଦଳାନ୍ତୁ"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ଦ୍ୱାରା ଲଞ୍ଚର୍‍ ଆପ୍‍ ବ୍ୟବହାର କରାଯାଇପାରିବ ନାହିଁ"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"ବାତିଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"ବାତିଲ କରନ୍ତୁ"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ଠିକ୍‌ ଅଛି"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ୟୁଜର୍‍ ସେଟ୍‌ ଅପ୍‍ ଅସମ୍ପୂର୍ଣ୍ଣ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ୱର୍କ ଡିଭାଇସ୍‌ର ୟୁଜର୍‍"</string>
@@ -71,7 +71,7 @@
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"ସେଟଅପ୍‍ ବନ୍ଦ କରିବେ ଏବଂ ଡିଭାଇସ୍‍ ରିସେଟ୍‍ କରିବେ କି?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"ଏହା ଦ୍ୱାରା ଆପଣଙ୍କ ଡିଭାଇସ୍‍ ରିସେଟ୍ ହେବ ଏବଂ ଆପଣଙ୍କୁ ପ୍ରଥମ ସ୍କ୍ରୀନକୁ ନିଆଯିବ।"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ସେଟ୍‍ ଅପ୍‍ କରିବା ବନ୍ଦ କରି ଆପଣଙ୍କ ଡିଉଭାଇସ୍‌ର ଡାଟା ଲିଭାଇଦେବେ?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ବାତିଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ବାତିଲ କରନ୍ତୁ"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ଠିକ୍‌ ଅଛି"</string>
     <string name="reset" msgid="6467204151306265796">"ରିସେଟ୍‍ କରନ୍ତୁ"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍‍ ଅପ୍‍ କରିପାରିବ ନାହିଁ"</string>
@@ -144,7 +144,7 @@
     <string name="close_list" msgid="9053538299788717597">"ବନ୍ଦ କରୁଥିବା ତାଲିକା"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ସେଟଅପ୍‍ ଶେଷ କରି ଫ୍ୟାକ୍ଟୋରୀ ରିସେଟ୍‍ କରିବେ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ଏହି ସେଟଅପ୍‍ ଶେଷ କରିବା ଦ୍ୱାରା ଆପଣଙ୍କ ଡିଭାଇସ୍ ଫ୍ୟାକ୍ଟୋରୀ ରିସେଟ୍‍ ହେବ ଏବଂ ଆପଣଙ୍କୁ ପ୍ରଥମ ସ୍କ୍ରୀନକୁ ନିଆଯିବ।"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ବାତିଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ବାତିଲ କରନ୍ତୁ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ଡିଭାଇସ୍‌ ରିସେଟ୍‍ କରନ୍ତୁ"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> ଏବଂ <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> ଏବଂ <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
@@ -178,7 +178,7 @@
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"ଆପଣଙ୍କ ୱାର୍କ ଆପଗୁଡ଼ିକୁ ସହଜରେ ଆକ୍ସେସ୍ କରିବା ପାଇଁ ଏହି ଡିଭାଇସକୁ ବ୍ୟବହାର କରନ୍ତୁ। ଏହି ଡିଭାଇସ୍ ବ୍ୟକ୍ତିଗତ ନୁହେଁ, ତେଣୁ ଆପଣଙ୍କ IT ଆଡମିନ୍ ଆପଣଙ୍କ କାର୍ଯ୍ୟକଳାପ ଏବଂ ଡାଟା ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି। ଆପଣଙ୍କ IT ଆଡମିନ୍ ମାଇକ୍ରୋଫୋନ୍, କ୍ୟାମେରା ଏବଂ ଲୋକେସନ୍ ଅନୁମତି ପରି ଏହି ଡିଭାଇସରେ ଥିବା ଆପଗୁଡ଼ିକ ପାଇଁ ଅନୁମତିଗୁଡ଼ିକୁ ମଧ୍ୟ ସେଟ୍ କରିପାରିବେ।"</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ଏହି ଡିଭାଇସକୁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଫେରାନ୍ତୁ"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ପୂର୍ବବର୍ତ୍ତୀ ସ୍କ୍ରିନକୁ ଫେରନ୍ତୁ କିମ୍ବା ଏହି ଡିଭାଇସ୍ ରିସେଟ୍ କରନ୍ତୁ ଏବଂ ଏହାକୁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଫେରାନ୍ତୁ।"</string>
-    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ସେଟଅପ୍ ବାତିଲ୍ କରନ୍ତୁ"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ସେଟଅପ୍ ବାତିଲ କରନ୍ତୁ"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"ଡିଭାଇସ୍ ରିସେଟ୍ କରି ଫେରାନ୍ତୁ"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ୱାର୍କ ଆପ୍ସ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଏ ଓ ଏହା ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ଦ୍ୱାରା ପରିଚାଳିତ ହୋଇଥାଏ"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକ କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପଗୁଡ଼ିକ ଠାରୁ ଅଲଗା ଅଟେ ଓ ଏହା ଲୁକ୍କାୟିତ ଅଛି"</string>
