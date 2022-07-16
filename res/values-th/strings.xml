@@ -167,7 +167,7 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"กำลังตั้งค่าโปรไฟล์งาน…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"แอปงานเก็บอยู่ในโปรไฟล์งาน คุณหยุดแอปงานชั่วคราวได้เมื่อเลิกงานในแต่ละวัน ผู้ดูแลระบบไอทีจะเห็นข้อมูลในโปรไฟล์งานได้"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"มาตั้งค่าอุปกรณ์สำหรับการทำงานกัน"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"เข้าถึงแอปการทำงานได้ด้วยปลายนิ้ว"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"เข้าถึงแอปงานได้ด้วยปลายนิ้ว"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"อุปกรณ์นี้ไม่เป็นส่วนตัว"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"กิจกรรมและข้อมูลของคุณ"</string>
