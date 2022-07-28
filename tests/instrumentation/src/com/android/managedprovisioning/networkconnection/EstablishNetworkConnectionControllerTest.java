@@ -57,6 +57,7 @@ public final class EstablishNetworkConnectionControllerTest {
     private static final String ADMIN_PACKAGE = "com.test.admin";
     private static final ComponentName ADMIN = new ComponentName(ADMIN_PACKAGE, ".Receiver");
     private static final int USER_ID = UserHandle.USER_SYSTEM;
+    private static final String TEST_SSID = "\"test ssid\"";
     private static final ProvisioningParams PARAMS =
             new ProvisioningParams.Builder(/* skipValidation= */ false)
                     .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
@@ -69,7 +70,7 @@ public final class EstablishNetworkConnectionControllerTest {
                     .setDeviceAdminComponentName(ADMIN)
                     .setWifiInfo(
                             new WifiInfo.Builder()
-                                    .setSsid("test ssid")
+                                    .setSsid(TEST_SSID)
                                     .build())
                     .build();
     private static final ProvisioningParams PARAMS_WITH_MOBILE_DATA_ENABLED =

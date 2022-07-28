@@ -180,7 +180,7 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
     private static final String TEST_ILL_FORMED_LOCALE = "aaa_";
 
     // Wifi info
-    private static final String TEST_SSID = "TestWifi";
+    private static final String TEST_SSID = "\"TestWifi\"";
     private static final boolean TEST_HIDDEN = true;
     private static final String TEST_SECURITY_TYPE = "WPA2";
     private static final String TEST_SECURITY_TYPE_EAP = "EAP";

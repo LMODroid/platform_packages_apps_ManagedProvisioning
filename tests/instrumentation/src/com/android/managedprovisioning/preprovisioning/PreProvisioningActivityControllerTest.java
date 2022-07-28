@@ -128,7 +128,7 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
     private static final ComponentName TEST_MDM_COMPONENT_NAME = new ComponentName(TEST_MDM_PACKAGE,
             "com.test.mdm.DeviceAdmin");
     private static final String TEST_BOGUS_PACKAGE = "com.test.bogus";
-    private static final String TEST_WIFI_SSID = "TestNet";
+    private static final String TEST_WIFI_SSID = "\"TestNet\"";
     private static final String MP_PACKAGE_NAME = "com.android.managedprovisioning";
     private static final int TEST_USER_ID = 10;
     private static final PackageDownloadInfo PACKAGE_DOWNLOAD_INFO =
