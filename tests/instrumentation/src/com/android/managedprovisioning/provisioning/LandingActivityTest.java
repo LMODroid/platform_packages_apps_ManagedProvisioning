@@ -168,7 +168,7 @@ public class LandingActivityTest {
         // see {@link AdminIntegratedFlowPrepareActivityTest}
         return createDefaultProvisioningParamsBuilder()
                 .setWifiInfo(new WifiInfo.Builder()
-                        .setSsid("ssid")
+                        .setSsid("\"ssid\"")
                         .build())
                 .build();
     }

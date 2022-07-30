@@ -51,7 +51,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
     private static final ComponentName TEST_ADMIN = new ComponentName("com.test.admin",
             "com.test.admin.AdminReceiver");
 
-    private static final String TEST_SSID = "SomeSsid";
+    private static final String TEST_SSID = "\"SomeSsid\"";
     private static final WifiInfo TEST_WIFI_INFO = new WifiInfo.Builder()
             .setSsid(TEST_SSID)
             .build();
