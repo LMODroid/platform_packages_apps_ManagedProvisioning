@@ -86,7 +86,7 @@
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ଲିଭାଯାଉଛି"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ଦୟାକରି ଅପେକ୍ଷା କରନ୍ତୁ..."</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"ଏକ ଚେକସମ୍‍ ତ୍ରୁଟି ହେତୁ ବ୍ୟବସ୍ଥାପକ ଆପ୍ ବ୍ୟବହାର ହୋଇପାରିଲା ନାହିଁ। ସାହାଯ୍ୟ ପାଇଁ, ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
-    <string name="error_download_failed" msgid="3274283629837019452">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‌କୁ ଡାଉନଲୋଡ୍ କରାଯାଇପାରିଲା ନାହିଁ"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‌କୁ ଡାଉନଲୋଡ କରାଯାଇପାରିଲା ନାହିଁ"</string>
     <string name="error_package_invalid" msgid="555402554502033988">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‍ ବ୍ୟବହାର କରିପାରିବେ ନାହିଁ। ଏହାର କିଛି ଉପାଦାନ ନାହିଁ କିମ୍ବା ଖରାପ ହୋଇଯାଇଛି, ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
     <string name="error_installation_failed" msgid="2282903750318407285">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‌ ଇନ୍‍ଷ୍ଟଲ୍‍ କରାଯାଇପାରିଲା ନାହିଁ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ସେଟ୍‌ ଅପ୍‍ କରିବା ବନ୍ଦ କରିବେ?"</string>
