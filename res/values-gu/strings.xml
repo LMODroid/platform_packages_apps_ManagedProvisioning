@@ -28,9 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"નીચેની ઍપ તમારા ડિવાઇસને મેનેજ કરશે:"</string>
     <string name="next" msgid="1004321437324424398">"આગલું"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"કાર્યાલયની પ્રોફાઇલ સેટ કરી રહ્યાં છીએ..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"તમારા IT ઍડમિન સેટિંગ, કૉર્પોરેટ ઍક્સેસ, ઍપ, પરવાનગીઓ અને તમારી નેટવર્ક પ્રવૃત્તિ સહિત આ પ્રોફાઇલ સાથે સંકળાયેલા ડેટાનું, ઉપરાંત તમારા ડિવાઇસના સ્થાન, કૉલ ઇતિહાસ અને સંપર્ક શોધ ઇતિહાસનું નિરીક્ષણ અને તેને મેનેજ કરવાની ક્ષમતા ધરાવે છે.<xliff:g id="LINE_BREAK">
-
-</xliff:g>તમારી સંસ્થાની પ્રાઇવસી પૉલિસીઓ સહિતની વધુ માહિતી માટે તમારા IT ઍડમિનનો સંપર્ક કરો."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"તમારા IT ઍડમિન આ પ્રોફાઇલ સાથે સંકળાયેલા સેટિંગ, કોર્પોરેટ ઍક્સેસ, ઍપ, પરવાનગીઓ, ડેટા અને નેટવર્ક સંબંધિત પ્રવૃત્તિ તેમજ તમારા કૉલ ઇતિહાસ અને સંપર્કના શોધ ઇતિહાસને મૉનિટર અને મેનેજ કરી શકે છે. વધુ માહિતી અને તમારી સંસ્થાની પ્રાઇવસી પૉલિસીઓ વિશે વધુ જાણવા માટે, તમારા IT ઍડમિનનો સંપર્ક કરો."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"તમારા IT વ્યવસ્થાપક સેટિંગ, કૉર્પોરેટ ઍક્સેસ, ઍપ, પરવાનગીઓ અને તમારી નેટવર્ક પ્રવૃત્તિ સહિતનો આ ડિવાઇસ સાથે સંલગ્ન ડેટા, ઉપરાંત તમારા ડિવાઇસનું સ્થાન, કૉલ ઇતિહાસ અને સંપર્ક શોધ ઇતિહાસને મૉનિટર અને મેનેજ કરવાની ક્ષમતા ધરાવે છે.<xliff:g id="LINE_BREAK">
 
 </xliff:g>તમારી સંસ્થાની પ્રાઇવસી પૉલિસી સહિતની વધુ માહિતી માટે તમારા IT વ્યવસ્થાપકનો સંપર્ક કરો."</string>
@@ -160,38 +158,42 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"આ ડિવાઇસ તમારી સંસ્થાનું છે"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"આ ફોન મેનેજ અને મૉનિટર કરવા માટે નીચેની ઍપનો ઉપયોગ થશે"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"તમારું એકાઉન્ટ મેનેજ કરવામાં આવ્યું છે"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"તમારા IT વ્યવસ્થાપક, સુરક્ષા નીતિઓને લાગુ કરવા માટે મોબાઇલ ડિવાઇસ મેનેજમેન્ટનો ઉપયોગ કરે છે"</string>
-    <string name="downloading_administrator_header" msgid="8660294318893902915">"કાર્યાલયના સેટઅપ માટે તૈયારી કરી રહ્યાં છીએ…"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"તમારા IT ઍડમિન, સુરક્ષા પૉલિસીઓને લાગુ કરવા માટે મોબાઇલ ડિવાઇસ મેનેજમેન્ટનો ઉપયોગ કરે છે"</string>
+    <string name="downloading_administrator_header" msgid="8660294318893902915">"ઑફિસના સેટઅપ માટે તૈયારી કરી રહ્યાં છીએ…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ચાલો, તમારી ઑફિસની પ્રોફાઇલનું સેટઅપ કરીએ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ઑફિસ માટેની ઍપ તમારા ઑફિસના પ્રોફાઇલમાં રાખવામાં આવે છે"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"જ્યારે તમારું દિવસનું કાર્ય સમાપ્ત થઈ જાય ત્યારે ઑફિસ માટેની ઍપ થોભાવો"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"તમારા ઑફિસની પ્રોફાઇલમાં રહેલો ડેટા તમારા IT ઍડમિનને દેખાય છે"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"તમારી ઑફિસની પ્રોફાઇલ સેટ કરી રહ્યાં છીએ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ઑફિસ માટેની ઍપ તમારા કાર્યાલયની પ્રોફાઇલમાં રાખવામાં આવે છે. જ્યારે તમારું દિવસનું કાર્ય સમાપ્ત થઈ જાય ત્યારે તમે ઑફિસ માટેની ઍપ થોભાવી શકો છો. તમારા કાર્યાલયની પ્રોફાઇલમાં રહેલો ડેટા તમારા IT વ્યવસ્થાપકને દેખાય છે."</string>
-    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ચાલો, તમારો કાર્યાલયનો ફોન સેટ કરીએ"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"તમારી કાર્ય સંબંધી ઍપને તમારી આંગળીના ટેરવે રાખો"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"ચાલો, તમારી ઑફિસના ડિવાઇસનું સેટઅપ કરીએ"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"તમારી ઑફિસ માટેની ઍપને તમારી આંગળીના ટેરવે રાખો"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"આ ડિવાઇસ ખાનગી નથી"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"તમારા IT ઍડમિન આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"તમારી પ્રવૃત્તિ અને ડેટા"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ઍપની પરવાનગીઓ"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"તમારા IT વ્યવસ્થાપક, આ ડિવાઇસ પર ઍપ માટેની પરવાનગીઓ સેટ કરી શકે છે, જેમ કે માઇક્રોફોન, કૅમેરા અને સ્થાનની પરવાનગીઓ."</string>
-    <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"તમારું ઉપકરણ સેટ થઈ રહ્યું છે…"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"તમારા IT ઍડમિન, આ ડિવાઇસ પર ઍપ માટેની પરવાનગીઓ સેટ કરી શકે છે, જેમ કે માઇક્રોફોન, કૅમેરા અને સ્થાનની પરવાનગીઓ."</string>
+    <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"તમારું ડિવાઇસ સેટ થઈ રહ્યું છે…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"તમારી ઑફિસ માટેની ઍપને સરળતાથી ઍક્સેસ કરવા માટે, આ ડિવાઇસનો ઉપયોગ કરો. આ ડિવાઇસ ખાનગી નથી, તેથી તમારા IT વ્યવસ્થાપક તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે."</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"તમારી ઑફિસ માટેની ઍપને સરળતાથી ઍક્સેસ કરવા માટે, આ ડિવાઇસનો ઉપયોગ કરો. આ ડિવાઇસ ખાનગી નથી, તેથી તમારા IT વ્યવસ્થાપક તમારી પ્રવૃત્તિ અને તમારો ડેટા કદાચ જોઈ શકશે. તમારા IT વ્યવસ્થાપક, આ ડિવાઇસ પર ઍપ માટેની પરવાનગીઓ પણ સેટ કરી શકે છે, જેમ કે માઇક્રોફોન, કૅમેરા અને સ્થાનની પરવાનગીઓ."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"આ ડિવાઇસ તમારા IT વ્યવસ્થાપકને પરત કરો"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"પાછલી સ્ક્રીન પર પાછા જાઓ અથવા આ ડિવાઇસને રીસેટ કરીને તમારા IT વ્યવસ્થાપકને પરત કરો."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"સેટઅપ રદ કરો"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"રીસેટ કરો અને ડિવાઇસને પરત કરો"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ઑફિસ ઍપ તમારા ઑફિસની પ્રોફાઇલમાં રાખેલ છે અને તમારા IT વ્યવસ્થાપક મેનેજ કરે છે"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ઑફિસ ઍપ તમારા ઑફિસની પ્રોફાઇલમાં રાખેલ છે અને તમારા IT ઍડમિન મેનેજ કરે છે"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"વ્યક્તિગત ઍપ અલગ હોય છે અને તે ઑફિસની ઍપથી છુપાયેલી હોય છે"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT વ્યવસ્થાપક આ ડિવાઇસને નિયંત્રિત કરી અને અમુક ઍપને બ્લૉક કરી શકે છે"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT ઍડમિન આ ડિવાઇસને નિયંત્રિત કરી અને અમુક ઍપને બ્લૉક કરી શકે છે"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"ઑફિસ માટેની ઍપ તમારા કાર્યાલયની પ્રોફાઇલમાં રાખવામાં આવે છે અને તમારા IT વ્યવસ્થાપક દ્વારા મેનેજ કરવામાં આવે છે. વ્યક્તિગત ઍપ અલગ હોય છે અને તે ઑફિસ માટેની ઍપથી છુપાયેલી હોય છે. તમારા IT વ્યવસ્થાપક આ ડિવાઇસને નિયંત્રિત કરી શકે છે અને અમુક ઍપને બ્લૉક કરી શકે છે"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"માત્ર એક સેકન્ડ…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"પ્રાઇવસી રિમાઇન્ડર"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"તમારા IT વ્યવસ્થાપક આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"તમારા IT ઍડમિન આ ડિવાઇસ પર તમારો ડેટા અને તમારી પ્રવૃત્તિ કદાચ જોઈ શકશે"</string>
     <string name="financed_device_screen_header" msgid="6875169548352717124">"આ ડિવાઇસ <xliff:g id="CREDITOR_NAME">%s</xliff:g> દ્વારા પ્રદાન કરવામાં આવેલું છે"</string>
     <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"આ ડિવાઇસ માટે ચુકવણીઓ કરો"</string>
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ઍપ ઇન્સ્ટૉલ કરી શકે છે જેથી તમે આ ડિવાઇસ માટે ચુકવણીઓ કરી શકો."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"આ ડિવાઇસ પ્રતિબંધિત હોઈ શકે"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"જો તમે ચુકવણી નથી કરતા, તો <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> આ ડિવાઇસનો ઍક્સેસ પ્રતિબંધિત કરી શકે છે."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"ડિવાઇસનું સેટઅપ કરી શકાતું નથી. તમારા IT ઍડમિનનો સંપર્ક કરો અને \"અમાન્ય ચેકસમ\"નો સંદર્ભ આપો."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"થોડા સમય પછી ફરી પ્રયાસ કરો અથવા સહાય માટે તમારા IT ઍડમિનનો સંપર્ક કરો"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"ડિવાઇસનું સેટઅપ કરી શકાતું નથી. તમારા IT ઍડમિનનો સંપર્ક કરો અને \"ખૂટતા અથવા દૂષિત ઘટકો\"નો સંદર્ભ આપો."</string>
+    <string name="setting_up" msgid="1478847967385506664">"સેટઅપ કરી રહ્યાં છીએ…"</string>
 </resources>

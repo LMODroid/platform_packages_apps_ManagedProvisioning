@@ -28,9 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"खालील अ‍ॅप तुमचे डिव्हाइस व्यवस्‍थापित करेल:"</string>
     <string name="next" msgid="1004321437324424398">"पुढील"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"कार्य प्रोफाइल सेट अप करत आहे..."</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"तुमच्या IT अ‍ॅडमिनकडे सेटिंग्ज, कॉर्पोरेट अ‍ॅक्सेस, अ‍ॅप्स, परवानग्या आणि या प्रोफाइलशी संलग्न तुमच्या नेटवर्क अ‍ॅक्टिव्हिटीसह डेटा, त्याचप्रमाणे तुमच्या डिव्हाइसचे स्थान, कॉल इतिहास व संपर्क शोध इतिहास यांचे परीक्षण आणि व्यवस्थापन करण्याची क्षमता आहे.<xliff:g id="LINE_BREAK">
-
-</xliff:g>तुमच्या संस्थेच्या गोपनीयता धोरणांच्या समावेशासह अधिक माहितीसाठी तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"तुमचा आयटी ॲडमिन सेटिंग्ज, कॉर्पोरेट अ‍ॅक्सेस, अ‍ॅप्स, परवानग्या, डेटा आणि या प्रोफाइलशी संबंधित नेटवर्क अ‍ॅक्टिव्हिटी तसेच तुमचा कॉल इतिहास व संपर्क शोध इतिहास मॉनिटर आणि व्यवस्थापित करू शकतो. अधिक माहितीसाठी आणि तुमच्या संस्थेच्या गोपनीयता धोरणांबद्दल अधिक जाणून घेण्यासाठी तुमच्या आयटी ॲडमिनशी संपर्क साधा."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"तुमच्या IT अ‍ॅडमिनकडे सेटिंग्ज, कॉर्पोरेट अ‍ॅक्सेस, अ‍ॅप्स, परवानग्या आणि या डिव्हाइसशी संबंधित तुमच्या नेटवर्क अ‍ॅक्टिव्हिटीसह डेटा, त्याचप्रमाणे तुमच्या डिव्हाइसचे स्थान, कॉल इतिहास आणि संपर्क शोध इतिहास यांचे परीक्षण आणि व्यवस्थापन करण्याची क्षमता आहे.<xliff:g id="LINE_BREAK">
 
 </xliff:g>तुमच्या संस्थेच्या गोपनीयता धोरणांसह अधिक माहितीसाठी तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
@@ -171,10 +169,10 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"चला तुमचे कार्य डिव्हाइस सेट करू या"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"तुमची कार्य अ‍ॅप्स तुमच्या हाताशी ठेवा"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"हे डिव्हाइस खाजगी नाही"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"तुमच्या IT अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"तुमच्या आयटी अ‍ॅडमिनला कदाचित या डिव्हाइसवरील तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहता येईल."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"तुमची अ‍ॅक्टिव्हिटी आणि डेटा"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"अ‍ॅप परवानग्या"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"तुमचा IT ॲडमिन या डिव्हाइसवर मायक्रोफोन, कॅमेरा यांसारख्या ॲप्सच्या आणि स्थानासंबंधित परवानग्या सेट करू शकतो."</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"तुमचा आयटी ॲडमिन या डिव्हाइसवर मायक्रोफोन, कॅमेरा यांसारख्या ॲप्सच्या आणि स्थानासंबंधित परवानग्या सेट करू शकतो."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"तुमचे डिव्हाइस सेट करत आहे…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"तुमची work apps सहजरीत्या अ‍ॅक्सेस करण्यासाठी हे डिव्हाइस वापरा. हे डिव्हाइस खाजगी नाही, त्यामुळे तुमच्या IT अ‍ॅडमिनला कदाचित तुमचा डेटा आणि अ‍ॅक्टिव्हिटी पाहाता येईल."</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"तुमची work apps सहजरीत्या अ‍ॅक्सेस करण्यासाठी हे डिव्हाइस वापरा. हे डिव्हाइस खाजगी नाही, त्यामुळे तुमच्या IT अ‍ॅडमिनला कदाचित तुमची अ‍ॅक्टिव्हिटी आणि डेटा पाहाता येईल. तुमचा IT ॲडमिन या डिव्हाइसवर मायक्रोफोन, कॅमेरा यांसारख्या ॲप्सच्या आणि स्थानासंबंधित परवानग्या सेटदेखील करू शकतो."</string>
@@ -194,4 +192,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g><xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ॲप इंस्टॉल करू शकतो जेणेकरून, तुम्ही हे डिव्हाइस वापरून पेमेंट करू शकता."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"हे डिव्हाइस प्रतिबंधित केले जाऊ शकते"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"तुम्ही पेमेंट न केल्यास, <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> या डिव्हाइसवरील अ‍ॅक्सेस मर्यादित करू शकतो."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"डिव्हाइस सेट करू शकत नाही. तुमच्या आयटी ॲडमिनशी संपर्क साधा आणि \"चुकीचे चेक्सम\" चा संदर्भ द्या."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"नंतर पुन्हा प्रयत्न करा किंवा मदतीसाठी तुमच्या आयटी ॲडमिनशी संपर्क साधा"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"डिव्हाइस सेट करू शकत नाही. तुमच्या आयटी ॲडमिनशी संपर्क साधा आणि \"नसलेले किंवा करप्ट झालेले घटक\" चा संदर्भ द्या."</string>
+    <string name="setting_up" msgid="1478847967385506664">"सेट करत आहे…"</string>
 </resources>

@@ -28,9 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"Ta aplikacija bo upravljala napravo:"</string>
     <string name="next" msgid="1004321437324424398">"Naprej"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Nastavljanje delovnega profila …"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"Skrbnik za IT lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja in podatke, povezane s tem profilom, vključno z omrežno dejavnostjo, podatki o lokaciji naprave, zgodovino klicev in zgodovino iskanja stikov.<xliff:g id="LINE_BREAK">
-
-</xliff:g>Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika za IT."</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"Skrbnik za IT lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja, podatke in omrežno dejavnost, povezane s tem profilom, vključno z zgodovino klicev in zgodovino iskanja stikov. Za več podrobnosti in informacije o pravilnikih organizacije o zasebnosti se obrnite na skrbnika za IT."</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Skrbnik za IT lahko nadzira in upravlja nastavitve, dostop za podjetje, aplikacije, dovoljenja in podatke, povezane s to napravo, vključno z omrežno dejavnostjo, podatki o lokaciji naprave, zgodovino klicev in zgodovino iskanja stikov.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Za več informacij, vključno s pravilniki organizacije o zasebnosti, se obrnite na skrbnika za IT."</string>
@@ -160,7 +158,7 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Ta naprava pripada vaši organizaciji"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Ta aplikacija bo uporabljena za upravljanje in nadziranje tega telefona"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Vaš račun je upravljan"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Skrbnik za IT z upravljanjem mobilnih naprav skrbi za uveljavljanje varnostnih pravilnikov"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Skrbnik za IT z upravljanjem mobilnih naprav skrbi za uveljavljanje varnostnih pravilnikov."</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Priprava za nastavitev za delo …"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Nastavimo vaš delovni profil"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Delovne aplikacije se hranijo v vašem delovnem profilu"</string>
@@ -194,4 +192,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"Ponudnik obročnega odplačila <xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> lahko namesti svojo aplikacijo <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>, da boste lahko plačevali obroke za to napravo."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Uporabo te naprave je mogoče omejiti."</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"Ponudnik obročnega odplačila <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> lahko omeji dostop do te naprave v primeru neplačevanja obrokov."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Naprave ni mogoče nastaviti. Obrnite se na skrbnika IT in navedite težavo »Neveljavna kontrolna vsota«."</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Poskusite znova pozneje ali pa se za pomoč obrnite na skrbnika za IT."</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Naprave ni mogoče nastaviti. Obrnite se na skrbnika IT in navedite težavo »Komponente manjkajo ali so poškodovane«."</string>
+    <string name="setting_up" msgid="1478847967385506664">"Nastavljanje …"</string>
 </resources>

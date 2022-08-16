@@ -28,9 +28,7 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"แอปต่อไปนี้จะจัดการอุปกรณ์:"</string>
     <string name="next" msgid="1004321437324424398">"ถัดไป"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"กำลังตั้งค่าโปรไฟล์งาน…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="7051310668406162979">"ผู้ดูแลระบบไอทีสามารถตรวจสอบและจัดการการตั้งค่า การเข้าถึงของบริษัท แอป สิทธิ์ และข้อมูลที่เชื่อมโยงกับโปรไฟล์นี้ รวมถึงกิจกรรมในเครือข่ายของคุณ ตำแหน่งของอุปกรณ์ ประวัติการโทร และประวัติการค้นหารายชื่อติดต่อ<xliff:g id="LINE_BREAK">
-
-</xliff:g>โปรดติดต่อผู้ดูแลระบบไอทีเพื่อสอบถามข้อมูลเพิ่มเติม รวมถึงนโยบายความเป็นส่วนตัวขององค์กร"</string>
+    <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"ผู้ดูแลระบบไอทีสามารถตรวจสอบและจัดการการตั้งค่า การเข้าถึงของบริษัท แอป สิทธิ์ ข้อมูล และกิจกรรมในเครือข่ายที่เชื่อมโยงกับโปรไฟล์นี้ รวมถึงประวัติการโทรและประวัติการค้นหารายชื่อติดต่อ โปรดติดต่อผู้ดูแลระบบไอทีเพื่อสอบถามข้อมูลเพิ่มเติมเกี่ยวกับนโยบายความเป็นส่วนตัวขององค์กร"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"ผู้ดูแลระบบไอทีสามารถตรวจสอบและจัดการการตั้งค่า การเข้าถึงของบริษัท แอป สิทธิ์ และข้อมูลที่เชื่อมโยงกับอุปกรณ์นี้ รวมถึงกิจกรรมในเครือข่ายของคุณ ตำแหน่งของอุปกรณ์ ประวัติการโทร ตลอดจนประวัติการค้นหารายชื่อติดต่อ<xliff:g id="LINE_BREAK">
 
 </xliff:g>โปรดติดต่อผู้ดูแลระบบไอทีเพื่อสอบถามข้อมูลเพิ่มเติม รวมถึงนโยบายความเป็นส่วนตัวขององค์กร"</string>
@@ -169,7 +167,7 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"กำลังตั้งค่าโปรไฟล์งาน…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"แอปงานเก็บอยู่ในโปรไฟล์งาน คุณหยุดแอปงานชั่วคราวได้เมื่อเลิกงานในแต่ละวัน ผู้ดูแลระบบไอทีจะเห็นข้อมูลในโปรไฟล์งานได้"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"มาตั้งค่าอุปกรณ์สำหรับการทำงานกัน"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"เข้าถึงแอปการทำงานได้ด้วยปลายนิ้ว"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"เข้าถึงแอปงานได้ด้วยปลายนิ้ว"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"อุปกรณ์นี้ไม่เป็นส่วนตัว"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ผู้ดูแลระบบไอทีอาจดูข้อมูลและกิจกรรมของคุณในอุปกรณ์เครื่องนี้ได้"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"กิจกรรมและข้อมูลของคุณ"</string>
@@ -194,4 +192,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> ติดตั้งแอป <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> เพื่อให้ดำเนินการชำระเงินสำหรับอุปกรณ์นี้ได้"</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"อุปกรณ์นี้อาจถูกจำกัด"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> จำกัดการเข้าถึงอุปกรณ์นี้ได้หากคุณไม่ชำระเงิน"</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"ตั้งค่าอุปกรณ์ไม่ได้ โปรดติดต่อผู้ดูแลระบบไอทีโดยระบุถึง \"การตรวจสอบข้อผิดพลาดไม่ถูกต้อง\""</string>
+    <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"โปรดลองอีกครั้งในภายหลังหรือขอความช่วยเหลือจากผู้ดูแลระบบไอที"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"ตั้งค่าอุปกรณ์ไม่ได้ โปรดติดต่อผู้ดูแลระบบไอทีโดยระบุถึง \"องค์ประกอบไม่ครบหรือแอปเสียหาย\""</string>
+    <string name="setting_up" msgid="1478847967385506664">"กำลังตั้งค่า…"</string>
 </resources>

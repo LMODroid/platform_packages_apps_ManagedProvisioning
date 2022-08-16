@@ -122,7 +122,9 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         when(mUserManager.isUserUnlocked(anyInt())).thenReturn(true);
         when(mUserManager.isUserUnlocked(any(UserHandle.class))).thenReturn(true);
 
-        final ProvisioningParamsUtils provisioningParamsUtils = new ProvisioningParamsUtils();
+        final ProvisioningParamsUtils provisioningParamsUtils =
+                new ProvisioningParamsUtils(
+                        ProvisioningParamsUtils.DEFAULT_PROVISIONING_PARAMS_FILE_PROVIDER);
         mPreFinalizationController = new PreFinalizationController(
                 mActivity, mUtils, mSettingsFacade, mHelper,
                 provisioningParamsUtils, new SendDpcBroadcastServiceUtils());
