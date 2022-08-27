@@ -171,7 +171,7 @@
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ଏହି ଡିଭାଇସ୍‌ ବ୍ୟକ୍ତିଗତ ନୁହେଁ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି।"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"ଆପଣଙ୍କ କାର୍ଯ୍ୟକଳାପ ଏବଂ ଡାଟା"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ଆପ୍ ଅନୁମତିଗୁଡ଼ିକ"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ଆପ ଅନୁମତିଗୁଡ଼ିକ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ମାଇକ୍ରୋଫୋନ୍, କ୍ୟାମେରା ଏବଂ ଲୋକେସନ୍ ଅନୁମତି ପରି ଏହି ଡିଭାଇସରେ ଥିବା ଆପଗୁଡ଼ିକ ପାଇଁ ଅନୁମତିଗୁଡ଼ିକୁ ସେଟ୍ କରିପାରିବେ।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରାଯାଉଛି…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"ଆପଣଙ୍କ ୱାର୍କ ଆପଗୁଡ଼ିକୁ ସହଜରେ ଆକ୍ସେସ୍ କରିବା ପାଇଁ ଏହି ଡିଭାଇସକୁ ବ୍ୟବହାର କରନ୍ତୁ। ଏହି ଡିଭାଇସ୍ ବ୍ୟକ୍ତିଗତ ନୁହେଁ, ତେଣୁ ଆପଣଙ୍କ IT ଆଡମିନ୍ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି।"</string>
