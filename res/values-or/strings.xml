@@ -28,14 +28,14 @@
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"ନିମ୍ନ ଆପ୍‍ ଆପଣଙ୍କ ଡିଭାଇସକୁ ପରିଚାଳନା କରିବ:"</string>
     <string name="next" msgid="1004321437324424398">"ପରବର୍ତ୍ତୀ"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‌ କରାଯାଉଛି…"</string>
-    <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"ସେଟିଂସ, କର୍ପୋରେଟ ଆକ୍ସେସ, ଆପ୍ସ, ଅନୁମତି, ଡାଟା ଓ ଏହି ପ୍ରୋଫାଇଲ ସହ ସମ୍ବନ୍ଧିତ ନେଟୱାର୍କ କାର୍ଯ୍ୟକଳାପ ସମେତ ଆପଣଙ୍କ କଲ ଇତିହାସ ଓ ଯୋଗାଯୋଗ ସନ୍ଧାନ ଇତିହାସକୁ ଆପଣଙ୍କ IT ଆଡମିନ ମନିଟର ଏବଂ ପରିଚାଳନା କରିପାରିବେ। ଆପଣଙ୍କ ସଂସ୍ଥାର ଗୋପନୀୟତା ନୀତିଗୁଡ଼ିକ ବିଷୟରେ ଅଧିକ ସୂଚନା ପାଇଁ ଏବଂ ଅଧିକ ଜାଣିବାକୁ ଆପଣଙ୍କର IT ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"ଆପଣଙ୍କ ନେଟୱର୍କ କାର୍ଯ୍ୟକଳାପ ତଥା ଆପଣଙ୍କ ଡିଭାଇସ୍‌ର ଲୋକେସନ୍‍, କଲ୍‍ ଇତିବୃତ୍ତି, ଏବଂ ସର୍ଚ୍ଚ ଇତିବୃତ୍ତି ଯୋଗାଯୋଗ ସମେତ ସେଟିଂ, କର୍ପୋରେଟ୍‌ ଆକ୍ସେସ୍‌, ଆପ୍ସ, ଅନୁମତି, ଏବଂ ଏହି ଡିଭାଇସ୍ ସହ ସମ୍ପୃକ୍ତ ଥିବା ଡାଟା ଆପଣଙ୍କର IT ବ୍ୟବସ୍ଥାପକ ନୀରିକ୍ଷଣ ତଥା ପରିଚାଳନା କରିପାରିବେ।<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"ସେଟିଂସ, କର୍ପୋରେଟ ଆକ୍ସେସ, ଆପ୍ସ, ଅନୁମତି, ଡାଟା ଓ ଏହି ପ୍ରୋଫାଇଲ ସହ ସମ୍ବନ୍ଧିତ ନେଟୱାର୍କ କାର୍ଯ୍ୟକଳାପ ସମେତ ଆପଣଙ୍କ କଲ ଇତିହାସ ଓ କଣ୍ଟାକ୍ଟ ସନ୍ଧାନ ଇତିହାସକୁ ଆପଣଙ୍କ IT ଆଡମିନ ମନିଟର ଏବଂ ପରିଚାଳନା କରିପାରିବେ। ଆପଣଙ୍କ ସଂସ୍ଥାର ଗୋପନୀୟତା ନୀତିଗୁଡ଼ିକ ବିଷୟରେ ଅଧିକ ସୂଚନା ପାଇଁ ଏବଂ ଅଧିକ ଜାଣିବାକୁ ଆପଣଙ୍କର IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"ଆପଣଙ୍କ ନେଟୱାର୍କ କାର୍ଯ୍ୟକଳାପ ତଥା ଆପଣଙ୍କ ଡିଭାଇସର ଲୋକେସନ, କଲ ଇତିହାସ, ଏବଂ କଣ୍ଟାକ୍ଟ ସର୍ଚ୍ଚ ଇତିହାସ ସମେତ ସେଟିଂ, କର୍ପୋରେଟ ଆକ୍ସେସ, ଆପ୍ସ, ଅନୁମତି, ଏବଂ ଏହି ଡିଭାଇସ ସହ ସମ୍ପୃକ୍ତ ଥିବା ଡାଟା ଆପଣଙ୍କର IT ବ୍ୟବସ୍ଥାପକ ନୀରିକ୍ଷଣ ତଥା ପରିଚାଳନା କରିପାରିବେ।<xliff:g id="LINE_BREAK">
 
-</xliff:g>ଆପଣଙ୍କର ସଂସ୍ଥାର ଗୋପନୀୟତା ନୀତି ସମେତ, ଅଧିକ ସୂଚନା ପାଇଁ, ନିଜ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+</xliff:g>ଆପଣଙ୍କର ସଂସ୍ଥାର ଗୋପନୀୟତା ନୀତି ସମେତ, ଅଧିକ ସୂଚନା ପାଇଁ, ନିଜ ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"ଚୋରି-ପ୍ରତିରକ୍ଷା ବିଶେଷତା ବ୍ୟବହାର କରିବାକୁ, ଆପଣଙ୍କ ଡିଭାଇସ୍‌ରେ ଏକ ପାସ୍‌ୱର୍ଡ-ସୁରକ୍ଷିତ ସ୍କ୍ରୀନ୍‍ ଲକ୍‍ ଥିବା ଜରୁରୀ।"</string>
-    <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"ଆପଣଙ୍କ ସଂସ୍ଥାର ଗୋପନିୟତା ନୀତି ସମେତ ଅଧିକ ସୂଚନା ପାଇଁ ଆପଣଙ୍କର IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"ଆପଣଙ୍କ ସଂସ୍ଥାର ଗୋପନିୟତା ନୀତି ସମେତ ଅଧିକ ସୂଚନା ପାଇଁ ଆପଣଙ୍କର IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
     <string name="learn_more_link" msgid="3012495805919550043">"ଅଧିକ ଜାଣନ୍ତୁ"</string>
-    <string name="cancel_setup" msgid="2949928239276274745">"ବାତିଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="cancel_setup" msgid="2949928239276274745">"ବାତିଲ କରନ୍ତୁ"</string>
     <string name="ok_setup" msgid="4593707675416137504">"ଠିକ୍‌ ଅଛି"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"ମୁଁ ସହମତି ଦେଉଛି"</string>
     <string name="url_error" msgid="5958494012986243186">"ଏହି ଲିଙ୍କ ଡିସପ୍ଲେ କରାଯାଇପାରିବ ନାହିଁ।"</string>
@@ -49,45 +49,45 @@
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ଆଗକୁ ବଢ଼ିବା ପୂର୍ବରୁ, "<a href="#read_this_link">"ଏହା ପଢ଼ନ୍ତୁ"</a>"।"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ଯଦି ଆପଣ ଜାରି ରଖନ୍ତି, ଏହି ପ୍ରୋଫାଇଲ୍‌ରେ ଥିବା ସମସ୍ତ ଆପ୍‍ ଓ ଡାଟା ଡିଲିଟ୍‍ ହୋଇଯିବ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"ଡିଲିଟ୍‌ କରନ୍ତୁ"</string>
-    <string name="cancel_delete_profile" msgid="5155447537894046036">"ବାତିଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="cancel_delete_profile" msgid="5155447537894046036">"ବାତିଲ କରନ୍ତୁ"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍ କରିବାକୁ, ଆପଣଙ୍କ ଡିଭାଇସକୁ ପ୍ରଥମେ ଏନକ୍ରୀପ୍ଟ କରିବା ଆବଶ୍ୟକ। ଏହା କିଛି ସମୟ ନେଇପାରେ।"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"ଏହି ଡିଭାଇସ୍‍ ସେଟଅପ୍‍ କରିବାକୁ, ଏହାକୁ ପ୍ରଥମେ ଏନକ୍ରୀପ୍ଟ କରିବା ଆବଶ୍ୟକ। ଏହା କିଛି ସମୟ ନେଇପାରେ।"</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"ଏହି ଡିଭାଇସକୁ ଏନକ୍ରୀପ୍ଟ କରିବେ?"</string>
     <string name="encrypt" msgid="1749320161747489212">"ଏନ୍‌କ୍ରୀପ୍ଟ କରନ୍ତୁ"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ଏନକ୍ରିପଶନ୍ ସମ୍ପୂର୍ଣ୍ଣ ହେଲା"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟଅପ୍‍ ଜାରି ରଖିବା ପାଇଁ ଟାପ୍‍ କରନ୍ତୁ"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍‌ ସେଟ୍ ଅପ୍ କରାଯାଇପାରିଲା ନାହିଁ। ଆପଣଙ୍କ IT ବିଭାଗ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ କିମ୍ୱା କିଛି ସମୟ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।"</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ ସେଟ ଅପ କରାଯାଇପାରିଲା ନାହିଁ। ଆପଣଙ୍କ IT ବିଭାଗ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ କିମ୍ୱା କିଛି ସମୟ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ଯୋଡ଼ିପାରିବ ନାହିଁ"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ବଦଳାଇ ପାରିବ ନାହିଁ କିମ୍ବା ବାହାର କରିପାରିବ ନାହିଁ"</string>
-    <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"ଏହି ଡିଭାଇସ୍‌ରେ ଏକ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ଯୋଗ କରାଯାଇପାରିବ ନାହିଁ। ଯଦି ଆପଣଙ୍କର କୌଣସି ପ୍ରଶ୍ନ ରହିଥାଏ, ତେବେ ନିଜ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"ଏହି ଡିଭାଇସରେ ଏକ ୱାର୍କ ପ୍ରୋଫାଇଲ ଯୋଗ କରାଯାଇପାରିବ ନାହିଁ। ଯଦି ଆପଣଙ୍କର କୌଣସି ପ୍ରଶ୍ନ ଅଛି, ତେବେ ନିଜ IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"ଡିଭାଇସ୍‍ ଲଞ୍ଚର୍‍ ବଦଳାନ୍ତୁ"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"ଆପଣଙ୍କ ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ଦ୍ୱାରା ଲଞ୍ଚର୍‍ ଆପ୍‍ ବ୍ୟବହାର କରାଯାଇପାରିବ ନାହିଁ"</string>
-    <string name="cancel_provisioning" msgid="3408069559452653724">"ବାତିଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="cancel_provisioning" msgid="3408069559452653724">"ବାତିଲ କରନ୍ତୁ"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ଠିକ୍‌ ଅଛି"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ୟୁଜର୍‍ ସେଟ୍‌ ଅପ୍‍ ଅସମ୍ପୂର୍ଣ୍ଣ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"ୱର୍କ ଡିଭାଇସ୍‌ର ୟୁଜର୍‍"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"ୱର୍କ ଡିଭାଇସ୍‍ ସେଟଅପ୍‌ କରାଯାଉଛି…"</string>
-    <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"ଏହି ଡିଭାଇସରେ ଏନକ୍ରୀପସନ୍‍ ପାଇଁ ଅନୁମତି ନାହିଁ, ଯାହା ସେଟ୍‌ଅପ୍‍ ପାଇଁ ଆବଶ୍ୟକ ଅଟେ। ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"ଏହି ଡିଭାଇସରେ ଏନକ୍ରିପସନ ପାଇଁ ଅନୁମତି ନାହିଁ, ଯାହା ସେଟଅପ ପାଇଁ ଆବଶ୍ୟକ ଅଟେ। ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କ ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"ସେଟଅପ୍‍ ବନ୍ଦ କରିବେ ଏବଂ ଡିଭାଇସ୍‍ ରିସେଟ୍‍ କରିବେ କି?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"ଏହା ଦ୍ୱାରା ଆପଣଙ୍କ ଡିଭାଇସ୍‍ ରିସେଟ୍ ହେବ ଏବଂ ଆପଣଙ୍କୁ ପ୍ରଥମ ସ୍କ୍ରୀନକୁ ନିଆଯିବ।"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"ସେଟ୍‍ ଅପ୍‍ କରିବା ବନ୍ଦ କରି ଆପଣଙ୍କ ଡିଉଭାଇସ୍‌ର ଡାଟା ଲିଭାଇଦେବେ?"</string>
-    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ବାତିଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ବାତିଲ କରନ୍ତୁ"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ଠିକ୍‌ ଅଛି"</string>
     <string name="reset" msgid="6467204151306265796">"ରିସେଟ୍‍ କରନ୍ତୁ"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍‍ ଅପ୍‍ କରିପାରିବ ନାହିଁ"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"ଡିଭାଇସ୍‌ ସେଟ୍ ଅପ୍ କରିପାରିବ ନାହିଁ"</string>
     <string name="something_went_wrong" msgid="3593223774041784329">"କିଛି ଭୁଲ ହୋଇଗଲା"</string>
-    <string name="couldnt_set_up_device" msgid="5137950404283642302">"ଡିଭାଇସ୍‌ ସେଟ୍ ଅପ୍ କରାଯାଇପାରିଲା ନାହିଁ। ସାହାଯ୍ୟ ପାଇଁ, ଆପଣଙ୍କ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
-    <string name="contact_your_admin_for_help" msgid="2009904021552323731">"ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କର ଆଇଟି ଆଡମିନ୍‍ଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ"</string>
+    <string name="couldnt_set_up_device" msgid="5137950404283642302">"ଡିଭାଇସ ସେଟ ଅପ କରାଯାଇପାରିଲା ନାହିଁ। ସାହାଯ୍ୟ ପାଇଁ, ଆପଣଙ୍କ ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
+    <string name="contact_your_admin_for_help" msgid="2009904021552323731">"ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କର IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ"</string>
     <string name="reset_device" msgid="5483853913241939262">"ଏହି ଡିଭାଇସକୁ ରିସେଟ୍ କରି ଏହାକୁ ପୁଣି ସେଟ୍ ଅପ୍ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"ଡିଭାଇସ୍‍ ପୂର୍ବରୁ ସେଟଅପ୍‌ କରାଯାଇଛି"</string>
     <string name="error_wifi" msgid="1850288843966836571">"ୱାଇ-ଫାଇ ସହ ସଂଯୋଗ ହୋଇପାରିଲା ନାହିଁ"</string>
-    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"ଆପଣଙ୍କ ଡିଭାଇସରେ ରିସେଟ୍‍ ସୁରକ୍ଷା ଚାଲୁ କରାଯାଇଛି। ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"ଆପଣଙ୍କ ଡିଭାଇସରେ ରିସେଟ ସୁରକ୍ଷା ଚାଲୁ କରାଯାଇଛି। ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କ ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"ଲିଭାଯାଉଛି"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"ଦୟାକରି ଅପେକ୍ଷା କରନ୍ତୁ..."</string>
-    <string name="error_hash_mismatch" msgid="1145488923243178454">"ଏକ ଚେକସମ୍‍ ତ୍ରୁଟି ହେତୁ ବ୍ୟବସ୍ଥାପକ ଆପ୍ ବ୍ୟବହାର ହୋଇପାରିଲା ନାହିଁ। ସାହାଯ୍ୟ ପାଇଁ, ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
-    <string name="error_download_failed" msgid="3274283629837019452">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‌କୁ ଡାଉନଲୋଡ୍ କରାଯାଇପାରିଲା ନାହିଁ"</string>
-    <string name="error_package_invalid" msgid="555402554502033988">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‍ ବ୍ୟବହାର କରିପାରିବେ ନାହିଁ। ଏହାର କିଛି ଉପାଦାନ ନାହିଁ କିମ୍ବା ଖରାପ ହୋଇଯାଇଛି, ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କ IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
+    <string name="error_hash_mismatch" msgid="1145488923243178454">"ଏକ ଚେକସମ୍‍ ତ୍ରୁଟି ହେତୁ ଆଡମିନ ଆପ ବ୍ୟବହାର ହୋଇପାରିଲା ନାହିଁ। ସାହାଯ୍ୟ ପାଇଁ, ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
+    <string name="error_download_failed" msgid="3274283629837019452">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‌କୁ ଡାଉନଲୋଡ କରାଯାଇପାରିଲା ନାହିଁ"</string>
+    <string name="error_package_invalid" msgid="555402554502033988">"ଆଡମିନ ଆପ ବ୍ୟବହାର କରିପାରିବେ ନାହିଁ। ଏହାର କିଛି ଉପାଦାନ ନାହିଁ କିମ୍ବା ଖରାପ ହୋଇଯାଇଛି। ସାହାଯ୍ୟ ପାଇଁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
     <string name="error_installation_failed" msgid="2282903750318407285">"ବ୍ୟବସ୍ଥାପକ ଆପ୍‌ ଇନ୍‍ଷ୍ଟଲ୍‍ କରାଯାଇପାରିଲା ନାହିଁ"</string>
     <string name="profile_owner_cancel_message" msgid="6868736915633023477">"ସେଟ୍‌ ଅପ୍‍ କରିବା ବନ୍ଦ କରିବେ?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"ନା"</string>
@@ -105,10 +105,10 @@
     <string name="device_owner_info" msgid="3716661456037934467">"ଏହି ଡିଭାଇସ୍‌କୁ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>ଦ୍ଵାରା ପରିଚାଳିତ, ତଦାରଖ ଓ ସୁରକ୍ଷିତ କରାଯିବ। ସର୍ତ୍ତ ଲାଗୁ ହେବ। <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
     <string name="device_owner_info_with_terms_headers" msgid="1254243288669282977">"ଏହି ଡିଭାଇସ୍‌କୁ <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>ଦ୍ଵାରା ପରିଚାଳିତ, ତଦାରଖ ଓ ସୁରକ୍ଷିତ କରାଯିବ। <xliff:g id="TERMS_HEADERS">%2$s</xliff:g>ରୁ ସର୍ତ୍ତ ଲାଗୁ ହେବ। <xliff:g id="VIEW_TERMS">%3$s</xliff:g>"</string>
     <string name="link_isnt_secure_and_cant_be_opened_until_device_setup_finished" msgid="1604497932637832657">"ଏହି ଲିଙ୍କ ସୁରକ୍ଷିତ ନୁହେଁ ଏବଂ ଡିଭାଇସ୍ ସେଟଅପ୍‍ ସମାପ୍ତ ନହେବା ପର୍ଯ୍ୟନ୍ତ ଖୋଲାଯାଇ ପାରିବ ନାହିଁ: <xliff:g id="LINK_RAW_TEST">%1$s</xliff:g>"</string>
-    <string name="contact_device_provider" msgid="2843488903902493030">"ଅଧିକ ଜାଣିବାକୁ, ଆପଣଙ୍କ <xliff:g id="IT_ADMIN">%1$s</xliff:g>ଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
-    <string name="if_questions_contact_admin" msgid="3509427015901582047">"ଯଦି ଆପଣଙ୍କର କିଛି ପ୍ରଶ୍ନ ଥାଏ, ତେବେ ନିଜର IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ"</string>
-    <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"ସେଟ୍‌ଅପ୍ ସମାପ୍ତ ହୋଇନାହିଁ। ସାହାଯ୍ୟ ପାଇଁ, ଆପଣଙ୍କ ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ।"</string>
-    <string name="for_help_contact_admin" msgid="5922538077702487859">"ସାହାଯ୍ୟ ପାଇଁ, ଆପଣଙ୍କର IT ବ୍ୟବସ୍ଥାପକଙ୍କ ସହ ସମ୍ପର୍କ କରନ୍ତୁ।"</string>
+    <string name="contact_device_provider" msgid="2843488903902493030">"ଅଧିକ ଜାଣିବାକୁ, ଆପଣଙ୍କ <xliff:g id="IT_ADMIN">%1$s</xliff:g>ଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
+    <string name="if_questions_contact_admin" msgid="3509427015901582047">"ଯଦି ଆପଣଙ୍କର କିଛି ପ୍ରଶ୍ନ ଥାଏ, ତେବେ ନିଜର IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ"</string>
+    <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"ସେଟଅପ ସମାପ୍ତ ହୋଇନାହିଁ। ସାହାଯ୍ୟ ପାଇଁ, ଆପଣଙ୍କ ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
+    <string name="for_help_contact_admin" msgid="5922538077702487859">"ସାହାଯ୍ୟ ପାଇଁ, ଆପଣଙ୍କର IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ।"</string>
     <string name="organization_admin" msgid="5975914478148511290">"IT ବ୍ୟବସ୍ଥାପକ"</string>
     <string name="your_org_app_used" msgid="5336414768293540831">"ନିମ୍ନ ଆପ୍‍ ବ୍ୟବହାର କରି <xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ଏହି ଡିଭାଇସ୍‍ ପରିଚାଳନା ଓ ନୀରିକ୍ଷଣ କରିବ:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"ଆପଣଙ୍କ ସଂସ୍ଥା"</string>
@@ -144,7 +144,7 @@
     <string name="close_list" msgid="9053538299788717597">"ବନ୍ଦ କରୁଥିବା ତାଲିକା"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ସେଟଅପ୍‍ ଶେଷ କରି ଫ୍ୟାକ୍ଟୋରୀ ରିସେଟ୍‍ କରିବେ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ଏହି ସେଟଅପ୍‍ ଶେଷ କରିବା ଦ୍ୱାରା ଆପଣଙ୍କ ଡିଭାଇସ୍ ଫ୍ୟାକ୍ଟୋରୀ ରିସେଟ୍‍ ହେବ ଏବଂ ଆପଣଙ୍କୁ ପ୍ରଥମ ସ୍କ୍ରୀନକୁ ନିଆଯିବ।"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ବାତିଲ୍‍ କରନ୍ତୁ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ବାତିଲ କରନ୍ତୁ"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ଡିଭାଇସ୍‌ ରିସେଟ୍‍ କରନ୍ତୁ"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> ଏବଂ <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> ଏବଂ <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
@@ -171,14 +171,14 @@
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"ଏହି ଡିଭାଇସ୍‌ ବ୍ୟକ୍ତିଗତ ନୁହେଁ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସ୍‌ରେ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି।"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"ଆପଣଙ୍କ କାର୍ଯ୍ୟକଳାପ ଏବଂ ଡାଟା"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ଆପ୍ ଅନୁମତିଗୁଡ଼ିକ"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"ଆପ ଅନୁମତିଗୁଡ଼ିକ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ମାଇକ୍ରୋଫୋନ୍, କ୍ୟାମେରା ଏବଂ ଲୋକେସନ୍ ଅନୁମତି ପରି ଏହି ଡିଭାଇସରେ ଥିବା ଆପଗୁଡ଼ିକ ପାଇଁ ଅନୁମତିଗୁଡ଼ିକୁ ସେଟ୍ କରିପାରିବେ।"</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"ଆପଣଙ୍କ ଡିଭାଇସ୍‌କୁ ସେଟ୍ ଅପ୍ କରାଯାଉଛି…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"ଆପଣଙ୍କ ୱାର୍କ ଆପଗୁଡ଼ିକୁ ସହଜରେ ଆକ୍ସେସ୍ କରିବା ପାଇଁ ଏହି ଡିଭାଇସକୁ ବ୍ୟବହାର କରନ୍ତୁ। ଏହି ଡିଭାଇସ୍ ବ୍ୟକ୍ତିଗତ ନୁହେଁ, ତେଣୁ ଆପଣଙ୍କ IT ଆଡମିନ୍ ଆପଣଙ୍କ ଡାଟା ଏବଂ କାର୍ଯ୍ୟକଳାପ ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି।"</string>
     <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"ଆପଣଙ୍କ ୱାର୍କ ଆପଗୁଡ଼ିକୁ ସହଜରେ ଆକ୍ସେସ୍ କରିବା ପାଇଁ ଏହି ଡିଭାଇସକୁ ବ୍ୟବହାର କରନ୍ତୁ। ଏହି ଡିଭାଇସ୍ ବ୍ୟକ୍ତିଗତ ନୁହେଁ, ତେଣୁ ଆପଣଙ୍କ IT ଆଡମିନ୍ ଆପଣଙ୍କ କାର୍ଯ୍ୟକଳାପ ଏବଂ ଡାଟା ଦେଖିବାକୁ ସକ୍ଷମ ହୋଇପାରନ୍ତି। ଆପଣଙ୍କ IT ଆଡମିନ୍ ମାଇକ୍ରୋଫୋନ୍, କ୍ୟାମେରା ଏବଂ ଲୋକେସନ୍ ଅନୁମତି ପରି ଏହି ଡିଭାଇସରେ ଥିବା ଆପଗୁଡ଼ିକ ପାଇଁ ଅନୁମତିଗୁଡ଼ିକୁ ମଧ୍ୟ ସେଟ୍ କରିପାରିବେ।"</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"ଏହି ଡିଭାଇସକୁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଫେରାନ୍ତୁ"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ପୂର୍ବବର୍ତ୍ତୀ ସ୍କ୍ରିନକୁ ଫେରନ୍ତୁ କିମ୍ବା ଏହି ଡିଭାଇସ୍ ରିସେଟ୍ କରନ୍ତୁ ଏବଂ ଏହାକୁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଫେରାନ୍ତୁ।"</string>
-    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ସେଟଅପ୍ ବାତିଲ୍ କରନ୍ତୁ"</string>
+    <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ସେଟଅପ୍ ବାତିଲ କରନ୍ତୁ"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"ଡିଭାଇସ୍ ରିସେଟ୍ କରି ଫେରାନ୍ତୁ"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ୱାର୍କ ଆପ୍ସ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଏ ଓ ଏହା ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ଦ୍ୱାରା ପରିଚାଳିତ ହୋଇଥାଏ"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକ କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପଗୁଡ଼ିକ ଠାରୁ ଅଲଗା ଅଟେ ଓ ଏହା ଲୁକ୍କାୟିତ ଅଛି"</string>
@@ -192,8 +192,8 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> ଆପକୁ ଇନଷ୍ଟଲ୍ କରିପାରିବ ଯାହା ଫଳରେ ଆପଣ ଏହି ଡିଭାଇସ୍ ପାଇଁ ପେମେଣ୍ଟ କରିପାରିବେ।"</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"ଏହି ଡିଭାଇସକୁ ପ୍ରତିବନ୍ଧିତ କରାଯାଇପାରେ"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"ଯଦି ଆପଣ ପେମେଣ୍ଟ କରୁନାହାଁନ୍ତି, ତେବେ <xliff:g id="CREDITOR_NAME">%1$s</xliff:g> ଏହି ଡିଭାଇସକୁ ଆକ୍ସେସ୍ ପ୍ରତିବନ୍ଧିତ କରିପାରିବ।"</string>
-    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"ଡିଭାଇସକୁ ସେଟ ଅପ କରାଯାଇପାରିବ ନାହିଁ। ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ ଏବଂ \"ଅବୈଧ ଚେକସମ\"ର ରେଫରେନ୍ସ ଦିଅନ୍ତୁ।"</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"ଡିଭାଇସକୁ ସେଟ ଅପ କରାଯାଇପାରିବ ନାହିଁ। ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ ଏବଂ \"ଅବୈଧ ଚେକସମ\"ର ରେଫରେନ୍ସ ଦିଅନ୍ତୁ।"</string>
     <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ କିମ୍ବା ସହାୟତା ପାଇଁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ କୁହନ୍ତୁ"</string>
-    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"ଡିଭାଇସକୁ ସେଟ ଅପ କରାଯାଇପାରିବ ନାହିଁ। ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ ଏବଂ \"ଅନୁପଲବ୍ଧ କିମ୍ବା କରପ୍ଟ ହୋଇଯାଇଥିବା କମ୍ପୋନେଣ୍ଟଗୁଡ଼ିକ\"ର ରେଫରେନ୍ସ ଦିଅନ୍ତୁ।"</string>
+    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"ଡିଭାଇସକୁ ସେଟ ଅପ କରାଯାଇପାରିବ ନାହିଁ। ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ସହ କଣ୍ଟାକ୍ଟ କରନ୍ତୁ ଏବଂ \"ଅନୁପଲବ୍ଧ କିମ୍ବା କରପ୍ଟ ହୋଇଯାଇଥିବା କମ୍ପୋନେଣ୍ଟଗୁଡ଼ିକ\"ର ରେଫରେନ୍ସ ଦିଅନ୍ତୁ।"</string>
     <string name="setting_up" msgid="1478847967385506664">"ସେଟ ଅପ କରାଯାଉଛି…"</string>
 </resources>
