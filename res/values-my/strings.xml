@@ -68,7 +68,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"အလုပ်စက်ပစ္စည်း အသုံးပြုသူ"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"အလုပ်စက်ပစ္စည်းကို ပြင်ဆင်သတ်မှတ်နေပါသည်…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"ဤစက်ပစ္စည်းသည် စနစ်ထည့်သွင်းမှုအတွက် လိုအပ်သည့် အသွင်ဝှက်ခြင်းကို ခွင့်မပြုပါ။ အကူအညီရယူရန် သင်၏ IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
-    <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"စနစ်ထည့်သွင်းမှုကိုရပ်ပြီး စက်ပစ္စည်းကို ပြင်ဆင်သတ်မှတ် လိုပါသလား။"</string>
+    <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"စနစ်ထည့်သွင်းမှုကိုရပ်ပြီး စက်ကို ပြင်ဆင်သတ်မှတ် လိုပါသလား။"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"၎င်းသည် သင်၏ စက်ပစ္စည်းကို ပြင်ဆင်သတ်မှတ်ပြီး ပထမဆုံးစာမျက်နှာသို့ ပြန်ပို့ပေးပါမည်"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"စဖွင့်စီစဉ်မှုအား ရပ်စဲကာ သင့် ကိရိယာ၏ဒေတာကို ဖျက်ပစ်မည်လား?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"မလုပ်တော့"</string>
@@ -145,7 +145,7 @@
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"စနစ်ထည့်သွင်းမှု အဆုံးသတ်ပြီး စက်ရုံထုတ်ဆက်တင်အတိုင်း ပြန်လည်သတ်မှတ်မလား။"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ဤစနစ်ထည့်သွင်းမှုကို အဆုံးသတ်ခြင်းသည် သင့်စက်ပစ္စည်းကို စက်ရုံထုတ်ဆက်တင်အတိုင်း ပြန်လည်သတ်မှတ်ပေးမည်ဖြစ်ပြီး ပထမဦးဆုံးစာမျက်နှာသို့ ပို့ပေးပါလိမ့်မည်။"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"မလုပ်တော့"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"စက်ပစ္စည်းကို မူလဆက်တင်သို့ ပြန်လည်သတ်မှတ်ပါ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"စက်ကို ပြင်ဆင်သတ်မှတ်ရန်"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> နှင့် <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> နှင့် <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>၊ <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
