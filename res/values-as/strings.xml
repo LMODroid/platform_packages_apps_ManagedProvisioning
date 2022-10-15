@@ -56,12 +56,12 @@
     <string name="encrypt" msgid="1749320161747489212">"এনক্ৰিপ্ট কৰক"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"এনক্ৰিপশ্বন সম্পূৰ্ণ হ’ল"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"আপোনাৰ কৰ্মস্থানৰ প্ৰ\'ফাইলৰ ছেটিং কাৰ্য অব্যাহত ৰাখিবলৈ ইয়াত টিপক"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"কৰ্মস্থানৰ প্ৰ\'ফাইল ছেটআপ কৰিব পৰা নগ\'ল। আপোনাৰ আইটি বিভাগৰ সৈতে যোগাযোগ কৰক বা পিছত পুনৰ চেষ্টা কৰক।"</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"কৰ্মস্থানৰ প্ৰ\'ফাইল ছেটআপ কৰিব পৰা নগ\'ল। আপোনাৰ আইটি বিভাগৰ সৈতে যোগাযোগ কৰক বা পাছত পুনৰ চেষ্টা কৰক।"</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"কৰ্মস্থানৰ প্ৰ\'ফাইল যোগ কৰিব নোৱাৰি"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"কৰ্মস্থানৰ প্ৰ\'ফাইল আঁতৰাব বা সলনি কৰিব নোৱাৰি"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"এই ডিভাইচটোত কোনো কৰ্মস্থানৰ প্ৰ’ফাইল যোগ কৰিব নোৱাৰি। কিবা প্ৰশ্ন থাকিলে আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক৷"</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"ডিভাইচ লঞ্চাৰ সলনি কৰক"</string>
-    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"আপোনাৰ কৰ্মস্থানৰ প্ৰ\'ফাইলে এই লঞ্চাৰ এপটো ব্যৱহাৰ কৰিব নোৱাৰে"</string>
+    <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"আপোনাৰ কৰ্মস্থানৰ প্ৰ\'ফাইলে এই লঞ্চাৰ এপ্‌টো ব্যৱহাৰ কৰিব নোৱাৰে"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"বাতিল কৰক"</string>
     <string name="pick_launcher" msgid="4257084827403983845">"ঠিক আছে"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"ব্যৱহাৰকাৰীৰ ছেট আপ কার্য সম্পূর্ণ নহ\'ল"</string>
@@ -94,7 +94,7 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"হয়"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"বাতিল কৰি থকা হৈছে…"</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"প্ৰ\'ফাইল ছেট আপ কার্য বন্ধ কৰিবনে?"</string>
-    <string name="work_profile_setup_later_message" msgid="122069011117225292">"আপুনি পিছত আপোনাৰ প্ৰতিষ্ঠানৰ ডিভাইচ পৰিচালনা এপত আপোনাৰ কৰ্মস্থানৰ প্ৰ\'ফাইল ছেট আপ কৰিব পাৰিব"</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"আপুনি পাছত আপোনাৰ প্ৰতিষ্ঠানৰ ডিভাইচ পৰিচালনা এপত আপোনাৰ কৰ্মস্থানৰ প্ৰ\'ফাইল ছেট আপ কৰিব পাৰিব"</string>
     <string name="continue_button" msgid="7177918589510964446">"অব্যাহত ৰাখক"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"বন্ধ কৰক"</string>
     <string name="dismiss" msgid="9009534756748565880">"অগ্ৰাহ্য কৰক"</string>
@@ -110,7 +110,7 @@
     <string name="setup_isnt_finished_contact_admin" msgid="8849644190723875952">"ছেট আপ সম্পূৰ্ণ হোৱা নাই। সহায়ৰ বাবে আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
     <string name="for_help_contact_admin" msgid="5922538077702487859">"সহায়ৰ বাবে আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক"</string>
     <string name="organization_admin" msgid="5975914478148511290">"আইটি প্ৰশাসক"</string>
-    <string name="your_org_app_used" msgid="5336414768293540831">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>এ এই ডিভাইচটো তলত উল্লেখ কৰা এপটো ব্যৱহাৰ কৰি পৰিচালনা আৰু পৰ্যবেক্ষণ কৰিব:"</string>
+    <string name="your_org_app_used" msgid="5336414768293540831">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g>এ এই ডিভাইচটো তলত উল্লেখ কৰা এপ্‌টো ব্যৱহাৰ কৰি পৰিচালনা আৰু পৰ্যবেক্ষণ কৰিব:"</string>
     <string name="your_organization_beginning" msgid="5952561489910967255">"আপোনাৰ প্ৰতিষ্ঠান"</string>
     <string name="your_organization_middle" msgid="8288538158061644733">"আপোনাৰ প্ৰতিষ্ঠান"</string>
     <string name="view_terms" msgid="7230493092383341605">"চৰ্তসমূহ চাওক"</string>
