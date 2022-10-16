@@ -254,6 +254,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         super.finish();
     }
 
+    @SuppressWarnings("MissingSuperCall") // TODO: Fix me
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
