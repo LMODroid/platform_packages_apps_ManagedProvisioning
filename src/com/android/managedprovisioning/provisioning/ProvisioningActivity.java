@@ -97,18 +97,15 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     @Retention(RetentionPolicy.SOURCE)
     @interface ProvisioningMode {}
 
-    private static final Map<Integer, Integer> PROVISIONING_MODE_TO_PROGRESS_LABEL =
-            Collections.unmodifiableMap(new HashMap<Integer, Integer>() {{
-                put(PROVISIONING_MODE_WORK_PROFILE,
-                        R.string.work_profile_provisioning_progress_label);
-                put(PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
-                        R.string.fully_managed_device_provisioning_progress_label);
-                put(PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE,
-                        R.string.fully_managed_device_provisioning_progress_label);
-                put(PROVISIONING_MODE_FINANCED_DEVICE, R.string.just_a_sec);
-                put(PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE,
-                        R.string.work_profile_provisioning_progress_label);
-            }});
+    private static final Map<Integer, Integer> PROVISIONING_MODE_TO_PROGRESS_LABEL = Map.of(
+                PROVISIONING_MODE_WORK_PROFILE, R.string.work_profile_provisioning_progress_label,
+                PROVISIONING_MODE_FULLY_MANAGED_DEVICE,
+                    R.string.fully_managed_device_provisioning_progress_label,
+                PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE,
+                    R.string.fully_managed_device_provisioning_progress_label,
+                PROVISIONING_MODE_FINANCED_DEVICE, R.string.just_a_sec,
+                PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE,
+                    R.string.work_profile_provisioning_progress_label);
 
     private UserProvisioningStateHelper mUserProvisioningStateHelper;
     private PolicyComplianceUtils mPolicyComplianceUtils;
