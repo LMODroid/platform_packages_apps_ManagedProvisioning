@@ -173,7 +173,7 @@ public class InstallPackageTask extends AbstractProvisioningTask {
         PackageInstaller pi = context.getPackageManager().getPackageInstaller();
         context.registerReceiver(
                 new PackageAddedReceiver(packageName),
-                createPackageAddedIntentFilter());
+                createPackageAddedIntentFilter(), Context.RECEIVER_EXPORTED/*UNAUDITED*/);
         pi.registerSessionCallback(sessionCallback);
         int sessionId = pi.createSession(params);
         try (PackageInstaller.Session session = pi.openSession(sessionId)) {
