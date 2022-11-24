@@ -40,6 +40,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
+import android.content.pm.UserInfo;
 import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
@@ -353,9 +354,7 @@ public class Utils {
     }
 
     /**
-     * Returns the first existing managed profile if any present, null otherwise.
-     *
-     * <p>Note that we currently only support one managed profile per device.
+     * Returns the last existing managed profile if any present, null otherwise.
      */
     // TODO: Add unit tests
     @Nullable
@@ -370,7 +369,17 @@ public class Utils {
         if (managedProfiles.isEmpty()) {
             return null;
         }
-        return managedProfiles.get(0);
+        if (managedProfiles.size() == 1) {
+            return managedProfiles.get(0);
+        }
+        // Find and return our profile that was created most recently.
+        final UserManager um = (UserManager) context.getSystemService(Context.USER_SERVICE);
+        return new UserHandle(managedProfiles.stream()
+                .map(u -> um.getUserInfo(u.getIdentifier()))
+                .max((u1, u2) -> Long.compare(
+                        u1 == null ? 0 : u1.creationTime,
+                        u2 == null ? 0 : u2.creationTime))
+                .get().id);
     }
 
     /**
