@@ -29,6 +29,7 @@ import com.android.managedprovisioning.common.InitializeLayoutConsumerHandler;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.google.android.setupdesign.util.DeviceHelper;
 
 import com.google.android.setupdesign.GlifLayout;
 import com.google.auto.value.AutoValue;
@@ -45,7 +46,9 @@ abstract class LandingActivityBridgeImpl implements LandingActivityBridge {
     @Override
     public void initiateUi(Activity activity) {
         int headerResId = R.string.brand_screen_header;
-        int titleResId = R.string.setup_device_progress;
+
+        CharSequence deviceName = DeviceHelper.getDeviceName(activity);
+        String title = activity.getString(R.string.setup_device_progress, deviceName);
 
         if (shouldShowAccountManagementDisclaimer(
                 getParams().initiatorRequestedProvisioningModes, getUtils())) {
@@ -54,7 +57,7 @@ abstract class LandingActivityBridgeImpl implements LandingActivityBridge {
 
         getInitializeLayoutParamsConsumer()
                 .initializeLayoutParams(R.layout.landing_screen, headerResId);
-        activity.setTitle(titleResId);
+        activity.setTitle(title);
 
         CustomizationParams customizationParams =
                 CustomizationParams.createInstance(getParams(), activity, getUtils());

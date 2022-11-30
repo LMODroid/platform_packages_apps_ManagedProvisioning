@@ -56,6 +56,7 @@ import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_E
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static com.android.managedprovisioning.model.ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED;
+import com.google.android.setupdesign.util.DeviceHelper;
 
 import static java.util.Objects.requireNonNull;
 
@@ -116,6 +117,7 @@ import com.android.managedprovisioning.parser.DisclaimersParserImpl;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.DefaultConfig;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.PreProvisioningViewModelFactory;
 import com.android.managedprovisioning.provisioning.Constants;
+import com.google.android.setupdesign.util.DeviceHelper;
 
 import java.util.IllformedLocaleException;
 import java.util.List;
@@ -294,6 +296,22 @@ public class PreProvisioningActivityController {
          * @param errorMessage an error message that gets logged for debugging
          */
         void showErrorAndClose(Integer titleId, int messageId, String errorMessage);
+
+        /**
+         * Show an error message and cancel provisioning.
+         * @param titleId resource id used to form the user facing error title
+         * @param message user facing error message
+         * @param errorMessage an error message that gets logged for debugging
+         */
+        void showErrorAndClose(Integer titleId, String message, String errorMessage);
+
+        /**
+         * Show an error message and cancel provisioning.
+         * @param titleId user facing error title
+         * @param message user facing error message
+         * @param errorMessage an error message that gets logged for debugging
+         */
+        void showErrorAndClose(String titleId, String message, String errorMessage);
 
         /**
          * Request the user to encrypt the device.
@@ -802,8 +820,10 @@ public class PreProvisioningActivityController {
         if (isEncryptionRequired()) {
             if (mDevicePolicyManager.getStorageEncryptionStatus()
                     == DevicePolicyManager.ENCRYPTION_STATUS_UNSUPPORTED) {
+                CharSequence deviceName = DeviceHelper.getDeviceName(mContext);
                 mUi.showErrorAndClose(R.string.cant_set_up_device,
-                        R.string.device_doesnt_allow_encryption_contact_admin,
+                        mContext.getString(R.string.device_doesnt_allow_encryption_contact_admin,
+                                deviceName),
                         "This device does not support encryption, and "
                                 + DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION
                                 + " was not passed.");
@@ -845,8 +865,10 @@ public class PreProvisioningActivityController {
             return true;
         }
         if (factoryResetProtected()) {
+            CharSequence deviceName = DeviceHelper.getDeviceName(mContext);
             mUi.showErrorAndClose(R.string.cant_set_up_device,
-                    R.string.device_has_reset_protection_contact_admin,
+                    mContext.getString(R.string.device_has_reset_protection_contact_admin,
+                            deviceName),
                     "Factory reset protection blocks provisioning.");
             return false;
         }
@@ -1122,27 +1144,33 @@ public class PreProvisioningActivityController {
                     R.string.contact_your_admin_for_help);
             return;
         }
+
+        CharSequence deviceName = DeviceHelper.getDeviceName(mContext);
         switch (provisioningPreCondition) {
             case STATUS_MANAGED_USERS_NOT_SUPPORTED:
                 mUi.showErrorAndClose(R.string.cant_add_work_profile,
-                        R.string.work_profile_cant_be_added_contact_admin,
+                        mContext.getString(R.string.work_profile_cant_be_added_contact_admin,
+                                deviceName),
                         "Exiting managed profile provisioning, managed profiles "
                                 + "feature is not available");
                 break;
             case STATUS_CANNOT_ADD_MANAGED_PROFILE:
                 if (!userInfo.canHaveProfile()) {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
-                            R.string.work_profile_cant_be_added_contact_admin,
+                            mContext.getString(R.string.work_profile_cant_be_added_contact_admin,
+                                    deviceName),
                             "Exiting managed profile provisioning, calling user cannot "
                                     + "have managed profiles");
                 } else if (!canAddManagedProfile()) {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
-                            R.string.work_profile_cant_be_added_contact_admin,
+                            mContext.getString(R.string.work_profile_cant_be_added_contact_admin,
+                                    deviceName),
                             "Exiting managed profile provisioning, a managed profile "
                                     + "already exists");
                 } else {
                     mUi.showErrorAndClose(R.string.cant_add_work_profile,
-                            R.string.work_profile_cant_be_added_contact_admin,
+                            mContext.getString(R.string.work_profile_cant_be_added_contact_admin,
+                                    deviceName),
                             "Exiting managed profile provisioning, cannot add more managed "
                                     + "profiles");
                 }
@@ -1167,11 +1195,14 @@ public class PreProvisioningActivityController {
     }
 
     private void showDeviceOwnerErrorAndClose(int provisioningPreCondition) {
+        CharSequence deviceName = DeviceHelper.getDeviceName(mContext);
         switch (provisioningPreCondition) {
             case STATUS_HAS_DEVICE_OWNER:
             case STATUS_USER_SETUP_COMPLETED:
-                mUi.showErrorAndClose(R.string.device_already_set_up,
-                        R.string.if_questions_contact_admin, "Device already provisioned.");
+                mUi.showErrorAndClose(
+                        mContext.getString(R.string.device_already_set_up, deviceName),
+                        mContext.getString(R.string.if_questions_contact_admin),
+                        "Device already provisioned.");
                 return;
             case STATUS_NOT_SYSTEM_USER:
                 mUi.showErrorAndClose(R.string.cant_set_up_device,

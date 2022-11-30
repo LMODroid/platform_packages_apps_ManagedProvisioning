@@ -35,6 +35,7 @@ import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityCo
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.setupdesign.GlifLayout;
+import com.google.android.setupdesign.util.DeviceHelper;
 
 
 /**
@@ -62,15 +63,16 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
 
     @Override
     public void initiateUi(UiParams uiParams) {
-        int titleResId = 0;
+        String title = "";
         int headerResId = 0;
         int animationResId = 0;
         if (mUtils.isProfileOwnerAction(uiParams.provisioningAction)) {
-            titleResId = R.string.setup_profile;
+            title = mActivity.getString(R.string.setup_profile);
             headerResId = R.string.work_profile_provisioning_accept_header_post_suw;
             animationResId = R.raw.consent_animation_po;
         } else if (mUtils.isDeviceOwnerAction(uiParams.provisioningAction)) {
-            titleResId = R.string.setup_device;
+            CharSequence deviceName = DeviceHelper.getDeviceName(mActivity);
+            title = mActivity.getString(R.string.setup_device, deviceName);
             headerResId = R.string.fully_managed_device_provisioning_accept_header;
             animationResId = R.raw.consent_animation_do;
         }
@@ -83,7 +85,7 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
         setupAcceptAndContinueButton();
 
         // set the activity title
-        mActivity.setTitle(titleResId);
+        mActivity.setTitle(title);
 
         // set up terms headers
         setupViewTermsButton();
