@@ -31,6 +31,7 @@ import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBrid
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.google.android.setupdesign.util.DeviceHelper;
 
 /**
  * Progress activity shown whilst network setup, downloading, verifying and installing the
@@ -105,10 +106,12 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
     }
 
     private void initializeUi() {
+        CharSequence deviceName = DeviceHelper.getDeviceName(this);
+        final String title = getString(R.string.setup_device_progress, deviceName);
         final int headerResId = R.string.downloading_administrator_header;
-        final int titleResId = R.string.setup_device_progress;
+
         initializeLayoutParams(R.layout.empty_loading_layout, headerResId);
-        setTitle(titleResId);
+        setTitle(title);
     }
 
     @Override

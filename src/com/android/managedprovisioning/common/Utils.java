@@ -74,6 +74,7 @@ import com.google.android.setupcompat.template.FooterBarMixin;
 import com.google.android.setupcompat.template.FooterButton;
 import com.google.android.setupcompat.template.FooterButton.ButtonType;
 import com.google.android.setupdesign.GlifLayout;
+import com.google.android.setupdesign.util.DeviceHelper;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -823,19 +824,25 @@ public class Utils {
         return secondaryButton;
     }
 
-    public SimpleDialog.Builder createCancelProvisioningResetDialogBuilder() {
+    public SimpleDialog.Builder createCancelProvisioningResetDialogBuilder(Context context) {
+        CharSequence deviceName = DeviceHelper.getDeviceName(context);
+
         final int positiveResId = R.string.reset;
         final int negativeResId = R.string.device_owner_cancel_cancel;
-        final int dialogMsgResId = R.string.this_will_reset_take_back_first_screen;
-        return getBaseDialogBuilder(positiveResId, negativeResId, dialogMsgResId)
-                .setTitle(R.string.stop_setup_reset_device_question);
+        final String dialogMsgResId =
+                context.getString(R.string.this_will_reset_take_back_first_screen, deviceName);
+
+        return getBaseDialogBuilder(context, positiveResId, negativeResId)
+                .setMessage(dialogMsgResId)
+                .setTitle(context.getString(R.string.stop_setup_reset_device_question, deviceName));
     }
 
-    public SimpleDialog.Builder createCancelProvisioningDialogBuilder() {
+    public SimpleDialog.Builder createCancelProvisioningDialogBuilder(Context context) {
         final int positiveResId = R.string.profile_owner_cancel_ok;
         final int negativeResId = R.string.profile_owner_cancel_cancel;
         final int dialogMsgResId = R.string.profile_owner_cancel_message;
-        return getBaseDialogBuilder(positiveResId, negativeResId, dialogMsgResId);
+        return getBaseDialogBuilder(context, positiveResId, negativeResId)
+                .setMessage(dialogMsgResId);
     }
 
     public boolean shouldShowOwnershipDisclaimerScreen(ProvisioningParams params) {
@@ -875,11 +882,10 @@ public class Utils {
         }
     }
 
-    private SimpleDialog.Builder getBaseDialogBuilder(
-            int positiveResId, int negativeResId, int dialogMsgResId) {
-        return new SimpleDialog.Builder()
+    private SimpleDialog.Builder getBaseDialogBuilder(Context context,
+            int positiveResId, int negativeResId) {
+        return new SimpleDialog.Builder(context)
                 .setCancelable(false)
-                .setMessage(dialogMsgResId)
                 .setNegativeButtonMessage(negativeResId)
                 .setPositiveButtonMessage(positiveResId);
     }
