@@ -268,6 +268,9 @@ public class InstallPackageTask extends AbstractProvisioningTask {
 
         @Override
         public void onFinished(int sessionId, boolean success) {
+            if (sessionId != mSessionId) {
+                return;
+            }
             PackageInstaller packageInstaller = mPm.getPackageInstaller();
             packageInstaller.unregisterSessionCallback(mSessionCallback);
             if (!success) {
