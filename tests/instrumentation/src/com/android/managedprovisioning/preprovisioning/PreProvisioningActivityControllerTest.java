@@ -28,7 +28,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIME
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMER_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
@@ -1884,55 +1883,6 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         verify(mUi).abortProvisioning();
         verifyNoMoreInteractions(mUi);
     }
-
-    public void testUpdateProvisioningParamsFromIntent_keepScreenOnWorkProfile_works() {
-        Intent resultIntent = createResultIntentWithManagedProfile()
-                .putExtra(EXTRA_PROVISIONING_KEEP_SCREEN_ON, /* value= */ true);
-        ProvisioningParams params = createProvisioningParamsBuilderForManagedProfile()
-                .build();
-        initiateProvisioning(params);
-
-        mController.updateProvisioningParamsFromIntent(resultIntent);
-
-        assertThat(mController.getParams().keepScreenOn).isTrue();
-    }
-
-    public void testUpdateProvisioningParamsFromIntent_keepScreenOnManagedDevice_works() {
-        Intent resultIntent = createResultIntentWithFullyManagedDevice()
-                .putExtra(EXTRA_PROVISIONING_KEEP_SCREEN_ON, /* value= */ true);
-        ProvisioningParams params = createProvisioningParamsBuilderForFullyManagedDevice()
-                .build();
-        initiateProvisioning(params);
-
-        mController.updateProvisioningParamsFromIntent(resultIntent);
-
-        assertThat(mController.getParams().keepScreenOn).isTrue();
-    }
-
-    public void testUpdateProvisioningParamsFromIntent_noKeepScreenOnSet_isFalse() {
-        Intent resultIntent = createResultIntentWithManagedProfile();
-        ProvisioningParams params = createProvisioningParamsBuilderForManagedProfile()
-                .build();
-        initiateProvisioning(params);
-
-        mController.updateProvisioningParamsFromIntent(resultIntent);
-
-        assertThat(mController.getParams().keepScreenOn).isFalse();
-    }
-
-    public void testUpdateProvisioningParamsFromIntent_withPreExistingKeepScreenOn_replaced() {
-        Intent resultIntent = createResultIntentWithFullyManagedDevice()
-                .putExtra(EXTRA_PROVISIONING_KEEP_SCREEN_ON, /* value= */ true);
-        ProvisioningParams params = createProvisioningParamsBuilderForFullyManagedDevice()
-                .setKeepScreenOn(false)
-                .build();
-        initiateProvisioning(params);
-
-        mController.updateProvisioningParamsFromIntent(resultIntent);
-
-        assertThat(mController.getParams().keepScreenOn).isTrue();
-    }
-
     private static Parcelable[] createDisclaimersExtra() {
         Bundle disclaimer = new Bundle();
         disclaimer.putString(

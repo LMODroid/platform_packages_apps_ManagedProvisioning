@@ -746,12 +746,9 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void onParamsValidated(ProvisioningParams params) {
-        if (params.keepScreenOn) {
-            ManagedProvisioningBaseApplication application =
-                    (ManagedProvisioningBaseApplication) getApplication();
-            application.markKeepScreenOn();
-            application.maybeKeepScreenOn(this);
-        }
+        ManagedProvisioningBaseApplication application =
+                (ManagedProvisioningBaseApplication) getApplication();
+        application.keepScreenOn(this);
     }
 
     @Override

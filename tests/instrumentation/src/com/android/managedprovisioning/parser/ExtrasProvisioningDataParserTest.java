@@ -955,62 +955,6 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
         assertThat(params.returnBeforePolicyCompliance).isTrue();
     }
 
-    public void testParse_trustedSourceProvisioningWithKeepScreenOnSetTrue_isTrue()
-            throws IllegalProvisioningArgumentException {
-        Intent intent = buildTestTrustedSourceIntent()
-                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON,
-                        /* value= */ true);
-        mockInstalledDeviceAdminForTestPackageName();
-
-        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
-
-        assertThat(params.keepScreenOn).isTrue();
-    }
-
-    public void testParse_trustedSourceProvisioningWithKeepScreenOnSetFalse_isFalse()
-            throws IllegalProvisioningArgumentException {
-        Intent intent = buildTestTrustedSourceIntent()
-                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON,
-                        /* value= */ false);
-        mockInstalledDeviceAdminForTestPackageName();
-
-        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
-
-        assertThat(params.keepScreenOn).isFalse();
-    }
-
-    public void testParse_trustedSourceProvisioningWithKeepScreenOnNotSet_isFalse()
-            throws IllegalProvisioningArgumentException {
-        Intent intent = buildTestTrustedSourceIntent();
-        mockInstalledDeviceAdminForTestPackageName();
-
-        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
-
-        assertThat(params.keepScreenOn).isFalse();
-    }
-
-    public void testParse_managedProfileProvisioningWithKeepScreenOnSetTrue_isTrue()
-            throws IllegalProvisioningArgumentException {
-        Intent intent = buildTestManagedProfileIntent()
-                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON, /* value= */ true);
-        mockInstalledDeviceAdminForTestPackageName();
-
-        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
-
-        assertThat(params.keepScreenOn).isTrue();
-    }
-
-    public void testParse_financedDeviceProvisioningWithKeepScreenOnSetTrue_isTrue()
-            throws IllegalProvisioningArgumentException {
-        Intent intent = buildTestFinancedDeviceIntent()
-                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON, /* value= */ true);
-        mockInstalledDeviceAdminForTestPackageName();
-
-        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
-
-        assertThat(params.keepScreenOn).isTrue();
-    }
-
     public void testParse_trustedSourceProvisioningWithAllowOfflineTrue_isTrue()
             throws IllegalProvisioningArgumentException {
         Intent intent = buildTestTrustedSourceIntent()
