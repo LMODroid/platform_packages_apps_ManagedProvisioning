@@ -26,7 +26,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ALLOWED_P
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_DISCLAIMERS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_IMEI;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_ACCOUNT_ON_MIGRATION;
-import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_KEEP_SCREEN_ON;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LEAVE_ALL_SYSTEM_APPS_ENABLED;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCALE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_LOCAL_TIME;
@@ -53,7 +52,6 @@ import static android.app.admin.DevicePolicyManager.STATUS_USER_SETUP_COMPLETED;
 import static com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker.CANCELLED_BEFORE_PROVISIONING;
 import static com.android.managedprovisioning.common.Globals.ACTION_RESUME_PROVISIONING;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_ACCOUNT_MIGRATED;
-import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_KEEP_SCREEN_ON;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_EXTRA_PROVISIONING_SKIP_ENCRYPTION;
 import static com.android.managedprovisioning.model.ProvisioningParams.DEFAULT_LEAVE_ALL_SYSTEM_APPS_ENABLED;
@@ -615,7 +613,6 @@ public class PreProvisioningActivityController {
         maybeUpdateSkipEducationScreens(builder, resultIntent);
         maybeUpdateDisclaimers(builder, resultIntent);
         maybeUpdateSkipEncryption(builder, resultIntent);
-        maybeUpdateKeepScreenOn(builder, resultIntent);
         if (updateAccountToMigrate) {
             maybeUpdateAccountToMigrate(builder, resultIntent);
         }
@@ -638,15 +635,6 @@ public class PreProvisioningActivityController {
             builder.setDeviceOwnerPermissionGrantOptOut(resultIntent.getBooleanExtra(
                     EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT,
                     DEFAULT_EXTRA_PROVISIONING_PERMISSION_GRANT_OPT_OUT));
-        }
-    }
-
-    private void maybeUpdateKeepScreenOn(
-            ProvisioningParams.Builder builder, Intent resultIntent) {
-        if (resultIntent.hasExtra(EXTRA_PROVISIONING_KEEP_SCREEN_ON)) {
-            builder.setKeepScreenOn(resultIntent.getBooleanExtra(
-                    EXTRA_PROVISIONING_KEEP_SCREEN_ON,
-                    DEFAULT_EXTRA_PROVISIONING_KEEP_SCREEN_ON));
         }
     }
 
