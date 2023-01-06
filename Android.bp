@@ -88,6 +88,7 @@ android_app {
     certificate: "platform",
     privileged: true,
     optimize: {
+        shrink_resources: true,
         proguard_flags_files: ["proguard.flags"],
     },
 
