@@ -56,7 +56,7 @@
     <string name="encrypt" msgid="1749320161747489212">"I-encrypt"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Tapos na ang pag-encrypt"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"I-tap upang magpatuloy sa pagse-set up ng iyong profile sa trabaho"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Hindi ma-set up ang iyong profile sa trabaho. Makipag-ugnayan sa iyong IT department o subukang muli sa ibang pagkakataon."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Hindi ma-set up ang iyong profile sa trabaho. Makipag-ugnayan sa iyong IT department o subukan ulit sa ibang pagkakataon."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Hindi maidagdag ang profile sa trabaho"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Hindi maaaring palitan o alisin ang profile sa trabaho"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"Hindi makapagdagdag ng profile sa trabaho sa device na ito. Kung mayroon kang mga tanong, makipag-ugnayan sa iyong IT admin."</string>
