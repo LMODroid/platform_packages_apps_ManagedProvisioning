@@ -199,7 +199,7 @@ public class InstallPackageTask extends AbstractProvisioningTask {
             PendingIntent pendingIntent = PendingIntent.getBroadcast(
                     context,
                     mSessionId,
-                    new Intent(action),
+                    new Intent(action).setPackage(context.getPackageName()),
                     FLAG_ONE_SHOT | FLAG_UPDATE_CURRENT | FLAG_MUTABLE);
             session.commit(pendingIntent.getIntentSender());
         }
