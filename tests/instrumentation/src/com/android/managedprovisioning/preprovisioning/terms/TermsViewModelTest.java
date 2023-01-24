@@ -46,6 +46,7 @@ public class TermsViewModelTest {
 
     private static final String HEADER_1 = "header1";
     private static final String HEADER_2 = "header2";
+    private static final String TEST_DEVICE_NAME = "Pixel";
     private static final int TERM_POSITION = 1;
     private static final int TERM_POSITION_OUT_OF_BOUNDS = 1000;
     private static final DisclaimersParam DISCLAIMERS =
@@ -105,7 +106,8 @@ public class TermsViewModelTest {
         assertThat(generalDisclaimer.getHeading())
                 .isEqualTo(mContext.getString(R.string.managed_device_info));
         assertThat(generalDisclaimer.getContent())
-                .isEqualTo(mContext.getString(R.string.admin_has_ability_to_monitor_device));
+                .isEqualTo(mContext.getString(
+                        R.string.admin_has_ability_to_monitor_device, TEST_DEVICE_NAME));
     }
 
     @Test

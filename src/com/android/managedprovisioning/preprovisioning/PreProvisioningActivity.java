@@ -604,12 +604,32 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void showErrorAndClose(Integer titleId, int messageId, String logText) {
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder(this)
+                .setTitle(titleId)
+                .setMessage(messageId);
+        setShowErrorAndCloseParams(dialogBuilder, logText);
+    }
+
+    @Override
+    public void showErrorAndClose(Integer titleId, String message, String logText) {
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder(this)
+                .setTitle(titleId)
+                .setMessage(message);
+        setShowErrorAndCloseParams(dialogBuilder, logText);
+    }
+
+    @Override
+    public void showErrorAndClose(String title, String message, String logText) {
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder(this)
+                .setTitle(title)
+                .setMessage(message);
+        setShowErrorAndCloseParams(dialogBuilder, logText);
+    }
+
+    private void setShowErrorAndCloseParams(SimpleDialog.Builder dialogBuilder, String logText) {
         ProvisionLogger.loge(logText);
 
-        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
-                .setTitle(titleId)
-                .setMessage(messageId)
-                .setCancelable(false)
+        dialogBuilder.setCancelable(false)
                 .setPositiveButtonMessage(R.string.device_owner_error_ok);
         showDialog(dialogBuilder, ERROR_AND_CLOSE_DIALOG);
     }
@@ -679,7 +699,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void showCurrentLauncherInvalid() {
-        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder(this)
                 .setCancelable(false)
                 .setTitle(R.string.change_device_launcher)
                 .setMessage(R.string.launcher_app_cant_be_used_by_work_profile)
@@ -830,7 +850,7 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
 
     @Override
     public void showFactoryResetDialog(Integer titleId, int messageId) {
-        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder(this)
                 .setTitle(titleId)
                 .setMessage(messageId)
                 .setCancelable(false)
@@ -875,10 +895,10 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
     @Override
     public void onBackPressed() {
         if (mUtils.isOrganizationOwnedAllowed(mController.getParams())) {
-            showDialog(mUtils.createCancelProvisioningResetDialogBuilder(),
+            showDialog(mUtils.createCancelProvisioningResetDialogBuilder(this),
                     BACK_PRESSED_DIALOG_RESET);
         } else {
-            showDialog(mUtils.createCancelProvisioningDialogBuilder(),
+            showDialog(mUtils.createCancelProvisioningDialogBuilder(this),
                     BACK_PRESSED_DIALOG_CLOSE_ACTIVITY);
         }
     }

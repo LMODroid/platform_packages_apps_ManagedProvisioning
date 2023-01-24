@@ -113,13 +113,13 @@ public final class EstablishNetworkConnectionControllerTest {
     @Test
     public void getErrorMsgId_wifiTask_works() {
         assertThat(createController(PARAMS).getErrorMsgId(mWifiTask, ERROR_CODE))
-                .isEqualTo(R.string.error_wifi);
+                .isEqualTo(mContext.getString(R.string.error_wifi));
     }
 
     @Test
     public void getErrorMsgId_connectMobileNetworkTask_works() {
         assertThat(createController(PARAMS).getErrorMsgId(mConnectMobileNetworkTask, ERROR_CODE))
-                .isEqualTo(R.string.cant_set_up_device);
+                .isEqualTo(mContext.getString(R.string.cant_set_up_device));
     }
 
     @Test
