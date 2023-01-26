@@ -29,9 +29,8 @@
     <string name="next" msgid="1004321437324424398">"Напред"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Служебният потребителски профил се настройва…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"Системният ви администратор може да наблюдава и управлява настройките, корпоративния достъп, приложенията, разрешенията, данните и активността в мрежата, свързана с този потребителски профил, както и историята на обажданията и тази на търсенията на контакти. Обърнете се към системния си администратор за повече информация, включително относно правилата за поверителност на организацията ви."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Системният ви администратор може да наблюдава и управлява настройките, корпоративния достъп, приложенията, разрешенията и данните, свързани с това устройство, включително активността ви в мрежата, както и информацията за местоположението на устройството ви, историята на обажданията и тази на търсенията на контакти.<xliff:g id="LINE_BREAK">
-
-</xliff:g>Обърнете се към системния си администратор за повече информация, включително относно правилата за поверителност на организацията ви."</string>
+    <!-- no translation found for admin_has_ability_to_monitor_device (7786186939607332934) -->
+    <skip />
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"За да използвате функциите за защита при кражба, трябва да имате парола като опция за заключване на екрана на устройството си."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Обърнете се към системния си администратор за повече информация, включително относно правилата за поверителност на организацията ви."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Научете повече"</string>
@@ -50,8 +49,10 @@
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Ако продължите, всички приложения и данни в този потребителски профил ще бъдат изтрити."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Изтриване"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Отказ"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"За да настроите служебния си потребителски профил, трябва да шифровате устройството си. Това може да отнеме известно време."</string>
-    <string name="encrypt_device_text_for_device_owner_setup" msgid="5194673142404735676">"За да настроите устройството, първо трябва да го шифровате. Това може да отнеме известно време."</string>
+    <!-- no translation found for encrypt_device_text_for_profile_owner_setup (6865483664167134470) -->
+    <skip />
+    <!-- no translation found for encrypt_device_text_for_device_owner_setup (230099563510460941) -->
+    <skip />
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"Шифроване на у-вото?"</string>
     <string name="encrypt" msgid="1749320161747489212">"Шифроване"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"Шифроването завърши"</string>
@@ -59,7 +60,8 @@
     <string name="managed_provisioning_error_text" msgid="7063621174570680890">"Служебният ви потребителски профил не можа да се настрои. Свържете се с отдела си за информационни технологии или опитайте отново по-късно."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"Служебният потребителски профил не може да се добави"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"Служебният потребителски профил не може да бъде заменен или премахнат"</string>
-    <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"Не можете да добавите служебен потребителски профил към това устройство. Ако имате въпроси, обърнете се към системния си администратор."</string>
+    <!-- no translation found for work_profile_cant_be_added_contact_admin (4866281518235832928) -->
+    <skip />
     <string name="change_device_launcher" msgid="4523563368433637980">"Промяна на стартовия панел на устройството"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Това приложение за стартов панел не може да се използва от служебния ви потребителски профил"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Отказ"</string>
@@ -67,9 +69,12 @@
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Настройването на потребителя не е завършено"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Потребител на служебното устройство"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Служебното устройство се настройва…"</string>
-    <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Това устройство не позволява шифроване, което е необходимо за настройването. За помощ се обърнете към системния си администратор."</string>
-    <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Искате ли да спрете настройването и да възстановите фабричните настройки на устройството?"</string>
-    <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"С това действие ще се възстановят фабричните настройки на устройството ви и ще се върнете на първия екран"</string>
+    <!-- no translation found for device_doesnt_allow_encryption_contact_admin (410347019947997299) -->
+    <skip />
+    <!-- no translation found for stop_setup_reset_device_question (2323844935990001069) -->
+    <skip />
+    <!-- no translation found for this_will_reset_take_back_first_screen (5881727570968119259) -->
+    <skip />
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Искате ли да спрете настройването и да изтриете данните на устройството си?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Отказ"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
@@ -80,9 +85,11 @@
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Устройството не можа да се настрои. За помощ се обърнете към системния си администратор."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"За помощ се обърнете към системния си администратор"</string>
     <string name="reset_device" msgid="5483853913241939262">"Нулирайте това устройство и го настройте отново"</string>
-    <string name="device_already_set_up" msgid="507881934487140294">"Устройството вече е настроено"</string>
+    <!-- no translation found for device_already_set_up (2916285974248611835) -->
+    <skip />
     <string name="error_wifi" msgid="1850288843966836571">"Не можа да се установи връзка с Wi-Fi мрежата"</string>
-    <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"На това устройство е включена функцията за защита срещу възстановяване на фабричните настройки. За помощ се обърнете към системния си администратор."</string>
+    <!-- no translation found for device_has_reset_protection_contact_admin (5922267426079555686) -->
+    <skip />
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Изтрива се"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Моля, изчакайте..."</string>
     <string name="error_hash_mismatch" msgid="1145488923243178454">"Приложението за администриране не можа да се използва поради грешка в контролната сума. За помощ се обърнете към системния си администратор."</string>
@@ -128,9 +135,12 @@
     <string name="comp_profile_benefits_description" msgid="379837075456998273">"С използването на служебен потребителски профил можете да съхранявате служебните си приложения на едно място"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"Настройване на потребителския ви профил. Шифроване"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"Настройване на потребителския ви профил. Показва се ходът"</string>
-    <string name="setup_device" msgid="6725265673245816366">"Настройване на устройството ви"</string>
-    <string name="setup_device_encryption" msgid="7852944465414197103">"Настройване на устройството ви. Шифроване"</string>
-    <string name="setup_device_progress" msgid="7035335208571175393">"Настройване на устройството ви. Показва се ходът"</string>
+    <!-- no translation found for setup_device (1679201701102889156) -->
+    <skip />
+    <!-- no translation found for setup_device_encryption (2628196093806001835) -->
+    <skip />
+    <!-- no translation found for setup_device_progress (8792474713196537598) -->
+    <skip />
     <string name="learn_more_label" msgid="2723716758654655009">"бутон „Научете повече“"</string>
     <string name="mdm_icon_label" msgid="3399134595549660561">"икона за <xliff:g id="ICON_LABEL">%1$s</xliff:g>"</string>
     <string name="section_heading" msgid="3924666803774291908">"Заглавие на секцията „<xliff:g id="SECTION_HEADING">%1$s</xliff:g>“."</string>
@@ -158,7 +168,8 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Това устройство принадлежи на организацията ви"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Следното приложение ще се използва за управление и наблюдение на този телефон"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Профилът ви се управлява"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Системният ви администратор използва услуга за управление на мобилни устройства, за да налага правила за сигурност"</string>
+    <!-- no translation found for account_management_disclaimer_subheader (8991450067243733878) -->
+    <skip />
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Настройването на служебен профил се подготвя…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Да настроим служебния ви потребителски профил"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Служебните приложения се съхраняват в служебния ви потребителски профил"</string>
@@ -168,14 +179,19 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Служебните приложения се съхраняват в служебния ви потребителски профил. Можете да ги поставите на пауза, когато приключите работата за деня. Данните в служебния ви потребителски профил са видими за системния ви администратор."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Да настроим служебното ви устройство"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Лесен достъп до служебните ви приложения"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Това устройство не е лично"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"Системният ви администратор може да преглежда данните и активността ви на това устройство."</string>
+    <!-- no translation found for fully_managed_device_provisioning_step_2_header (142633978260399682) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_provisioning_step_2_subheader (3981784440341141618) -->
+    <skip />
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Вашите данни и активност"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Разрешения за приложенията"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"Системният ви администратор може да задава разрешения за приложенията на това устройство, като например тези за микрофона, камерата и за достъп до местоположението."</string>
+    <!-- no translation found for fully_managed_device_provisioning_permissions_secondary_subheader (1973320148595109400) -->
+    <skip />
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Устройството ви се настройва…"</string>
-    <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Използвайте това устройство за лесен достъп до служебните приложения. Устройството не е лично, така че системният ви администратор може да преглежда данните и активността ви."</string>
-    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Използвайте това устройство за лесен достъп до служебните приложения. Устройството не е лично, така че системният ви администратор може да преглежда активността и данните ви. Той може също да задава разрешения за приложенията на това устройство, като например тези за микрофона, камерата и за достъп до местоположението."</string>
+    <!-- no translation found for fully_managed_device_provisioning_summary (2532673962822596806) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_with_permission_control_provisioning_summary (3487964472228264628) -->
+    <skip />
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Върнете това устройство на системния си администратор"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Върнете се към предишния екран или нулирайте това устройство и го върнете на системния си администратор."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Анулиране на настройването"</string>
@@ -183,17 +199,26 @@
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Служебните приложения са в служебния ви профил и се управляват от системния администратор"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личните приложения се съхраняват отделно и са скрити от служебните"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Системният администратор може да управлява устройството и да блокира определени приложения"</string>
-    <string name="cope_provisioning_summary" msgid="993014104601034878">"Служебните приложения се съхраняват в служебния ви потребителски профил и се управляват от системния администратор. Личните приложения се съхраняват отделно и са скрити от служебните. Системният ви администратор може да управлява това устройство и да блокира определени приложения."</string>
+    <!-- no translation found for cope_provisioning_summary (4993405755138454918) -->
+    <skip />
     <string name="just_a_sec" msgid="6244676028626237220">"Една секунда…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Напомняне за поверителността"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2219074604343348608">"Системният ви администратор може да преглежда данните и активността ви на това устройство"</string>
-    <string name="financed_device_screen_header" msgid="6875169548352717124">"Това устройство е предоставено от <xliff:g id="CREDITOR_NAME">%s</xliff:g>"</string>
-    <string name="financed_make_payments_subheader_title" msgid="7880606710044254210">"Извършвайте плащания за това устройство"</string>
-    <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> може да инсталира приложението <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>, за да можете да плащате вноските за това устройство."</string>
-    <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Това устройство може да бъде ограничено"</string>
-    <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> може да ограничи достъпа до това устройство, ако не плащате вноските."</string>
-    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Устройството не може да бъде настроено. Свържете се със системния си администратор и съобщете за „Невалидна контролна сума“."</string>
+    <!-- no translation found for fully_managed_device_provisioning_privacy_body (2107315052054483060) -->
+    <skip />
+    <!-- no translation found for financed_device_screen_header (5934940812896302344) -->
+    <skip />
+    <!-- no translation found for financed_make_payments_subheader_title (743966229235451097) -->
+    <skip />
+    <!-- no translation found for financed_make_payments_subheader_description (7391276584735956742) -->
+    <skip />
+    <!-- no translation found for financed_restrict_device_subheader_title (4248650736543742083) -->
+    <skip />
+    <!-- no translation found for financed_restrict_device_subheader_description (1539908048861880628) -->
+    <skip />
+    <!-- no translation found for error_role_holder_hash_mismatch (5098975629103567172) -->
+    <skip />
     <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Опитайте отново по-късно или помолете системния си администратор за помощ"</string>
-    <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Устройството не може да бъде настроено. Свържете се със системния си администратор и съобщете за „Липсващи или повредени компоненти“."</string>
+    <!-- no translation found for error_role_holder_package_invalid (8159929740916126242) -->
+    <skip />
     <string name="setting_up" msgid="1478847967385506664">"Настройва се…"</string>
 </resources>
