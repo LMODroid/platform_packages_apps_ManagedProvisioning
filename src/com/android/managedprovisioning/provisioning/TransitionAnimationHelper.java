@@ -17,10 +17,10 @@ package com.android.managedprovisioning.provisioning;
 
 import static java.util.Objects.requireNonNull;
 
-import android.annotation.StringRes;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -245,7 +245,7 @@ class TransitionAnimationHelper {
     }
 
     private void setupDescriptionText(TransitionScreenWrapper transition) {
-        if (transition.description.isEmpty()) {
+        if (!TextUtils.isEmpty(transition.description)) {
             mAnimationComponents.mDescription.setText(transition.description);
             mAnimationComponents.mDescription.setVisibility(View.VISIBLE);
             triggerTextToSpeechIfFocused(mAnimationComponents.mDescription);
