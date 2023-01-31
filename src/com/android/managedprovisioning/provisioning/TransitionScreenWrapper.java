@@ -77,9 +77,6 @@ final class TransitionScreenWrapper {
             throw new IllegalArgumentException(
                     "Cannot show items and animation at the same time.");
         }
-        if (header.isEmpty()) {
-            throw new IllegalArgumentException("Header resource id must be a positive number.");
-        }
     }
 
     public static final class Builder {
