@@ -158,7 +158,7 @@
   <!-- Message of the error dialog in case of an unspecified error. [CHAR LIMIT=NONE] -->
   <string name="contact_your_admin_for_help">Contact your IT admin for help</string>
   <!-- Message of the error dialog in case of an unspecified error in financed device provisioning scenario. [CHAR LIMIT=NONE]. -->
-  <string name="reset_device">Reset this device and try setting it up again</string>
+  <string name="reset_device">Reset this <xliff:g id="device_name" example="Pixel">%1$s</xliff:g> and try setting it up again</string>
   <!-- Message of the error dialog when already provisioned. [CHAR LIMIT=NONE] -->
   <string name="device_already_set_up"><xliff:g id="device_name" example="Pixel">%1$s</xliff:g> is already set up</string>
   <!-- Message of the error dialog when setting up wifi failed. [CHAR LIMIT=NONE] -->
