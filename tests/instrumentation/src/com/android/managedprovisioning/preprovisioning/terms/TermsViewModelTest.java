@@ -36,6 +36,8 @@ import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.DisclaimersParam;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import com.google.android.setupdesign.util.DeviceHelper;
+
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -46,7 +48,6 @@ public class TermsViewModelTest {
 
     private static final String HEADER_1 = "header1";
     private static final String HEADER_2 = "header2";
-    private static final String TEST_DEVICE_NAME = "Pixel";
     private static final int TERM_POSITION = 1;
     private static final int TERM_POSITION_OUT_OF_BOUNDS = 1000;
     private static final DisclaimersParam DISCLAIMERS =
@@ -85,6 +86,8 @@ public class TermsViewModelTest {
 
     private final Context mContext =
             InstrumentationRegistry.getInstrumentation().getTargetContext();
+
+    private final CharSequence TEST_DEVICE_NAME = DeviceHelper.getDeviceName(mContext);
 
     @Test
     public void getTerms_hasExpectedResults() {
