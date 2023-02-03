@@ -20,10 +20,7 @@ import static com.android.managedprovisioning.provisioning.ProvisioningActivity.
 import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE;
 import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE;
 
-import static java.util.Objects.compare;
 import static java.util.Objects.requireNonNull;
-
-import android.content.Context;
 
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
@@ -31,54 +28,46 @@ import androidx.annotation.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity.ProvisioningMode;
-import com.google.android.setupdesign.util.DeviceHelper;
 
 /**
  * Utility class to get the corresponding wrapper that contains provisioning transition content.
  */
 public class ProvisioningModeWrapperProvider {
     private final ProvisioningParams mParams;
-    private final Context mContext;
 
-    public ProvisioningModeWrapperProvider(Context context, ProvisioningParams params) {
-        mContext = context;
+    public ProvisioningModeWrapperProvider(ProvisioningParams params) {
         mParams = requireNonNull(params);
     }
+
+    @VisibleForTesting
+    static final ProvisioningModeWrapper WORK_PROFILE_WRAPPER =
+            new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
+                    new TransitionScreenWrapper(R.string.work_profile_provisioning_step_1_header,
+                            R.raw.separate_work_and_personal_animation),
+                    new TransitionScreenWrapper(R.string.work_profile_provisioning_step_2_header,
+                            R.raw.pause_work_apps_animation),
+                    new TransitionScreenWrapper(R.string.work_profile_provisioning_step_3_header,
+                            R.raw.not_private_animation)
+            }, R.string.work_profile_provisioning_summary);
+
+    @VisibleForTesting
+    static final ProvisioningModeWrapper WORK_PROFILE_ON_ORG_OWNED_DEVICE_WRAPPER =
+            new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
+                    new TransitionScreenWrapper(R.string.cope_provisioning_step_1_header,
+                            R.raw.separate_work_and_personal_animation),
+                    new TransitionScreenWrapper(R.string.cope_provisioning_step_2_header,
+                            /* description= */ 0,
+                            R.raw.personal_apps_separate_hidden_from_work_animation,
+                            /* shouldLoop */ false),
+                    new TransitionScreenWrapper(R.string.cope_provisioning_step_3_header,
+                            R.raw.it_admin_control_device_block_apps_animation)
+            }, R.string.cope_provisioning_summary);
 
     /**
      * Return default provisioning mode wrapper depending on provisioning parameter.
      */
     public ProvisioningModeWrapper getProvisioningModeWrapper(
             @ProvisioningMode int provisioningMode) {
-        CharSequence deviceName = DeviceHelper.getDeviceName(mContext);
-        @VisibleForTesting
-        final ProvisioningModeWrapper WORK_PROFILE_WRAPPER =
-                new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
-                        new TransitionScreenWrapper(
-                                R.string.work_profile_provisioning_step_1_header,
-                                R.raw.separate_work_and_personal_animation, mContext),
-                        new TransitionScreenWrapper(
-                                R.string.work_profile_provisioning_step_2_header,
-                                R.raw.pause_work_apps_animation, mContext),
-                        new TransitionScreenWrapper(
-                                R.string.work_profile_provisioning_step_3_header,
-                                R.raw.not_private_animation, mContext)
-                }, mContext.getString(R.string.work_profile_provisioning_summary, deviceName));
-
-        @VisibleForTesting
-        final ProvisioningModeWrapper WORK_PROFILE_ON_ORG_OWNED_DEVICE_WRAPPER =
-                new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
-                        new TransitionScreenWrapper(R.string.cope_provisioning_step_1_header,
-                                R.raw.separate_work_and_personal_animation, mContext),
-                        new TransitionScreenWrapper(R.string.cope_provisioning_step_2_header,
-                                /* description= */ "",
-                                R.raw.personal_apps_separate_hidden_from_work_animation,
-                                /* shouldLoop */ false,
-                                mContext),
-                        new TransitionScreenWrapper(R.string.cope_provisioning_step_3_header,
-                                R.raw.it_admin_control_device_block_apps_animation, mContext)
-                }, mContext.getString(R.string.cope_provisioning_summary, deviceName));
-
         switch (provisioningMode) {
             case PROVISIONING_MODE_WORK_PROFILE:
                 return WORK_PROFILE_WRAPPER;
@@ -97,12 +86,9 @@ public class ProvisioningModeWrapperProvider {
     @VisibleForTesting
     private ProvisioningModeWrapper getProvisioningModeWrapperForFullyManaged() {
         final int provisioningSummaryId;
-        CharSequence deviceName = DeviceHelper.getDeviceName(mContext);
         TransitionScreenWrapper.Builder secondScreenBuilder =
-                new TransitionScreenWrapper.Builder(mContext)
-                        .setHeader(mContext.getString(
-                                R.string.fully_managed_device_provisioning_step_2_header,
-                                deviceName));
+                new TransitionScreenWrapper.Builder()
+                        .setHeader(R.string.fully_managed_device_provisioning_step_2_header);
 
         // Admin cannot grant sensors permissions
         if (!mParams.deviceOwnerPermissionGrantOptOut) {
@@ -113,9 +99,8 @@ public class ProvisioningModeWrapperProvider {
                     .setSubHeaderIcon(R.drawable.ic_history)
                     .setSecondarySubHeaderTitle(
                             R.string.fully_managed_device_provisioning_permissions_secondary_header)
-                    .setSecondarySubHeader(mContext.getString(R.string
-                            .fully_managed_device_provisioning_permissions_secondary_subheader,
-                            deviceName))
+                    .setSecondarySubHeader(R.string
+                            .fully_managed_device_provisioning_permissions_secondary_subheader)
                     .setSecondarySubHeaderIcon(R.drawable.ic_perm_device_information)
                     .setShouldLoop(true);
             provisioningSummaryId =
@@ -123,25 +108,22 @@ public class ProvisioningModeWrapperProvider {
         } else {
             provisioningSummaryId = R.string.fully_managed_device_provisioning_summary;
             secondScreenBuilder
-                    .setDescription(mContext.getString(
-                            R.string.fully_managed_device_provisioning_step_2_subheader,
-                            deviceName))
+                    .setDescription(R.string.fully_managed_device_provisioning_step_2_subheader)
                     .setAnimation(R.raw.not_private_animation);
         }
 
         TransitionScreenWrapper firstScreen = new TransitionScreenWrapper(
                 R.string.fully_managed_device_provisioning_step_1_header,
-                R.raw.connect_on_the_go_animation, mContext);
+                R.raw.connect_on_the_go_animation);
         return new ProvisioningModeWrapper(new TransitionScreenWrapper[] {
-                firstScreen, secondScreenBuilder.build()},
-                mContext.getString(provisioningSummaryId, deviceName));
+                firstScreen, secondScreenBuilder.build()}, provisioningSummaryId);
     }
 
     static final class ProvisioningModeWrapper {
         final TransitionScreenWrapper[] transitions;
-        final String summary;
+        final @StringRes int summary;
 
-        ProvisioningModeWrapper(TransitionScreenWrapper[] transitions, String summary) {
+        ProvisioningModeWrapper(TransitionScreenWrapper[] transitions, @StringRes int summary) {
             this.transitions = requireNonNull(transitions);
             this.summary = summary;
         }

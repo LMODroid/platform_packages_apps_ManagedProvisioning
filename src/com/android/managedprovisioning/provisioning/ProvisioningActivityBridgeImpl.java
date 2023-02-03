@@ -19,7 +19,6 @@ package com.android.managedprovisioning.provisioning;
 import static com.google.android.setupdesign.util.ThemeHelper.shouldApplyMaterialYouStyle;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -52,7 +51,6 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
 
     private TransitionAnimationHelper mTransitionAnimationHelper;
     private ViewGroup mButtonFooterContainer;
-    private Context mContext;
 
     abstract Utils getUtils();
     abstract ProvisioningParams getParams();
@@ -68,16 +66,15 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
     @Override
     public void initiateUi(Activity activity) {
         boolean isPoProvisioning = getUtils().isProfileOwnerAction(getParams().provisioningAction);
-        String title = isPoProvisioning
-                ? activity.getString(R.string.setup_profile_progress)
-                : activity.getString(R.string.setup_device_progress);
+        int titleResId =
+                isPoProvisioning ? R.string.setup_profile_progress : R.string.setup_device_progress;
         int layoutResId = getShouldSkipEducationScreens()
                 ? R.layout.empty_loading_layout
                 : R.layout.provisioning_progress;
 
         getInitializeLayoutParamsConsumer().initializeLayoutParams(
                 layoutResId, /* headerResId */ null);
-        activity.setTitle(title);
+        activity.setTitle(titleResId);
 
         GlifLayout layout = activity.findViewById(R.id.setup_wizard_layout);
         setupEducationViews(
@@ -102,7 +99,6 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
                         view,
                         activity,
                         getBridgeCallbacks()::isProvisioningFinalized));
-        mContext = activity;
     }
 
     private void onContainerMeasured(
@@ -180,9 +176,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
                         header, description, item1, item2, drawable, drawableContainer,
                         space1, space2);
 
-
-        ProvisioningModeWrapperProvider provider = new ProvisioningModeWrapperProvider(mContext,
-                getParams());
+        ProvisioningModeWrapperProvider provider = new ProvisioningModeWrapperProvider(getParams());
         ProvisioningModeWrapper provisioningModeWrapper = provider
                 .getProvisioningModeWrapper(getProvisioningMode());
         mTransitionAnimationHelper = new TransitionAnimationHelper(

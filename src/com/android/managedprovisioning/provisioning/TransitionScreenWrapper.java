@@ -19,38 +19,34 @@ package com.android.managedprovisioning.provisioning;
 import android.annotation.DrawableRes;
 import android.annotation.RawRes;
 import android.annotation.StringRes;
-import android.content.Context;
 
 /**
  * A wrapper describing the contents of an education screen.
  */
 final class TransitionScreenWrapper {
-    public final String header;
-    public final String description;
+    public final @StringRes int header;
+    public final @StringRes int description;
     public final @RawRes int drawable;
     public final @StringRes int subHeaderTitle;
-    public final String subHeader;
+    public final @StringRes int subHeader;
     public final @DrawableRes int subHeaderIcon;
     public final boolean shouldLoop;
     public final @StringRes int secondarySubHeaderTitle;
-    public final String secondarySubHeader;
+    public final @StringRes int secondarySubHeader;
     public final @DrawableRes int secondarySubHeaderIcon;
-    public final Context context;
 
-    TransitionScreenWrapper(@StringRes int header, @RawRes int drawable, Context context) {
-        this(header, /* description= */ "", drawable, /* shouldLoop */ true, context);
+    TransitionScreenWrapper(@StringRes int header, @RawRes int drawable) {
+        this(header, /* description= */ 0, drawable, /* shouldLoop */ true);
     }
 
-    TransitionScreenWrapper(@StringRes int header, String description,
-            @RawRes int drawable, boolean shouldLoop, Context context) {
-        this(context.getString(header), /* description= */ description, drawable, 0, "",
-                0, shouldLoop, 0, "", 0, context);
+    TransitionScreenWrapper(@StringRes int header, @StringRes int description,
+            @RawRes int drawable, boolean shouldLoop) {
+        this(header, /* description= */ description, drawable, 0, 0, 0, shouldLoop, 0, 0, 0);
     }
 
-    private TransitionScreenWrapper(String header, String description, int drawable,
-            int subHeaderTitle, String subHeader, int subHeaderIcon, boolean shouldLoop,
-            int secondarySubHeaderTitle, String secondarySubHeader, int secondarySubHeaderIcon,
-            Context context) {
+    private TransitionScreenWrapper(int header, int description, int drawable, int subHeaderTitle,
+            int subHeader, int subHeaderIcon, boolean shouldLoop,
+            int secondarySubHeaderTitle, int secondarySubHeader, int secondarySubHeaderIcon) {
         this.header = header;
         this.description = description;
         this.drawable = drawable;
@@ -61,60 +57,45 @@ final class TransitionScreenWrapper {
         this.secondarySubHeaderTitle = secondarySubHeaderTitle;
         this.secondarySubHeader = secondarySubHeader;
         this.secondarySubHeaderIcon = secondarySubHeaderIcon;
-        this.context = context;
+
         validateFields();
     }
 
     private void validateFields() {
         final boolean isItemProvided =
-                subHeader != null && !subHeader.isEmpty()
+                subHeader != 0
                         || subHeaderIcon != 0
                         || subHeaderTitle != 0
-                        || secondarySubHeader != null && !secondarySubHeader.isEmpty()
+                        || secondarySubHeader != 0
                         || secondarySubHeaderIcon != 0
                         || secondarySubHeaderTitle != 0;
         if (isItemProvided && drawable != 0) {
             throw new IllegalArgumentException(
                     "Cannot show items and animation at the same time.");
         }
-        if (header.isEmpty()) {
+        if (header == 0) {
             throw new IllegalArgumentException("Header resource id must be a positive number.");
         }
     }
 
     public static final class Builder {
-        String mHeader;
-        String mDescription;
+        @StringRes int mHeader;
+        @StringRes int mDescription;
         @RawRes int mDrawable;
         @StringRes private int mSubHeaderTitle;
-        String mSubHeader;
+        @StringRes int mSubHeader;
         @DrawableRes int mSubHeaderIcon;
         boolean mShouldLoop;
         @StringRes int mSecondarySubHeaderTitle;
-        String mSecondarySubHeader;
+        @StringRes int mSecondarySubHeader;
         @DrawableRes int mSecondarySubHeaderIcon;
-        Context mContext;
-
-        Builder (Context context) {
-            mContext = context;
-        }
 
         public Builder setHeader(int header) {
-            mHeader = mContext.getString(header);
-            return this;
-        }
-
-        public Builder setHeader(String header) {
             mHeader = header;
             return this;
         }
 
         public Builder setDescription(int description) {
-            mDescription = mContext.getString(description);
-            return this;
-        }
-
-        public Builder setDescription(String description) {
             mDescription = description;
             return this;
         }
@@ -130,11 +111,6 @@ final class TransitionScreenWrapper {
         }
 
         public Builder setSubHeader(int subHeader) {
-            mSubHeader = mContext.getString(subHeader);
-            return this;
-        }
-
-        public Builder setSubHeader(String subHeader) {
             mSubHeader = subHeader;
             return this;
         }
@@ -155,11 +131,6 @@ final class TransitionScreenWrapper {
         }
 
         public Builder setSecondarySubHeader(int secondarySubHeader) {
-            mSecondarySubHeader = mContext.getString(secondarySubHeader);
-            return this;
-        }
-
-        public Builder setSecondarySubHeader(String secondarySubHeader) {
             mSecondarySubHeader = secondarySubHeader;
             return this;
         }
@@ -172,7 +143,7 @@ final class TransitionScreenWrapper {
         public TransitionScreenWrapper build() {
             return new TransitionScreenWrapper(mHeader, mDescription, mDrawable, mSubHeaderTitle,
                     mSubHeader, mSubHeaderIcon, mShouldLoop, mSecondarySubHeaderTitle,
-                    mSecondarySubHeader, mSecondarySubHeaderIcon, mContext);
+                    mSecondarySubHeader, mSecondarySubHeaderIcon);
         }
     }
 }

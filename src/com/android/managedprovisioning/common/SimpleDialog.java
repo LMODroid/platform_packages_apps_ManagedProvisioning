@@ -20,9 +20,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.res.Resources;
 import android.os.Bundle;
 
 /**
@@ -54,7 +52,7 @@ public class SimpleDialog extends DialogFragment {
 
         Bundle args = getArguments();
         if (args.containsKey(TITLE)) {
-            builder.setTitle(args.getString(TITLE));
+            builder.setTitle(args.getInt(TITLE));
         }
 
         if (args.containsKey(MESSAGE)) {
@@ -98,28 +96,18 @@ public class SimpleDialog extends DialogFragment {
     }
 
     public static class Builder implements DialogBuilder {
-        private String mTitle;
+        private Integer mTitle;
         private Integer mMessage;
         private String mLocalizedMessage;
         private Integer mNegativeButtonMessage;
         private Integer mPositiveButtonMessage;
         private Boolean mCancelable;
-        private final Context mContext;
-
-        public Builder(Context context) {
-            mContext = context;
-        }
 
         /**
          * Sets the title
          * @param title Title resource id.
          */
         public Builder setTitle(Integer title) {
-            mTitle = mContext.getString(title);
-            return this;
-        }
-
-        public Builder setTitle(String title) {
             mTitle = title;
             return this;
         }
@@ -183,7 +171,7 @@ public class SimpleDialog extends DialogFragment {
             Bundle args = new Bundle();
 
             if (mTitle != null) {
-                args.putString(TITLE, mTitle);
+                args.putInt(TITLE, mTitle);
             }
 
             if (mMessage != null) {

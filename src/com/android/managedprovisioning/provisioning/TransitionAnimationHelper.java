@@ -245,7 +245,7 @@ class TransitionAnimationHelper {
     }
 
     private void setupDescriptionText(TransitionScreenWrapper transition) {
-        if (transition.description.isEmpty()) {
+        if (transition.description != 0) {
             mAnimationComponents.mDescription.setText(transition.description);
             mAnimationComponents.mDescription.setVisibility(View.VISIBLE);
             triggerTextToSpeechIfFocused(mAnimationComponents.mDescription);
@@ -254,7 +254,7 @@ class TransitionAnimationHelper {
         }
     }
 
-    private void updateItemValues(ViewGroup item, int icon, int subHeaderTitle, String subHeader,
+    private void updateItemValues(ViewGroup item, int icon, int subHeaderTitle, int subHeader,
             boolean isTextBasedEduScreen) {
         if (isTextBasedEduScreen) {
             ((ImageView) item.findViewById(R.id.sud_items_icon)).setImageResource(icon);
@@ -286,9 +286,9 @@ class TransitionAnimationHelper {
         return context.getResources().getBoolean(R.bool.show_edu_animations);
     }
 
-    private void applyContentDescription(View view, String summaryRes) {
+    private void applyContentDescription(View view, @StringRes int summaryRes) {
         Context context = view.getContext();
-        view.setContentDescription(summaryRes);
+        view.setContentDescription(context.getString(summaryRes));
     }
 
     static final class AnimationComponents {

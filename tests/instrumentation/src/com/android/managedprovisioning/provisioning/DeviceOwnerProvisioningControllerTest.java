@@ -18,7 +18,6 @@ package com.android.managedprovisioning.provisioning;
 
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE;
 
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.eq;
 import static org.mockito.Mockito.verify;
@@ -162,7 +161,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         mController.onError(task, 0, /* errorMessage= */ null);
 
         // THEN the onError callback should have been called without factory reset being required
-        verify(mCallback).error(eq(R.string.cant_set_up_device), anyString(), eq(false));
+        verify(mCallback).error(eq(R.string.cant_set_up_device), anyInt(), eq(false));
     }
 
     @SmallTest
@@ -183,7 +182,7 @@ public class DeviceOwnerProvisioningControllerTest extends ProvisioningControlle
         mController.onError(task, 0, /* errorMessage= */ null);
 
         // THEN the onError callback should have been called with factory reset being required
-        verify(mCallback).error(anyInt(), anyString(), eq(true));
+        verify(mCallback).error(anyInt(), anyInt(), eq(true));
     }
 
     @SmallTest

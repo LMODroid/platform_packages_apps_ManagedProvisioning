@@ -135,17 +135,17 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     protected void showCancelProvisioningDialog(boolean resetRequired) {
         if (resetRequired) {
-            showDialog(mUtils.createCancelProvisioningResetDialogBuilder(this),
+            showDialog(mUtils.createCancelProvisioningResetDialogBuilder(),
                     CANCEL_PROVISIONING_DIALOG_RESET);
         } else {
-            showDialog(mUtils.createCancelProvisioningDialogBuilder(this),
+            showDialog(mUtils.createCancelProvisioningDialogBuilder(),
                    CANCEL_PROVISIONING_DIALOG_OK);
         }
     }
 
     @Override
     public void error(int titleId, int messageId, boolean resetRequired) {
-        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder(this)
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setTitle(titleId)
                 .setMessage(messageId)
                 .setCancelable(false)
@@ -157,7 +157,7 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     @Override
     public void error(int titleId, String errorMessage, boolean resetRequired) {
-        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder(this)
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setTitle(titleId)
                 .setMessage(errorMessage)
                 .setCancelable(false)
