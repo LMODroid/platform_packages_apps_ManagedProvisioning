@@ -79,7 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Ocorreu um erro."</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Não foi possível configurar o dispositivo. Contacte o administrador de TI para obter ajuda."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Contacte o administrador de TI para obter ajuda."</string>
-    <string name="reset_device" msgid="5483853913241939262">"Reponha este dispositivo e tente configurá-lo novamente."</string>
+    <string name="reset_device" msgid="265029891515486543">"Reponha este dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g> e tente configurá-lo novamente"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"O dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g> já está configurado"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Não foi possível ligar à rede Wi-Fi."</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"O dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g> tem a proteção de reposição ativada. Contacte o administrador de TI para obter ajuda."</string>
