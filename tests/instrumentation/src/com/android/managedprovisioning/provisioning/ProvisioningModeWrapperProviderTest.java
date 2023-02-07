@@ -34,6 +34,8 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.ProvisioningModeWrapperProvider.ProvisioningModeWrapper;
 
+import com.google.android.setupdesign.util.DeviceHelper;
+
 import org.junit.Test;
 
 /**
@@ -43,7 +45,6 @@ import org.junit.Test;
 public class ProvisioningModeWrapperProviderTest {
     private static final ComponentName ADMIN = new ComponentName("com.foo", "com.bar");
     private static final String TEST_PROVIONING_ACTION = "android.app.action.TEST";
-    private static final String TEST_DEVICE_NAME = "Pixel";
     private static final ProvisioningParams SIMPLE_PARAMS = new ProvisioningParams.Builder()
             .setProvisioningAction(TEST_PROVIONING_ACTION)
             .setDeviceAdminComponentName(ADMIN)
@@ -52,6 +53,8 @@ public class ProvisioningModeWrapperProviderTest {
     private final Context mContext = InstrumentationRegistry.getTargetContext();
     private final ProvisioningModeWrapperProvider mTestProvider =
             new ProvisioningModeWrapperProvider(mContext, SIMPLE_PARAMS);
+
+    private final CharSequence TEST_DEVICE_NAME = DeviceHelper.getDeviceName(mContext);
 
     @Test
     public void testGetProvisioningModeWrapper_invalidMode() {
