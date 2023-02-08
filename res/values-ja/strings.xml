@@ -79,7 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"エラーが発生しました"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"デバイスをセットアップできませんでした。詳しくは、IT 管理者にお問い合わせください。"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"詳しくは、IT 管理者にお問い合わせください"</string>
-    <string name="reset_device" msgid="5483853913241939262">"このデバイスをリセットして、もう一度設定をお試しください"</string>
+    <string name="reset_device" msgid="265029891515486543">"この <xliff:g id="DEVICE_NAME">%1$s</xliff:g> をリセットして、もう一度セットアップをお試しください"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> はすでにセットアップされています"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi に接続できませんでした"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"この <xliff:g id="DEVICE_NAME">%1$s</xliff:g> では出荷時設定へのリセット保護が有効になっています。詳しくは、IT 管理者にお問い合わせください。"</string>

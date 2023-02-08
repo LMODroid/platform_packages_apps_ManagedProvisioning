@@ -79,7 +79,8 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Xəta oldu"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Cihazı quraşdırmaq mümkün olmadı. Yardım üçün IT admini ilə əlaqə saxlayın."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Yardım üçün İT admini ilə əlaqə saxlayın"</string>
-    <string name="reset_device" msgid="5483853913241939262">"Bu cihazı sıfırlayın və yenidən ayarlamağa çalışın"</string>
+    <!-- no translation found for reset_device (265029891515486543) -->
+    <skip />
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> artıq ayarlanıb"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi şəbəkəsinə qoşulmadı"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> cihazınızda sıfırlama qorunması aktivdir. Yardım üçün İT admini ilə əlaqə saxlayın."</string>

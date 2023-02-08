@@ -79,7 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Berlaku kesilapan"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Tidak dapat menyediakan peranti. Untuk mendapatkan bantuan, hubungi pentadbir IT anda."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Hubungi pentadbir IT anda untuk mendapatkan bantuan"</string>
-    <string name="reset_device" msgid="5483853913241939262">"Tetapkan semula peranti ini dan cuba sediakan peranti sekali lagi"</string>
+    <string name="reset_device" msgid="265029891515486543">"Tetapkan semula <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ini dan cuba sediakan peranti sekali lagi"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> sudah disediakan"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Tidak dapat menyambung ke Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"Perlindungan tetapan semula <xliff:g id="DEVICE_NAME">%1$s</xliff:g> anda dihidupkan. Untuk mendapatkan bantuan, hubungi pentadbir IT anda."</string>

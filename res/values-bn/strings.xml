@@ -79,7 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"কিছু সমস্যা হয়েছে"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"ডিভাইসটি সেট-আপ করা যায়নি। সাহায্যের জন্য আপনার আইটি অ্যাডমিনের সাথে যোগাযোগ করুন।"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"সাহায্যের জন্য আপনার আইটি অ্যাডমিনের সাথে যোগাযোগ করুন"</string>
-    <string name="reset_device" msgid="5483853913241939262">"এই ডিভাইস রিসেট করে আবার সেট-আপ করার চেষ্টা করুন"</string>
+    <string name="reset_device" msgid="265029891515486543">"এই <xliff:g id="DEVICE_NAME">%1$s</xliff:g> রিসেট করে আবার সেট-আপ করার চেষ্টা করুন"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ইতিমধ্যেই সেট-আপ করা হয়েছে"</string>
     <string name="error_wifi" msgid="1850288843966836571">"ওয়াই-ফাইয়ের সাথে কানেক্ট করা যায়নি"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"আপনার <xliff:g id="DEVICE_NAME">%1$s</xliff:g>-এ রিসেট সুরক্ষা চালু করা আছে। সাহায্যের জন্য আপনার আইটি অ্যাডমিনের সাথে যোগাযোগ করুন।"</string>
