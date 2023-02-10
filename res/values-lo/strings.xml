@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"ມີບາງຢ່າງຜິດພາດເກີດຂຶ້ນ"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"ບໍ່ສາມາດຕັ້ງຄ່າອຸປະກອນໄດ້. ສຳລັບຄວາມຊ່ວຍເຫຼືອ, ໃຫ້ຕິດຕໍ່ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານ."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"ກະລຸນາຕິດຕໍ່ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານເພື່ອຂໍຄວາມຊ່ວຍເຫຼືອ"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"ຣີເຊັດ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ນີ້ ແລ້ວລອງຕັ້ງຄ່າມັນຄືນໃໝ່"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"ຕັ້ງ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ແລ້ວ"</string>
     <string name="error_wifi" msgid="1850288843966836571">"ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ Wi-Fi ໄດ້"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ຂອງທ່ານມີການເປີດໃຊ້ການປ້ອງກັນການຣີເຊັດ. ສຳລັບຄວາມຊ່ວຍເຫຼືອ, ໃຫ້ຕິດຕໍ່ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານ."</string>

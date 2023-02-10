@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Noe gikk galt"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Kunne ikke konfigurere enheten. Ta kontakt med IT-administratoren din for å få hjelp."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Kontakt IT-administratoren din for å få hjelp"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"Tilbakestill <xliff:g id="DEVICE_NAME">%1$s</xliff:g> og prøv å konfigurere den på nytt"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> er konfigurert allerede"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Kunne ikke koble til wifi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"Beskyttelse mot tilbakestilling er slått på for <xliff:g id="DEVICE_NAME">%1$s</xliff:g>-enheten din. Kontakt IT-administratoren for å få hjelp."</string>

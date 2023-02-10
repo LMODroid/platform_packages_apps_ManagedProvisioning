@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Iets is fout"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Kon nie toestel opstel nie. Kontak jou IT-administrateur vir hulp."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Kontak jou IT-administrateur vir hulp"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"Stel hierdie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> terug en probeer dit weer opstel"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> is reeds opgestel"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Kon nie aan Wi-Fi koppel nie"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"Terugstelbeskerming is aangeskakel op jou <xliff:g id="DEVICE_NAME">%1$s</xliff:g>. Kontak jou IT-admin vir hulp."</string>
