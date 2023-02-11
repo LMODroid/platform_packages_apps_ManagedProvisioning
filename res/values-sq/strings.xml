@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Ndodhi një gabim"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Pajisja nuk mund të konfigurohej. Për ndihmë, kontakto me administratorin e teknologjisë së informacionit."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Kontakto me administratorin e teknologjisë së informacionit për ndihmë"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"Rivendose këtë <xliff:g id="DEVICE_NAME">%1$s</xliff:g> dhe provo ta konfigurosh sërish"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"Pajisja <xliff:g id="DEVICE_NAME">%1$s</xliff:g> është konfiguruar tashmë"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Nuk mundi të lidhej me Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"Pajisja <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ka mbrojtjen kundër rivendosjes aktive. Për ndihmë, kontakto me administratorin e teknologjisë së informacionit."</string>

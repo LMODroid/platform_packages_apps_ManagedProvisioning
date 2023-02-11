@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Coś poszło nie tak"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Nie można skonfigurować urządzenia. Skontaktuj się z administratorem IT, by uzyskać pomoc."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Jeśli potrzebujesz pomocy, skontaktuj się z administratorem IT"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"Zresetuj urządzenie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> i ponownie spróbuj skonfigurować"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"Urządzenie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> zostało już skonfigurowane"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Nie udało się połączyć z Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"Na urządzeniu <xliff:g id="DEVICE_NAME">%1$s</xliff:g> jest włączona ochrona przed zresetowaniem. Aby uzyskać pomoc, skontaktuj się z administratorem IT."</string>

@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"काहीतरी चूक झाली"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"डिव्हाइस सेट करता आले नाही. मदतीसाठी, तुमच्या IT ॲडमिनशी संपर्क साधा."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"मदतीसाठी तुमच्या IT ॲडमिनशी संपर्क साधा"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"हे <xliff:g id="DEVICE_NAME">%1$s</xliff:g> रीसेट करा आणि सेट करण्याचा पुन्हा प्रयत्न करा"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> आधीच सेट केले आहे"</string>
     <string name="error_wifi" msgid="1850288843966836571">"वाय-फाय शी कनेक्ट करता आले नाही"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"तुमच्या <xliff:g id="DEVICE_NAME">%1$s</xliff:g> चे रीसेट संरक्षण सुरू केलेले आहे. मदतीसाठी तुमच्या आयटी अ‍ॅडमिनशी संपर्क साधा."</string>

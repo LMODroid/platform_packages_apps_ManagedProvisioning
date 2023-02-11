@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Se produjo un error"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"No se pudo configurar el dispositivo. Comunícate con tu administrador de TI para obtener ayuda."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Comunícate con el administrador de TI para obtener ayuda"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"Restablece este dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g> y vuelve a configurarlo"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"El dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ya está configurado"</string>
     <string name="error_wifi" msgid="1850288843966836571">"No se pudo establecer conexión con la red Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"El dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g> tiene activada la protección contra el restablecimiento. Para obtener ayuda, comunícate con tu administrador de TI."</string>

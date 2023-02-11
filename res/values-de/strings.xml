@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Ein Fehler ist aufgetreten"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Das Gerät konnte nicht eingerichtet werden. Bitte wende dich an den IT-Administrator."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Wenn du Hilfe brauchst, wende dich an deinen IT-Administrator"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"Setze <xliff:g id="DEVICE_NAME">%1$s</xliff:g> zurück und versuch noch einmal, das Gerät einzurichten"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"Gerät (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) ist bereits eingerichtet"</string>
     <string name="error_wifi" msgid="1850288843966836571">"WLAN-Verbindung nicht möglich"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"Auf deinem Gerät (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) ist der Schutz für zurückgesetzte Geräte aktiviert. Wenn du Hilfe benötigst, wende dich bitte an deinen IT-Administrator."</string>

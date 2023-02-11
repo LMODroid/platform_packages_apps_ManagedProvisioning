@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"משהו השתבש"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"‏לא ניתן היה להגדיר את המכשיר. לקבלת עזרה יש לפנות למנהל ה-IT."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"‏לקבלת עזרה, יש לפנות למנהל ה-IT"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"יש לאפס את המכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ולנסות להגדיר אותו שוב"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"המכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g> כבר מוגדר"</string>
     <string name="error_wifi" msgid="1850288843966836571">"‏לא ניתן היה להתחבר לרשת Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"‏במכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g> הופעלה הגנה מפני איפוס. לקבלת עזרה יש לפנות למנהל ה-IT."</string>

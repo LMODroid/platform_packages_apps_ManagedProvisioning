@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"केही चिज गडबड भयो"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"डिभाइस सेट अप गर्न सकिएन। मद्दतका लागि, आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्।"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"मद्दतका लागि आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> रिसेट गरेर यसलाई फेरि सेटअप गरी हेर्नुहोस्"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> सेटअप गरिसकिएको छ"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Wi-Fi मा जोडिन सकिएन"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"तपाईंको <xliff:g id="DEVICE_NAME">%1$s</xliff:g> मा फ्याक्ट्री रिसेटसम्बन्धी सुरक्षा संयन्त्र अन गरिएको छ। तपाईंलाई मद्दत चाहिन्छ भने आफ्ना IT एड्मिनलाई सम्पर्क गर्नुहोस्।"</string>

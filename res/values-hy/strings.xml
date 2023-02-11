@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Սխալ առաջացավ"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Չհաջողվեց կարգավորել սարքը: Օգնություն ստանալու համար դիմեք ՏՏ ադմինիստրատորին։"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Օգնության համար դիմեք ձեր ՏՏ ադմինիստրատորին"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"Վերակայեք այս <xliff:g id="DEVICE_NAME">%1$s</xliff:g> սարքը և նորից փորձեք կարգավորել"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> սարքն արդեն կարգավորված է"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Չհաջողվեց միանալ Wi-Fi ցանցին"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"Ձեր <xliff:g id="DEVICE_NAME">%1$s</xliff:g> սարքում արգելված է գործարանային կարգավորումների վերականգնումը։ Օգնության համար դիմեք ձեր ՏՏ ադմինիստրատորին։"</string>

@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"ఏదో తప్పు జరిగింది"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"పరికరాన్ని సెటప్ చేయలేకపోయింది. సహాయం కోసం, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"సహాయం కోసం మీ IT నిర్వాహకులను సంప్రదించండి"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"ఈ <xliff:g id="DEVICE_NAME">%1$s</xliff:g>‌ను రీసెట్ చేసి, దానిని మళ్లీ సెటప్ చేయడానికి ట్రై చేయండి"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ఇప్పటికే సెటప్ చేయబడింది"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Wi-Fiకి కనెక్ట్ చేయడం సాధ్యపడలేదు"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"మీ <xliff:g id="DEVICE_NAME">%1$s</xliff:g>‌లో రీసెట్ ప్రొటెక్షన్ ఆన్ చేయబడింది. సహాయం కోసం, మీ IT అడ్మిన్‌ను సంప్రదించండి."</string>
