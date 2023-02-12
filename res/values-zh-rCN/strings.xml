@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"出了点问题"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"无法设置设备。如需帮助，请与您的 IT 管理员联系。"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"请与您的 IT 管理员联系以获取帮助"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"请重置这部<xliff:g id="DEVICE_NAME">%1$s</xliff:g>，然后尝试重新进行设置"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>已设置完毕"</string>
     <string name="error_wifi" msgid="1850288843966836571">"无法连接到 WLAN"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"您的<xliff:g id="DEVICE_NAME">%1$s</xliff:g>已开启恢复出厂设置保护功能。如需帮助，请与您的 IT 管理员联系。"</string>

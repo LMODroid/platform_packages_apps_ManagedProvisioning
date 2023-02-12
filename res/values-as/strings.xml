@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"কিবা ভুল হ’ল"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"ডিভাইচ ছেট আপ কৰিব পৰা নগ’ল। সহায়ৰ বাবে আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"সহায়ৰ বাবে আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"এই <xliff:g id="DEVICE_NAME">%1$s</xliff:g>টো ৰিছেট কৰক আৰু এইটো ছেট আপ কৰিবলৈ পুনৰ চেষ্টা কৰক"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ইতিমধ্যে ছেট আপ কৰা হৈছে"</string>
     <string name="error_wifi" msgid="1850288843966836571">"ৱাই-ফাইৰ লগত সংযোগ কৰিব পৰা নগ’ল"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"আপোনাৰ <xliff:g id="DEVICE_NAME">%1$s</xliff:g>টোত ৰিছেট সুৰক্ষা সুবিধা অন হৈ আছে। সহায়ৰ বাবে আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>

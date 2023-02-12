@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"Đã xảy ra lỗi"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Không thể thiết lập thiết bị. Hãy liên hệ với quản trị viên CNTT của bạn để được trợ giúp."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Hãy liên hệ với quản trị viên CNTT của bạn để được trợ giúp"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"Hãy đặt lại <xliff:g id="DEVICE_NAME">%1$s</xliff:g> rồi thử thiết lập lại"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> đã được thiết lập"</string>
     <string name="error_wifi" msgid="1850288843966836571">"Không thể kết nối với Wi-Fi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> của bạn đã bật chế độ chống đặt lại. Hãy liên hệ với quản trị viên CNTT của bạn để được trợ giúp."</string>

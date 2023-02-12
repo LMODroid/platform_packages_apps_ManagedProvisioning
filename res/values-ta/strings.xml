@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"ஏதோ தவறாகிவிட்டது"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"சாதனத்தை அமைக்க இயலவில்லை. உதவிக்கு IT நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"உதவிக்கு IT நிர்வாகியைத் தொடர்புகொள்ளவும்"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"இந்த <xliff:g id="DEVICE_NAME">%1$s</xliff:g> சாதனத்தை ரீசெட் செய்து மீண்டும் அமைக்க முயலவும்"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"ஏற்கெனவே <xliff:g id="DEVICE_NAME">%1$s</xliff:g> சாதனம் அமைக்கப்பட்டுள்ளது"</string>
     <string name="error_wifi" msgid="1850288843966836571">"வைஃபையுடன் இணைக்க முடியவில்லை"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> சாதனத்தில் \'மீட்டமைவுப் பாதுகாப்பு\' இயக்கப்பட்டுள்ளது. உதவிக்கு, IT நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>

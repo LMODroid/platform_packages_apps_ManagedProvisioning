@@ -79,8 +79,7 @@
     <string name="something_went_wrong" msgid="3593223774041784329">"មានអ្វីមួយខុសប្រក្រតី"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"មិនអាច​រៀបចំ​ឧបករណ៍បានទេ។ សូម​ទាក់ទង​អ្នក​គ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យា​របស់អ្នក ដើម្បី​ទទួល​បានជំនួយ​។"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"សូមទាក់ទង​អ្នក​គ្រប់គ្រងផ្នែកព័ត៌មាន​វិទ្យា​របស់​អ្នក ​ដើម្បីបាន​ទទួល​ជំនួយ"</string>
-    <!-- no translation found for reset_device (265029891515486543) -->
-    <skip />
+    <string name="reset_device" msgid="265029891515486543">"កំណត់​ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ​នេះឡើងវិញ រួច​សាកល្បង​រៀបចំ​វាម្ដងទៀត"</string>
     <string name="device_already_set_up" msgid="2916285974248611835">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> ត្រូវបានរៀបចំរួចហើយ"</string>
     <string name="error_wifi" msgid="1850288843966836571">"មិនអាច​ភ្ជាប់ Wi-Fi បានទេ"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="5922267426079555686">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> របស់អ្នក​បានបើក​ការការពារ​ការកំណត់​ឡើងវិញ។ សូមទាក់ទងទៅអ្នកគ្រប់គ្រង​ផ្នែកព័ត៌មានវិទ្យា​របស់អ្នក ដើម្បី​ទទួលបាន​ជំនួយ។"</string>
