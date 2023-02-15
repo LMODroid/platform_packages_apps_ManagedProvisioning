@@ -34,6 +34,9 @@ import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityBr
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.setupcompat.logging.ScreenKey;
+import com.google.android.setupcompat.logging.SetupMetric;
+import com.google.android.setupcompat.logging.SetupMetricsLogger;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupdesign.util.DeviceHelper;
 
@@ -48,10 +51,12 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
     private final Utils mUtils;
     private final PreProvisioningActivityBridgeCallbacks mBridgeCallbacks;
     private final ThemeHelper mThemeHelper;
+    private final ScreenKey mScreenKey;
+    private final String setupMetricScreenName;
 
     ConsentUiHelperImpl(Activity activity, ConsentUiHelperCallback callback, Utils utils,
             PreProvisioningActivityBridgeCallbacks bridgeCallbacks,
-            ThemeHelper themeHelper) {
+            ThemeHelper themeHelper, String setupMetricScreenName) {
         mActivity = requireNonNull(activity);
         mCallback = requireNonNull(callback);
         mTouchTargetEnforcer =
@@ -59,6 +64,8 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
         mUtils = requireNonNull(utils);
         mBridgeCallbacks = requireNonNull(bridgeCallbacks);
         mThemeHelper = requireNonNull(themeHelper);
+        mScreenKey = ScreenKey.of(setupMetricScreenName, mActivity);
+        this.setupMetricScreenName = setupMetricScreenName;
     }
 
     @Override
@@ -112,6 +119,9 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
 
     private void onNextButtonClicked() {
         ProvisionLogger.logi("Next button (next_button) is clicked.");
+        SetupMetricsLogger.logMetrics(
+                mActivity, mScreenKey, SetupMetric.ofOptIn(setupMetricScreenName, true));
+
         mBridgeCallbacks.onTermsAccepted();
     }
 

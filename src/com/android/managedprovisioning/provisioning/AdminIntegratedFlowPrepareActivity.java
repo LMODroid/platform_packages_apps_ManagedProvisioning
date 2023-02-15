@@ -31,7 +31,11 @@ import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBrid
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
+
+import com.google.android.setupcompat.logging.SetupMetric;
 import com.google.android.setupdesign.util.DeviceHelper;
+import com.google.android.setupcompat.logging.ScreenKey;
+import com.google.android.setupcompat.logging.SetupMetricsLogger;
 
 /**
  * Progress activity shown whilst network setup, downloading, verifying and installing the
@@ -43,6 +47,8 @@ import com.google.android.setupdesign.util.DeviceHelper;
  */
 public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActivity {
 
+    private static final String SETUP_METRIC_ADMIN_INTEGRATED_SCREEN_NAME =
+            "ShowAdminIntegratedFlowScreen";
     private AdminIntegratedFlowPrepareManager mProvisioningManager;
 
     public AdminIntegratedFlowPrepareActivity() {
@@ -83,6 +89,10 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setupMetricScreenName = SETUP_METRIC_ADMIN_INTEGRATED_SCREEN_NAME;
+        mScreenKey = ScreenKey.of(setupMetricScreenName, this);
+        SetupMetricsLogger.logMetrics(this, mScreenKey,
+                SetupMetric.ofImpression(setupMetricScreenName));
         initializeUi();
     }
 
