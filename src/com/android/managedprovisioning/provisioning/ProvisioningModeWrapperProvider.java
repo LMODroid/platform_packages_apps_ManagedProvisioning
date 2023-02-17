@@ -20,17 +20,16 @@ import static com.android.managedprovisioning.provisioning.ProvisioningActivity.
 import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE;
 import static com.android.managedprovisioning.provisioning.ProvisioningActivity.PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE;
 
-import static java.util.Objects.compare;
 import static java.util.Objects.requireNonNull;
 
 import android.content.Context;
 
-import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity.ProvisioningMode;
+
 import com.google.android.setupdesign.util.DeviceHelper;
 
 /**
@@ -109,7 +108,9 @@ public class ProvisioningModeWrapperProvider {
             secondScreenBuilder
                     .setSubHeaderTitle(
                             R.string.fully_managed_device_provisioning_permissions_header)
-                    .setSubHeader(R.string.fully_managed_device_provisioning_permissions_subheader)
+                    .setSubHeader(mContext.getString(R.string
+                                    .fully_managed_device_provisioning_permissions_subheader,
+                            deviceName))
                     .setSubHeaderIcon(R.drawable.ic_history)
                     .setSecondarySubHeaderTitle(
                             R.string.fully_managed_device_provisioning_permissions_secondary_header)
