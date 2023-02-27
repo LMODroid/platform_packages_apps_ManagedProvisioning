@@ -22,17 +22,14 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 
-@RunWith(RobolectricTestRunner.class)
-public final class ManagedProvisioningApplicationTest {
-    private final ManagedProvisioningApplication mApplication =
-            new ManagedProvisioningApplication();
+@RunWith(RobolectricTestRunner::class)
+class ManagedProvisioningApplicationTest {
+    private val mApplication = ManagedProvisioningApplication()
 
-    private Activity createActivity() {
-        return Robolectric.buildActivity(Activity.class)
-                .create()
-                .start()
-                .resume()
-                .visible()
-                .get();
-    }
+    private fun createActivity(): Activity = Robolectric.buildActivity(Activity::class.java)
+        .create()
+        .start()
+        .resume()
+        .visible()
+        .get()
 }

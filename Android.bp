@@ -48,7 +48,9 @@ android_library {
 
     srcs: [
         "src/**/*.java",
-        "src/**/I*.aidl"],
+        "src/**/*.kt",
+        "src/**/I*.aidl"
+    ],
 
     resource_dirs: ["res"],
 
@@ -79,6 +81,7 @@ android_app {
 
     srcs: [
         "src/**/*.java",
+        "src/**/*.kt",
         "src/**/I*.aidl",
     ],
 
