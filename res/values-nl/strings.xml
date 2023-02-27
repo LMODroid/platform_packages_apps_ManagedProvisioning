@@ -85,7 +85,7 @@
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Je apparaat is beveiligd tegen resetten. Neem contact op met je beheerder voor hulp."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Wissen"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Even geduld..."</string>
-    <string name="error_hash_mismatch" msgid="1145488923243178454">"Kan de beheer-app niet gebruiken vanwege een controlesomfout. Neem contact op met je IT-beheerder voor hulp."</string>
+    <string name="error_hash_mismatch" msgid="1145488923243178454">"Kan de beheer-app niet gebruiken vanwege een controlegetalfout. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="error_download_failed" msgid="3274283629837019452">"Kan de beheer-app niet downloaden"</string>
     <string name="error_package_invalid" msgid="555402554502033988">"Kan de beheer-app niet gebruiken. Er ontbreken onderdelen of de app is beschadigd. Neem contact op met je IT-beheerder voor hulp."</string>
     <string name="error_installation_failed" msgid="2282903750318407285">"Kan de beheer-app niet installeren"</string>
@@ -192,7 +192,7 @@
     <string name="financed_make_payments_subheader_description" msgid="1222254084091306375">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> kan de <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g>-app installeren zodat je betalingen kunt doen voor dit apparaat."</string>
     <string name="financed_restrict_device_subheader_title" msgid="2138828664816418195">"Dit apparaat kan worden beperkt"</string>
     <string name="financed_restrict_device_subheader_description" msgid="5683975693718163300">"<xliff:g id="CREDITOR_NAME">%1$s</xliff:g> kan de toegang tot dit apparaat beperken als je geen betalingen doet."</string>
-    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Kan apparaat niet instellen. Neem contact op met je IT-beheerder en verwijs naar een ongeldige controlesom."</string>
+    <string name="error_role_holder_hash_mismatch" msgid="6201584198247885437">"Kan apparaat niet instellen. Neem contact op met je IT-beheerder en verwijs naar een ongeldig controlegetal."</string>
     <string name="error_role_holder_download_install_failed" msgid="8151968372180693228">"Probeer het later opnieuw of vraag je IT-beheerder om hulp"</string>
     <string name="error_role_holder_package_invalid" msgid="2631207759497988833">"Kan apparaat niet instellen. Neem contact op met je IT-beheerder en verwijs naar ontbrekende of beschadigde componenten."</string>
     <string name="setting_up" msgid="1478847967385506664">"Instellen…"</string>
