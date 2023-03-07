@@ -32,6 +32,10 @@ import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import com.google.android.setupcompat.logging.ScreenKey;
+import com.google.android.setupcompat.logging.SetupMetricsLogger;
+import com.google.android.setupcompat.logging.SetupMetric;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -52,6 +56,10 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
     static final int STATE_PROVISIONING_STARTED = 2;
     static final int STATE_PROVISIONING_COMPLETED = 3;
     static final int STATE_PROVISIONING_FINALIZED = 4;
+    static final int SETUP_METRIC_DEFAULT_ERROR_CODE = -1;
+    protected ScreenKey mScreenKey;
+    protected String setupMetricScreenName= "DefaultScreenName";
+
 
     @Retention(RetentionPolicy.SOURCE)
     @IntDef({STATE_PROVISIONING_INTIIALIZING,
@@ -86,6 +94,7 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
     protected void onCreate(Bundle savedInstanceState) {
         // initialize params so they're accessible for prechecks in onCreate
         mParams = getIntent().getParcelableExtra(ProvisioningParams.EXTRA_PROVISIONING_PARAMS);
+        mScreenKey =  ScreenKey.of(setupMetricScreenName, this);
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null) {
@@ -169,6 +178,9 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     @Override
     protected void showDialog(DialogBuilder builder, String tag) {
+        SetupMetricsLogger.logMetrics(this, mScreenKey,
+                SetupMetric.ofError(setupMetricScreenName + ": " + tag,
+                        SETUP_METRIC_DEFAULT_ERROR_CODE ));
         // Whenever a dialog is shown, stop listening for further updates
         getProvisioningManager().unregisterListener(this);
         super.showDialog(builder, tag);

@@ -50,8 +50,12 @@ import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.Tr
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationStateManager;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.setupcompat.logging.ScreenKey;
+import com.google.android.setupcompat.logging.SetupMetric;
+import com.google.android.setupcompat.logging.SetupMetricsLogger;
 import com.google.android.setupcompat.util.WizardManagerHelper;
 import com.google.android.setupdesign.util.Partner;
+
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -85,6 +89,8 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     static final int PROVISIONING_MODE_WORK_PROFILE_ON_FULLY_MANAGED_DEVICE = 3;
     static final int PROVISIONING_MODE_FINANCED_DEVICE = 4;
     static final int PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE = 5;
+    private static final String SETUP_METRIC_PROVISIONING_SCREEN_NAME = "ShowProvisioningScreens";
+    private static String SETUP_METRIC_PROVISIONING_ENDED_NAME = "ProvisioningEnded";
     private ViewGroup mButtonFooterContainer;
 
     @IntDef(prefix = { "PROVISIONING_MODE_" }, value = {
@@ -138,6 +144,13 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setupMetricScreenName = SETUP_METRIC_PROVISIONING_SCREEN_NAME;
+        mScreenKey = ScreenKey.of(setupMetricScreenName, this);
+
+        SetupMetricsLogger.logMetrics(this, mScreenKey,
+                SetupMetric.ofImpression(setupMetricScreenName));
+
         mBridge = createBridge();
         mBridge.initiateUi(/* activity= */ this);
 
@@ -260,6 +273,9 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
 
     protected final void updateProvisioningFinalizedScreen() {
         mBridge.onProvisioningFinalized(/* activity= */ this);
+
+        SetupMetricsLogger.logMetrics(this, mScreenKey,
+                SetupMetric.ofWaitingEnd(SETUP_METRIC_PROVISIONING_ENDED_NAME));
 
         // TODO(183094412): Decouple state from AbstractProvisioningActivity
         mState = STATE_PROVISIONING_FINALIZED;
