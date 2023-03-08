@@ -17,7 +17,6 @@ package com.android.managedprovisioning.preprovisioning.consent;
 
 import static java.util.Objects.requireNonNull;
 
-import android.annotation.DrawableRes;
 import android.app.Activity;
 import android.view.View;
 import android.widget.TextView;
@@ -29,7 +28,6 @@ import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.TouchTargetEnforcer;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityBridgeCallbacks;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
 
@@ -73,20 +71,19 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
         String title = "";
         int headerResId = 0;
         int animationResId = 0;
+        var context = mActivity.getApplicationContext();
         if (mUtils.isProfileOwnerAction(uiParams.provisioningAction)) {
             title = mActivity.getString(R.string.setup_profile);
             headerResId = R.string.work_profile_provisioning_accept_header_post_suw;
             animationResId = R.raw.consent_animation_po;
         } else if (mUtils.isDeviceOwnerAction(uiParams.provisioningAction)) {
-            CharSequence deviceName = DeviceHelper.getDeviceName(mActivity);
-            title = mActivity.getString(R.string.setup_device, deviceName);
+            CharSequence deviceName = DeviceHelper.getDeviceName(context);
+            title = context.getString(R.string.setup_device, deviceName);
             headerResId = R.string.fully_managed_device_provisioning_accept_header;
             animationResId = R.raw.consent_animation_do;
         }
 
-        mCallback.onInitiateUi(
-                R.layout.intro,
-                headerResId);
+        mCallback.onInitiateUi(R.layout.intro, headerResId);
 
         setupAnimation(animationResId);
         setupAcceptAndContinueButton();

@@ -30,6 +30,7 @@ import android.os.Bundle;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
+
 import com.google.android.setupdesign.util.DeviceHelper;
 
 //TODO(b/181323689) Create tests for activity
@@ -77,10 +78,11 @@ public class PreProvisioningActivityViaNfc extends Activity {
     }
 
     private AlertDialog createDeviceAlreadySetupDialog() {
-        CharSequence deviceName = DeviceHelper.getDeviceName(this);
+        var context = getApplicationContext();
         return new AlertDialog.Builder(this)
                 .setMessage(R.string.if_questions_contact_admin)
-                .setTitle(getString(R.string.device_already_set_up, deviceName))
+                .setTitle(context.getString(
+                        R.string.device_already_set_up, DeviceHelper.getDeviceName(context)))
                 .setPositiveButton(android.R.string.ok, createDialogOnClickListener())
                 .setCancelable(false)
                 .create();

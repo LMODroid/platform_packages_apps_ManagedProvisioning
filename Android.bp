@@ -41,7 +41,8 @@ android_library {
         "managedprovisioning_protoslite",
         "androidx.webkit_webkit-nodeps",
         "setupdesign-lottie-loading-layout",
-        "lottie"
+        "lottie",
+        "guava"
     ],
 
     plugins: ["auto_value_plugin"],
@@ -74,7 +75,8 @@ android_app {
         "managedprovisioning_protoslite",
         "androidx.webkit_webkit-nodeps",
         "setupdesign-lottie-loading-layout",
-        "lottie"
+        "lottie",
+        "guava"
     ],
 
     plugins: ["auto_value_plugin"],
