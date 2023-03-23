@@ -167,7 +167,7 @@ public class Utils {
         try {
             ipm.setComponentEnabledSetting(toDisable,
                     enabledSetting, PackageManager.DONT_KILL_APP,
-                    userId);
+                    userId, "managedprovisioning");
         } catch (RemoteException neverThrown) {
             ProvisionLogger.loge("This should not happen.", neverThrown);
         } catch (Exception e) {
