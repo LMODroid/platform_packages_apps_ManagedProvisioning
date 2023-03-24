@@ -69,6 +69,7 @@ import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.PackageDownloadInfo;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.preprovisioning.WebActivity;
+import com.android.managedprovisioning.util.LazyStringResource;
 
 import com.google.android.setupcompat.template.FooterBarMixin;
 import com.google.android.setupcompat.template.FooterButton;
@@ -630,7 +631,7 @@ public class Utils {
     public byte[] computeHashOfFile(String fileLocation, String hashType) {
         InputStream fis = null;
         MessageDigest md;
-        byte hash[] = null;
+        byte[] hash = null;
         try {
             md = MessageDigest.getInstance(hashType);
         } catch (NoSuchAlgorithmException e) {
@@ -826,23 +827,27 @@ public class Utils {
 
     public SimpleDialog.Builder createCancelProvisioningResetDialogBuilder(Context context) {
         CharSequence deviceName = DeviceHelper.getDeviceName(context);
-
         final int positiveResId = R.string.reset;
         final int negativeResId = R.string.device_owner_cancel_cancel;
-        final String dialogMsgResId =
-                context.getString(R.string.this_will_reset_take_back_first_screen, deviceName);
-
-        return getBaseDialogBuilder(context, positiveResId, negativeResId)
-                .setMessage(dialogMsgResId)
-                .setTitle(context.getString(R.string.stop_setup_reset_device_question, deviceName));
+        return getBaseDialogBuilder(positiveResId, negativeResId)
+                .setMessage(
+                        LazyStringResource.of(R.string.this_will_reset_take_back_first_screen,
+                                deviceName))
+                .setTitle(
+                        LazyStringResource.of(R.string.stop_setup_reset_device_question,
+                                deviceName));
     }
 
-    public SimpleDialog.Builder createCancelProvisioningDialogBuilder(Context context) {
+    /**
+     * Create a builder for cancel provisioning dialog
+     *
+     * @return builder
+     */
+    public SimpleDialog.Builder createCancelProvisioningDialogBuilder() {
         final int positiveResId = R.string.profile_owner_cancel_ok;
         final int negativeResId = R.string.profile_owner_cancel_cancel;
         final int dialogMsgResId = R.string.profile_owner_cancel_message;
-        return getBaseDialogBuilder(context, positiveResId, negativeResId)
-                .setMessage(dialogMsgResId);
+        return getBaseDialogBuilder(positiveResId, negativeResId).setMessage(dialogMsgResId);
     }
 
     public boolean shouldShowOwnershipDisclaimerScreen(ProvisioningParams params) {
@@ -882,9 +887,8 @@ public class Utils {
         }
     }
 
-    private SimpleDialog.Builder getBaseDialogBuilder(Context context,
-            int positiveResId, int negativeResId) {
-        return new SimpleDialog.Builder(context)
+    private SimpleDialog.Builder getBaseDialogBuilder(int positiveResId, int negativeResId) {
+        return new SimpleDialog.Builder()
                 .setCancelable(false)
                 .setNegativeButtonMessage(negativeResId)
                 .setPositiveButtonMessage(positiveResId);
