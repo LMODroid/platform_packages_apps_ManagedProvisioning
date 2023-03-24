@@ -17,10 +17,12 @@
 package com.android.managedprovisioning.util
 
 import android.content.Context
+import android.util.Log
 import android.os.Bundle
 import android.os.Parcel
 import android.os.Parcelable
 import androidx.annotation.StringRes
+
 
 /** A container for a [StringRes] with format arguments that can be resolved lazily */
 sealed class LazyStringResource : Parcelable {
@@ -32,7 +34,18 @@ sealed class LazyStringResource : Parcelable {
     abstract val formatArgs: Array<out CharSequence>
 
     /** Resolve the lazy value of this resource within a given [context] */
-    open fun value(context: Context): String = context.getString(resId, *formatArgs)
+    open fun value(context: Context): String =
+        runCatching { context.getString(resId, *formatArgs) }
+            .onFailure {
+                val args = formatArgs.joinToString(",")
+                Log.e(
+                    TAG,
+                    "Unable to resolve LazyStringResource: resId=$resId formatArgs=[$args]",
+                    it
+                )
+            }
+            .getOrThrow()
+
 
     /**
      * Resolve the lazy value of this resource within a given [context] or return null if it cannot be
@@ -81,6 +94,7 @@ sealed class LazyStringResource : Parcelable {
         "${this::class.simpleName}(resId=$resId, formatArgs=${formatArgs.contentToString()})"
 
     companion object {
+        private const val TAG = "LazyStringResource"
         const val BUNDLE_RES_ID = "resId"
         const val BUNDLE_ARGS = "args"
 

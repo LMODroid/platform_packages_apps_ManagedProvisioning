@@ -16,6 +16,8 @@
 
 package com.android.managedprovisioning.provisioning;
 
+import static android.view.View.ACCESSIBILITY_LIVE_REGION_POLITE;
+
 import static com.google.android.setupdesign.util.ThemeHelper.shouldApplyMaterialYouStyle;
 
 import android.app.Activity;
@@ -101,6 +103,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
         }
         ViewGroup root = activity.findViewById(R.id.sud_layout_template_content);
         mButtonFooterContainer = getButtonFooterContainer(root);
+        mButtonFooterContainer.setAccessibilityLiveRegion(ACCESSIBILITY_LIVE_REGION_POLITE);
 
         getUtils()
                 .onViewMeasured(
