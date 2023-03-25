@@ -29,9 +29,9 @@ import com.android.managedprovisioning.common.InitializeLayoutConsumerHandler;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
-import com.google.android.setupdesign.util.DeviceHelper;
 
 import com.google.android.setupdesign.GlifLayout;
+import com.google.android.setupdesign.util.DeviceHelper;
 import com.google.auto.value.AutoValue;
 
 @AutoValue
@@ -46,8 +46,7 @@ abstract class LandingActivityBridgeImpl implements LandingActivityBridge {
     @Override
     public void initiateUi(Activity activity) {
         int headerResId = R.string.brand_screen_header;
-
-        CharSequence deviceName = DeviceHelper.getDeviceName(activity);
+        CharSequence deviceName = DeviceHelper.getDeviceName(activity.getApplicationContext());
         String title = activity.getString(R.string.setup_device_progress, deviceName);
 
         if (shouldShowAccountManagementDisclaimer(
@@ -55,12 +54,12 @@ abstract class LandingActivityBridgeImpl implements LandingActivityBridge {
             headerResId = R.string.account_management_disclaimer_header;
         }
 
+        CustomizationParams customizationParams =
+                CustomizationParams.createInstance(getParams(), activity, getUtils());
         getInitializeLayoutParamsConsumer()
                 .initializeLayoutParams(R.layout.landing_screen, headerResId);
         activity.setTitle(title);
 
-        CustomizationParams customizationParams =
-                CustomizationParams.createInstance(getParams(), activity, getUtils());
         setupSubtitleText(activity, getParams(), customizationParams);
 
         GlifLayout layout = activity.findViewById(R.id.setup_wizard_layout);

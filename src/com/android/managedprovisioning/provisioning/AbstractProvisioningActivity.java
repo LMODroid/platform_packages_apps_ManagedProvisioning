@@ -31,10 +31,11 @@ import com.android.managedprovisioning.common.SimpleDialog;
 import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
+import com.android.managedprovisioning.util.LazyStringResource;
 
 import com.google.android.setupcompat.logging.ScreenKey;
-import com.google.android.setupcompat.logging.SetupMetricsLogger;
 import com.google.android.setupcompat.logging.SetupMetric;
+import com.google.android.setupcompat.logging.SetupMetricsLogger;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -144,17 +145,18 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     protected void showCancelProvisioningDialog(boolean resetRequired) {
         if (resetRequired) {
-            showDialog(mUtils.createCancelProvisioningResetDialogBuilder(this),
-                    CANCEL_PROVISIONING_DIALOG_RESET);
+            showDialog(
+                    mUtils.createCancelProvisioningResetDialogBuilder(
+                            getApplicationContext()), CANCEL_PROVISIONING_DIALOG_RESET);
         } else {
-            showDialog(mUtils.createCancelProvisioningDialogBuilder(this),
-                   CANCEL_PROVISIONING_DIALOG_OK);
+            showDialog(mUtils.createCancelProvisioningDialogBuilder(),
+                    CANCEL_PROVISIONING_DIALOG_OK);
         }
     }
 
     @Override
     public void error(int titleId, int messageId, boolean resetRequired) {
-        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder(this)
+        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setTitle(titleId)
                 .setMessage(messageId)
                 .setCancelable(false)
@@ -166,12 +168,13 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     @Override
     public void error(int titleId, String errorMessage, boolean resetRequired) {
-        SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder(this)
-                .setTitle(titleId)
-                .setMessage(errorMessage)
-                .setCancelable(false)
-                .setPositiveButtonMessage(resetRequired
-                        ? R.string.reset : android.R.string.ok);
+        SimpleDialog.Builder dialogBuilder =
+                new SimpleDialog.Builder()
+                        .setTitle(titleId)
+                        .setMessage(LazyStringResource.of(errorMessage))
+                        .setCancelable(false)
+                        .setPositiveButtonMessage(
+                                resetRequired ? R.string.reset : android.R.string.ok);
 
         showDialog(dialogBuilder, resetRequired ? ERROR_DIALOG_RESET : ERROR_DIALOG_OK);
     }

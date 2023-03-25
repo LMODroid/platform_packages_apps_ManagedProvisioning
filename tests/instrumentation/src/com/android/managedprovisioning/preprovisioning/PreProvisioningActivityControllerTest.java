@@ -116,6 +116,7 @@ import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.model.WifiInfo;
 import com.android.managedprovisioning.parser.MessageParser;
 import com.android.managedprovisioning.preprovisioning.PreProvisioningActivityController.UiParams;
+import com.android.managedprovisioning.util.LazyStringResource;
 
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
@@ -740,8 +741,8 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN show an error dialog
         verify(mUi).showErrorAndClose(
-                eq(R.string.cant_add_work_profile),
-                eq(stringContext.getString(
+                eq(LazyStringResource.of(R.string.cant_add_work_profile)),
+                eq(LazyStringResource.of(
                         R.string.work_profile_cant_be_added_contact_admin, DEFAULT_DEVICE_NAME)),
                 any());
         verifyNoMoreInteractions(mUi);
@@ -848,8 +849,8 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         mController.initiateProvisioning(mIntent, TEST_MDM_PACKAGE);
         // THEN show an error dialog and do not continue
         verify(mUi).showErrorAndClose(
-                eq(R.string.cant_set_up_device),
-                eq(stringContext.getString(R.string.device_has_reset_protection_contact_admin,
+                eq(LazyStringResource.of(R.string.cant_set_up_device)),
+                eq(LazyStringResource.of(R.string.device_has_reset_protection_contact_admin,
                         DEFAULT_DEVICE_NAME)),
                 any());
         verifyNoMoreInteractions(mUi);
@@ -922,8 +923,8 @@ public class PreProvisioningActivityControllerTest extends AndroidTestCase {
         verifyInitiateProfileOwnerUi();
         // THEN show an error indicating that this device does not support encryption
         verify(mUi).showErrorAndClose(
-                eq(R.string.cant_set_up_device),
-                eq(stringContext.getString(R.string.device_doesnt_allow_encryption_contact_admin,
+                eq(LazyStringResource.of(R.string.cant_set_up_device)),
+                eq(LazyStringResource.of(R.string.device_doesnt_allow_encryption_contact_admin,
                         DEFAULT_DEVICE_NAME)),
                 any());
         verifyNoMoreInteractions(mUi);

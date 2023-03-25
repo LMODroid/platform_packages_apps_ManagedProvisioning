@@ -27,7 +27,6 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.Utils;
-import com.android.managedprovisioning.model.CustomizationParams;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 import com.google.android.setupdesign.GlifLayout;
@@ -52,13 +51,15 @@ public class EncryptDeviceActivity extends SetupGlifLayoutActivity {
             return;
         }
 
-        CharSequence deviceName = DeviceHelper.getDeviceName(this);
+        CharSequence deviceName = DeviceHelper.getDeviceName(getApplicationContext());
         if (getUtils().isProfileOwnerAction(mParams.provisioningAction)) {
-            initializeUi(R.string.setup_work_profile,
+            initializeUi(
+                    R.string.setup_work_profile,
                     getString(R.string.setup_profile_encryption),
                     getString(R.string.encrypt_device_text_for_profile_owner_setup, deviceName));
         } else if (getUtils().isDeviceOwnerAction(mParams.provisioningAction)) {
-            initializeUi(R.string.setup_work_device,
+            initializeUi(
+                    R.string.setup_work_device,
                     getString(R.string.setup_device_encryption, deviceName),
                     getString(R.string.encrypt_device_text_for_device_owner_setup, deviceName));
         } else {
