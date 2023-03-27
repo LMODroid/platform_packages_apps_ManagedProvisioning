@@ -113,7 +113,12 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
 
     @Override
     protected void decideCancelProvisioningDialog() {
-        showCancelProvisioningDialog(/* resetRequired = */ true);
+        if (getUtils().isDeviceOwnerAction(mParams.provisioningAction)
+                || getUtils().isOrganizationOwnedAllowed(mParams)) {
+            showCancelProvisioningDialog(/* resetRequired= */ true);
+        } else {
+            showCancelProvisioningDialog(/* resetRequired= */ false);
+        }
     }
 
 
