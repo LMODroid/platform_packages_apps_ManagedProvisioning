@@ -29,7 +29,7 @@
     <string name="next" msgid="1004321437324424398">"Avanti"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Configurazione profilo di lavoro…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"L\'amministratore IT può monitorare e gestire impostazioni, accesso aziendale, app, autorizzazioni, dati e attività di rete associati a questo profilo, incluse la cronologia chiamate e la cronologia delle ricerche dei contatti. Contatta l\'amministratore IT per avere ulteriori informazioni e scoprire di più sulle norme sulla privacy della tua organizzazione."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Il tuo amministratore IT ha la possibilità di monitorare e gestire le impostazioni, l\'accesso aziendale, le app, le autorizzazioni e i dati associati a questo dispositivo, tra cui le tue attività in rete, oltre alla posizione del dispositivo, la cronologia delle chiamate e la cronologia delle ricerche dei contatti.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Il tuo amministratore IT ha la possibilità di monitorare e gestire le impostazioni, l\'accesso aziendale, le app, le autorizzazioni e i dati associati a questo dispositivo, tra cui le tue attività di rete, oltre a posizione del dispositivo, cronologia delle chiamate e cronologia delle ricerche dei contatti.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Contatta l\'amministratore IT per ulteriori informazioni, comprese le norme sulla privacy della tua organizzazione."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Per poter utilizzare le funzioni antifurto, è necessario impostare sul dispositivo un blocco schermo protetto tramite password."</string>
@@ -158,8 +158,8 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Questo dispositivo appartiene alla tua organizzazione"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"L\'app seguente verrà usata per gestire e monitorare questo telefono"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Il tuo account è gestito"</string>
-    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"L\'amministratore IT usa Gestione dei dispositivi mobili per applicare criteri di sicurezza"</string>
-    <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparazione per la configurazione del profilo di lavoro…"</string>
+    <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"L\'amministratore IT usa la gestione dei dispositivi mobili per applicare criteri di sicurezza"</string>
+    <string name="downloading_administrator_header" msgid="8660294318893902915">"Preparazione per la configurazione del dispositivo di lavoro in corso…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Configura il tuo profilo di lavoro"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Le app di lavoro vengono mantenute nel tuo profilo di lavoro"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Quando hai finito le tue mansioni quotidiane, metti in pausa le app di lavoro"</string>
