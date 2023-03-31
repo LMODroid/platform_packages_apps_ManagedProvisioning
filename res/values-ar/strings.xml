@@ -159,14 +159,14 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"سيتمّ استخدام التطبيق التالي لإدارة هذا الهاتف ومراقبته."</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"حسابك مُدار"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"يستخدم مشرف تكنولوجيا المعلومات في مؤسستك إدارة الأجهزة الجوّالة لفرض سياسات الأمان."</string>
-    <string name="downloading_administrator_header" msgid="8660294318893902915">"جارٍ إعداد الجهاز للاستخدام في العمل…"</string>
+    <string name="downloading_administrator_header" msgid="8660294318893902915">"جارٍ إعداد جهاز العمل…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"لنبدأ إعداد الملف الشخصي للعمل"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"إيقاف تطبيقات العمل مؤقتًا عند انتهاء مهام يوم العمل"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"البيانات في ملفك الشخصي للعمل تظهر لمشرف تكنولوجيا المعلومات في مؤسستك"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"جارٍ إعداد الملف الشخصي للعمل…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"يتم الاحتفاظ بتطبيقات العمل في ملفك الشخصي للعمل. يمكنك إيقاف تطبيقات العمل مؤقتًا عند انتهاء مهام يوم العمل. إنّ بيانات ملفك الشخصي للعمل مرئية لمشرف تكنولوجيا المعلومات في مؤسستك."</string>
-    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"حان وقت إعداد جهاز العمل."</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"حان وقت إعداد جهاز العمل"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"التحكم بسهولة في تطبيقات العمل"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"جهاز \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" هذا ليس خاصًا"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"قد يتمكّن مشرف تكنولوجيا المعلومات من الاطّلاع على بياناتك وأنشطتك على جهاز \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" هذا."</string>
