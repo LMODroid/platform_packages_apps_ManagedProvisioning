@@ -21,6 +21,8 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 
 import static com.android.internal.util.Preconditions.checkNotNull;
 
+import static java.util.Objects.requireNonNull;
+
 import android.annotation.IntDef;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -164,8 +166,11 @@ public final class FinalizationController {
 
         mProvisioningFinalizedResult = PROVISIONING_FINALIZED_RESULT_NO_CHILD_ACTIVITY_LAUNCHED;
         if (params.provisioningAction.equals(ACTION_PROVISION_MANAGED_PROFILE)) {
-            UserManager userManager = mContext.getSystemService(UserManager.class);
-            if (!userManager.isUserUnlocked(mUtils.getManagedProfile(mContext))) {
+            var userManager = requireNonNull(
+                    /* obj= */ mContext.getSystemService(UserManager.class),
+                    /* message= */ "Unable to obtain UserManager");
+            var userHandle = mUtils.getManagedProfile(mContext);
+            if (!userManager.isUserUnlocked(userHandle)) {
                 mProvisioningFinalizedResult =
                         PROVISIONING_FINALIZED_RESULT_WAIT_FOR_WORK_PROFILE_AVAILABLE;
             } else {
@@ -183,7 +188,8 @@ public final class FinalizationController {
     /**
      * @throws IllegalStateException if {@link #provisioningFinalized()} was not called before.
      */
-    @ProvisioningFinalizedResult int getProvisioningFinalizedResult() {
+    @ProvisioningFinalizedResult
+    int getProvisioningFinalizedResult() {
         if (mProvisioningFinalizedResult == 0) {
             throw new IllegalStateException("provisioningFinalized() has not been called.");
         }
