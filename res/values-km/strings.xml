@@ -43,7 +43,7 @@
     <string name="terms" msgid="8295436105384703903">"លក្ខខណ្ឌ"</string>
     <string name="work_profile_info" msgid="5433388376309583996">"ព័ត៌មាន​អំពី​កម្រងព័ត៌មាន​ការងារ"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"ព័ត៌មាន​អំពី​ឧបករណ៍​ដែល​ស្ថិតក្រោម​ការគ្រប់គ្រង"</string>
-    <string name="default_managed_profile_name" msgid="5370257687074907055">"ប្រវត្តិរូប​ការងារ"</string>
+    <string name="default_managed_profile_name" msgid="5370257687074907055">"កម្រងព័ត៌មានការងារ"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"លុប​កម្រង​ព័ត៌មាន​ដែល​មាន​ស្រាប់?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"អ្នក​មាន​កម្រងព័ត៌មាន​ការងារ​រួចហើយ។ វា​ត្រូវ​បានគ្រប់គ្រង​ដោយ​ប្រើ​កម្មវិធីខាងក្រោម៖"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"មុននឹងដំណើរការ "<a href="#read_this_link">"សូមអាន"</a>" នេះ។"</string>
