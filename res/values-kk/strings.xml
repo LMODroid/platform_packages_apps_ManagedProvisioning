@@ -47,7 +47,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"Қолданыстағы профиль жойылсын ба?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"Сізде жұмыс профилі бұрыннан бар, ол келесі қолданбамен басқарылады:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"Жалғастырудан бұрын "<a href="#read_this_link">"мынаны оқыңыз"</a>"."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Жалғастырсаңыз, осы профильдегі барлық қолданбалар мен деректер жойылады."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"Жалғастырсаңыз, осы профильдегі барлық қолданба мен дерек жойылады."</string>
     <string name="delete_profile" msgid="2299218578684663459">"Жою"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"Бас тарту"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="7828515754696057140">"Жұмыс профилін реттеу үшін құрылғыны шифрлау керек. Бұл біраз уақыт алуы мүмкін."</string>
