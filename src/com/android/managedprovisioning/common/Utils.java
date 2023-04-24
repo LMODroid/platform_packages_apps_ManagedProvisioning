@@ -23,9 +23,8 @@ import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_ORGANIZATION_OWNED;
 import static android.content.pm.PackageManager.MATCH_HIDDEN_UNTIL_INSTALLED_COMPONENTS;
 import static android.content.pm.PackageManager.MATCH_UNINSTALLED_PACKAGES;
-import static android.net.NetworkCapabilities.NET_CAPABILITY_INTERNET;
-import static android.net.NetworkCapabilities.NET_CAPABILITY_VALIDATED;
-import static android.net.NetworkCapabilities.TRANSPORT_CELLULAR;
+
+import static java.util.Objects.requireNonNull;
 
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -489,29 +488,23 @@ public class Utils {
         final ConnectivityManager connectivityManager =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         return Arrays.stream(connectivityManager.getAllNetworks())
-                .filter(network -> {
-                    return Objects.nonNull(connectivityManager.getNetworkCapabilities(network));
-                })
                 .map(connectivityManager::getNetworkCapabilities)
-                .filter(this::isCellularNetwork)
-                .anyMatch(this::isConnectedToInternet);
-    }
-
-    private boolean isConnectedToInternet(NetworkCapabilities capabilities) {
-        return capabilities.hasCapability(NET_CAPABILITY_INTERNET)
-                && capabilities.hasCapability(NET_CAPABILITY_VALIDATED);
-    }
-
-    private boolean isCellularNetwork(NetworkCapabilities capabilities) {
-        return capabilities.hasTransport(TRANSPORT_CELLULAR);
+                .filter(Objects::nonNull)
+                .anyMatch(this::isNetworkConnectedToInternetViaCellular);
     }
 
     /**
-     * Returns whether the device is currently connected to specific network type, such as {@link
-     * ConnectivityManager.TYPE_WIFI} or {@link ConnectivityManager.TYPE_ETHERNET}
+     * Returns whether the device is currently connected to specific network type, such as
+     * {@link ConnectivityManager#TYPE_WIFI} or {@link ConnectivityManager#TYPE_ETHERNET}
      *
      * {@see ConnectivityManager}
+     *
+     * @deprecated use one of
+     * {@link #isNetworkConnectedToInternetViaEthernet(NetworkCapabilities)},
+     * {@link #isNetworkConnectedToInternetViaWiFi(NetworkCapabilities)}
+     * {@link #isNetworkConnectedToInternetViaCellular(NetworkCapabilities)}
      */
+    @Deprecated
     public boolean isNetworkTypeConnected(Context context, int... types) {
         final NetworkInfo networkInfo = getActiveNetworkInfo(context);
         if (networkInfo != null && networkInfo.isConnected()) {
@@ -526,12 +519,61 @@ public class Utils {
     }
 
     /**
-     * Returns the active network info of the device.
+     * Checks if the network is active (can receive and send data)
      */
+    public boolean isNetworkActive(NetworkCapabilities network) {
+        return network.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
+                && network.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+    }
+
+    /**
+     * Checks if the network has transport {@link NetworkCapabilities#TRANSPORT_ETHERNET} and
+     * {@link #isNetworkActive}
+     */
+    public boolean isNetworkConnectedToInternetViaEthernet(NetworkCapabilities network) {
+        return network.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
+                && isNetworkActive(network);
+    }
+
+    /**
+     * Checks if the network has transport {@link NetworkCapabilities#TRANSPORT_WIFI} and
+     * {@link #isNetworkActive}
+     */
+    public boolean isNetworkConnectedToInternetViaWiFi(NetworkCapabilities network) {
+        return network.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                && isNetworkActive(network);
+    }
+
+    /**
+     * Checks if the network has transport {@link NetworkCapabilities#TRANSPORT_CELLULAR} and
+     * {@link #isNetworkActive}
+     */
+    public boolean isNetworkConnectedToInternetViaCellular(NetworkCapabilities network) {
+        return network.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                && isNetworkActive(network);
+    }
+
+    /**
+     * Returns the active network info of the device.
+     *
+     * @deprecated use {@link #getActiveNetworkCapabilities(Context)}
+     */
+    @Deprecated
     public NetworkInfo getActiveNetworkInfo(Context context) {
         ConnectivityManager cm =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         return cm.getActiveNetworkInfo();
+    }
+
+    /**
+     * Retrieves {@link NetworkCapabilities} of the currently active network
+     * or `null` if there is no active network
+     */
+    @Nullable
+    public NetworkCapabilities getActiveNetworkCapabilities(Context context) {
+        var cn = requireNonNull(context.getSystemService(ConnectivityManager.class),
+                "Unable to obtain ConnectivityManager");
+        return cn.getNetworkCapabilities(cn.getActiveNetwork());
     }
 
     /**

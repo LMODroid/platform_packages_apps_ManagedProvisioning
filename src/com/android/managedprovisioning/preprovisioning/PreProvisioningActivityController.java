@@ -70,7 +70,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.net.ConnectivityManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -535,8 +534,10 @@ public class PreProvisioningActivityController {
         if (params.deviceAdminDownloadInfo == null) {
             return false;
         }
-        if (mUtils.isNetworkTypeConnected(mContext, ConnectivityManager.TYPE_WIFI,
-                ConnectivityManager.TYPE_ETHERNET)) {
+        var networkCapabilities = mUtils.getActiveNetworkCapabilities(mContext);
+        if (networkCapabilities != null
+                && (mUtils.isNetworkConnectedToInternetViaWiFi(networkCapabilities)
+                        || mUtils.isNetworkConnectedToInternetViaEthernet(networkCapabilities))) {
             return false;
         }
         // we intentionally disregard whether mobile is connected for QR and NFC
