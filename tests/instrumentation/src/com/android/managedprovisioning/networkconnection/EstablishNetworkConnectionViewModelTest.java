@@ -68,15 +68,12 @@ import com.android.managedprovisioning.testcommon.FakeSharedPreferences;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-@RunWith(JUnit4.class)
 public final class EstablishNetworkConnectionViewModelTest {
     private EstablishNetworkConnectionViewModel mViewModel;
     private static final Context sContext = ApplicationProvider.getApplicationContext();
