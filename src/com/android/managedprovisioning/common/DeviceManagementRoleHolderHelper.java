@@ -24,13 +24,16 @@ import static java.util.Objects.requireNonNull;
 
 import android.annotation.Nullable;
 import android.app.admin.DevicePolicyManager;
+import android.app.role.RoleManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.os.UserHandle;
 import android.text.TextUtils;
 
+import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.provisioning.Constants;
 
 import com.google.android.setupcompat.util.WizardManagerHelper;
@@ -38,6 +41,7 @@ import com.google.android.setupcompat.util.WizardManagerHelper;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 /**
@@ -52,18 +56,60 @@ public final class DeviceManagementRoleHolderHelper {
     private final ResolveIntentChecker mResolveIntentChecker;
     private final RoleHolderStubChecker mRoleHolderStubChecker;
     private final FeatureFlagChecker mFeatureFlagChecker;
+    private final RoleGranter mRoleGranter;
 
     public DeviceManagementRoleHolderHelper(
-            @Nullable String roleHolderPackageName,
+            String roleHolderPackageName,
             PackageInstallChecker packageInstallChecker,
             ResolveIntentChecker resolveIntentChecker,
             RoleHolderStubChecker roleHolderStubChecker,
             FeatureFlagChecker featureFlagChecker) {
-        mRoleHolderPackageName = roleHolderPackageName;
+        this(
+                roleHolderPackageName, packageInstallChecker, resolveIntentChecker,
+                roleHolderStubChecker, featureFlagChecker,
+                (context, user, roleName, packageName, callback) -> {
+                    var mRoleManager = requireNonNull(context.getSystemService(RoleManager.class),
+                            "Unable to obtain RoleManager");
+                    if (mRoleManager.getRoleHoldersAsUser(roleName, user).contains(packageName)) {
+                        ProvisionLogger.logi(roleName + " role is already granted to " + packageName
+                                + " package on user " + user);
+                        callback.accept(true);
+                    } else {
+                        ProvisionLogger.logi("Granting " + roleName + " role to " + packageName
+                                + " package on user " + user);
+                        mRoleManager.addRoleHolderAsUser(roleName, packageName, /* flags= */ 0,
+                                user, context.getMainExecutor(), callback);
+                    }
+                });
+    }
+
+    @VisibleForTesting
+    public DeviceManagementRoleHolderHelper(
+            String roleHolderPackageName,
+            PackageInstallChecker packageInstallChecker,
+            ResolveIntentChecker resolveIntentChecker,
+            RoleHolderStubChecker roleHolderStubChecker,
+            FeatureFlagChecker featureFlagChecker,
+            RoleGranter roleGranter) {
+        mRoleHolderPackageName = requireNonNull(roleHolderPackageName);
         mPackageInstallChecker = requireNonNull(packageInstallChecker);
         mResolveIntentChecker = requireNonNull(resolveIntentChecker);
         mRoleHolderStubChecker = requireNonNull(roleHolderStubChecker);
         mFeatureFlagChecker = requireNonNull(featureFlagChecker);
+        mRoleGranter = requireNonNull(roleGranter);
+    }
+
+    /**
+     * Ensures that {@link RoleManager#ROLE_DEVICE_POLICY_MANAGEMENT} role is granted to
+     * {@link UserHandle#USER_SYSTEM}
+     *
+     * @param callback to invoke with role grant status
+     */
+    public void ensureRoleGranted(
+            Context context,
+            Consumer<Boolean> callback) {
+        mRoleGranter.ensureRoleGranted(context, UserHandle.of(UserHandle.USER_SYSTEM),
+                RoleManager.ROLE_DEVICE_POLICY_MANAGEMENT, mRoleHolderPackageName, callback);
     }
 
     /**
