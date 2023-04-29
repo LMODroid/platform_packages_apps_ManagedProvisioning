@@ -254,7 +254,7 @@ public class PreProvisioningActivityController {
             mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
             return true;
         } else if (!mRoleHolderHelper.isRoleHolderProvisioningEnabled()
-                || !mRoleHolderUpdaterHelper.isRoleHolderUpdaterDefined()
+                || !mRoleHolderUpdaterHelper.shouldStartRoleHolderUpdater(mContext, managedProvisioningIntent, mViewModel.getParams())
                 || !isRoleHolderProvisioningAllowed) {
             ProvisionLogger.logw("Provisioning via platform.");
             performPlatformProvidedProvisioning();
