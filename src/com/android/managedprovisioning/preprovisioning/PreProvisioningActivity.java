@@ -95,6 +95,7 @@ import com.google.android.setupcompat.logging.ScreenKey;
 import com.google.android.setupcompat.logging.SetupMetric;
 import com.google.android.setupcompat.logging.SetupMetricsLogger;
 import com.google.android.setupcompat.util.WizardManagerHelper;
+import com.google.android.setupdesign.transition.TransitionHelper;
 
 public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         SimpleDialog.SimpleDialogListener, PreProvisioningActivityController.Ui {
@@ -212,7 +213,8 @@ public class PreProvisioningActivity extends SetupGlifLayoutActivity implements
         SetupMetricsLogger.logMetrics(this, mScreenKey,
                 SetupMetric.ofImpression(setupMetricScreenName));
         if (mShouldForwardTransition) {
-            overridePendingTransition(R.anim.sud_slide_next_in, R.anim.sud_slide_next_out);
+            TransitionHelper.applyForwardTransition(
+                    this, TransitionHelper.TRANSITION_FADE_THROUGH);
             mShouldForwardTransition = false;
         }
     }
