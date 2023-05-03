@@ -56,7 +56,7 @@
     <string name="encrypt" msgid="1749320161747489212">"ఎన్‌క్రిప్ట్ చేయి"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"ఎన్‌క్రిప్షన్ పూర్తయింది"</string>
     <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడాన్ని కొనసాగించడానికి నొక్కండి"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి లేదా తర్వాత మళ్లీ ప్రయత్నించండి."</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"మీ కార్యాలయ ప్రొఫైల్‌ను సెటప్ చేయడం సాధ్యపడలేదు. మీ IT విభాగాన్ని సంప్రదించండి లేదా తర్వాత మళ్లీ ట్రై చేయండి."</string>
     <string name="cant_add_work_profile" msgid="9217268909964154934">"కార్యాలయ ప్రొఫైల్‌ని జోడించడం సాధ్యపడదు"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"కార్యాలయ ప్రొఫైల్‌ని భర్తీ చేయలేరు లేదా తీసివేయలేరు"</string>
     <string name="work_profile_cant_be_added_contact_admin" msgid="5393019630297157418">"ఈ పరికరానికి కార్యాలయ ప్రొఫైల్‌ను జోడించలేరు. మీకు సందేహాలుంటే, మీ IT నిర్వాహకులను సంప్రదించండి."</string>
@@ -145,7 +145,7 @@
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"సెటప్‌ను ముగించి, ఫ్యాక్టరీ రీసెట్ చేయాలా?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ఈ సెటప్‌ను ముగిస్తే మీ పరికరం ఫ్యాక్టరీ రీసెట్ చేయబడుతుంది మరియు మీరు తిరిగి సెటప్ ప్రారంభ స్క్రీన్‌కు తీసుకెళ్లబడతారు."</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"రద్దు చేయండి"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"పరికరాన్ని రీసెట్ చేయి"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"పరికరాన్ని రీసెట్ చేయండి"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> మరియు <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> మరియు <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
