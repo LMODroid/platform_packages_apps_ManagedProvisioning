@@ -76,7 +76,7 @@
     <string name="reset" msgid="6467204151306265796">"रिसेट गर्नुहोस्"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"प्रोफाइललाई सेटअप गर्न सकिँदैन"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"यन्त्रलाई सेटअप गर्न सकिँदैन"</string>
-    <string name="something_went_wrong" msgid="3593223774041784329">"केही चिज गडबड भयो"</string>
+    <string name="something_went_wrong" msgid="3593223774041784329">"कुनै समस्या आयो"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"डिभाइस सेट अप गर्न सकिएन। मद्दतका लागि, आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्।"</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"मद्दतका लागि आफ्ना IT व्यवस्थापकसँग सम्पर्क गर्नुहोस्"</string>
     <string name="reset_device" msgid="265029891515486543">"यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> रिसेट गरेर यसलाई फेरि सेटअप गरी हेर्नुहोस्"</string>
