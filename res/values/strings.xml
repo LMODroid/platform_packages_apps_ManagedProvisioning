@@ -380,6 +380,12 @@
   <string name="fully_managed_device_cancel_setup_button">Cancel setup</string>
   <!-- Button text. The final affirmitive button the user needs to press to actually reset the device. [CHARLIMIT=40]-->
   <string name="fully_managed_device_reset_and_return_button">Reset &amp; return device</string>
+  <!-- Screen title.This screen shows up when a user attempts to provision an unsupported DPC into DO on a headless device.[CHARLIMIT=40]-->
+  <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header">Device can\'t be set up</string>
+  <!-- Screen subtext.This screen shows up when a user attempts to provision an unsupported DPC into DO on a headless device.[CHARLIMIT=40]-->
+  <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader">This device can\'t be enrolled into fully managed mode. Factory reset your device and contact your IT admin.</string>
+  <!-- Button text. The final affirmitive button the user needs to press to actually reset the device. [CHARLIMIT=40]-->
+  <string name="fully_managed_device_reset_button">Factory reset</string>
 
   <!-- Work profile on organization-owned device setup screens -->
   <!-- Screen title. This screen lets the user know that their work apps are kept in the work profile, and the work apps are managed by the user's IT admin. [CHAR LIMIT=90]-->
