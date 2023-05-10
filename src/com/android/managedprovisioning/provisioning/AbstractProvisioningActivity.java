@@ -19,12 +19,15 @@ package com.android.managedprovisioning.provisioning;
 import android.annotation.IntDef;
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.VisibleForTesting;
 
+import com.android.managedprovisioning.ManagedProvisioningScreens;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.DialogBuilder;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.SetupGlifLayoutActivity;
 import com.android.managedprovisioning.common.SimpleDialog;
@@ -36,6 +39,7 @@ import com.android.managedprovisioning.util.LazyStringResource;
 import com.google.android.setupcompat.logging.ScreenKey;
 import com.google.android.setupcompat.logging.SetupMetric;
 import com.google.android.setupcompat.logging.SetupMetricsLogger;
+import com.google.android.setupcompat.util.WizardManagerHelper;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -154,8 +158,21 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
         }
     }
 
+    protected void startResetActivity() {
+        final Intent intent =
+            new Intent(this, getActivityForScreen(ManagedProvisioningScreens.RESET_DEVICE));
+        WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
+        getTransitionHelper().startActivityWithTransition(this, intent);
+    }
+
     @Override
     public void error(int titleId, int messageId, boolean resetRequired) {
+        if (messageId == R.string.fully_managed_device_unsupported_DPC_in_headless_mode_subheader) {
+            ProvisionLogger.logd("This admin app does not support fully managed mode on " +
+                "headless system user devices");
+            startResetActivity();
+            return;
+        }
         SimpleDialog.Builder dialogBuilder = new SimpleDialog.Builder()
                 .setTitle(titleId)
                 .setMessage(messageId)
@@ -168,6 +185,12 @@ public abstract class AbstractProvisioningActivity extends SetupGlifLayoutActivi
 
     @Override
     public void error(int titleId, String errorMessage, boolean resetRequired) {
+        if (errorMessage.equals(getString(R.string.fully_managed_device_unsupported_DPC_in_headless_mode_subheader))) {
+            ProvisionLogger.logd("This admin app does not support fully managed mode on " +
+                "headless system user devices");
+            startResetActivity();
+            return;
+        }
         SimpleDialog.Builder dialogBuilder =
                 new SimpleDialog.Builder()
                         .setTitle(titleId)
