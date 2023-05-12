@@ -107,6 +107,7 @@ import com.android.managedprovisioning.common.GetProvisioningModeUtils;
 import com.android.managedprovisioning.common.IllegalProvisioningArgumentException;
 import com.android.managedprovisioning.common.ManagedProvisioningSharedPreferences;
 import com.android.managedprovisioning.common.PolicyComplianceUtils;
+import com.android.managedprovisioning.common.RoleGranter;
 import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.DisclaimersParam;
@@ -190,6 +191,8 @@ public class PreProvisioningActivityControllerTest {
     private static final String TEST_ROLE_HOLDER_UPDATER_PACKAGE_NAME =
             "test.roleholderupdater.package";
     private static final FeatureFlagChecker sFeatureFlagChecker = createFeatureFlagChecker();
+    private static final RoleGranter sRoleGranter =
+            (context, user, roleName, packageName, callback) -> callback.accept(true);
     private static final DeviceManagementRoleHolderHelper
             DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER =
             new DeviceManagementRoleHolderHelper(
@@ -197,7 +200,8 @@ public class PreProvisioningActivityControllerTest {
                     /* packageInstallChecker= */ (packageName) -> true,
                     /* resolveIntentChecker= */ (intent, packageManager) -> true,
                     /* roleHolderStubChecker= */ (packageName, packageManager) -> false,
-                    sFeatureFlagChecker);
+                    sFeatureFlagChecker,
+                    sRoleGranter);
     private static final DeviceManagementRoleHolderHelper
             DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_PRESENT =
             new DeviceManagementRoleHolderHelper(
@@ -205,7 +209,8 @@ public class PreProvisioningActivityControllerTest {
                     /* packageInstallChecker= */ (packageName) -> false,
                     /* resolveIntentChecker= */ (intent, packageManager) -> false,
                     /* roleHolderStubChecker= */ (packageName, packageManager) -> false,
-                    sFeatureFlagChecker);
+                    sFeatureFlagChecker,
+                    sRoleGranter);
     private static final String EMPTY_PACKAGE_NAME = "";
     private static final DeviceManagementRoleHolderHelper
             DEVICE_MANAGEMENT_ROLE_HOLDER_HELPER_NOT_CONFIGURED =
@@ -214,7 +219,8 @@ public class PreProvisioningActivityControllerTest {
                     /* packageInstallChecker= */ (packageManager) -> false,
                     /* resolveIntentChecker= */ (intent, packageManager) -> false,
                     /* roleHolderStubChecker= */ (packageName, packageManager) -> false,
-                    sFeatureFlagChecker);
+                    sFeatureFlagChecker,
+                    sRoleGranter);
     private static final DeviceManagementRoleHolderUpdaterHelper
             ROLE_HOLDER_UPDATER_HELPER =
             new DeviceManagementRoleHolderUpdaterHelper(
