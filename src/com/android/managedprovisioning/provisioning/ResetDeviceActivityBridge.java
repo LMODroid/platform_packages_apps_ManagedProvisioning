@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,23 +14,16 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.provisioning;
 
-public enum ManagedProvisioningScreens {
-    PRE_PROVISIONING,
-    PRE_PROVISIONING_VIA_NFC,
-    LANDING,
-    PROVISIONING,
-    ADMIN_INTEGRATED_PREPARE,
-    RESET_AND_RETURN_DEVICE,
-    RESET_DEVICE,
-    WEB,
-    ENCRYPT,
-    POST_ENCRYPT,
-    FINALIZATION_INSIDE_SUW,
-    TERMS,
-    FINANCED_DEVICE_LANDING,
-    RETRY_LAUNCH,
-    DOWNLOAD_ROLE_HOLDER,
-    ESTABLISH_NETWORK_CONNECTION
+import android.app.Activity;
+
+/**
+ * A bridge that provides methods related to the reset device screen UX.
+ */
+public interface ResetDeviceActivityBridge {
+    /**
+     * Initiates the UI.
+     */
+    void initiateUi(Activity activity);
 }
