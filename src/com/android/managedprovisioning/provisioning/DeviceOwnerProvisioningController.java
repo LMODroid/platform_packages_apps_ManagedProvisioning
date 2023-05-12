@@ -108,6 +108,11 @@ public class DeviceOwnerProvisioningController extends AbstractProvisioningContr
                 case InstallPackageTask.ERROR_INSTALLATION_FAILED:
                     return mContext.getString(R.string.error_installation_failed);
             }
+        } else if (task instanceof ProvisionFullyManagedDeviceTask) {
+            switch (errorCode) {
+                case ProvisionFullyManagedDeviceTask.ERROR_FULLY_MANAGED_MODE_UNSUPPORTED_IN_HEADLESS:
+                    return mContext.getString(R.string.fully_managed_device_unsupported_DPC_in_headless_mode_subheader);
+            }
         }
 
         return mContext.getString(R.string.cant_set_up_device);
