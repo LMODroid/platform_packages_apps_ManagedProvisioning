@@ -826,9 +826,9 @@ public class Utils {
 
     /** Adds a primary "Cancel setup" button */
     public static FooterButton addResetButton(GlifLayout layout,
-            @NonNull OnClickListener listener) {
+            @NonNull OnClickListener listener, @StringRes int resetButtonString) {
         return setPrimaryButton(layout, listener, ButtonType.CANCEL,
-                R.string.fully_managed_device_reset_and_return_button);
+                resetButtonString);
     }
 
     private static FooterButton setPrimaryButton(GlifLayout layout, OnClickListener listener,

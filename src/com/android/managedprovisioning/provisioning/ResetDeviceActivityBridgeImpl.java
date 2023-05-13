@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2021 The Android Open Source Project
+ * Copyright (C) 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,32 +26,35 @@ import com.google.android.setupdesign.GlifLayout;
 import com.google.auto.value.AutoValue;
 
 @AutoValue
-abstract class ResetAndReturnDeviceActivityBridgeImpl
-        implements ResetAndReturnDeviceActivityBridge {
+abstract class ResetDeviceActivityBridgeImpl implements ResetDeviceActivityBridge {
 
-    abstract ResetAndReturnDeviceActivityBridgeCallback getBridgeCallback();
+    abstract ResetDeviceActivityBridgeCallback getBridgeCallback();
+
     abstract InitializeLayoutConsumerHandler getInitializeLayoutParamsConsumer();
 
     @Override
     public void initiateUi(Activity activity) {
         getInitializeLayoutParamsConsumer()
-                .initializeLayoutParams(R.layout.return_device_screen, null);
+                .initializeLayoutParams(R.layout.reset_device_screen, null);
 
         GlifLayout layout = activity.findViewById(R.id.setup_wizard_layout);
         layout.setIcon(activity.getDrawable(R.drawable.ic_error_outline));
         Utils.addResetButton(layout, v -> getBridgeCallback().onResetButtonClicked(),
-                R.string.fully_managed_device_reset_and_return_button);
+                R.string.fully_managed_device_reset_button);
     }
 
-    static Builder builder() {
-        return new AutoValue_ResetAndReturnDeviceActivityBridgeImpl.Builder();
+    static ResetDeviceActivityBridgeImpl.Builder builder() {
+        return new AutoValue_ResetDeviceActivityBridgeImpl.Builder();
     }
 
     @AutoValue.Builder
     abstract static class Builder {
-        abstract Builder setBridgeCallback(ResetAndReturnDeviceActivityBridgeCallback callback);
-        abstract Builder setInitializeLayoutParamsConsumer(
+        abstract ResetDeviceActivityBridgeImpl.Builder setBridgeCallback(
+                ResetDeviceActivityBridgeCallback callback);
+
+        abstract ResetDeviceActivityBridgeImpl.Builder setInitializeLayoutParamsConsumer(
                 InitializeLayoutConsumerHandler initializeLayoutParamsConsumer);
-        abstract ResetAndReturnDeviceActivityBridgeImpl build();
+
+        abstract ResetDeviceActivityBridgeImpl build();
     }
 }

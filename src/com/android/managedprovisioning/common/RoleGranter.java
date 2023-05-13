@@ -14,23 +14,21 @@
  * limitations under the License.
  */
 
-package com.android.managedprovisioning;
+package com.android.managedprovisioning.common;
 
-public enum ManagedProvisioningScreens {
-    PRE_PROVISIONING,
-    PRE_PROVISIONING_VIA_NFC,
-    LANDING,
-    PROVISIONING,
-    ADMIN_INTEGRATED_PREPARE,
-    RESET_AND_RETURN_DEVICE,
-    RESET_DEVICE,
-    WEB,
-    ENCRYPT,
-    POST_ENCRYPT,
-    FINALIZATION_INSIDE_SUW,
-    TERMS,
-    FINANCED_DEVICE_LANDING,
-    RETRY_LAUNCH,
-    DOWNLOAD_ROLE_HOLDER,
-    ESTABLISH_NETWORK_CONNECTION
+import android.content.Context;
+import android.os.UserHandle;
+
+import java.util.function.Consumer;
+
+/**
+ * Checker that checks and tries to grant a role if not already granted
+ */
+@FunctionalInterface
+public interface RoleGranter {
+    /**
+     * Checks that a role is granted to a given package on a given user and grants it if needed
+     */
+    void ensureRoleGranted(Context context, UserHandle user, String roleName, String packageName,
+            Consumer<Boolean> callback);
 }

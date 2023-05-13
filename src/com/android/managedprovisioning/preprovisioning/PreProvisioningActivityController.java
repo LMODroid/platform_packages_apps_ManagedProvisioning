@@ -243,14 +243,22 @@ public class PreProvisioningActivityController {
 
         if (isRoleHolderReadyForProvisioning && isRoleHolderProvisioningAllowed) {
             ProvisionLogger.logw("Provisioning via role holder.");
-            Intent roleHolderProvisioningIntent =
-                    mRoleHolderHelper.createRoleHolderProvisioningIntent(
-                            managedProvisioningIntent,
-                            roleHolderAdditionalExtras, callingPackage, mViewModel.getRoleHolderState()
-                    );
-            mSharedPreferences.setIsProvisioningFlowDelegatedToRoleHolder(true);
-            mViewModel.onRoleHolderProvisioningInitiated();
-            mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
+            mRoleHolderHelper.ensureRoleGranted(mContext, success -> {
+                if (success) {
+                    Intent roleHolderProvisioningIntent =
+                            mRoleHolderHelper.createRoleHolderProvisioningIntent(
+                                    managedProvisioningIntent,
+                                    roleHolderAdditionalExtras, callingPackage,
+                                    mViewModel.getRoleHolderState()
+                            );
+                    mSharedPreferences.setIsProvisioningFlowDelegatedToRoleHolder(true);
+                    mViewModel.onRoleHolderProvisioningInitiated();
+                    mUi.startRoleHolderProvisioning(roleHolderProvisioningIntent);
+                } else {
+                    ProvisionLogger.logw("Falling back to provisioning via platform.");
+                    performPlatformProvidedProvisioning();
+                }
+            });
             return true;
         } else if (!mRoleHolderHelper.isRoleHolderProvisioningEnabled()
                 || !mRoleHolderUpdaterHelper.isRoleHolderUpdaterDefined()
