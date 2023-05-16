@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Gaan terug na die vorige skerm of stel hierdie toestel terug en gee dit terug vir jou IT-administrateur."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Kanselleer opstelling"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Stel toestel terug en gee dit terug"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Toestel kan nie opgestel word nie"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Hierdie toestel kan nie by vollebestuurmodus ingeskryf word nie. Voer ’n fabriekterugstelling op jou toestel uit en kontak jou IT-admin."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Fabriekterugstelling"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werkprogramme word in jou werkprofiel gehou en deur jou IT-administrateur bestuur"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Persoonlike programme is apart en versteek van werkprogramme"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Jou IT-admin kan dié toestel beheer en programme blokkeer"</string>

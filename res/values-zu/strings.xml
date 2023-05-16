@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Iya emuva esikrinini sangaphambilini, noma usethe kabusha le divayisi bese uyibuyisela kumphathi wakho we-IT."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Khansela ukusetha"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Setha kabusha futhi ubuyisele idivayisi"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Idivayisi ayikwazi ukusethwa"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Le divayisi ayikwazi ukubhaliswa kumodi ephethwe ngokugcwele. Setha kabusha njengasekuqaleni idivayisi yakho futhi uxhumane nomphathi wakho we-IT."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Ukusetha kabusha njengasekuqaleni"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Ama-App akuphrofayela yomsebenzi alawulwa umphathi we-IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Ama-App akho ngqo afihliwe kuma-App omsebenzi"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Umphathi we-IT angalawula le divayisi avimbe amanye ama-App"</string>
