@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"వెనుకకు మునుపటి స్క్రీన్‌కు వెళ్లండి లేదా ఈ పరికరాన్ని రీసెట్ చేసి, దీన్ని మీ IT అడ్మిన్‌కు తిరిగి ఇవ్వండి."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"సెటప్‌ను రద్దు చేయండి"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"రీసెట్ చేయండి &amp; పరికరాన్ని తిరిగి ఇవ్వండి"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"పరికరాన్ని సెటప్ చేయడం సాధ్యపడదు"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"ఈ పరికరాన్ని పూర్తిగా మేనేజ్ చేయబడే మోడ్‌లో ఎన్‌రోల్ చేయడం సాధ్యపడదు. మీ పరికరాన్ని ఫ్యాక్టరీ రీసెట్ చేసి, మీ IT అడ్మిన్‌ను సంప్రదించండి."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ఫ్యాక్టరీ రీసెట్ చేయండి"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ఆఫీస్ యాప్‌లు మీ వర్క్ ప్రొఫైల్‌లో ఉంటాయి &amp; మీ IT అడ్మిన్ చేత మేనేజ్ చేయబడతాయి"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"వ్యక్తిగత యాప్‌లు విడిగా ఉంటాయి &amp; ఆఫీస్ యాప్‌లకు కనిపించవు"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"మీ IT అడ్మిన్ ఈ పరికరాన్ని కంట్రోల్ చేయగలరు &amp; కొన్ని యాప్‌లను బ్లాక్ చేయగలరు"</string>

@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Ga terug naar het vorige scherm of reset dit apparaat en geef het terug aan je IT-beheerder."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Instellen annuleren"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Resetten en apparaat teruggeven"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Apparaat kan niet worden ingesteld"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Dit apparaat kan niet worden ingeschreven voor de volledig beheerde modus. Zet de fabrieksinstellingen terug op je apparaat en neem contact op met je IT-beheerder."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Fabrieksinstellingen terugzetten"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werk-apps worden in je werkprofiel bewaard en beheerd door je IT-beheerder"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Persoonlijke apps staan apart, verborgen voor werk-apps"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Je IT-beheerder kan dit apparaat beheren en apps blokkeren"</string>
