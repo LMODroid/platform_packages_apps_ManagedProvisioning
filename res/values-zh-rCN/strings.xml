@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"返回到上一屏幕，或重置此设备并将其交还给 IT 管理员。"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"取消设置"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"重置并交还设备"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"设备无法设置"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"此设备无法注册为完全受管模式。请将设备恢复出厂设置，然后与 IT 管理员联系。"</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"恢复出厂设置"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"工作应用会保存在您的工作资料中，并由您的 IT 管理员管理"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"个人应用与工作应用相互独立，两者不会同时显示"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"您的 IT 管理员可以控制此设备并屏蔽特定应用"</string>

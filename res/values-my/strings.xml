@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ယခင်စခရင်သို့ ပြန်သွားပါ (သို့) ဤစက်ကို ပြင်ဆင်သတ်မှတ်ပြီးနောက် သင့် IT စီမံခန့်ခွဲသူထံသို့ ပြန်ပို့ပါ။"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"စနစ်ထည့်သွင်းမှု ပယ်ဖျက်ရန်"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"စက်ကို ပြင်ဆင်သတ်မှတ်ပြီး ပြန်ပို့ရန်"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"စက်ကို စနစ်ထည့်သွင်း၍မရပါ"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"အပြည့်အဝစီမံထားသောမုဒ်တွင် ရှိနေစဉ် ဤစက်ကို စာရင်းသွင်း၍မရပါ။ ၎င်းကို စက်ရုံထုတ်အတိုင်း ပြင်ဆင်သတ်မှတ်ပြီး သင့် IT စီမံခန့်ခွဲသူထံ ဆက်သွယ်ပါ။"</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"စက်ရုံထုတ်အတိုင်း ပြင်ဆင်သတ်မှတ်ရန်"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"အလုပ်အက်ပ်များကို အလုပ်ပရိုဖိုင်တွင်သိမ်းထားပြီး IT စီမံသူက ထိန်းချုပ်သည်"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ကိုယ်ပိုင်အက်ပ်များကို အလုပ်အက်ပ်များမှ ခွဲပြီးဖျောက်ထားသည်"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"သင်၏ IT စီမံသူက ဤစက်ကိုထိန်းချုပ်ပြီး အချို့အက်ပ်များ ပိတ်ထားနိုင်သည်"</string>
