@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Revenez à l\'écran précédent ou réinitialisez cet appareil et retournez-le à votre administrateur informatique."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Annuler la configuration"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Réinitialiser et retourner l\'appareil"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Impossible de configurer l\'appareil"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Impossible d\'enregistrer l\'appareil en mode entièrement géré. Rétablissez sa configuration d\'usine et contactez l\'administrateur informatique."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Rétablir la configuration d\'usine"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Les applis pros sont conservées dans votre profil pro et gérées par votre administrateur"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Les applis perso sont distinctes des applis pro et non visibles par celles-ci"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Votre administrateur informatique peut contrôler cet appareil et bloquer certaines applis"</string>

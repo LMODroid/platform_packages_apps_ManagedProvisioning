@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ກະລຸນາກັບໄປໜ້າຈໍກ່ອນໜ້າ ຫຼື ຣີເຊັດອຸປະກອນນີ້ແລ້ວສົ່ງມັນຄືນໃຫ້ຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານ."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ຍົກເລີກການຕັ້ງຄ່າ"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"ຣີເຊັດ ແລະ ຄືນອຸປະກອນ"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"ບໍ່ສາມາດຕັ້ງຄ່າອຸປະກອນໄດ້"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"ບໍ່ສາມາດລົງທະບຽນອຸປະກອນນີ້ເຂົ້າໄປໃນຮູບແບບຈັດການຢ່າງເຕັມທີ່ໄດ້. ຣີເຊັດເປັນຄ່າຈາກໂຮງງານອຸປະກອນຂອງທ່ານ ແລະ ຕິດຕໍ່ຫາຜູ້ເບິ່ງແຍງໄອທີຂອງທ່ານ."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ຣີເຊັດເປັນຄ່າຈາກໂຮງງານ"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ແອັບວຽກຈະຖືກເກັບໄວ້ໃນໂປຣໄຟລ໌ວຽກຂອງທ່ານ ແລະ ຈັດການໂດຍຜູ້ເບິ່ງແຍງລະບົບໄອທີຂອງທ່ານ"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ແອັບສ່ວນຕົວແມ່ນແຍກກັນ ແລະ ຖືກເຊື່ອງໄວ້ຈາກແອັບວຽກ"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ຜູ້ເບິ່ງແຍງລະບົບໄອທີຂອງທ່ານສາມາດຄວບຄຸມອຸປະກອນນີ້ ແລະ ບລັອກບາງແອັບໄດ້"</string>

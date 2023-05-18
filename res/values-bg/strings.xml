@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Върнете се към предишния екран или нулирайте това устройство и го върнете на системния си администратор."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Анулиране на настройването"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Нулиране и връщане на устройството"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Устройството не може да бъде настроено"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Устройството не може да бъде регистрирано в режим, в който да бъде изцяло управлявано. Възстановете фабричните настройки на устройството си и се обърнете към системния си администратор."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Възстановяване на фабричните настройки"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Служебните приложения са в служебния ви профил и се управляват от системния администратор"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Личните приложения се съхраняват отделно и са скрити от служебните"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Системният администратор може да управлява устройството и да блокира определени приложения"</string>

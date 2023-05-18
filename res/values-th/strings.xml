@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"กลับไปยังหน้าจอก่อนหน้านี้ หรือรีเซ็ตอุปกรณ์นี้และส่งคืนให้กับผู้ดูแลระบบไอทีของคุณ"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ยกเลิกการตั้งค่า"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"รีเซ็ตและส่งคืนอุปกรณ์"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"ตั้งค่าอุปกรณ์ไม่ได้"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"ลงทะเบียนอุปกรณ์นี้ในโหมดที่มีการจัดการครบวงจรไม่ได้ โปรดรีเซ็ตอุปกรณ์เป็นค่าเริ่มต้นและติดต่อผู้ดูแลระบบไอที"</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"รีเซ็ตเป็นค่าเริ่มต้น"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"แอปงานเก็บอยู่ในโปรไฟล์งานและจัดการโดยผู้ดูแลระบบไอที"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"แอปส่วนตัวจะอยู่แยกต่างหากและซ่อนจากแอปงาน"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ผู้ดูแลระบบไอทีจะควบคุมอุปกรณ์นี้และบล็อกบางแอปได้"</string>

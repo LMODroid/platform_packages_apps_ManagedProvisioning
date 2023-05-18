@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Gehe zum vorherigen Bildschirm zurück oder setz dieses Gerät zurück und gib es an deinen IT-Admin zurück."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Einrichtung abbrechen"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Gerät zurücksetzen und zurückgeben"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Gerät kann nicht eingerichtet werden"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Dieses Gerät kann im vollständig verwalteten Modus nicht registriert werden. Setz dein Gerät auf die Werkseinstellungen zurück und wende dich an den IT-Administrator."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Auf Werkseinstellungen zurücksetzen"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Geschäftliche Apps werden im Arbeitsprofil abgelegt &amp; vom IT-Administrator verwaltet"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Private Apps &amp; geschäftliche Apps sind voneinander getrennt"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Der IT-Administrator kann dieses Gerät steuern &amp; Apps blockieren"</string>
