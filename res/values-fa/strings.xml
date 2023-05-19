@@ -180,6 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"به صفحه قبلی برگردید یا این دستگاه را بازنشانی کنید و آن را به سرپرست فناوری اطلاعات برگردانید."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"لغو راه‌اندازی"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"بازنشانی و برگرداندن دستگاه"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"دستگاه را نمی‌توان راه‌اندازی کرد"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"این دستگاه را نمی‌توان در حالت کاملاً مدیریت‌شده ثبت‌نام کرد. دستگاهتان را بازنشانی کارخانه‌ای کنید و با سرپرست فناوری اطلاعات تماس بگیرید."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"بازنشانی کارخانه‌ای"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"برنامه‌های کاری در نمایه کاری هستند و سرپرست فناوری اطلاعات آن‌ها را مدیریت می‌کند"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"برنامه‌های شخصی از برنامه‌های کاری جدا است و از آن پنهان است"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"سرپرست فناوری اطلاعات می‌تواند این دستگاه را کنترل کند و برخی از برنامه‌ها را مسدود کند"</string>
