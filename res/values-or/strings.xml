@@ -180,6 +180,12 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ପୂର୍ବବର୍ତ୍ତୀ ସ୍କ୍ରିନକୁ ଫେରନ୍ତୁ କିମ୍ବା ଏହି ଡିଭାଇସ୍ ରିସେଟ୍ କରନ୍ତୁ ଏବଂ ଏହାକୁ ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଫେରାନ୍ତୁ।"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ସେଟଅପ୍ ବାତିଲ କରନ୍ତୁ"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"ଡିଭାଇସ୍ ରିସେଟ୍ କରି ଫେରାନ୍ତୁ"</string>
+    <!-- no translation found for fully_managed_device_unsupported_DPC_in_headless_mode_header (7938653381656306039) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_unsupported_DPC_in_headless_mode_subheader (5158035482490079567) -->
+    <skip />
+    <!-- no translation found for fully_managed_device_reset_button (5957116315144904542) -->
+    <skip />
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ୱାର୍କ ଆପ୍ସ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଏ ଓ ଏହା ଆପଣଙ୍କ IT ଆଡମିନଙ୍କ ଦ୍ୱାରା ପରିଚାଳିତ ହୋଇଥାଏ"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ବ୍ୟକ୍ତିଗତ ଆପଗୁଡ଼ିକ କାର୍ଯ୍ୟସ୍ଥଳୀ ଆପଗୁଡ଼ିକ ଠାରୁ ଅଲଗା ଅଟେ ଓ ଏହା ଲୁକ୍କାୟିତ ଅଛି"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"ଆପଣଙ୍କ IT ଆଡମିନ୍ ଏହି ଡିଭାଇସକୁ ନିୟନ୍ତ୍ରଣ କରି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପଗୁଡ଼ିକୁ ବ୍ଲକ୍ କରିପାରିବେ"</string>
