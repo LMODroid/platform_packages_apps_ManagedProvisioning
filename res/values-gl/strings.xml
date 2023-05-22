@@ -85,7 +85,7 @@
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"O teu dispositivo ten activada a protección contra o restablecemento da configuración de fábrica. Para recibir axuda, ponte en contacto co teu administrador de TI."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Borrando"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Agarda..."</string>
-    <string name="error_hash_mismatch" msgid="1145488923243178454">"Non se puido utilizar a aplicación de administración debido a un erro da suma de verificación. Para recibir axuda, ponte en contacto co teu administrador de TI."</string>
+    <string name="error_hash_mismatch" msgid="1145488923243178454">"Non se puido utilizar a aplicación de administración debido a un erro da suma de comprobación. Para recibir axuda, ponte en contacto co teu administrador de TI."</string>
     <string name="error_download_failed" msgid="3274283629837019452">"Non se puido descargar a aplicación de administración"</string>
     <string name="error_package_invalid" msgid="555402554502033988">"Produciuse un erro ao utilizar a aplicación de administración. Fáltanlle compoñentes ou está danada. Para recibir axuda, ponte en contacto co teu administrador de TI."</string>
     <string name="error_installation_failed" msgid="2282903750318407285">"Non se puido instalar a aplicación de administración"</string>
