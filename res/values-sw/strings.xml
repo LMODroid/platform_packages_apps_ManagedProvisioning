@@ -180,8 +180,8 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Rudi kwenye skrini iliyotangulia, au ubadilishe mipangilio ya kifaa hiki na ukirejeshe kwa msimamizi wako wa TEHAMA."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Ghairi mipangilio"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Badilisha mipangilio na urejeshe kifaa"</string>
-    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Imeshindwa kuweka mipangilio ya kifaa"</string>
-    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Kifaa hiki hakiwezi kuandikishwa katika hali ya usimamizi kikamilifu Rejesha mipangilio ya kiwandani na uwasiliane na Msimamizi wako wa TEHAMA."</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Haiwezi kuweka mipangilio ya kifaa"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Kifaa hiki hakiwezi kuandikishwa katika hali ya usimamizi kamili. Rejesha mipangilio ya kiwandani na uwasiliane na Msimamizi wako wa TEHAMA."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Rejesha mipangilio ya kiwandani"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Programu za kazini huwa kwenye wasifu wako wa kazini na hudhibitiwa na msimamizi wa TEHAMA"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Programu za binafsi huwa kando na hazionyeshwi kwenye za kazini"</string>

@@ -180,12 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"পূৰ্বৱৰ্তী স্ক্ৰীনখনলৈ উভতি যাওক অথবা এই ডিভাইচটো ৰিছেট কৰক আৰু এইটো আপোনাৰ আইটি প্ৰশাসকক উভতাই দিয়ক।"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"ছেটআপ বাতিল কৰক"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"ৰিছেট কৰক আৰু ডিভাইচটো উভতাই দিয়ক"</string>
-    <!-- no translation found for fully_managed_device_unsupported_DPC_in_headless_mode_header (7938653381656306039) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_unsupported_DPC_in_headless_mode_subheader (5158035482490079567) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_reset_button (5957116315144904542) -->
-    <skip />
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"ডিভাইচ ছেট আপ কৰিব নোৱাৰি"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"এই ডিভাইচটো সম্পূৰ্ণৰূপে পৰিচালিত ম’ডত পঞ্জীয়ন কৰিব নোৱাৰি। আপোনাৰ ডিভাইচটো ফেক্টৰী ৰিছেট কৰক আৰু আপোনাৰ আইটি প্ৰশাসকৰ সৈতে যোগাযোগ কৰক।"</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ফেক্টৰী ৰিছেট কৰক"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"আপোনাৰ আইটি প্ৰশাসকৰ দ্বাৰা পৰিচালিত কর্মস্থানৰ এপ্‌সমূহ আপোনৰ কৰ্মস্থানৰ প্ৰ\'ফাইলত ৰখা হয়"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"ব্যক্তিগত এপ্‌বোৰ পৃথক আৰু কৰ্মস্থানৰ এপৰ পৰা লুকুৱাই ৰখা হয়"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"আপোনাৰ আইটি প্ৰশাসকে এই ডিভাইচটো নিয়ন্ত্ৰণ আৰু নিৰ্দিষ্ট কিছুমান এপ্ অৱৰোধ কৰিব পাৰে"</string>
