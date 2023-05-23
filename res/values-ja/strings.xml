@@ -181,8 +181,8 @@
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"セットアップをキャンセル"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"デバイスをリセットして返却"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"デバイスを設定できません"</string>
-    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"このデバイスをフルマネージド モードに登録できません。デバイスを出荷時の設定にリセットして、IT 管理者に問い合わせてください。"</string>
-    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"出荷時の設定にリセット"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"このデバイスを完全管理モードに登録できません。デバイスを出荷時の設定にリセットして、IT 管理者に問い合わせてください。"</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"出荷時の設定にリセットする"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"仕事用アプリは仕事用プロファイルに保存され、IT 管理者が管理します"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"個人用と仕事用のアプリは別々に保存、表示されます"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT 管理者は、このデバイスを管理して特定のアプリをブロックできます"</string>
