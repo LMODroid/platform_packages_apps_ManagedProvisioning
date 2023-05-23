@@ -180,8 +180,8 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"ត្រឡប់ទៅ​អេក្រង់មុនវិញ ឬកំណត់​ឧបករណ៍នេះឡើងវិញ និងប្រគល់វាទៅ​អ្នកគ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យា​របស់អ្នក។"</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"បោះបង់​ការរៀបចំ"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"កំណត់ឡើងវិញ និងប្រគល់​ឧបករណ៍"</string>
-    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"មិនអាចរៀបចំ​ឧបករណ៍បានទេ"</string>
-    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"មិនអាចចុះឈ្មោះ​ឧបករណ៍នេះទៅក្នុង​មុខងារដែលបានគ្រប់គ្រងពេញលេញបានទេ។ សូមកំណត់ឧបករណ៍​របស់អ្នកដូចចេញ​ពីរោងចក្រ រួចទាក់ទង​ទៅអ្នកគ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យារបស់អ្នក។"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"មិនអាចរៀបចំឧបករណ៍បានទេ"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"មិនអាចចុះឈ្មោះឧបករណ៍នេះទៅក្នុងមុខងារដែលស្ថិតក្រោមការគ្រប់គ្រងពេញលេញទេ។ សូមកំណត់ឧបករណ៍របស់អ្នកដូចចេញពីរោងចក្រ រួចទាក់ទងទៅអ្នកគ្រប់គ្រងផ្នែកព័ត៌មានវិទ្យារបស់អ្នក។"</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"កំណត់​ដូច​ចេញ​ពី​រោងចក្រ"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"កម្មវិធីការងាររក្សាទុកក្នុងកម្រងព័ត៌មានការងារ និងគ្រប់គ្រងដោយអ្នកគ្រប់គ្រងព័ត៌មានវិទ្យា"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"កម្មវិធី​ផ្ទាល់ខ្លួន​ស្ថិតនៅ​ដោយឡែក និង​លាក់ពី​កម្មវិធី​ការងារ"</string>

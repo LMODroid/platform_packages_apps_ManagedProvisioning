@@ -180,8 +180,8 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"सेट अप पूरा करने के लिए पिछली स्क्रीन पर वापस जाएं या इस डिवाइस को रीसेट करके सेट अप रद्द करें और अपने आईटी एडमिन को वापस दें."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"सेट अप रद्द करें"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"डिवाइस को रीसेट करें और वापस दें"</string>
-    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"डिवाइस को सेट अप नहीं किया जा सकता"</string>
-    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"इस डिवाइस को पूरी तरह से मैनेज की गई सेवा मोड में रजिस्टर नहीं किया जा सकता. अपने डिवाइस को फ़ैक्ट्री रीसेट करें और अपने आईटी एडमिन को संपर्क करें."</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"डिवाइस सेट अप नहीं किया जा सकता"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"इस डिवाइस को पूरी तरह से मैनेज की गई सेवा मोड में रजिस्टर नहीं किया जा सकता. अपने डिवाइस को फ़ैक्ट्री रीसेट करें और अपने आईटी एडमिन से संपर्क करें."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"फ़ैक्ट्री रीसेट करें"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"ऑफ़िस के काम के ऐप, वर्क प्रोफ़ाइल में रखे जाते हैं. इन्हें आईटी एडमिन प्रबंधित करता है"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"निजी ऐप्लिकेशन अलग होते हैं और ऑफ़िस के काम से जुड़े ऐप्लिकेशन से छिपे होते हैं"</string>

@@ -180,7 +180,7 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Lépjen vissza az előző képernyőre, vagy állítsa vissza az eszköz gyári beállításait, és küldje vissza az eszközt a rendszergazdájának."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Beállítás leállítása"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Eszköz visszaállítása és visszaküldése"</string>
-    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Az eszköz beállítása sikertelen"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Az eszközt nem lehet beállítani"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Ezen az eszközön nem lehet bekapcsolni a teljes felügyelet módot. Állítsa vissza eszköze gyári beállításait, és forduljon a rendszergazdához."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Gyári beállítások visszaállítása"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"A munkahelyi appok a munkaprofilban vannak, rendszergazda kezeli őket"</string>
