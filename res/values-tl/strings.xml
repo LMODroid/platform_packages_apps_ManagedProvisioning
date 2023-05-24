@@ -181,7 +181,7 @@
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Kanselahin ang pag-set up"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"I-reset at ibalik ang device"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Hindi ma-set up ang device"</string>
-    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Hindi puwedeng i-enroll sa ganap na pinapamahalaang mode ang device na ito. I-factory reset ang iyong device at makipag-ugnayan sa IT admin mo."</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Hindi mae-enroll ang device sa fully managed mode. I-factory reset ang device at kontakin ang IT admin."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"I-factory reset"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Nasa profile mo sa trabaho ang apps para sa trabaho at mina-manage ito ng IT admin mo"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Nakahiwalay ang mga personal na app at nakatago ito mula sa mga app para sa trabaho"</string>

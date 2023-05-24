@@ -180,12 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Wróć na poprzedni ekran lub zresetuj urządzenie i oddaj je administratorowi IT."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Anuluj konfigurację"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Zresetuj i oddaj urządzenie"</string>
-    <!-- no translation found for fully_managed_device_unsupported_DPC_in_headless_mode_header (7938653381656306039) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_unsupported_DPC_in_headless_mode_subheader (5158035482490079567) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_reset_button (5957116315144904542) -->
-    <skip />
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Nie można skonfigurować urządzenia"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Nie można zarejestrować tego urządzenia w trybie pełnego zarządzania. Przywróć urządzenie do ustawień fabrycznych i skontaktuj się z administratorem IT."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Przywróć do ustawień fabrycznych"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplikacje służbowe znajdują się w profilu służbowym i zarządza nimi administrator"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplikacje osobiste znajdują się w innym miejscu i są niewidoczne dla aplikacji służbowych"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administrator może zarządzać tym urządzeniem i blokować niektóre aplikacje"</string>
