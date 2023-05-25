@@ -180,12 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"முந்தைய திரைக்குச் செல்லவும் அல்லது இந்தச் சாதனத்தை மீட்டமைத்து உங்கள் IT நிர்வாகியிடம் திருப்பியளிக்கவும்."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"அமைவை ரத்துசெய்"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"சாதனத்தை மீட்டமைத்துத் திருப்பியளி"</string>
-    <!-- no translation found for fully_managed_device_unsupported_DPC_in_headless_mode_header (7938653381656306039) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_unsupported_DPC_in_headless_mode_subheader (5158035482490079567) -->
-    <skip />
-    <!-- no translation found for fully_managed_device_reset_button (5957116315144904542) -->
-    <skip />
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"சாதனத்தை அமைக்க முடியாது"</string>
+    <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"முழுமையாக நிர்வகித்தல் பயன்முறைக்கு இந்தச் சாதனத்தை அமைக்க முடியாது. உங்கள் சாதனத்தை ஆரம்பநிலைக்கு மீட்டமைத்து IT நிர்வாகியைத் தொடர்புகொள்ளவும்."</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"ஆரம்பநிலைக்கு மீட்டமை"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"பணி ஆப்ஸ் உங்கள் பணி கணக்கில் இருக்கும், இவற்றை IT நிர்வாகி நிர்வகிப்பார்"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"தனிப்பட்ட ஆப்ஸ் தனியாக, பணி ஆப்ஸிலிருந்து மறைந்திருக்கும்"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT நிர்வாகி சாதனத்தை கட்டுப்படுத்த, சில ஆப்ஸைத் தடுக்கமுடியும்"</string>
