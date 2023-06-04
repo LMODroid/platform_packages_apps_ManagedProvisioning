@@ -98,8 +98,8 @@
     <string name="continue_button" msgid="7177918589510964446">"Продолжи"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Сопри"</string>
     <string name="dismiss" msgid="9009534756748565880">"Отфрли"</string>
-    <string name="profile_owner_info" msgid="8975319972303812298">"Ќе создадете работен профил што ќе го управува и следи вашата организацијата. Важат стандардните услови."</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Ќе создадете работен профил што ќе го управува и следи вашата организацијата. Важат условите од <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
+    <string name="profile_owner_info" msgid="8975319972303812298">"Ќе создадете работен профил што ќе го управува и следи вашата организација. Важат стандардните услови."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Ќе создадете работен профил што ќе го управува и следи вашата организација. Важат условите од <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Ќе се создаде профил за вашите апликации за работа. Профилот и остатокот од уредот ќе ги управува и следи вашата организација. Важат стандардните услови."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Ќе се создаде профил за вашите апликации за работа. Профилот и остатокот од уредот ќе ги управува и следи вашата организација. Важат условите од <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ќе управува со уредов, ќе го надгледува и ќе го обезбедува. Важат стандардните услови. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>

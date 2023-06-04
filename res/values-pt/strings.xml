@@ -150,7 +150,7 @@
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> e <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
-    <string name="take_a_few_minutes" msgid="6282806501305322838">"Isso pode levar alguns minutos"</string>
+    <string name="take_a_few_minutes" msgid="6282806501305322838">"Pode levar alguns minutos."</string>
     <string name="work_profile_description" msgid="8524116010729569213">"Seus apps de trabalho serão mantidos neste perfil e gerenciados pela sua organização"</string>
     <string name="device_owner_description" msgid="168013145812679664">"Este dispositivo será mantido em segurança por sua organização"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Preparando para configurar o dispositivo de trabalho…"</string>
@@ -163,7 +163,7 @@
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Vamos configurar seu perfil de trabalho"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Os apps de trabalho ficam no seu perfil de trabalho"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Pause os apps de trabalho ao final do dia"</string>
-    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Os dados do perfil de trabalho podem ser vistos pelo seu administrador de TI"</string>
+    <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Dados do perfil de trabalho podem ser vistos pelo admin de TI"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configurando seu perfil de trabalho…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Os apps de trabalho ficam no seu perfil de trabalho. É possível pausar esses apps ao final do dia. Os dados do perfil de trabalho podem ser vistos pelo administrador de TI."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos configurar seu dispositivo de trabalho"</string>
