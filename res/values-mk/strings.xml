@@ -98,8 +98,8 @@
     <string name="continue_button" msgid="7177918589510964446">"Продолжи"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Сопри"</string>
     <string name="dismiss" msgid="9009534756748565880">"Отфрли"</string>
-    <string name="profile_owner_info" msgid="8975319972303812298">"Ќе создадете работен профил што ќе го управува и следи вашата организацијата. Важат стандардните услови."</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Ќе создадете работен профил што ќе го управува и следи вашата организацијата. Важат условите од <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
+    <string name="profile_owner_info" msgid="8975319972303812298">"Ќе создадете работен профил што ќе го управува и следи вашата организација. Важат стандардните услови."</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"Ќе создадете работен профил што ќе го управува и следи вашата организација. Важат условите од <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"Ќе се создаде профил за вашите апликации за работа. Профилот и остатокот од уредот ќе ги управува и следи вашата организација. Важат стандардните услови."</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"Ќе се создаде профил за вашите апликации за работа. Профилот и остатокот од уредот ќе ги управува и следи вашата организација. Важат условите од <xliff:g id="TERMS_HEADERS">%1$s</xliff:g>."</string>
     <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ќе управува со уредов, ќе го надгледува и ќе го обезбедува. Важат стандардните услови. <xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
@@ -158,7 +158,7 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Уредов е во сопственост на организацијата"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Следнава апликација ќе се користи за управување и следење на телефонов"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Вашата сметка е управувана"</string>
-    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Вашиот IT-администратор користи управување со мобилни уреди за да спроведе политики за безбедност"</string>
+    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"IT-администраторот користи управување со мобилни уреди за да ги спроведува безбедносните правила"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Подготовка за поставување работен профил…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Ајде да го поставиме вашиот работен профил"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Работните апликации се чуваат во вашиот работен профил"</string>

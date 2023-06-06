@@ -160,7 +160,7 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"آپ کا اکاؤنٹ نظم کردہ ہے"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"‏آپ کا IT منتظم سیکیورٹی پالیسیوں کو نافذ کرنے کیلئے موبائل کے نظم و نسق کا استعمال کرتا ہے"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"آلہ برائے دفتر کے سیٹ اپ کے لیے تیاری ہو رہی ہے…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"آئیے آپ کا دفتری پروفائل ترتیب دیں"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"آئیے آپ کی دفتری پروفائل سیٹ اپ کریں"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"دفتری ایپس کو آپ کے دفتری پروفائل میں رکھا جاتا ہے"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"دن کا کام مکمل کر لینے کے بعد دفتری ایپس کو موقوف کریں"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"‏آپ کا IT منتظم آپ کی دفتری پروفائل میں موجود ڈیٹا دیکھ سکتا ہے"</string>
