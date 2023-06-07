@@ -22,7 +22,6 @@ import static android.app.admin.DevicePolicyManager.EXTRA_ROLE_HOLDER_STATE;
 
 import static java.util.Objects.requireNonNull;
 
-import android.annotation.Nullable;
 import android.app.admin.DevicePolicyManager;
 import android.app.role.RoleManager;
 import android.content.Context;
@@ -32,6 +31,8 @@ import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.UserHandle;
 import android.text.TextUtils;
+
+import androidx.annotation.Nullable;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.provisioning.Constants;
@@ -51,6 +52,7 @@ public final class DeviceManagementRoleHolderHelper {
     private static final Map<String, String> sManagedProvisioningToRoleHolderIntentAction =
             createManagedProvisioningToRoleHolderIntentActionMap();
 
+    @Nullable
     private final String mRoleHolderPackageName;
     private final PackageInstallChecker mPackageInstallChecker;
     private final ResolveIntentChecker mResolveIntentChecker;
@@ -59,7 +61,7 @@ public final class DeviceManagementRoleHolderHelper {
     private final RoleGranter mRoleGranter;
 
     public DeviceManagementRoleHolderHelper(
-            String roleHolderPackageName,
+            @Nullable String roleHolderPackageName,
             PackageInstallChecker packageInstallChecker,
             ResolveIntentChecker resolveIntentChecker,
             RoleHolderStubChecker roleHolderStubChecker,
@@ -85,13 +87,13 @@ public final class DeviceManagementRoleHolderHelper {
 
     @VisibleForTesting
     public DeviceManagementRoleHolderHelper(
-            String roleHolderPackageName,
+            @Nullable String roleHolderPackageName,
             PackageInstallChecker packageInstallChecker,
             ResolveIntentChecker resolveIntentChecker,
             RoleHolderStubChecker roleHolderStubChecker,
             FeatureFlagChecker featureFlagChecker,
             RoleGranter roleGranter) {
-        mRoleHolderPackageName = requireNonNull(roleHolderPackageName);
+        mRoleHolderPackageName = roleHolderPackageName;
         mPackageInstallChecker = requireNonNull(packageInstallChecker);
         mResolveIntentChecker = requireNonNull(resolveIntentChecker);
         mRoleHolderStubChecker = requireNonNull(roleHolderStubChecker);
@@ -108,8 +110,10 @@ public final class DeviceManagementRoleHolderHelper {
     public void ensureRoleGranted(
             Context context,
             Consumer<Boolean> callback) {
+        var packageName = requireNonNull(mRoleHolderPackageName,
+                "Unable to ensure role grant: mRoleHolderPackageName unspecified");
         mRoleGranter.ensureRoleGranted(context, UserHandle.of(UserHandle.USER_SYSTEM),
-                RoleManager.ROLE_DEVICE_POLICY_MANAGEMENT, mRoleHolderPackageName, callback);
+                RoleManager.ROLE_DEVICE_POLICY_MANAGEMENT, packageName, callback);
     }
 
     /**
@@ -234,7 +238,7 @@ public final class DeviceManagementRoleHolderHelper {
     }
 
     private boolean isRoleHolderValid(
-            String roleHolderPackageName,
+            @Nullable String roleHolderPackageName,
             PackageManager packageManager) {
         Collection<String> requiredRoleHolderIntentActions =
                 sManagedProvisioningToRoleHolderIntentAction.values();
@@ -260,7 +264,7 @@ public final class DeviceManagementRoleHolderHelper {
     }
 
     private boolean isRoleHolderPresent(
-            String roleHolderPackageName,
+            @Nullable String roleHolderPackageName,
             PackageManager packageManager) {
         return !TextUtils.isEmpty(roleHolderPackageName)
                 && mPackageInstallChecker.isPackageInstalled(roleHolderPackageName);
@@ -303,7 +307,7 @@ public final class DeviceManagementRoleHolderHelper {
         /**
          * Returns {@code true} if the role holder with package {@code packageName} is a stub.
          */
-        boolean isRoleHolderStub(String packageName, PackageManager packageManager);
+        boolean isRoleHolderStub(@Nullable String packageName, PackageManager packageManager);
     }
 
     /**
@@ -311,7 +315,8 @@ public final class DeviceManagementRoleHolderHelper {
      */
     public static final class DefaultRoleHolderStubChecker implements RoleHolderStubChecker {
         @Override
-        public boolean isRoleHolderStub(String packageName, PackageManager packageManager) {
+        public boolean isRoleHolderStub(@Nullable String packageName,
+                PackageManager packageManager) {
             // TODO(b/207377785): Add check for whether the role holder is a stub
             return false;
         }
