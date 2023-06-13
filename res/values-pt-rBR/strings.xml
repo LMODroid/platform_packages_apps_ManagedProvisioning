@@ -167,7 +167,7 @@
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configurando seu perfil de trabalho…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Os apps de trabalho ficam no seu perfil de trabalho. É possível pausar esses apps ao final do dia. Os dados do perfil de trabalho podem ser vistos pelo administrador de TI."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos configurar seu dispositivo de trabalho"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Tenha os apps de trabalho na palma da sua mão"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Seus apps de trabalho quando e onde você quiser"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="7165472083121590030">"Este dispositivo não é privado"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="2848998570491578119">"O administrador de TI pode ver seus dados e atividade neste dispositivo."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Seus dados e suas atividades"</string>

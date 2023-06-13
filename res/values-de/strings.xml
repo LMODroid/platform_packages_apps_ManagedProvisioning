@@ -29,9 +29,9 @@
     <string name="next" msgid="1004321437324424398">"Weiter"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Arbeitsprofil wird eingerichtet…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"Dein IT-Administrator kann Einstellungen, Zugriffsrechte im Unternehmen, Apps, Berechtigungen, Daten und Netzwerkaktivitäten einsehen und verwalten, die mit diesem Profil verknüpft sind, sowie deine Anrufliste und den Kontaktsuchverlauf. Wenn du weitere Informationen benötigst und mehr über die Datenschutzerklärung deiner Organisation erfahren möchtest, wende dich bitte an deinen IT-Administrator."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Dein IT-Administrator kann Einstellungen, Zugriffsrechte im Unternehmen, Apps, Berechtigungen und mit diesem Gerät verknüpfte Daten einschließlich deiner Netzwerkaktivitäten sowie den Standort, die Anrufliste und den Kontaktsuchverlauf überwachen und verwalten.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_device" msgid="6303112630697870695">"Ihr IT-Administrator kann Einstellungen, Zugriffsrechte im Unternehmen, Apps, Berechtigungen und mit diesem Gerät verknüpfte Daten einschließlich Ihrer Netzwerkaktivitäten sowie den Standort, die Anrufliste und den Kontaktsuchverlauf überwachen und verwalten.<xliff:g id="LINE_BREAK">
 
-</xliff:g>Wende dich an deinen IT-Administrator, um weitere Informationen insbesondere zu den Datenschutzrichtlinien deiner Organisation zu erhalten."</string>
+</xliff:g>Wenden Sie sich an Ihren IT-Administrator, um weitere Informationen insbesondere zu den Datenschutzrichtlinien Ihrer Organisation zu erhalten."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Du benötigst eine passwortgeschützte Displaysperre, um die Funktionen zum Schutz vor Diebstahl verwenden zu können."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Weitere Informationen, auch zur Datenschutzerklärung deines Unternehmens, erhältst du bei deinem IT-Administrator."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Weitere Informationen"</string>
@@ -69,7 +69,7 @@
     <string name="setup_work_device" msgid="6003988351437862369">"Dienstgerät wird eingerichtet…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"Auf dem Gerät ist keine Verschlüsselung möglich. Diese ist jedoch für die Einrichtung erforderlich. Bitte wende dich an den IT-Administrator."</string>
     <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Einrichtung unterbrechen und Gerät zurücksetzen?"</string>
-    <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Dein Gerät wird zurückgesetzt und der erste Bildschirm wird wieder angezeigt"</string>
+    <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"Das Gerät wird zurückgesetzt und der erste Bildschirm wird wieder angezeigt"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Einrichtung abbrechen und Daten von deinem Gerät löschen?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Abbrechen"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"Ok"</string>
