@@ -68,7 +68,7 @@
     <string name="default_owned_device_username" msgid="3915120202811807955">"User of work device"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Setting up work device…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="5124643338424539794">"This device doesn\'t allow encryption, which is needed for setup. For help, contact your IT admin."</string>
-    <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Stop setup &amp; reset device?"</string>
+    <string name="stop_setup_reset_device_question" msgid="7547191251522623210">"Stop setup and reset device?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="4623290347188404725">"This will reset your device and take you back to the first screen"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Stop setting up and erase your device\'s data?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Cancel"</string>
@@ -180,9 +180,9 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Go back to the previous screen, or reset this device and return it to your IT admin."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Cancel setup"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Reset &amp; return device"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Work apps are kept in your work profile &amp; managed by your IT admin"</string>
-    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Personal apps are separate &amp; hidden from work apps"</string>
-    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Your IT admin can control this device &amp; block certain apps"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Work apps are kept in your work profile and managed by your IT admin"</string>
+    <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Personal apps are separate and hidden from work apps"</string>
+    <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Your IT admin can control this device and block certain apps"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Work apps are kept in your work profile and managed by your IT admin. Personal apps are separate and hidden from work apps. Your IT admin can control this device and block certain apps."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Just a sec…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Privacy reminder"</string>

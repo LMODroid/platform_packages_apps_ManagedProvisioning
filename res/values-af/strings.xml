@@ -161,7 +161,7 @@
     <string name="account_management_disclaimer_subheader" msgid="5146471918840236988">"Jou IT-admin gebruik mobieletoestelbestuur om sekuriteitbeleide toe te pas"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Maak tans gereed vir werkopstelling …"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Kom ons stel eers jou werkprofiel op"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Werkprogramme word in jou werkprofiel gehou"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Werkapps word in jou werkprofiel gehou"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Laat werkprogramme wag wanneer jy klaar is vir die dag."</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Data in jou werkprofiel is sigbaar vir jou IT-administrateur"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Stel tans jou werkprofiel op …"</string>
@@ -180,7 +180,7 @@
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Gaan terug na die vorige skerm of stel hierdie toestel terug en gee dit terug vir jou IT-administrateur."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Kanselleer opstelling"</string>
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Stel toestel terug en gee dit terug"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werkprogramme word in jou werkprofiel gehou en deur jou IT-administrateur bestuur"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werkapps word in jou werkprofiel gehou en deur jou IT-administrateur bestuur"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Persoonlike programme is apart en versteek van werkprogramme"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Jou IT-admin kan dié toestel beheer en programme blokkeer"</string>
     <string name="cope_provisioning_summary" msgid="993014104601034878">"Werkprogramme word in jou werkprofiel gehou en deur jou IT-administrateur bestuur. Persoonlike programme is apart en van werkprogramme versteek. Jou IT-administrateur kan hierdie toestel beheer en sekere programme blokkeer."</string>

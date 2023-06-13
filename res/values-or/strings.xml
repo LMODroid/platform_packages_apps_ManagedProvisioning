@@ -145,7 +145,7 @@
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"ସେଟଅପ୍‍ ଶେଷ କରି ଫ୍ୟାକ୍ଟୋରୀ ରିସେଟ୍‍ କରିବେ?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"ଏହି ସେଟଅପ୍‍ ଶେଷ କରିବା ଦ୍ୱାରା ଆପଣଙ୍କ ଡିଭାଇସ୍ ଫ୍ୟାକ୍ଟୋରୀ ରିସେଟ୍‍ ହେବ ଏବଂ ଆପଣଙ୍କୁ ପ୍ରଥମ ସ୍କ୍ରୀନକୁ ନିଆଯିବ।"</string>
     <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"ବାତିଲ କରନ୍ତୁ"</string>
-    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ଡିଭାଇସ୍‌ ରିସେଟ୍‍ କରନ୍ତୁ"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"ଡିଭାଇସ ରିସେଟ କରନ୍ତୁ"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> ଏବଂ <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> ଏବଂ <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
@@ -162,7 +162,7 @@
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ୱାର୍କ ସେଟଅପ ପାଇଁ ପ୍ରସ୍ତୁତ ହେଉଛି…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"ଚାଲନ୍ତୁ ଆପଣଙ୍କର ୱାର୍କ ପ୍ରୋଫାଇଲ୍ ସେଟ୍ ଅପ୍ କରିବା"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"ୱାର୍କ୍ ଆପଗୁଡ଼ିକ ଆପଣଙ୍କର ୱାର୍କ୍ ପ୍ରୋଫାଇଲ୍‌ରେ ରଖାଯାଇଛି"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ଆପଣଙ୍କ ପୂରା ଦିନର କାମ ଶେଷ ହୋଇଗଲା ପରେ work ଆପ୍ସକୁ ବିରତ କରନ୍ତୁ"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"ଆପଣଙ୍କ ପୂରା ଦିନର କାମ ଶେଷ ହୋଇଗଲା ପରେ ଓ୍ୱାର୍କ ଆପ୍ସକୁ ବିରତ କରନ୍ତୁ"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ଥିବା ଡାଟା ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଦେଖାଯାଉଛି"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"ଆପଣଙ୍କର ୱର୍କ ପ୍ରୋଫାଇଲ୍‍ ସେଟ୍‌ ଅପ୍‍ କରାଯାଉଛି…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"ୱାର୍କ୍ ଆପଗୁଡ଼ିକ ଆପଣଙ୍କ ୱାର୍କ ପ୍ରୋଫାଇଲରେ ରଖାଯାଇଛି। ଆପଣ ଆପଣଙ୍କ ପୂରା ଦିନର କାମ ସମାପ୍ତ କରିସାରିବା ପରେ ଆପଣଙ୍କର ୱାର୍କ୍ ଆପଗୁଡ଼ିକୁ ବିରତ କରିପାରିବେ। ଆପଣଙ୍କ ୱାର୍କ୍ ପ୍ରୋଫାଇଲରେ ଥିବା ଡାଟା ଆପଣଙ୍କ IT ଆଡମିନଙ୍କୁ ଦେଖାଯାଉଛି।"</string>
