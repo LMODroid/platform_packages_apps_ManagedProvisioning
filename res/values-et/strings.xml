@@ -159,7 +159,7 @@
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Selle telefoni haldamiseks ja jälgimiseks kasutatakse järgmist rakendust"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Teie kontot hallatakse"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Teie IT-administraator kasutab turvaeeskirjade jõustamiseks mobiilseadmete haldamist."</string>
-    <string name="downloading_administrator_header" msgid="8660294318893902915">"Tööks seadistamise ettevalmistamine …"</string>
+    <string name="downloading_administrator_header" msgid="8660294318893902915">"Tööks seadistamise ettevalmistamine…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Seadistame teie tööprofiili"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Töörakendusi hoitakse teie tööprofiilil"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Tööpäeva lõpus peatage töörakendused"</string>
@@ -183,7 +183,7 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Seadet ei saa seadistada"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Seadet ei saa registreerida täielikult hallatavasse režiimi. Lähtestage seade tehaseseadetele ja pöörduge IT-administraatori poole."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Tehaseseadetele lähtestamine"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Töörakendused on tööprofiilil ja neid haldab IT-administraator."</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Töörakendused on tööprofiilil ja neid haldab IT-haldur"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Isiklikke rakendusi hoitakse töörakendustest eraldi"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT-administraator saab seda seadet juhtida ja rakendusi blokeerida"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Töörakendusi hoitakse teie tööprofiilil ja neid haldab teie IT-administraator. Isiklikke rakendusi hoitakse töörakendustest eraldi. Teie IT-administraator saab seadet <xliff:g id="DEVICE_NAME">%1$s</xliff:g> juhtida ja teatud rakendused blokeerida."</string>

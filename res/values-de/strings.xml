@@ -29,9 +29,9 @@
     <string name="next" msgid="1004321437324424398">"Weiter"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Arbeitsprofil wird eingerichtet…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"Dein IT-Administrator kann Einstellungen, Zugriffsrechte im Unternehmen, Apps, Berechtigungen, Daten und Netzwerkaktivitäten einsehen und verwalten, die mit diesem Profil verknüpft sind, sowie deine Anrufliste und den Kontaktsuchverlauf. Wenn du weitere Informationen benötigst und mehr über die Datenschutzerklärung deiner Organisation erfahren möchtest, wende dich bitte an deinen IT-Administrator."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7786186939607332934">"Dein IT-Administrator kann Einstellungen, Zugriffsrechte im Unternehmen, Apps, Berechtigungen und mit diesem Gerät (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) verknüpfte Daten, einschließlich deiner Netzwerkaktivitäten, sowie den Ort des Geräts, die Anrufliste und den Kontaktsuchverlauf überwachen und verwalten.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_device" msgid="7786186939607332934">"Ihr IT-Administrator kann Einstellungen, Zugriffsrechte im Unternehmen, Apps, Berechtigungen und mit diesem Gerät (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) verknüpfte Daten, einschließlich Ihrer Netzwerkaktivitäten, sowie den Ort des Geräts, die Anrufliste und den Kontaktsuchverlauf überwachen und verwalten.<xliff:g id="LINE_BREAK">
 
-</xliff:g>Wenn du weitere Informationen benötigst, beispielsweise zur Datenschutzerklärung deiner Organisation, wende dich bitte an deinen IT-Administrator."</string>
+</xliff:g>Wenn Sie weitere Informationen benötigen, beispielsweise zur Datenschutzerklärung Ihrer Organisation, wenden Sie sich bitte an Ihren IT-Administrator."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Du benötigst eine passwortgeschützte Displaysperre, um die Funktionen zum Schutz vor Diebstahl verwenden zu können."</string>
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Weitere Informationen, auch zur Datenschutzerklärung deines Unternehmens, erhältst du bei deinem IT-Administrator."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Weitere Informationen"</string>
@@ -158,7 +158,7 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"Dieses Gerät gehört deiner Organisation"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Dieses Smartphone wird über die folgende App verwaltet und überwacht"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Dein Konto wird verwaltet"</string>
-    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Dein IT-Administrator verwendet die Mobilgeräteverwaltung, um Sicherheitsrichtlinien durchzusetzen"</string>
+    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Ihr IT-Administrator verwendet die Mobilgeräteverwaltung, um Sicherheitsrichtlinien durchzusetzen"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Einrichtung des Arbeitsprofils wird vorbereitet…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Richten wir dein Arbeitsprofil ein"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"In deinem Arbeitsprofil werden Apps für die Arbeit abgelegt"</string>
