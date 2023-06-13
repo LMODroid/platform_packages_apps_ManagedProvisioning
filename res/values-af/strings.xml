@@ -161,7 +161,7 @@
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Jou IT-admin gebruik mobiele bestuur om sekuriteitbeleide toe te pas"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Maak tans gereed vir werkopstelling …"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Kom ons stel eers jou werkprofiel op"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Werkprogramme word in jou werkprofiel gehou"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Werkapps word in jou werkprofiel gehou"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Laat werkprogramme wag wanneer jy klaar is vir die dag."</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Data in jou werkprofiel is sigbaar vir jou IT-administrateur"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Stel tans jou werkprofiel op …"</string>
@@ -183,7 +183,7 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Toestel kan nie opgestel word nie"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Hierdie toestel kan nie by volbestuurmodus ingeskryf word nie. Doen ’n fabriekterugstelling van jou toestel en kontak jou IT-admin."</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Fabriekterugstelling"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werkprogramme word in jou werkprofiel gehou en deur jou IT-administrateur bestuur"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Werkapps word in jou werkprofiel gehou en deur jou IT-administrateur bestuur"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Persoonlike programme is apart en versteek van werkprogramme"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Jou IT-admin kan dié toestel beheer en programme blokkeer"</string>
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Werkapps word in jou werkprofiel gehou en deur jou IT-admin bestuur. Persoonlike apps is afsonderlik van en vir werkapps versteek. Jou IT-admin kan hierdie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> beheer en sekere apps blokkeer."</string>
