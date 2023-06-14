@@ -161,8 +161,8 @@
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"IT 管理員會透過流動裝置管理執行安全政策"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"準備設定工作設定檔…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"現在開始設定你的工作設定檔"</string>
-    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"工作應用程式均儲存在工作設定檔中"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"完成當日工作後停用工作應用程式"</string>
+    <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"工作應用程式儲存在工作設定檔中"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"收工後停用工作應用程式"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"IT 管理員能看到工作設定檔中的資料"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"正在設定你的工作設定檔…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"工作應用程式會儲存喺工作設定檔入面。你可以喺完成當日工作之後停用工作應用程式。IT 管理員會睇到工作設定檔入面嘅資料。"</string>
