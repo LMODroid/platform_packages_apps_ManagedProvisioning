@@ -129,7 +129,9 @@ public abstract class FinalizationActivityBase extends Activity {
         if (PROVISIONING_FINALIZED_RESULT_CHILD_ACTIVITY_LAUNCHED == result) {
             onFinalizationCompletedWithChildActivityLaunched();
         } else if (PROVISIONING_FINALIZED_RESULT_WAIT_FOR_WORK_PROFILE_AVAILABLE != result) {
-            if (FinalizationController.PROVISIONING_FINALIZED_RESULT_SKIPPED != result) {
+            if (FinalizationController.PROVISIONING_FINALIZED_RESULT_SKIPPED != result
+                    && FinalizationController.PROVISIONING_FINALIZED_RESULT_WORK_PROFILE_NOT_FOUND
+                    != result) {
                 mFinalizationController.commitFinalizedState();
             }
             setResult(RESULT_OK);

@@ -53,12 +53,14 @@ public final class FinalizationController {
     static final int PROVISIONING_FINALIZED_RESULT_CHILD_ACTIVITY_LAUNCHED = 2;
     static final int PROVISIONING_FINALIZED_RESULT_SKIPPED = 3;
     static final int PROVISIONING_FINALIZED_RESULT_WAIT_FOR_WORK_PROFILE_AVAILABLE = 4;
+    static final int PROVISIONING_FINALIZED_RESULT_WORK_PROFILE_NOT_FOUND = 5;
 
     @IntDef({
             PROVISIONING_FINALIZED_RESULT_NO_CHILD_ACTIVITY_LAUNCHED,
             PROVISIONING_FINALIZED_RESULT_CHILD_ACTIVITY_LAUNCHED,
             PROVISIONING_FINALIZED_RESULT_SKIPPED,
-            PROVISIONING_FINALIZED_RESULT_WAIT_FOR_WORK_PROFILE_AVAILABLE})
+            PROVISIONING_FINALIZED_RESULT_WAIT_FOR_WORK_PROFILE_AVAILABLE,
+            PROVISIONING_FINALIZED_RESULT_WORK_PROFILE_NOT_FOUND})
     @interface ProvisioningFinalizedResult {}
 
     private static final int DPC_SETUP_REQUEST_CODE = 1;
@@ -170,6 +172,12 @@ public final class FinalizationController {
                     /* obj= */ mContext.getSystemService(UserManager.class),
                     /* message= */ "Unable to obtain UserManager");
             var userHandle = mUtils.getManagedProfile(mContext);
+            if (userHandle == null) {
+                // DPC setup failed for whatever reason e.g. user cancelled
+                mProvisioningFinalizedResult = PROVISIONING_FINALIZED_RESULT_WORK_PROFILE_NOT_FOUND;
+                return;
+            }
+
             if (!userManager.isUserUnlocked(userHandle)) {
                 mProvisioningFinalizedResult =
                         PROVISIONING_FINALIZED_RESULT_WAIT_FOR_WORK_PROFILE_AVAILABLE;
