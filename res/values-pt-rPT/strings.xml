@@ -70,7 +70,7 @@
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="410347019947997299">"Este dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g> não permite encriptação, que é necessária para fazer a configuração. Contacte o administrador de TI para obter ajuda."</string>
     <string name="stop_setup_reset_device_question" msgid="2323844935990001069">"Parar a configuração e repor o dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g>?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="5881727570968119259">"Esta ação repõe o dispositivo <xliff:g id="DEVICE_NAME">%1$s</xliff:g> e regressa ao primeiro ecrã"</string>
-    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Pretende interromper a configuração e apagar os dados do dispositivo?"</string>
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"Quer interromper a configuração e apagar os dados do dispositivo?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Cancelar"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"OK"</string>
     <string name="reset" msgid="6467204151306265796">"Repor"</string>
@@ -89,11 +89,11 @@
     <string name="error_download_failed" msgid="3274283629837019452">"Não foi possível transferir a app de administração"</string>
     <string name="error_package_invalid" msgid="555402554502033988">"Não é possível utilizar a app de administrador. Faltam componentes ou está danificada. Para obter ajuda, contacte o administrador de TI."</string>
     <string name="error_installation_failed" msgid="2282903750318407285">"Não foi possível instalar a app de administrador."</string>
-    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Pretende interromper a configuração?"</string>
+    <string name="profile_owner_cancel_message" msgid="6868736915633023477">"Quer interromper a configuração?"</string>
     <string name="profile_owner_cancel_cancel" msgid="4408725524311574891">"Não"</string>
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"Sim"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"A cancelar..."</string>
-    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Pretende parar a configuração do perfil?"</string>
+    <string name="work_profile_setup_later_title" msgid="9069148190226279892">"Quer parar a configuração do perfil?"</string>
     <string name="work_profile_setup_later_message" msgid="122069011117225292">"Pode configurar o perfil de trabalho mais tarde na app de gestão de dispositivos da sua entidade"</string>
     <string name="continue_button" msgid="7177918589510964446">"Continuar"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"Parar"</string>
