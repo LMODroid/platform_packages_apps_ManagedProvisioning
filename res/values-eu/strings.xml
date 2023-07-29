@@ -76,7 +76,7 @@
     <string name="reset" msgid="6467204151306265796">"Berrezarri jatorrizko datuak"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Ezin da konfiguratu profila"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Ezin da konfiguratu gailua"</string>
-    <string name="something_went_wrong" msgid="3593223774041784329">"Arazo bat izan da"</string>
+    <string name="something_went_wrong" msgid="3593223774041784329">"Arazoren bat izan da"</string>
     <string name="couldnt_set_up_device" msgid="5137950404283642302">"Ezin izan da konfiguratu gailua. Laguntza lortzeko, jarri IKT saileko administratzailearekin harremanetan."</string>
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Laguntza lortzeko, jarri IKT saileko administratzailearekin harremanetan"</string>
     <string name="reset_device" msgid="5483853913241939262">"Berrezarri gailua eta saiatu berriro konfiguratzen"</string>
@@ -175,7 +175,7 @@
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="8328298923037335068">"IKT saileko administratzaileak gailu honetako aplikazioen baimenak ezar ditzake; besteak beste, mikrofonoaren, kameraren eta kokapenaren baimenak."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Gailua konfiguratzen…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="1090645190066781456">"Erabili gailu hau laneko aplikazioak erraz atzitzeko. Gailua ez da pribatua; beraz, baliteke IKT saileko administratzaileak zure datuak eta jarduerak ikusi ahal izatea."</string>
-    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Erabili gailu hau laneko aplikazioak erraz atzitzeko. Gailua ez da pribatua; beraz, baliteke IKT saileko administratzaileak zure jarduerak eta datuak ikusi ahal izatea. Halaber, IKT saileko administratzaileak gailu honetako aplikazioen baimenak ezar ditzake; besteak beste, mikrofonoa, kamera eta kokapena atzitzeko baimenak."</string>
+    <string name="fully_managed_device_with_permission_control_provisioning_summary" msgid="6634797147105465856">"Erabili gailu hau laneko aplikazioak erraz atzitzeko. Gailua ez da pribatua; beraz, baliteke IKT saileko administratzaileak zure jarduerak eta datuak ikusi ahal izatea. Halaber, IKT saileko administratzaileak gailu honetako aplikazioen baimenak ezar ditzake; besteak beste, mikrofonoa, kamera eta kokapena erabiltzeko baimenak."</string>
     <string name="fully_managed_device_provisioning_return_device_title" msgid="8500829014794276683">"Itzuli gailua IKT saileko administratzaileari"</string>
     <string name="fully_managed_device_provisioning_return_device_subheader" msgid="6194410367910957686">"Itzuli aurreko pantailara, edo berrezarri gailua eta itzul iezaiozu IKT saileko administratzaileari."</string>
     <string name="fully_managed_device_cancel_setup_button" msgid="4910041382610777599">"Utzi konfiguratzeari"</string>

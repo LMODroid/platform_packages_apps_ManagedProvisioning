@@ -81,7 +81,7 @@
     <string name="contact_your_admin_for_help" msgid="2009904021552323731">"Kontakt IT-administratoren din for å få hjelp"</string>
     <string name="reset_device" msgid="5483853913241939262">"Tilbakestill enheten og prøv å konfigurere den igjen"</string>
     <string name="device_already_set_up" msgid="507881934487140294">"Enheten er allerede konfigurert"</string>
-    <string name="error_wifi" msgid="1850288843966836571">"Kunne ikke koble til Wi-Fi"</string>
+    <string name="error_wifi" msgid="1850288843966836571">"Kunne ikke koble til wifi"</string>
     <string name="device_has_reset_protection_contact_admin" msgid="2662050020376475656">"Beskyttelse mot tilbakestilling er slått på for enheten din. Ta kontakt med IT-administratoren din for å få hjelp."</string>
     <string name="frp_clear_progress_title" msgid="8628074089458234965">"Sletter"</string>
     <string name="frp_clear_progress_text" msgid="1740164332830598827">"Vent litt …"</string>
