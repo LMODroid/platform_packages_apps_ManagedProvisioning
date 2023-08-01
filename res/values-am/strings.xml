@@ -156,7 +156,7 @@
     <string name="setup_provisioning_header" msgid="4282483198266806271">"የስራ መሣሪያን ለማቀናበር በመዘጋጀት ላይ…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"የአስተዳዳሪ መተግበሪያን በማቀናበር ላይ"</string>
     <string name="brand_screen_header" msgid="8865808542690116648">"ይህ መሣሪያ የድርጅትዎ ነው"</string>
-    <string name="brand_screen_subheader" msgid="7664792208784456436">"የሚከተለው መተግበሪያ ይህን ስልክ ለማቀናበር እና ለመከታተል ስራ ላይ ይውላል"</string>
+    <string name="brand_screen_subheader" msgid="7664792208784456436">"የሚከተለው መተግበሪያ ይህን ስልክ ለማቀናበር እና ለመከታተል ሥራ ላይ ይውላል"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"የእርስዎ መለያ የሚተዳደር ነው"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"የእርስዎ የአይቲ አስተዳዳሪ የደህንነት መመሪያዎችን ለማስፈፀም የሞባይል አስተዳደርን ይጠቀማሉ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"ለሥራ ቅንብር በመዘጋጀት ላይ…"</string>
