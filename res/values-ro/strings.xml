@@ -182,7 +182,7 @@
     <string name="fully_managed_device_reset_and_return_button" msgid="6451125722998550681">"Resetează și returnează dispozitivul"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"Dispozitivul nu poate fi configurat"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"Dispozitivul nu poate fi înregistrat la modul complet gestionat. Readu dispozitivul la setările din fabrică și contactează administratorul IT."</string>
-    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Revino la setările din fabrică"</string>
+    <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"Resetează la setările din fabrică"</string>
     <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"Aplicațiile de lucru se află în profilul de serviciu, gestionate de administratorul IT"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"Aplicațiile personale sunt izolate, ascunse de cele pentru lucru"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"Administratorul IT poate să controleze dispozitivul și să blocheze aplicații"</string>
