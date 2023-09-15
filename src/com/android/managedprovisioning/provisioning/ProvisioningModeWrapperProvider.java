@@ -139,7 +139,9 @@ public class ProvisioningModeWrapperProvider {
                     LazyStringResource.of(R.string.fully_managed_device_provisioning_summary,
                             deviceName);
             secondScreenBuilder
-                    .setDescription(R.string.fully_managed_device_provisioning_step_2_subheader)
+                    .setDescription(LazyStringResource.of(
+                            R.string.fully_managed_device_provisioning_step_2_subheader,
+                            deviceName))
                     .setAnimation(R.raw.not_private_animation);
         }
 
@@ -156,13 +158,13 @@ public class ProvisioningModeWrapperProvider {
         final LazyStringResource mSummary;
 
         ProvisioningModeWrapper(List<TransitionScreenWrapper> transitions,
-                LazyStringResource summary) {
+                                LazyStringResource summary) {
             this.mTransitions = requireNonNull(transitions);
             this.mSummary = summary;
         }
 
         ProvisioningModeWrapper(List<TransitionScreenWrapper> transitions,
-                @StringRes int summaryId) {
+                                @StringRes int summaryId) {
             this(transitions, LazyStringResource.of(summaryId));
         }
     }
