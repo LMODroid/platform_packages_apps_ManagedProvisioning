@@ -15,6 +15,7 @@
  */
 package com.android.managedprovisioning.task;
 
+import static android.app.PendingIntent.FLAG_ALLOW_UNSAFE_IMPLICIT_INTENT;
 import static android.app.PendingIntent.FLAG_MUTABLE;
 import static android.app.PendingIntent.FLAG_ONE_SHOT;
 import static android.app.PendingIntent.FLAG_UPDATE_CURRENT;
@@ -33,6 +34,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageInstaller;
 import android.content.pm.PackageManager;
+import androidx.core.os.BuildCompat;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
@@ -196,11 +198,13 @@ public class InstallPackageTask extends AbstractProvisioningTask {
             }
 
             String action = ACTION_INSTALL_DONE + mSessionId;
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(
-                    context,
-                    mSessionId,
-                    new Intent(action).setPackage(context.getPackageName()),
-                    FLAG_ONE_SHOT | FLAG_UPDATE_CURRENT | FLAG_MUTABLE);
+            int pendingIntentFlags = FLAG_ONE_SHOT | FLAG_UPDATE_CURRENT | FLAG_MUTABLE;
+            if (BuildCompat.isAtLeastU()) {
+                pendingIntentFlags |= PendingIntent.FLAG_ALLOW_UNSAFE_IMPLICIT_INTENT;
+            }
+            PendingIntent pendingIntent =
+                PendingIntent.getBroadcast(context, mSessionId, new Intent(action), pendingIntentFlags);
+
             session.commit(pendingIntent.getIntentSender());
         }
     }
