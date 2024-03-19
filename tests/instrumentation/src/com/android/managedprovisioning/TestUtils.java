@@ -25,9 +25,10 @@ import android.os.BaseBundle;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.os.RemoteException;
-import android.support.test.uiautomator.UiDevice;
 import android.test.AndroidTestCase;
 import android.test.suitebuilder.annotation.SmallTest;
+
+import androidx.test.uiautomator.UiDevice;
 
 import com.android.managedprovisioning.preprovisioning.EncryptionController;
 import com.android.managedprovisioning.preprovisioning.PostEncryptionActivity;

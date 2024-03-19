@@ -93,6 +93,10 @@
         android:supportsRtl="true"
         android:name=".ManagedProvisioningApplication">
 
+        <meta-data
+            android:name="com.android.managedprovisioning.patch.24760218"
+            android:value="true" />
+
         <!--
              Note: Setup activities are android:immersive to prevent full-screen notifications (USB
             mass storage; incoming calls) from taking over. Note that high-priority notifications

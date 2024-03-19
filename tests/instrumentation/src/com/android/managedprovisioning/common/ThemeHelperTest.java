@@ -29,9 +29,8 @@ import android.content.Intent;
 import androidx.test.InstrumentationRegistry;
 import androidx.test.filters.SmallTest;
 
-import com.android.managedprovisioning.R;
-
 import com.google.android.setupcompat.util.WizardManagerHelper;
+import com.google.android.setupdesign.R;
 
 import org.junit.After;
 import org.junit.Before;

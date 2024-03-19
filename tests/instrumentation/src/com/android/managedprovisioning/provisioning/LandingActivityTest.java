@@ -35,10 +35,10 @@ import static com.android.managedprovisioning.model.ProvisioningParams.EXTRA_PRO
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.RemoteException;
-import android.support.test.uiautomator.UiDevice;
 
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.filters.SmallTest;
+import androidx.test.uiautomator.UiDevice;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestUtils;

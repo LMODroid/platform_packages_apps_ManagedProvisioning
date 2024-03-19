@@ -108,7 +108,9 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
     public void preFinalizationCompleted() {
         ProvisionLogger.logi("AdminIntegratedFlowPrepareActivity pre-finalization completed");
         setResult(Activity.RESULT_OK);
-        this.overridePendingTransition(R.anim.sud_slide_next_in, R.anim.sud_slide_next_out);
+        this.overridePendingTransition(
+                com.google.android.setupdesign.R.anim.sud_slide_next_in,
+                com.google.android.setupdesign.R.anim.sud_slide_next_out);
         this.finish();
     }
 
@@ -123,7 +125,7 @@ public class AdminIntegratedFlowPrepareActivity extends AbstractProvisioningActi
     }
 
 
-    private void initializeUi() {
+    protected void initializeUi() {
         final int headerResId = R.string.downloading_administrator_header;
         CharSequence deviceName = DeviceHelper.getDeviceName(getApplicationContext());
         final String title = getString(R.string.setup_device_progress, deviceName);

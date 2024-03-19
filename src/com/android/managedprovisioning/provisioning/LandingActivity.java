@@ -36,7 +36,7 @@ import com.google.android.setupcompat.util.WizardManagerHelper;
  * The first activity shown during provisioning.
  */
 public class LandingActivity extends SetupGlifLayoutActivity {
-    private static final int ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE = 1;
+    protected static final int ADMIN_INTEGRATED_FLOW_PREPARE_REQUEST_CODE = 1;
     private final AccessibilityContextMenuMaker mContextMenuMaker;
     private LandingActivityBridge mBridge;
     private ProvisioningParams mParams;

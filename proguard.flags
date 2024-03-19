@@ -1,3 +1,7 @@
+# Ensure exception attributes are kept to allow mocking of methods with
+# checked exceptions.
+-keepattributes Exception
+
 # It is not an error that these classes are referenced in
 # AndriodManifest.xml, but not present in Android master. They are
 # present in the Android for Chrome OS branch, and kept here to

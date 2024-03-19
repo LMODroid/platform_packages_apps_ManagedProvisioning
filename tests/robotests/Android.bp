@@ -11,7 +11,7 @@ android_robolectric_test {
 
     srcs: [
         "src/**/*.java",
-        "src/**/*.kt"
+        "src/**/*.kt",
     ],
 
     java_resource_dirs: ["config"],
@@ -21,14 +21,22 @@ android_robolectric_test {
         "robolectric_android-all-stub",
         "Robolectric_all-target",
         "mockito-robolectric-prebuilt",
-        "truth-prebuilt",
+        "truth",
         "androidx.test.core",
         "androidx.test.rules",
         "androidx.core_core",
         "testng", // used only for assertThrows
+        "android_onboarding.contracts.testing",
+        "hilt_android_testing",
     ],
 
-    static_libs: ["managedprovisioning_protoslite"],
+    static_libs: [
+        "managedprovisioning_protoslite",
+        "flag-junit",
+        "platform-test-annotations",
+    ],
 
     instrumentation_for: "ManagedProvisioning",
+
+    upstream: true,
 }

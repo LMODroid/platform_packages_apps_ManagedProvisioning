@@ -68,7 +68,7 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
             layout.setHeaderText(headerResourceId);
         }
 
-        TextView header = findViewById(R.id.suc_layout_title);
+        TextView header = findViewById(com.google.android.setupdesign.R.id.suc_layout_title);
         if (header != null) {
             mInitialHeaderMaxLines = header.getMaxLines();
             header.addTextChangedListener(new TextWatcher() {

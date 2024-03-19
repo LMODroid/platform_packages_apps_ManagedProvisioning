@@ -125,7 +125,7 @@ public class EncryptDeviceActivityTest {
         Activity activity = mActivityRule.launchActivity(PROFILE_OWNER_INTENT);
 
         // THEN the profile owner description should be present
-        onView(withId(R.id.sud_layout_subtitle))
+        onView(withId(com.google.android.setupdesign.R.id.sud_layout_subtitle))
                 .check(matches(withText(R.string.encrypt_device_text_for_profile_owner_setup)));
 
         // WHEN pressing the encrypt button
@@ -146,7 +146,7 @@ public class EncryptDeviceActivityTest {
         Activity activity = mActivityRule.launchActivity(DEVICE_OWNER_INTENT);
 
         // THEN the profile owner description should be present
-        onView(withId(R.id.sud_layout_subtitle))
+        onView(withId(com.google.android.setupdesign.R.id.sud_layout_subtitle))
                 .check(matches(withText(R.string.encrypt_device_text_for_device_owner_setup)));
 
         // WHEN pressing the encrypt button

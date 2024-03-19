@@ -125,7 +125,8 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
     private void setupViewTermsButton() {
         final GlifLayout layout = mActivity.findViewById(R.id.setup_wizard_layout);
         layout.setDescriptionText(R.string.view_terms);
-        TextView subtitle = layout.findViewById(R.id.sud_layout_subtitle);
+        TextView subtitle = layout.findViewById(
+                com.google.android.setupdesign.R.id.sud_layout_subtitle);
         subtitle.setTextColor(mUtils.getAccentColor(mActivity));
         subtitle.setOnClickListener(v -> mBridgeCallbacks.onTermsButtonClicked());
         mTouchTargetEnforcer.enforce(subtitle, (View) subtitle.getParent());

@@ -112,7 +112,7 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
                         .setText(R.string.next)
                         .setListener(view -> onNextButtonClicked())
                         .setButtonType(FooterButton.ButtonType.NEXT)
-                        .setTheme(R.style.SudGlifButton_Primary)
+                        .setTheme(com.google.android.setupdesign.R.style.SudGlifButton_Primary)
                         .build());
     }
 

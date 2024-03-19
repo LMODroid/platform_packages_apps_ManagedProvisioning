@@ -5,33 +5,10 @@ package {
 android_test {
     name: "ManagedProvisioningTests",
 
-    libs: [
-        "android.test.runner",
-        "android.test.base",
-        "android.test.mock",
-    ],
-
-    srcs: [
-        "src/**/*.java",
-        "src/**/*.kt"
-    ],
-
     platform_apis: true,
     certificate: "platform",
 
-    static_libs: [
-        "androidx.test.rules",
-        "mockito-target-minus-junit4",
-        "androidx.test.espresso.core",
-        "androidx.test.espresso.contrib",
-        "androidx.test.espresso.intents",
-        "truth-prebuilt",
-        "testng", // used only for assertThrows
-        "ub-uiautomator", // used for unlocking the device
-        "TestApp",
-        "ctstestrunner-axt",
-        "Harrier",
-    ],
+    static_libs: ["ManagedProvisioningTestsLib"],
 
     instrumentation_for: "ManagedProvisioning",
     test_suites: ["device-tests"],
@@ -39,29 +16,31 @@ android_test {
 }
 
 android_library {
-   name: "ManagedProvisioningTestsLib",
-   srcs: [
-      "src/**/*.java",
-      "src/**/*.kt"
-  ],
-   manifest: "AndroidManifest.xml",
-   libs: [
+    name: "ManagedProvisioningTestsLib",
+    srcs: [
+        "src/**/*.java",
+        "src/**/*.kt",
+    ],
+    manifest: "AndroidManifest.xml",
+    libs: [
         "android.test.runner",
         "android.test.base",
         "android.test.mock",
     ],
-   static_libs: [
+    static_libs: [
         "androidx.test.rules",
         "mockito-target-minus-junit4",
         "androidx.test.espresso.core",
         "androidx.test.espresso.contrib",
         "androidx.test.espresso.intents",
-        "truth-prebuilt",
-        "testng",
-        "ub-uiautomator",
+        "truth",
+        "testng", // used only for assertThrows
+        "androidx.test.uiautomator_uiautomator", // used for unlocking the device
         "TestApp",
         "ctstestrunner-axt",
         "Harrier",
+        "flag-junit",
+        "platform-test-annotations",
         "ManagedProvisioningLib",
     ],
 }

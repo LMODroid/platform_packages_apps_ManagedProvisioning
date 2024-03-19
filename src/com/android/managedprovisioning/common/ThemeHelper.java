@@ -35,11 +35,10 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
 
-import com.android.managedprovisioning.R;
-
 import com.airbnb.lottie.LottieAnimationView;
 import com.airbnb.lottie.LottieComposition;
 import com.google.android.setupcompat.util.WizardManagerHelper;
+import com.google.android.setupdesign.R;
 import com.google.android.setupdesign.util.ThemeResolver;
 
 /**

@@ -1,0 +1,8 @@
+package: "com.android.managedprovisioning.flags"
+
+flag {
+    name: "is_cosmic_ray_enabled"
+    namespace: "enterprise"
+    description: "Enables Cosmic Ray features"
+    bug: "288413994"
+}

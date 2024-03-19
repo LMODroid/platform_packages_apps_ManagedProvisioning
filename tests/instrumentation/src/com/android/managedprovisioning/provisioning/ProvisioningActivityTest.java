@@ -63,12 +63,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.provider.Settings;
-import android.support.test.uiautomator.UiDevice;
 
 import androidx.test.InstrumentationRegistry;
 import androidx.test.espresso.intent.Intents;
 import androidx.test.espresso.intent.rule.IntentsTestRule;
 import androidx.test.filters.SmallTest;
+import androidx.test.uiautomator.UiDevice;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.TestInstrumentationRunner;
@@ -440,7 +440,7 @@ public class ProvisioningActivityTest {
         onView(withId(R.id.animation)).check(matches(isDisplayed()));
         waitForFullyManagedDeviceHeader();
 
-        onView(withId(R.id.sud_layout_subtitle)).check(matches(
+        onView(withId(com.google.android.setupdesign.R.id.sud_layout_subtitle)).check(matches(
                 withText(R.string.fully_managed_device_provisioning_step_2_subheader)));
         onView(withId(R.id.item1)).check(matches(not(isDisplayed())));
         onView(withId(R.id.item2)).check(matches(not(isDisplayed())));
@@ -534,10 +534,12 @@ public class ProvisioningActivityTest {
         launchActivityAndWait(FINANCED_DEVICE_INTENT);
 
         // THEN the header will be set
-        onView(withId(R.id.suc_layout_title)).check(matches(withText(R.string.just_a_sec)));
+        onView(withId(com.google.android.setupdesign.R.id.suc_layout_title))
+                .check(matches(withText(R.string.just_a_sec)));
 
         // THEN the icon will be invisible
-        onView(withId(R.id.sud_layout_icon)).check(matches(not(isDisplayed())));
+        onView(withId(com.google.android.setupdesign.R.id.sud_layout_icon))
+                .check(matches(not(isDisplayed())));
 
         // THEN the animation is shown.
         onView(withId(R.id.animation)).check(matches(isDisplayed()));
@@ -552,8 +554,9 @@ public class ProvisioningActivityTest {
         int numAttempts = 0;
         while (numAttempts < 40) {
             try {
-                onView(withId(R.id.sud_layout_subtitle)).check(matches(
-                        withText(R.string.fully_managed_device_provisioning_step_2_subheader)));
+                onView(withId(com.google.android.setupdesign.R.id.sud_layout_subtitle))
+                        .check(matches(withText(
+                                R.string.fully_managed_device_provisioning_step_2_subheader)));
                 break;
             } catch (AssertionFailedError e) {
                 numAttempts++;

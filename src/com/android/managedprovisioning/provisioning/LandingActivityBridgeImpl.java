@@ -68,7 +68,8 @@ abstract class LandingActivityBridgeImpl implements LandingActivityBridge {
 
     private void setupSubtitleText(Activity activity, ProvisioningParams params,
             CustomizationParams customizationParams) {
-        TextView info = activity.findViewById(R.id.sud_layout_subtitle);
+        TextView info = activity.findViewById(
+                com.google.android.setupdesign.R.id.sud_layout_subtitle);
         info.setVisibility(View.VISIBLE);
         if (shouldShowAccountManagementDisclaimer(
                 params.initiatorRequestedProvisioningModes, getUtils())) {
