@@ -29,7 +29,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.os.UserHandle;
 import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
@@ -103,7 +102,7 @@ public final class DeviceManagementRoleHolderHelper {
 
     /**
      * Ensures that {@link RoleManager#ROLE_DEVICE_POLICY_MANAGEMENT} role is granted to
-     * {@link UserHandle#USER_SYSTEM}
+     * the context user.
      *
      * @param callback to invoke with role grant status
      */
@@ -112,7 +111,7 @@ public final class DeviceManagementRoleHolderHelper {
             Consumer<Boolean> callback) {
         var packageName = requireNonNull(mRoleHolderPackageName,
                 "Unable to ensure role grant: mRoleHolderPackageName unspecified");
-        mRoleGranter.ensureRoleGranted(context, UserHandle.of(UserHandle.USER_SYSTEM),
+        mRoleGranter.ensureRoleGranted(context, context.getUser(),
                 RoleManager.ROLE_DEVICE_POLICY_MANAGEMENT, packageName, callback);
     }
 
