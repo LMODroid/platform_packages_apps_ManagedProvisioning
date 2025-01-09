@@ -37,5 +37,4 @@ android_robolectric_test {
 
     instrumentation_for: "ManagedProvisioning",
 
-    upstream: true,
 }
