@@ -32,6 +32,7 @@ import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.CrossFadeHelper;
 import com.android.managedprovisioning.common.CrossFadeHelper.Callback;
 import com.android.managedprovisioning.common.StylerHelper;
+import com.android.managedprovisioning.flags.Flags;
 import com.android.managedprovisioning.provisioning.ProvisioningModeWrapperProvider.ProvisioningModeWrapper;
 import com.android.managedprovisioning.util.LazyStringResource;
 
@@ -226,7 +227,11 @@ class TransitionAnimationHelper {
     private void setupHeaderText(TransitionScreenWrapper transition) {
         var context = mAnimationComponents.mHeader.getContext();
         mAnimationComponents.mHeader.setText(transition.header.value(context));
-        triggerTextToSpeechIfFocused(mAnimationComponents.mHeader);
+        if (Flags.stopDisruptiveAnnouncementEducation()) {
+            mAnimationComponents.mHeader.setStateDescription(transition.header.value(context));
+        } else {
+            triggerTextToSpeechIfFocused(mAnimationComponents.mHeader);
+        }
     }
 
     private void triggerTextToSpeechIfFocused(TextView view) {
