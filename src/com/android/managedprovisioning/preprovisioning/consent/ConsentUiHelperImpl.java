@@ -18,6 +18,8 @@ package com.android.managedprovisioning.preprovisioning.consent;
 import static java.util.Objects.requireNonNull;
 
 import android.app.Activity;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.TextView;
 
@@ -127,6 +129,10 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
         layout.setDescriptionText(R.string.view_terms);
         TextView subtitle = layout.findViewById(
                 com.google.android.setupdesign.R.id.sud_layout_subtitle);
+        String descriptionText = mActivity.getString(R.string.view_terms);
+        SpannableString spannableString = new SpannableString(descriptionText);
+        spannableString.setSpan(new UnderlineSpan(), 0, descriptionText.length(), 0);
+        subtitle.setText(spannableString);
         subtitle.setTextColor(mUtils.getAccentColor(mActivity));
         subtitle.setOnClickListener(v -> mBridgeCallbacks.onTermsButtonClicked());
         mTouchTargetEnforcer.enforce(subtitle, (View) subtitle.getParent());
