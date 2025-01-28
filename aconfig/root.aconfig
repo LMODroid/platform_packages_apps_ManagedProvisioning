@@ -25,3 +25,9 @@ flag {
   bug: "365473481"
 }
 
+flag {
+  name: "stop_disruptive_announcement_education"
+  namespace: "enterprise"
+  description: "Stop TalkBack disruptive announcement for the header of the work profile education screens"
+  bug: "386334889"
+}
