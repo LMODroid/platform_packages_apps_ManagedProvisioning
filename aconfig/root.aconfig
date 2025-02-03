@@ -19,6 +19,13 @@ flag {
 }
 
 flag {
+  name: "underline_policy_link"
+  namespace: "enterprise"
+  description: "Underline the policy link in the View Terms page"
+  bug: "365473481"
+}
+
+flag {
   name: "check_frp_active"
   namespace: "enterprise"
   description: "Fix persistent data block check for provisioning"

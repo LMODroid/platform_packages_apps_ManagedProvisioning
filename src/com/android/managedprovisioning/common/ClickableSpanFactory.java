@@ -24,6 +24,7 @@ import android.view.SoundEffectConstants;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import com.android.managedprovisioning.flags.Flags;
 
 import java.util.function.Consumer;
 
@@ -55,7 +56,7 @@ public class ClickableSpanFactory {
             @Override
             public void updateDrawState(TextPaint ds) {
                 super.updateDrawState(ds);
-                ds.setUnderlineText(false);
+                ds.setUnderlineText(Flags.underlinePolicyLink());
                 ds.setColor(mLinkColor);
             }
         };
