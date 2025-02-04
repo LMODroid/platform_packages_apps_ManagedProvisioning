@@ -44,7 +44,7 @@
     <string name="work_profile_info" msgid="5433388376309583996">"ಉದ್ಯೋಗ ಪ್ರೊಫೈಲ್ ಮಾಹಿತಿ"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"ನಿರ್ವಹಿಸುವ ಸಾಧನದ ಮಾಹಿತಿ"</string>
     <string name="default_managed_profile_name" msgid="5370257687074907055">"ಕೆಲಸದ ಪ್ರೊಫೈಲ್"</string>
-    <string name="delete_profile_title" msgid="2841349358380849525">"ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಅಳಿಸುವುದೇ?"</string>
+    <string name="delete_profile_title" msgid="2841349358380849525">"ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಪ್ರೊಫೈಲ್ ಅನ್ನು ಅಳಿಸಬೇಕೆ?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"ನೀವು ಈಗಾಗಲೇ ಕೆಲಸದ ಪ್ರೊಫೈಲ್ ಹೊಂದಿರುವಿರಿ. ಅದನ್ನು ಕೆಳಗಿನ ಆ್ಯಪ್ ಬಳಸಿಕೊಂಡು ನಿರ್ವಹಿಸಲಾಗಿದೆ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"ಮುಂದುವರಿಯುವ ಮೊದಲು, "<a href="#read_this_link">"ಇದನ್ನು ಓದಿ"</a>"."</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"ನೀವು ಮುಂದುವರಿಸಿದರೆ, ಈ ಪ್ರೊಫೈಲ್‌ನಲ್ಲಿನ ಎಲ್ಲ ಅಪ್ಲಿಕೇಶನ್‌ಗಳು ಮತ್ತು ಡೇಟಾವನ್ನು ಅಳಿಸಲಾಗುತ್ತದೆ."</string>
@@ -70,7 +70,7 @@
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="410347019947997299">"ಸೆಟಪ್‌ಗಾಗಿ ಅಗತ್ಯವಿರುವ ಎನ್‌ಕ್ರಿಪ್ಶನ್ ಅನ್ನು ಈ <xliff:g id="DEVICE_NAME">%1$s</xliff:g>ಅನುಮತಿಸುವುದಿಲ್ಲ. ಸಹಾಯಕ್ಕಾಗಿ, ನಿಮ್ಮ IT ನಿರ್ವಾಹಕರನ್ನು ಸಂಪರ್ಕಿಸಿ."</string>
     <string name="stop_setup_reset_device_question" msgid="2323844935990001069">"ಸೆಟಪ್ ನಿಲ್ಲಿಸಿ &amp; <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ಅನ್ನು ರೀಸೆಟ್ ಮಾಡಬೇಕೆ?"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="5881727570968119259">"ಇದು ನಿಮ್ಮ <xliff:g id="DEVICE_NAME">%1$s</xliff:g>ಅನ್ನು ರೀಸೆಟ್ ಮಾಡುತ್ತದೆ ಮತ್ತು ನಿಮ್ಮನ್ನು ಮೊದಲ ಸ್ಕ್ರೀನ್‌ಗೆ ಪುನಃ ಕರೆದೊಯ್ಯುತ್ತದೆ"</string>
-    <string name="device_owner_cancel_message" msgid="2529288571742712065">"ಹೊಂದಾಣಿಕೆಯನ್ನು ನಿಲ್ಲಿಸುವುದೇ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಡೇಟಾವನ್ನು ಅಳಿಸುವುದೇ?"</string>
+    <string name="device_owner_cancel_message" msgid="2529288571742712065">"ಹೊಂದಾಣಿಕೆಯನ್ನು ನಿಲ್ಲಿಸುವುದೇ ಮತ್ತು ನಿಮ್ಮ ಸಾಧನದ ಡೇಟಾವನ್ನು ಅಳಿಸಬೇಕೆ?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"ರದ್ದುಮಾಡಿ"</string>
     <string name="device_owner_error_ok" msgid="2002250763093787051">"ಸರಿ"</string>
     <string name="reset" msgid="6467204151306265796">"ಮರುಹೊಂದಿಸಿ"</string>
