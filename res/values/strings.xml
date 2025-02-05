@@ -281,6 +281,10 @@
   <string name="expand">Expand</string>
   <!-- Accessibility description for triggering collapsing of an expanded element. [CHAR LIMIT=NONE] -->
   <string name="collapse">Collapse</string>
+    <!-- Accessibility description for current state of an expanded element. [CHAR LIMIT=NONE] -->
+  <string name="expanded">Expanded</string>
+  <!-- Accessibility description for current state of a collapsed element. [CHAR LIMIT=NONE] -->
+  <string name="collapsed">Collapsed</string>
   <!-- Accessibility description for opening a context menu with a list of links contained in the text element. [CHAR LIMIT=40] -->
   <string name="access_list_of_links">Access a list of links</string>
   <!-- Accessibility description for opening a context menu with a list of links contained in the text element. [CHAR LIMIT=40] -->
