@@ -23,11 +23,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.AccessibilityDelegate;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.managedprovisioning.R;
@@ -35,6 +38,7 @@ import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
 import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.StylerHelper;
 import com.android.managedprovisioning.common.Utils;
+import com.android.managedprovisioning.flags.Flags;
 import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 
 import com.google.android.setupdesign.util.DescriptionStyler;
@@ -157,10 +161,31 @@ public class TermsListAdapter extends RecyclerView.Adapter<TermsListAdapter.Term
     }
 
     private void updateViewsForExpandedState(boolean expanded, TermsViewHolder viewHolder) {
+        if (Flags.termsViewAccessibilityEnabled()) {
+            updateViewAccessibility(expanded, viewHolder.itemView);
+        }
         viewHolder.mDisclaimerContentContainer.setVisibility(expanded ? View.VISIBLE : View.GONE);
         viewHolder.mChevron.setRotation(expanded ? 90 : -90);
-    }
+  }
 
+    private void updateViewAccessibility(boolean expanded, View view) {
+        view.setStateDescription(
+            mContext.getString(expanded ? R.string.expanded : R.string.collapsed));
+        view.setAccessibilityDelegate(
+            new AccessibilityDelegate() {
+                @Override
+                public void onInitializeAccessibilityNodeInfo(@NonNull View host,
+                        @NonNull AccessibilityNodeInfo info) {
+                    super.onInitializeAccessibilityNodeInfo(host, info);
+                    info.addAction(
+                        new AccessibilityNodeInfo.AccessibilityAction(
+                            AccessibilityNodeInfo.AccessibilityAction.ACTION_CLICK.getId(),
+                            mContext
+                                .getResources()
+                                .getString(expanded ? R.string.collapse : R.string.expand)));
+                }
+        });
+  }
     @Override
     public int getItemCount() {
         // First item is always the general disclaimer
