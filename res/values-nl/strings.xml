@@ -137,6 +137,8 @@
     <string name="section_content" msgid="8875502515704374394">"Content van sectie <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Uitvouwen"</string>
     <string name="collapse" msgid="7817530505064432580">"Samenvouwen"</string>
+    <string name="expanded" msgid="1187836298141313658">"Uitgevouwen"</string>
+    <string name="collapsed" msgid="1840982182095253116">"Samengevouwen"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"Een lijst met links openen"</string>
     <string name="access_links" msgid="7991363727326168600">"Links openen"</string>
     <string name="access_terms" msgid="1982500872249763745">"Voorwaarden openen"</string>
