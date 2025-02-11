@@ -137,6 +137,8 @@
     <string name="section_content" msgid="8875502515704374394">"Sadržaj odjeljka <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Proširivanje"</string>
     <string name="collapse" msgid="7817530505064432580">"Sažimanje"</string>
+    <string name="expanded" msgid="1187836298141313658">"Prošireno"</string>
+    <string name="collapsed" msgid="1840982182095253116">"Sažeto"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"Pristup popisu veza"</string>
     <string name="access_links" msgid="7991363727326168600">"Pristup vezama"</string>
     <string name="access_terms" msgid="1982500872249763745">"Pristup uvjetima"</string>

@@ -137,6 +137,8 @@
     <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> વિભાગીય સામગ્રી: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"વિસ્તૃત કરો"</string>
     <string name="collapse" msgid="7817530505064432580">"સંકુચિત કરો"</string>
+    <string name="expanded" msgid="1187836298141313658">"મોટું કર્યું છે"</string>
+    <string name="collapsed" msgid="1840982182095253116">"નાનું કર્યું છે"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"લિંકની સૂચિને ઍક્સેસ કરો"</string>
     <string name="access_links" msgid="7991363727326168600">"લિંકને ઍક્સેસ કરો"</string>
     <string name="access_terms" msgid="1982500872249763745">"શરતોને ઍક્સેસ કરો"</string>
