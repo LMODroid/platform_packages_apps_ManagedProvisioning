@@ -137,6 +137,8 @@
     <string name="section_content" msgid="8875502515704374394">"В разделе \"<xliff:g id="SECTION_HEADING">%1$s</xliff:g>\" находится контент \"<xliff:g id="SECTION_CONTENT">%2$s</xliff:g>\""</string>
     <string name="expand" msgid="37188292156131304">"Развернуть"</string>
     <string name="collapse" msgid="7817530505064432580">"Свернуть"</string>
+    <string name="expanded" msgid="1187836298141313658">"Развернуто"</string>
+    <string name="collapsed" msgid="1840982182095253116">"Свернуто"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"Перейти к списку ссылок"</string>
     <string name="access_links" msgid="7991363727326168600">"Перейти к ссылкам"</string>
     <string name="access_terms" msgid="1982500872249763745">"Перейти к условиям использования"</string>

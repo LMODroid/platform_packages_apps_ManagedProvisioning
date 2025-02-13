@@ -137,6 +137,10 @@
     <string name="section_content" msgid="8875502515704374394">"Treść sekcji <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Rozwiń"</string>
     <string name="collapse" msgid="7817530505064432580">"Zwiń"</string>
+    <!-- no translation found for expanded (1187836298141313658) -->
+    <skip />
+    <!-- no translation found for collapsed (1840982182095253116) -->
+    <skip />
     <string name="access_list_of_links" msgid="7094123315959323372">"Otwórz listę linków"</string>
     <string name="access_links" msgid="7991363727326168600">"Otwórz linki"</string>
     <string name="access_terms" msgid="1982500872249763745">"Otwórz hasła"</string>

@@ -137,6 +137,8 @@
     <string name="section_content" msgid="8875502515704374394">"Obsah sekcie <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Rozbaliť"</string>
     <string name="collapse" msgid="7817530505064432580">"Zbaliť"</string>
+    <string name="expanded" msgid="1187836298141313658">"Rozbalené"</string>
+    <string name="collapsed" msgid="1840982182095253116">"Zbalené"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"Pristupovať k zoznamu odkazov"</string>
     <string name="access_links" msgid="7991363727326168600">"Pristupovať k odkazom"</string>
     <string name="access_terms" msgid="1982500872249763745">"Zobraziť podmienky"</string>
