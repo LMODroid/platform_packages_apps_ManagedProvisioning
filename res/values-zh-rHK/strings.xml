@@ -137,10 +137,8 @@
     <string name="section_content" msgid="8875502515704374394">"「<xliff:g id="SECTION_HEADING">%1$s</xliff:g>」部分內容：<xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"展開"</string>
     <string name="collapse" msgid="7817530505064432580">"收合"</string>
-    <!-- no translation found for expanded (1187836298141313658) -->
-    <skip />
-    <!-- no translation found for collapsed (1840982182095253116) -->
-    <skip />
+    <string name="expanded" msgid="1187836298141313658">"已展開"</string>
+    <string name="collapsed" msgid="1840982182095253116">"已收合"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"存取連結清單"</string>
     <string name="access_links" msgid="7991363727326168600">"存取連結"</string>
     <string name="access_terms" msgid="1982500872249763745">"存取條款"</string>

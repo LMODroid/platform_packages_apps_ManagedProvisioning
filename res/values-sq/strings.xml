@@ -137,10 +137,8 @@
     <string name="section_content" msgid="8875502515704374394">"Përmbajtja e pjesës <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Zgjero"</string>
     <string name="collapse" msgid="7817530505064432580">"Palos"</string>
-    <!-- no translation found for expanded (1187836298141313658) -->
-    <skip />
-    <!-- no translation found for collapsed (1840982182095253116) -->
-    <skip />
+    <string name="expanded" msgid="1187836298141313658">"Zgjeruar"</string>
+    <string name="collapsed" msgid="1840982182095253116">"Palosur"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"Qasu te një listë me lidhje"</string>
     <string name="access_links" msgid="7991363727326168600">"Qasu te lidhjet"</string>
     <string name="access_terms" msgid="1982500872249763745">"Qasu te termat"</string>
