@@ -46,6 +46,11 @@ final class TransitionScreenWrapper {
         this(LazyStringResource.of(headerId), drawable);
     }
 
+    /**
+     * @param description will be ignored if glif expressive style is enabled
+     *                    since we repurpose the description field for the
+     *                    progress label.
+     */
     TransitionScreenWrapper(
             LazyStringResource header,
             LazyStringResource description,
@@ -64,6 +69,11 @@ final class TransitionScreenWrapper {
                 /* secondarySubHeaderIcon= */ 0);
     }
 
+    /**
+     * @param descriptionId will be ignored if glif expressive style is enabled
+     *                      since we repurpose the description field for the
+     *                      progress label.
+     */
     TransitionScreenWrapper(
             @StringRes int headerId,
             @StringRes int descriptionId,

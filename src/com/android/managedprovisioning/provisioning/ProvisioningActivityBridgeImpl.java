@@ -33,7 +33,9 @@ import androidx.annotation.StringRes;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.InitializeLayoutConsumerHandler;
+import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.StylerHelper;
+import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity.ProvisioningMode;
@@ -56,6 +58,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
 
     private TransitionAnimationHelper mTransitionAnimationHelper;
     private ViewGroup mButtonFooterContainer;
+    private Boolean mShouldApplyGlifExpressiveStyle;
     private Context mContext;
 
     abstract Utils getUtils();
@@ -220,7 +223,12 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
             header.setText(progressLabelResId);
             getProvisioningProgressLabelContainer(activity).setVisibility(View.GONE);
         } else {
-            setupProgressLabel(progressLabelResId, activity);
+            if (ThemeHelper.shouldApplyGlifExpressiveStyle(activity)) {
+                layout.setDescriptionText(progressLabelResId);
+            } else {
+                ProvisionLogger.logd("Using custom progress label");
+                setupProgressLabel(progressLabelResId, activity);
+            }
         }
     }
 

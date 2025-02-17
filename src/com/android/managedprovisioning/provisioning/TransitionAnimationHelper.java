@@ -20,6 +20,7 @@ import static java.util.Objects.requireNonNull;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -252,9 +253,21 @@ class TransitionAnimationHelper {
         }
     }
 
+  /**
+   * Sets the description text for the animation component.
+   *
+   * <p>There are two possible ways the description can be set: 1. It can be explicitly set in the
+   * layout using {@code layout.setDescriptionText(int)}. 2. It can be provided via the {@link
+   * TransitionScreenWrapper} constructor, we retrieve it from {@code transition.description}.
+   *
+   * <p>If neither of these applies, the description is hidden.
+   */
     private void setupDescriptionText(TransitionScreenWrapper transition) {
         var context = mAnimationComponents.mDescription.getContext();
-        if (transition.description.isBlank(context)) {
+        if (!TextUtils.isEmpty(mAnimationComponents.mDescription.getText())) {
+            mAnimationComponents.mDescription.setVisibility(View.VISIBLE);
+            triggerTextToSpeechIfFocused(mAnimationComponents.mDescription);
+        } else if (!transition.description.isBlank(context)) {
             mAnimationComponents.mDescription.setText(transition.description.value(context));
             mAnimationComponents.mDescription.setVisibility(View.VISIBLE);
             triggerTextToSpeechIfFocused(mAnimationComponents.mDescription);
@@ -330,7 +343,7 @@ class TransitionAnimationHelper {
         }
 
         List<View> asList() {
-            return Arrays.asList(mHeader, mItem1, mItem2, mImageContainer);
+            return Arrays.asList(mHeader, mDescription, mItem1, mItem2, mImageContainer);
         }
     }
 
