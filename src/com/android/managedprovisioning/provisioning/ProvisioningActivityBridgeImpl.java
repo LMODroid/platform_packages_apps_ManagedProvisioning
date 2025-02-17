@@ -195,7 +195,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
                         space2);
 
         ProvisioningModeWrapperProvider provider =
-                new ProvisioningModeWrapperProvider(getParams());
+                new ProvisioningModeWrapperProvider(getParams(), layout.getContext());
         ProvisioningModeWrapper provisioningModeWrapper =
                 provider.getProvisioningModeWrapper(getProvisioningMode(),
                         DeviceHelper.getDeviceName(layout.getContext()));
