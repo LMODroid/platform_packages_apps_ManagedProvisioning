@@ -27,4 +27,13 @@
   <color name="teal2">#FF26A599</color>
   <color name="description_icon_color">?android:attr/textColorSecondary</color>
   <color name="setup_notification_bg_color">#FF3B78E7</color>
+  <!-- glif expressive style related colors -->
+  <color name="lottie_layer_primary">@color/sud_system_primary_light</color>
+  <color name="lottie_layer_primary_container">@color/sud_system_primary_container_light</color>
+  <color name="lottie_layer_secondary">@color/sud_system_secondary_light</color>
+  <color name="lottie_layer_secondary_container">@color/sud_system_secondary_container_light</color>
+  <color name="lottie_layer_outline">@color/sud_system_outline_light</color>
+  <color name="lottie_layer_outline_variant">@color/sud_system_outline_variant_light</color>
+  <color name="lottie_layer_surface_container">@color/sud_system_surface_container_light</color>
+  <color name="lottie_layer_surface_dim">@color/sud_system_surface_dim_light</color>
 </resources>

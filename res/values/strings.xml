@@ -428,4 +428,16 @@
 
   <!-- Progress text shown when setting up work profile [CHAR LIMIT=NONE] -->
   <string name="setting_up">Setting up\u2026</string>
+
+  <!-- Color mappings for lottie animations in glif expressive style.-->
+  <string-array name="lottie_color_mappings_expressive" translatable="false">
+    <item>.primary:@lottie_layer_primary</item>
+    <item>.primaryContainer:@lottie_layer_primary_container</item>
+    <item>.secondary:@lottie_layer_secondary</item>
+    <item>.secondaryContainer:@lottie_layer_secondary_container</item>
+    <item>.outline:@lottie_layer_outline</item>
+    <item>.outlineVariant:@lottie_layer_outline_variant</item>
+    <item>.surfaceContainer:@lottie_layer_surface_container</item>
+    <item>.surfaceDim:@lottie_layer_surface_dim</item>
+  </string-array>
 </resources>

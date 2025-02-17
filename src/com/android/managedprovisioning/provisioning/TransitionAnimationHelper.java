@@ -31,6 +31,7 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.CrossFadeHelper;
 import com.android.managedprovisioning.common.CrossFadeHelper.Callback;
+import com.android.managedprovisioning.common.Lotties;
 import com.android.managedprovisioning.common.StylerHelper;
 import com.android.managedprovisioning.flags.Flags;
 import com.android.managedprovisioning.provisioning.ProvisioningModeWrapperProvider.ProvisioningModeWrapper;
@@ -243,6 +244,7 @@ class TransitionAnimationHelper {
     private void setupAnimation(TransitionScreenWrapper transition) {
         if (mShowAnimations && transition.drawable != 0) {
             mAnimationComponents.mAnimationView.setAnimation(transition.drawable);
+            Lotties.applyColorMappingsIfGlifExpressive(mAnimationComponents.mAnimationView);
             mCallback.onAnimationSetup(mAnimationComponents.mAnimationView);
             mAnimationComponents.mImageContainer.setVisibility(View.VISIBLE);
         } else {
