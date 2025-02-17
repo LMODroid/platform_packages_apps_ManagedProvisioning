@@ -17,12 +17,13 @@
 package com.android.managedprovisioning.common;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
 
 import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
 
+import com.android.managedprovisioning.common.ThemedAlertDialog;
 import com.android.managedprovisioning.util.LazyStringResource;
 
 /**
@@ -51,8 +52,7 @@ public class SimpleDialog extends DialogFragment {
         var context = getContext();
         final SimpleDialogListener dialogListener = (SimpleDialogListener) getActivity();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
+        AlertDialog.Builder builder = ThemedAlertDialog.newBuilder(getActivity());
         Bundle args = getArguments();
         if (args.containsKey(TITLE)) {
             builder.setTitle(LazyStringResource.of(args.getBundle(TITLE)).value(context));

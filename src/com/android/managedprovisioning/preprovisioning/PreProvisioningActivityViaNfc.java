@@ -21,15 +21,17 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SUPPORTED
 import static android.app.admin.DevicePolicyManager.FLAG_SUPPORTED_MODES_DEVICE_OWNER;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.admin.DevicePolicyManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AlertDialog;
+
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.SettingsFacade;
+import com.android.managedprovisioning.common.ThemedAlertDialog;
 
 import com.google.android.setupdesign.util.DeviceHelper;
 
@@ -69,7 +71,7 @@ public class PreProvisioningActivityViaNfc extends Activity {
     }
 
     private AlertDialog createCantSetupDeviceDialog() {
-        return new AlertDialog.Builder(this)
+        return ThemedAlertDialog.newBuilder(this)
                 .setMessage(R.string.contact_your_admin_for_help)
                 .setTitle(R.string.cant_set_up_device)
                 .setPositiveButton(android.R.string.ok, createDialogOnClickListener())
@@ -79,7 +81,7 @@ public class PreProvisioningActivityViaNfc extends Activity {
 
     private AlertDialog createDeviceAlreadySetupDialog() {
         var context = getApplicationContext();
-        return new AlertDialog.Builder(this)
+        return ThemedAlertDialog.newBuilder(this)
                 .setMessage(R.string.if_questions_contact_admin)
                 .setTitle(context.getString(
                         R.string.device_already_set_up, DeviceHelper.getDeviceName(context)))
