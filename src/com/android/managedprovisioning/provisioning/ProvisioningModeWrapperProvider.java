@@ -23,14 +23,15 @@ import static com.android.managedprovisioning.provisioning.ProvisioningActivity.
 
 import static java.util.Objects.requireNonNull;
 
+import android.content.Context;
 import androidx.annotation.StringRes;
 import androidx.annotation.VisibleForTesting;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.ProvisioningActivity.ProvisioningMode;
 import com.android.managedprovisioning.util.LazyStringResource;
-
 import com.google.common.collect.ImmutableList;
 
 import java.util.List;
@@ -40,26 +41,34 @@ import java.util.List;
  */
 public class ProvisioningModeWrapperProvider {
     private final ProvisioningParams mParams;
+    private final boolean shouldApplyGlifExpressiveStyle;
 
-    public ProvisioningModeWrapperProvider(ProvisioningParams params) {
+    public ProvisioningModeWrapperProvider(ProvisioningParams params, Context context) {
         this.mParams = requireNonNull(params);
+        shouldApplyGlifExpressiveStyle = ThemeHelper.shouldApplyGlifExpressiveStyle(context);
     }
 
     @VisibleForTesting
-    static final ProvisioningModeWrapper WORK_PROFILE_WRAPPER =
-            new ProvisioningModeWrapper(
+    public ProvisioningModeWrapper getProvisioningModeWrapperForWorkProfile() {
+            return new ProvisioningModeWrapper(
                     ImmutableList.of(
                             new TransitionScreenWrapper(
                                     R.string.work_profile_provisioning_step_1_header,
-                                    R.raw.separate_work_and_personal_animation),
+                                    shouldApplyGlifExpressiveStyle
+                                        ? R.raw.separate_work_apps_expressive
+                                        : R.raw.separate_work_and_personal_animation),
                             new TransitionScreenWrapper(
                                     R.string.work_profile_provisioning_step_2_header,
-                                    R.raw.pause_work_apps_animation),
+                                    shouldApplyGlifExpressiveStyle
+                                        ? R.raw.separate_work_apps_expressive
+                                        : R.raw.pause_work_apps_animation),
                             new TransitionScreenWrapper(
                                     R.string.work_profile_provisioning_step_3_header,
-                                    R.raw.not_private_animation)),
+                                    shouldApplyGlifExpressiveStyle
+                                        ? R.raw.separate_work_apps_expressive
+                                        : R.raw.not_private_animation)),
                     R.string.work_profile_provisioning_summary);
-
+    }
     /**
      * Return default provisioning mode wrapper depending on provisioning parameter.
      */
@@ -68,7 +77,7 @@ public class ProvisioningModeWrapperProvider {
             CharSequence deviceName) {
         switch (provisioningMode) {
             case PROVISIONING_MODE_WORK_PROFILE:
-                return WORK_PROFILE_WRAPPER;
+                return getProvisioningModeWrapperForWorkProfile();
             case PROVISIONING_MODE_FULLY_MANAGED_DEVICE:
                 return getProvisioningModeWrapperForFullyManaged(deviceName);
             case PROVISIONING_MODE_WORK_PROFILE_ON_ORG_OWNED_DEVICE:
@@ -85,15 +94,21 @@ public class ProvisioningModeWrapperProvider {
                 ImmutableList.of(
                         new TransitionScreenWrapper(
                                 R.string.cope_provisioning_step_1_header,
-                                R.raw.separate_work_and_personal_animation),
+                                shouldApplyGlifExpressiveStyle
+                                    ? R.raw.separate_work_apps_expressive
+                                    : R.raw.separate_work_and_personal_animation),
                         new TransitionScreenWrapper(
                                 R.string.cope_provisioning_step_2_header,
                                 /* descriptionId= */ 0,
-                                R.raw.personal_apps_separate_hidden_from_work_animation,
+                                shouldApplyGlifExpressiveStyle
+                                    ? R.raw.separate_work_apps_expressive
+                                    : R.raw.personal_apps_separate_hidden_from_work_animation,
                                 /* shouldLoop= */ false),
                         new TransitionScreenWrapper(
                                 R.string.cope_provisioning_step_3_header,
-                                R.raw.it_admin_control_device_block_apps_animation)),
+                                shouldApplyGlifExpressiveStyle
+                                    ? R.raw.separate_work_apps_expressive
+                                    : R.raw.it_admin_control_device_block_apps_animation)),
                 LazyStringResource.of(R.string.cope_provisioning_summary, deviceName));
     }
 

@@ -52,7 +52,7 @@ public class ProvisioningModeWrapperProviderTest {
 
     private final Context mContext = InstrumentationRegistry.getTargetContext();
     private final ProvisioningModeWrapperProvider mTestProvider =
-            new ProvisioningModeWrapperProvider(SIMPLE_PARAMS);
+            new ProvisioningModeWrapperProvider(SIMPLE_PARAMS, mContext);
 
     private final CharSequence TEST_DEVICE_NAME = DeviceHelper.getDeviceName(mContext);
 
@@ -89,7 +89,8 @@ public class ProvisioningModeWrapperProviderTest {
                 .setDeviceAdminComponentName(ADMIN)
                 .setDeviceOwnerPermissionGrantOptOut(true)
                 .build();
-        ProvisioningModeWrapperProvider provider = new ProvisioningModeWrapperProvider(params);
+        ProvisioningModeWrapperProvider provider =
+                new ProvisioningModeWrapperProvider(params, mContext);
         String expected = mContext.getString(R.string.fully_managed_device_provisioning_summary,
                 TEST_DEVICE_NAME);
 
@@ -107,7 +108,8 @@ public class ProvisioningModeWrapperProviderTest {
                 .setDeviceAdminComponentName(ADMIN)
                 .setDeviceOwnerPermissionGrantOptOut(false)
                 .build();
-        ProvisioningModeWrapperProvider provider = new ProvisioningModeWrapperProvider(params);
+        ProvisioningModeWrapperProvider provider =
+                new ProvisioningModeWrapperProvider(params, mContext);
         String expected = mContext.getString(
                 R.string.fully_managed_device_with_permission_control_provisioning_summary,
                 TEST_DEVICE_NAME);
