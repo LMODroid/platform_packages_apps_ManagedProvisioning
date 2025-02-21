@@ -160,9 +160,9 @@
     <string name="brand_screen_header" msgid="8865808542690116648">"המכשיר הזה שייך לארגון שלך"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"האפליקציה הבאה תשמש לניהול ולמעקב בטלפון זה"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"החשבון שלך מנוהל"</string>
-    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"‏מנהל ה-IT משתמש בניהול ניידים כדי לאכוף את מדיניות האבטחה"</string>
+    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"‏האדמין ממחלקת ה-IT משתמש בניהול ניידים כדי לאכוף את מדיניות האבטחה"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"בהכנה להגדרת פרופיל העבודה…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"נתחיל בהגדרת פרופיל העבודה שלך"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"מתחילים בהגדרת פרופיל העבודה שלך"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"אפליקציות לעבודה נשמרות בפרופיל העבודה"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"השהיה של האפליקציות לעבודה בסוף היום"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"‏הנתונים בפרופיל העבודה שלך גלויים למנהל ה-IT"</string>
