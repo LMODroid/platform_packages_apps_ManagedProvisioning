@@ -162,7 +162,7 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"您的账号是受管理的账号"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"您的 IT 管理员会使用移动设备管理服务强制执行安全政策"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"正在准备工作相关设置…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"请设置您的工作资料"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"设置工作资料"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"工作应用位于您的工作资料中"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"完成一天的工作后暂停工作应用"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"您的 IT 管理员可以查看您工作资料内的数据"</string>

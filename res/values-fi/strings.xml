@@ -162,7 +162,7 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Tiliäsi hallinnoidaan"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Järjestelmänvalvoja käyttää mobiilihallintaa suojauskäytäntöjen täytäntöönpanossa"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Valmistellaan työprofiilin määritystä…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Määritetään työprofiilisi"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Otetaan työprofiilisi käyttöön"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Työsovelluksia säilytetään työprofiilissa"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Keskeytä työsovellukset, kun päivä on pulkassa"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"IT-järjestelmänvalvoja näkee työprofiilin datan"</string>
