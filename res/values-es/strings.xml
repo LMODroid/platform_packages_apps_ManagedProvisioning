@@ -168,8 +168,8 @@
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Tu administrador de TI puede ver datos de tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configurando tu perfil de trabajo…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo. Puedes pausar tus aplicaciones de trabajo cuando termine tu jornada laboral. Tu administrador de TI puede ver los datos que hay en tu perfil de trabajo."</string>
-    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos a configurar tu dispositivo de trabajo"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Tener las aplicaciones de trabajo a tu alcance"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos a configurar tu perfil de trabajo"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ten las aplicaciones de trabajo a mano"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Este dispositivo (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) no es privado"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Tu administrador de TI puede ver los datos y la actividad de este dispositivo (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>)."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Tu actividad y tus datos"</string>
