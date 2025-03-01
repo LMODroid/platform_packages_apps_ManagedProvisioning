@@ -26,6 +26,7 @@ import android.widget.TextView;
 import androidx.annotation.RawRes;
 
 import com.android.managedprovisioning.R;
+import com.android.managedprovisioning.common.Lotties;
 import com.android.managedprovisioning.common.ProvisionLogger;
 import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.TouchTargetEnforcer;
@@ -40,7 +41,6 @@ import com.google.android.setupcompat.logging.SetupMetricsLogger;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupdesign.util.DeviceHelper;
 
-
 /**
  * Implements functionality for the consent screen.
  */
@@ -53,6 +53,7 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
     private final ThemeHelper mThemeHelper;
     private final ScreenKey mScreenKey;
     private final String setupMetricScreenName;
+    private final Boolean mShouldApplyGlifExpressiveStyle;
 
     ConsentUiHelperImpl(Activity activity, ConsentUiHelperCallback callback, Utils utils,
             PreProvisioningActivityBridgeCallbacks bridgeCallbacks,
@@ -66,6 +67,8 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
         mThemeHelper = requireNonNull(themeHelper);
         mScreenKey = ScreenKey.of(setupMetricScreenName, mActivity);
         this.setupMetricScreenName = setupMetricScreenName;
+       mShouldApplyGlifExpressiveStyle =
+            ThemeHelper.shouldApplyGlifExpressiveStyle(mActivity.getApplicationContext());
     }
 
     @Override
@@ -77,12 +80,18 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
         if (mUtils.isProfileOwnerAction(uiParams.provisioningAction)) {
             title = mActivity.getString(R.string.setup_profile);
             headerResId = R.string.work_profile_provisioning_accept_header_post_suw;
-            animationResId = R.raw.consent_animation_po;
+            animationResId =
+                mShouldApplyGlifExpressiveStyle
+                    ? R.raw.lets_set_up_your_work_device_expressive
+                    : R.raw.consent_animation_po;
         } else if (mUtils.isDeviceOwnerAction(uiParams.provisioningAction)) {
             CharSequence deviceName = DeviceHelper.getDeviceName(context);
             title = context.getString(R.string.setup_device, deviceName);
             headerResId = R.string.fully_managed_device_provisioning_accept_header;
-            animationResId = R.raw.consent_animation_do;
+            animationResId =
+                mShouldApplyGlifExpressiveStyle
+                    ? R.raw.lets_set_up_your_work_device_expressive
+                    : R.raw.consent_animation_do;
         }
 
         mCallback.onInitiateUi(R.layout.intro, headerResId);
@@ -109,6 +118,7 @@ class ConsentUiHelperImpl implements ConsentUiHelper {
         lottieAnimationView.setAnimation(animationResId);
         mThemeHelper.setupAnimationDynamicColors(
                 mActivity, lottieAnimationView, mActivity.getIntent());
+        Lotties.applyColorMappingsIfGlifExpressive(lottieAnimationView);
     }
 
     private void setupAcceptAndContinueButton() {

@@ -25,7 +25,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.UserHandle;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -269,7 +268,7 @@ final class RetryLaunchViewModel extends AndroidViewModel {
 
         @Override
         public boolean canLaunchActivity(Context context, Intent intent) {
-            return mUtils.canResolveIntentAsUser(context, intent, UserHandle.USER_SYSTEM);
+            return mUtils.canResolveIntentAsUser(context, intent, context.getUserId());
         }
 
     }

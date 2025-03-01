@@ -137,10 +137,8 @@
     <string name="section_content" msgid="8875502515704374394">"<xliff:g id="SECTION_HEADING">%1$s</xliff:g> okuqukethwe kwesigaba: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Nweba"</string>
     <string name="collapse" msgid="7817530505064432580">"Goqa"</string>
-    <!-- no translation found for expanded (1187836298141313658) -->
-    <skip />
-    <!-- no translation found for collapsed (1840982182095253116) -->
-    <skip />
+    <string name="expanded" msgid="1187836298141313658">"Kunwetshiwe"</string>
+    <string name="collapsed" msgid="1840982182095253116">"Kugoqiwe"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"Finyelela kuhlu lwezixhumanisi"</string>
     <string name="access_links" msgid="7991363727326168600">"Izixhumanisi zokufinyelela"</string>
     <string name="access_terms" msgid="1982500872249763745">"Finyelela imigomo"</string>
