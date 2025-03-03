@@ -137,10 +137,8 @@
     <string name="section_content" msgid="8875502515704374394">"Contenido de la sección <xliff:g id="SECTION_HEADING">%1$s</xliff:g>: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Mostrar"</string>
     <string name="collapse" msgid="7817530505064432580">"Ocultar"</string>
-    <!-- no translation found for expanded (1187836298141313658) -->
-    <skip />
-    <!-- no translation found for collapsed (1840982182095253116) -->
-    <skip />
+    <string name="expanded" msgid="1187836298141313658">"Desplegado"</string>
+    <string name="collapsed" msgid="1840982182095253116">"Contraído"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"Accede a una lista de enlaces"</string>
     <string name="access_links" msgid="7991363727326168600">"Accede a los enlaces"</string>
     <string name="access_terms" msgid="1982500872249763745">"Accede a condiciones"</string>
@@ -170,8 +168,8 @@
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"Tu administrador de TI puede ver datos de tu perfil de trabajo"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"Configurando tu perfil de trabajo…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Las aplicaciones de trabajo se guardan en tu perfil de trabajo. Puedes pausar tus aplicaciones de trabajo cuando termine tu jornada laboral. Tu administrador de TI puede ver los datos que hay en tu perfil de trabajo."</string>
-    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos a configurar tu dispositivo de trabajo"</string>
-    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Tener las aplicaciones de trabajo a tu alcance"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Vamos a configurar tu perfil de trabajo"</string>
+    <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ten las aplicaciones de trabajo a mano"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Este dispositivo (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) no es privado"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Tu administrador de TI puede ver los datos y la actividad de este dispositivo (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>)."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Tu actividad y tus datos"</string>

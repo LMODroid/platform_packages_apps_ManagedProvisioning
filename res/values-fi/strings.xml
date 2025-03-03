@@ -137,10 +137,8 @@
     <string name="section_content" msgid="8875502515704374394">"Osion <xliff:g id="SECTION_HEADING">%1$s</xliff:g> sisältö: <xliff:g id="SECTION_CONTENT">%2$s</xliff:g>"</string>
     <string name="expand" msgid="37188292156131304">"Laajenna"</string>
     <string name="collapse" msgid="7817530505064432580">"Tiivistä"</string>
-    <!-- no translation found for expanded (1187836298141313658) -->
-    <skip />
-    <!-- no translation found for collapsed (1840982182095253116) -->
-    <skip />
+    <string name="expanded" msgid="1187836298141313658">"Laajennettu"</string>
+    <string name="collapsed" msgid="1840982182095253116">"Tiivistetty"</string>
     <string name="access_list_of_links" msgid="7094123315959323372">"Näytä linkkiluettelo"</string>
     <string name="access_links" msgid="7991363727326168600">"Näytä linkit"</string>
     <string name="access_terms" msgid="1982500872249763745">"Näytä termit"</string>
@@ -164,7 +162,7 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Tiliäsi hallinnoidaan"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Järjestelmänvalvoja käyttää mobiilihallintaa suojauskäytäntöjen täytäntöönpanossa"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"Valmistellaan työprofiilin määritystä…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Määritetään työprofiilisi"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"Otetaan työprofiilisi käyttöön"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"Työsovelluksia säilytetään työprofiilissa"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"Keskeytä työsovellukset, kun päivä on pulkassa"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"IT-järjestelmänvalvoja näkee työprofiilin datan"</string>

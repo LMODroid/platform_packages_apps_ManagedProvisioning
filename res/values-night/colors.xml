@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+  <!-- glif expressive style related colors -->
+  <color name="lottie_layer_primary">@color/sud_system_primary_dark</color>
+  <color name="lottie_layer_primary_container">@color/sud_system_primary_container_dark</color>
+  <color name="lottie_layer_secondary">@color/sud_system_secondary_dark</color>
+  <color name="lottie_layer_secondary_container">@color/sud_system_secondary_container_dark</color>
+  <color name="lottie_layer_outline">@color/sud_system_outline_dark</color>
+  <color name="lottie_layer_outline_variant">@color/sud_system_outline_variant_dark</color>
+  <color name="lottie_layer_surface_container">@color/sud_system_surface_container_dark</color>
+  <color name="lottie_layer_surface_dim">@color/sud_system_surface_dim_dark</color>
+</resources>
