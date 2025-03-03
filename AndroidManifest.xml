@@ -91,7 +91,8 @@
         android:hardwareAccelerated="true"
         android:label="@string/app_label"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true">
+        android:usesCleartextTraffic="true"
+        android:enableOnBackInvokedCallback="false">
 
         <meta-data
             android:name="com.android.managedprovisioning.patch.24760218"
