@@ -184,11 +184,14 @@ public class UpdateInteractAcrossProfilesAppOpTask extends AbstractProvisioningT
 
     private int getConsolidatedModeForPackagesInUid(int uid, String[] packages, String op) {
         int uidMode = AppOpsManager.MODE_DEFAULT;
-        for (String packageName : packages) {
-            if (mCrossProfileApps.canConfigureInteractAcrossProfiles(packageName)) {
-                final int packageMode = mAppOpsManager.unsafeCheckOpNoThrow(op, uid, packageName);
-                if (shouldUpdateUidMode(packageMode, uidMode)) {
-                    uidMode = packageMode;
+        if (packages != null) {
+            for (String packageName : packages) {
+                if (mCrossProfileApps.canConfigureInteractAcrossProfiles(packageName)) {
+                    final int packageMode = mAppOpsManager.unsafeCheckOpNoThrow(op, uid,
+                            packageName);
+                    if (shouldUpdateUidMode(packageMode, uidMode)) {
+                        uidMode = packageMode;
+                    }
                 }
             }
         }
