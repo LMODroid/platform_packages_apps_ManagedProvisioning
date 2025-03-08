@@ -22,8 +22,8 @@ import static com.android.managedprovisioning.task.DownloadPackageTask.ERROR_DOW
 import static com.android.managedprovisioning.task.DownloadPackageTask.ERROR_OTHER;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Matchers.any;
-import static org.mockito.Matchers.nullable;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.nullable;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
