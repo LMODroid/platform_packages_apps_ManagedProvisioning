@@ -22,7 +22,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_DEV
 import static com.android.managedprovisioning.task.VerifyAdminPackageTask.ERROR_DEVICE_ADMIN_MISSING;
 import static com.android.managedprovisioning.task.VerifyAdminPackageTask.ERROR_HASH_MISMATCH;
 
-import static org.mockito.Matchers.any;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
