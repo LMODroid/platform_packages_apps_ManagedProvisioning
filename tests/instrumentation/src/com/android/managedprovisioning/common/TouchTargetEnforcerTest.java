@@ -24,7 +24,6 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
 
 import android.graphics.Rect;
 import android.view.TouchDelegate;
@@ -120,7 +119,7 @@ public class TouchTargetEnforcerTest {
         mView.getViewTreeObserver().dispatchOnGlobalLayout(); // force UI queue to add a Runnable
 
         // then
-        verifyZeroInteractions(mViewAncestor);
+        verifyNoMoreInteractions(mViewAncestor);
     }
 
     @Test
