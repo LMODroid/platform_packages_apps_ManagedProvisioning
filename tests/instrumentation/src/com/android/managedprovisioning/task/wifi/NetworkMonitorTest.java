@@ -21,7 +21,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -90,7 +89,7 @@ public class NetworkMonitorTest {
         cb.onBlockedStatusChanged(mock(Network.class), false);
 
         // THEN no callback should be given
-        verifyZeroInteractions(mCallback);
+        verifyNoMoreInteractions(mCallback);
     }
 
     @Test
@@ -105,7 +104,7 @@ public class NetworkMonitorTest {
         cb.onBlockedStatusChanged(network, false);
         cb.onCapabilitiesChanged(network, new NetworkCapabilities());
 
-        verifyZeroInteractions(mCallback);
+        verifyNoMoreInteractions(mCallback);
 
         nm.stopListening();
     }

@@ -20,7 +20,6 @@ import static com.android.internal.logging.nano.MetricsProto.MetricsEvent.PROVIS
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import android.content.Context;
@@ -107,6 +106,6 @@ public class TimeLoggerTest extends AndroidTestCase {
         // WHEN logging time stops.
         mTimeLogger.stop();
         // THEN nothing should be logged.
-        verifyZeroInteractions(mMetricsLoggerWrapper);
+        verifyNoMoreInteractions(mMetricsLoggerWrapper);
     }
 }
