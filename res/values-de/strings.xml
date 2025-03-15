@@ -172,7 +172,7 @@
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Deine Apps für die Arbeit – jederzeit zur Hand"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Gerät (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) ist nicht privat"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Dein IT-Administrator kann deine Daten und Aktivitäten auf diesem Gerät (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) möglicherweise sehen."</string>
-    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Deine Aktivitäten und Daten"</string>
+    <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Aktivitäten und Daten"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"App-Berechtigungen"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="1973320148595109400">"Dein IT-Administrator kann auf diesem Gerät (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>) Berechtigungen für Apps einrichten, beispielsweise die Berechtigung zur Standortermittlung und den Zugriff auf das Mikrofon und die Kamera."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Gerät wird eingerichtet…"</string>

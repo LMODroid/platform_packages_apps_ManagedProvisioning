@@ -20,7 +20,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_USER;
 
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 import static org.mockito.Mockito.when;
 
 import android.content.pm.UserInfo;
@@ -69,7 +69,7 @@ public class ProvisioningCompletedControllerTest {
 
         controller.run();
 
-        verifyZeroInteractions(mSystemAppsSnapshot);
+        verifyNoMoreInteractions(mSystemAppsSnapshot);
     }
 
     @Test
@@ -84,7 +84,7 @@ public class ProvisioningCompletedControllerTest {
 
         controller.run();
 
-        verifyZeroInteractions(mSystemAppsSnapshot);
+        verifyNoMoreInteractions(mSystemAppsSnapshot);
     }
 
     @Test
