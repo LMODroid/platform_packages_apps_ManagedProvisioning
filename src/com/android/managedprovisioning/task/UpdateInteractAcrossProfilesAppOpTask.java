@@ -213,8 +213,10 @@ public class UpdateInteractAcrossProfilesAppOpTask extends AbstractProvisioningT
 
     private void setAppOpForPackagesInUid(
             int uid, String[] packages, @AppOpsManager.Mode int mode) {
-        for (String packageName : packages) {
-            setInteractAcrossProfilesAppOpForPackage(uid, packageName, mode);
+        if(packages != null) {
+            for (String packageName : packages) {
+                setInteractAcrossProfilesAppOpForPackage(uid, packageName, mode);
+            }
         }
     }
 

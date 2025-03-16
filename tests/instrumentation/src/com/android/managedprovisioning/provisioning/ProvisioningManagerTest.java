@@ -25,7 +25,6 @@ import static org.mockito.Mockito.doAnswer;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
-import static org.mockito.Mockito.verifyZeroInteractions;
 import static org.mockito.Mockito.when;
 
 import android.content.ComponentName;
@@ -166,7 +165,7 @@ public class ProvisioningManagerTest {
         // WHEN some progress has occurred previously
         mManager.cleanUpCompleted();
         // THEN no callback is sent
-        verifyZeroInteractions(mCallback);
+        verifyNoMoreInteractions(mCallback);
     }
 
     @FlakyTest(bugId = 131866915)
