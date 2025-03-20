@@ -170,7 +170,7 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Ishga oid ilovalar ish profilida saqlanadi. Ishni tugatganingizdan keyin ishga oid ilovalarni pauza qilishingiz mumkin. Ish profilingizdagi maʼlumotlar faqat AT administratoringizga koʻrinadi."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Keling, ishchi qurilmangizni sozlaymiz"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Ishchi ilovalarni osongina ishlating"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> maxfiy emas"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Bu <xliff:g id="DEVICE_NAME">%1$s</xliff:g> maxfiy emas"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"AT administratoringiz <xliff:g id="DEVICE_NAME">%1$s</xliff:g> qurilmasidagi maʼlumotlaringiz va harakatlaringizni koʻra olishi mumkin"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Harakatlaringiz va maʼlumotlaringiz"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Ilovalar uchun ruxsatlar"</string>
