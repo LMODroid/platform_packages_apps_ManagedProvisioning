@@ -171,7 +171,7 @@
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Ајде да го поставиме вашиот работен уред"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Имајте лесен пристап до работните апликации"</string>
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Овој <xliff:g id="DEVICE_NAME">%1$s</xliff:g> не е приватен"</string>
-    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Вашиот IT-администратор можеби ќе ги гледа вашите податоци и активноста на овој <xliff:g id="DEVICE_NAME">%1$s</xliff:g>."</string>
+    <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Вашиот IT-администратор може да ги гледа вашите податоци и активноста на овој <xliff:g id="DEVICE_NAME">%1$s</xliff:g>."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Вашата активност и податоците"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Дозволи за апликации"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="1973320148595109400">"Вашиот IT-администратор може да поставува дозволи за апликациите на овој <xliff:g id="DEVICE_NAME">%1$s</xliff:g>, како што се дозволите за микрофонот, камерата и локацијата."</string>
@@ -191,7 +191,7 @@
     <string name="cope_provisioning_summary" msgid="4993405755138454918">"Работните апликации се чуваат во вашиот работен профил и со нив управува IT-администраторот. Личните апликации се одделени и скриени од работните апликации. IT-администраторот може да го контролира овој <xliff:g id="DEVICE_NAME">%1$s</xliff:g> и да блокира одредени апликации."</string>
     <string name="just_a_sec" msgid="6244676028626237220">"Само момент…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"Потсетник за приватност"</string>
-    <string name="fully_managed_device_provisioning_privacy_body" msgid="2107315052054483060">"Вашиот IT-администратор можеби ќе ги гледа вашите податоци и активноста на овој <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
+    <string name="fully_managed_device_provisioning_privacy_body" msgid="2107315052054483060">"Вашиот IT-администратор може да ги гледа вашите податоци и активноста на овој <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
     <string name="financed_device_screen_header" msgid="5934940812896302344">"Овој <xliff:g id="DEVICE_NAME">%1$s</xliff:g> е обезбеден од <xliff:g id="CREDITOR_NAME">%2$s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_title" msgid="743966229235451097">"Вршете плаќања за <xliff:g id="DEVICE_NAME">%1$s</xliff:g>"</string>
     <string name="financed_make_payments_subheader_description" msgid="7391276584735956742">"<xliff:g id="CREDITOR_NAME_0">%1$s</xliff:g> може да ја инсталира апликацијата <xliff:g id="CREDITOR_NAME_1">%2$s</xliff:g> за да може да вршите плаќања за овој <xliff:g id="DEVICE_NAME">%3$s</xliff:g>."</string>
