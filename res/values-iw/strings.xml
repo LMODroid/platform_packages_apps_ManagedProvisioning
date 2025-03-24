@@ -173,7 +173,7 @@
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"זהו לא מכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g> פרטי"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"‏יכול להיות שהאדמין ב-IT שלך יכול לראות את הנתונים והפעילות במכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g>."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"הנתונים והפעילות שלך"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"הרשאות הניתנות לאפליקציות"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"הרשאות שניתנות לאפליקציות"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="1973320148595109400">"‏מנהל ה-IT יכול להגדיר הרשאות לאפליקציות במכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g>, כמו הרשאות לשימוש במיקרופון, במצלמה ובמיקום."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"בתהליך הגדרת המכשיר שלך…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="2532673962822596806">"‏אפשר להשתמש במכשיר <xliff:g id="DEVICE_NAME_0">%1$s</xliff:g> כדי לגשת בקלות לאפליקציות העבודה. המכשיר <xliff:g id="DEVICE_NAME_1">%1$s</xliff:g> לא פרטי. ייתכן שמנהל ה-IT יכול לראות את הנתונים ואת הפעילות שלך."</string>
