@@ -146,7 +146,7 @@
     <string name="close_list" msgid="9053538299788717597">"सूची बंद करें"</string>
     <string name="cancel_setup_and_factory_reset_dialog_title" msgid="5416045931532004811">"सेटअप खत्म करें और फ़ैक्टरी रीसेट करें?"</string>
     <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"इस सेटअप को खत्म करने से आपका डिवाइस फ़ैक्टरी रीसेट हो जाएगा और आपको वापस पहली स्क्रीन पर ले जाया जाएगा."</string>
-    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"रद्द करें"</string>
+    <string name="cancel_setup_and_factory_reset_dialog_cancel" msgid="2810966091829264727">"अभी नहीं"</string>
     <string name="cancel_setup_and_factory_reset_dialog_ok" msgid="7168008267496150529">"डिवाइस रीसेट करें"</string>
     <string name="join_two_items" msgid="6110273439759895837">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g> और <xliff:g id="SECOND_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_last" msgid="7469666990442158802">"<xliff:g id="ALL_BUT_LAST_ITEM">%1$s</xliff:g> और <xliff:g id="LAST_ITEM_0">%2$s</xliff:g>"</string>

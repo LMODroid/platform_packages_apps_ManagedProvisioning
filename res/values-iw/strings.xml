@@ -47,7 +47,7 @@
     <string name="delete_profile_title" msgid="2841349358380849525">"למחוק את הפרופיל הקיים?"</string>
     <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"כבר הגדרת פרופיל עבודה. הוא מנוהל דרך האפליקציה הבאה:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343"><a href="#read_this_link">"יש לקרוא את המידע שכאן"</a>" לפני שממשיכים."</string>
-    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"המשך הפעולה יגרום למחיקת כל האפליקציות והנתונים בפרופיל הזה."</string>
+    <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"חשוב: כל האפליקציות והנתונים בפרופיל הזה יימחקו."</string>
     <string name="delete_profile" msgid="2299218578684663459">"מחיקה"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"ביטול"</string>
     <string name="encrypt_device_text_for_profile_owner_setup" msgid="6865483664167134470">"כדי להגדיר את פרופיל העבודה, עליך להצפין את המכשיר <xliff:g id="DEVICE_NAME">%1$s</xliff:g>. הפעולה הזו עשויה להימשך זמן מה."</string>
@@ -162,7 +162,7 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"החשבון שלך מנוהל"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"‏האדמין ממחלקת ה-IT משתמש בניהול ניידים כדי לאכוף את מדיניות האבטחה"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"בהכנה להגדרת פרופיל העבודה…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"מתחילים בהגדרת פרופיל העבודה שלך"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"קודם נגדיר את פרופיל העבודה שלך"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"אפליקציות לעבודה נשמרות בפרופיל העבודה"</string>
     <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"השהיה של האפליקציות לעבודה בסוף היום"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"‏הנתונים בפרופיל העבודה שלך גלויים למנהל ה-IT"</string>
