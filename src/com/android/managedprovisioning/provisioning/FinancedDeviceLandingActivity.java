@@ -43,8 +43,6 @@ import com.google.android.setupcompat.template.FooterButton;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupdesign.util.DeviceHelper;
 
-import java.util.Objects;
-
 /**
  * This is the first activity the user will see during financed device provisioning.
  */
@@ -52,6 +50,7 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
 
     private final AccessibilityContextMenuMaker mContextMenuMaker;
     private final StylerHelper mStylerHelper;
+    private final ThemeHelper mThemeHelper;
 
     public FinancedDeviceLandingActivity() {
         this(new Utils(), /* contextMenuMaker= */null, new SettingsFacade(),
@@ -67,6 +66,7 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
                 ? contextMenuMaker
                 : new AccessibilityContextMenuMaker(this);
         mStylerHelper = requireNonNull(stylerHelper);
+        mThemeHelper = themeHelper;
     }
 
     @Override
@@ -85,7 +85,11 @@ public final class FinancedDeviceLandingActivity extends SetupGlifLayoutActivity
         final String headerString = getString(R.string.financed_device_screen_header, deviceName,
                 params.organizationName);
         layout.setHeaderText(headerString);
-        layout.setIcon(getDrawable(R.drawable.ic_info_outline_24px));
+        if (mThemeHelper.shouldApplyGlifExpressiveStyle(this)) {
+            layout.setIcon(getDrawable(R.drawable.ic_info_expressive));
+        } else {
+            layout.setIcon(getDrawable(R.drawable.ic_info_outline_24px));
+        }
         setupFooterBar(layout);
 
         final ViewGroup item1 = layout.findViewById(R.id.item1);
