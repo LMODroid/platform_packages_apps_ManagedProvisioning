@@ -76,7 +76,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
     public void initiateUi(Activity activity) {
         Context context = activity.getApplicationContext();
         CharSequence deviceName = DeviceHelper.getDeviceName(context);
-
+        mShouldApplyGlifExpressiveStyle = ThemeHelper.shouldApplyGlifExpressiveStyle(activity);
         boolean isPoProvisioning = getUtils().isProfileOwnerAction(getParams().provisioningAction);
         String title =
                 isPoProvisioning
@@ -151,7 +151,11 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
 
     @Override
     public void onProvisioningFinalized(Activity activity) {
+        GlifLayout layout = activity.findViewById(R.id.setup_wizard_layout);
         if (!getShouldSkipEducationScreens()) {
+            if (mShouldApplyGlifExpressiveStyle) {
+                layout.setDescriptionText("");
+            }
             getProvisioningProgressLabelContainer(activity).setVisibility(View.GONE);
             mButtonFooterContainer.setVisibility(View.VISIBLE);
         }
@@ -223,7 +227,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
             header.setText(progressLabelResId);
             getProvisioningProgressLabelContainer(activity).setVisibility(View.GONE);
         } else {
-            if (ThemeHelper.shouldApplyGlifExpressiveStyle(activity)) {
+            if (mShouldApplyGlifExpressiveStyle) {
                 layout.setDescriptionText(progressLabelResId);
             } else {
                 ProvisionLogger.logd("Using custom progress label");
