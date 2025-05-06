@@ -43,8 +43,8 @@ import com.android.managedprovisioning.provisioning.ProvisioningModeWrapperProvi
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.AnimationComponents;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationStateManager;
-
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.setupcompat.template.FooterButton;
 import com.google.android.setupdesign.GlifLayout;
 import com.google.android.setupdesign.util.ContentStyler;
 import com.google.android.setupdesign.util.DescriptionStyler;
@@ -59,6 +59,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
     private TransitionAnimationHelper mTransitionAnimationHelper;
     private ViewGroup mButtonFooterContainer;
     private Boolean mShouldApplyGlifExpressiveStyle;
+    private FooterButton mNextButton;
     private Context mContext;
 
     abstract Utils getUtils();
@@ -101,7 +102,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
                     .setVisibility(View.INVISIBLE);
         }
 
-        Utils.addNextButton(layout, v -> getBridgeCallbacks().onNextButtonClicked());
+        mNextButton = Utils.addNextButton(layout, v -> getBridgeCallbacks().onNextButtonClicked());
         // TODO(b/181323689): Add tests to ProvisioningActivityTest that the button is not
         // shown for non-DO provisioning flows.
         if (getUtils().isDeviceOwnerAction(getParams().provisioningAction)) {
@@ -126,12 +127,14 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
             Supplier<Boolean> checkIsProvisioningFinalised) {
         if (checkIsProvisioningFinalised.get()) {
             view.setVisibility(View.VISIBLE);
+            mNextButton.setVisibility(View.VISIBLE);
             return;
         }
         getProvisioningProgressLabelContainer(activity).setLayoutParams(
                 new LinearLayout.LayoutParams(
                         ViewGroup.LayoutParams.MATCH_PARENT,
                         view.getHeight()));
+        mNextButton.setVisibility(View.GONE);
         view.setVisibility(View.GONE);
     }
 
@@ -158,6 +161,7 @@ abstract class ProvisioningActivityBridgeImpl implements ProvisioningActivityBri
             }
             getProvisioningProgressLabelContainer(activity).setVisibility(View.GONE);
             mButtonFooterContainer.setVisibility(View.VISIBLE);
+            mNextButton.setVisibility(View.VISIBLE);
         }
 
         if (getShouldSkipEducationScreens()) {
