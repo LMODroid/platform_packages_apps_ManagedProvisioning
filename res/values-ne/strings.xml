@@ -27,7 +27,7 @@
     <string name="the_following_is_your_mdm" msgid="6613658218262376404">"निम्न एप यो प्रोफाइल पहुँच गर्न आवश्यक हुने छ:"</string>
     <string name="the_following_is_your_mdm_for_device" msgid="6717973404364414816">"निम्न एपले तपाईँको यन्त्र व्यवस्थापन गर्ने छ:"</string>
     <string name="next" msgid="1004321437324424398">"अर्को"</string>
-    <string name="setting_up_workspace" msgid="7862472373642601041">"कार्य प्रोफाइल सेटअप गर्दै…"</string>
+    <string name="setting_up_workspace" msgid="7862472373642601041">"वर्क प्रोफाइल सेटअप गर्दै…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"तपाईंका IT एड्मिनले यो प्रोफाइलसँग सम्बन्धित सेटिङ, संस्थागत पहुँच, एप, अनुमति, डेटा र नेटवर्कसम्बन्धी क्रियाकलापका साथै तपाईंको कल हिस्ट्री तथा कन्ट्याक्ट सर्च हिस्ट्री निगरानी गर्नुका साथै व्यवस्थापन गर्न सक्नुहुन्छ। तपाईं यसका सम्बन्धमा थप जानकारी प्राप्त गर्न र आफ्नो सङ्गठनका गोपनीयता नीतिका बारेमा थप जान्न चाहनुहुन्छ भने आफ्ना IT एड्मिनलाई सम्पर्क गर्नुहोस्।"</string>
     <string name="admin_has_ability_to_monitor_device" msgid="7786186939607332934">"तपाईंका IT एड्मिन नेटवर्कसम्बन्धी क्रियाकलापका साथै तपाईंको डिभाइसको लोकेसन, कल हिस्ट्री र कन्ट्याक्ट सर्च हिस्ट्रीलगायतका सेटिङ, संस्थागत पहुँच, एप, अनुमति र यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> सँग सम्बन्धित डेटाको निरीक्षण तथा व्यवस्थापन गर्न सक्नुहुन्छ।<xliff:g id="LINE_BREAK">
 
@@ -41,25 +41,25 @@
     <string name="url_error" msgid="5958494012986243186">"यो लिंक देखाउन सकिँदैन।"</string>
     <string name="navigation_button_description" msgid="6106309408994461239">"माथि जानुहोस्"</string>
     <string name="terms" msgid="8295436105384703903">"सर्तहरू"</string>
-    <string name="work_profile_info" msgid="5433388376309583996">"कार्य प्रोफाइल सम्बन्धी जानकारी"</string>
+    <string name="work_profile_info" msgid="5433388376309583996">"वर्क प्रोफाइल सम्बन्धी जानकारी"</string>
     <string name="managed_device_info" msgid="1529447646526616811">"व्यवस्थित गरिएको डिभाइसको जानकारी"</string>
-    <string name="default_managed_profile_name" msgid="5370257687074907055">"कार्य प्रोफाइल"</string>
+    <string name="default_managed_profile_name" msgid="5370257687074907055">"वर्क प्रोफाइल"</string>
     <string name="delete_profile_title" msgid="2841349358380849525">"विद्यमान प्रोफाइललाई मेट्ने हो?"</string>
-    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"तपाईंसँग पहिलैदेखि कार्य प्रोफाइल छ। निम्न एपको प्रयोगमार्फत व्यवस्थापन भइरहेको छ:"</string>
+    <string name="opening_paragraph_delete_profile" msgid="4913885310795775967">"तपाईंसँग पहिलैदेखि वर्क प्रोफाइल छ। निम्न एपको प्रयोगमार्फत व्यवस्थापन भइरहेको छ:"</string>
     <string name="read_more_delete_profile" msgid="7789171620401666343">"अघि बढ्नु पूर्व "<a href="#read_this_link">"यो पढ्नुहोस्"</a>"।"</string>
     <string name="sure_you_want_to_delete_profile" msgid="6927697984573575564">"तपाईँले जारी राख्नुभयो भने यस प्रोफाइलमा भएका सबै एप र डेटालाई मेटाइनेछ।"</string>
     <string name="delete_profile" msgid="2299218578684663459">"मेटाउनुहोस्"</string>
     <string name="cancel_delete_profile" msgid="5155447537894046036">"रद्द गर्नुहोस्"</string>
-    <string name="encrypt_device_text_for_profile_owner_setup" msgid="6865483664167134470">"तपाईंको <xliff:g id="DEVICE_NAME">%1$s</xliff:g> इन्क्रिप्ट गरिएको छ भने मात्र तपाईंको कार्य प्रोफाइल सेटअप गर्न सकिन्छ। तपाईंको डिभाइस इन्क्रिप्ट गर्न केही समय लाग्न सक्छ।"</string>
+    <string name="encrypt_device_text_for_profile_owner_setup" msgid="6865483664167134470">"तपाईंको <xliff:g id="DEVICE_NAME">%1$s</xliff:g> इन्क्रिप्ट गरिएको छ भने मात्र तपाईंको वर्क प्रोफाइल सेटअप गर्न सकिन्छ। तपाईंको डिभाइस इन्क्रिप्ट गर्न केही समय लाग्न सक्छ।"</string>
     <string name="encrypt_device_text_for_device_owner_setup" msgid="230099563510460941">"यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> सेटअप गर्न पहिला यसलाई इन्क्रिप्ट गर्नु पर्ने हुन्छ। यो डिभाइस इन्क्रिप्ट गर्न केही समय लाग्न सक्छ।"</string>
     <string name="encrypt_this_device_question" msgid="8719916619866892601">"यो यन्त्रलाई इन्क्रिप्ट गर्ने?"</string>
     <string name="encrypt" msgid="1749320161747489212">"इन्क्रिप्ट गर्नुहोस्"</string>
     <string name="continue_provisioning_notify_title" msgid="5191449100153186648">"गुप्तिकरण पूर्ण"</string>
-    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"तपाईंको कार्य प्रोफाइल स्थापना जारी राख्न  ट्याप गर्नुहोस्"</string>
-    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"तपाईँको कार्य प्रोफाइल स्थापित गर्न सकिएन। तपाईँको आईटी विभाग सम्पर्क गर्नुहोस् वा पछि फेरि प्रयास गर्नुहोस्।"</string>
-    <string name="cant_add_work_profile" msgid="9217268909964154934">"कार्य प्रोफाइल थप्न सकिँदैन"</string>
+    <string name="continue_provisioning_notify_text" msgid="1066841819786425980">"तपाईंको वर्क प्रोफाइल स्थापना जारी राख्न  ट्याप गर्नुहोस्"</string>
+    <string name="managed_provisioning_error_text" msgid="7063621174570680890">"तपाईँको वर्क प्रोफाइल स्थापित गर्न सकिएन। तपाईँको आईटी विभाग सम्पर्क गर्नुहोस् वा पछि फेरि प्रयास गर्नुहोस्।"</string>
+    <string name="cant_add_work_profile" msgid="9217268909964154934">"वर्क प्रोफाइल थप्न सकिँदैन"</string>
     <string name="cant_replace_or_remove_work_profile" msgid="7861054306792698290">"कार्य प्रोफाइललाई प्रतिस्थापन गर्न वा हटाउन सकिँदैन"</string>
-    <string name="work_profile_cant_be_added_contact_admin" msgid="4866281518235832928">"यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> मा कार्य प्रोफाइल हाल्न मिल्दैन। तपाईंसँग प्रश्नहरू छन् भने आफ्ना IT एड्मिनलाई सम्पर्क गर्नुहोस्।"</string>
+    <string name="work_profile_cant_be_added_contact_admin" msgid="4866281518235832928">"यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> मा वर्क प्रोफाइल हाल्न मिल्दैन। तपाईंसँग प्रश्नहरू छन् भने आफ्ना IT एड्मिनलाई सम्पर्क गर्नुहोस्।"</string>
     <string name="change_device_launcher" msgid="4523563368433637980">"डिभाइसको लन्चर बदल्नुहोस्"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"तपाईंको कार्य प्रोफाइलले यो लन्चर एप प्रयोग गर्न सक्दैन"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"रद्द गर्नुहोस्"</string>
@@ -94,12 +94,12 @@
     <string name="profile_owner_cancel_ok" msgid="5951679183850766029">"हो"</string>
     <string name="profile_owner_cancelling" msgid="5679573829145112822">"रद्द गरिँदै..."</string>
     <string name="work_profile_setup_later_title" msgid="9069148190226279892">"के प्रोफाइल सेटअप रोक्ने हो?"</string>
-    <string name="work_profile_setup_later_message" msgid="122069011117225292">"तपाईंले पछि आफ्नो संस्थाको डिभाइस म्यानेजमेन्ट एपमा आफ्नो कार्य प्रोफाइल सेटअप गर्न सक्नुहुन्छ"</string>
+    <string name="work_profile_setup_later_message" msgid="122069011117225292">"तपाईंले पछि आफ्नो संस्थाको डिभाइस म्यानेजमेन्ट एपमा आफ्नो वर्क प्रोफाइल सेटअप गर्न सक्नुहुन्छ"</string>
     <string name="continue_button" msgid="7177918589510964446">"जारी राख्नुहोस्"</string>
     <string name="work_profile_setup_stop" msgid="6772128629992514750">"रोक्नुहोस्"</string>
     <string name="dismiss" msgid="9009534756748565880">"खारेज गर्नुहोस्"</string>
-    <string name="profile_owner_info" msgid="8975319972303812298">"तपाईं आफ्नो संगठनले व्यवस्थापन तथा अनुगमन गर्ने कुनै कार्य प्रोफाइल सिर्जना गर्न आँट्दै हुनुहुन्छ। यसमा सर्तहरू लागू हुनेछन्।"</string>
-    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"तपाईं आफ्नो संगठनले व्यवस्थापन तथा अनुगमन गर्ने कुनै कार्य प्रोफाइल सिर्जना गर्न आँट्दै हुनुहुन्छ। यसमा <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> का सर्तहरू लागू हुनेछन्।"</string>
+    <string name="profile_owner_info" msgid="8975319972303812298">"तपाईं आफ्नो संगठनले व्यवस्थापन तथा अनुगमन गर्ने कुनै वर्क प्रोफाइल सिर्जना गर्न आँट्दै हुनुहुन्छ। यसमा सर्तहरू लागू हुनेछन्।"</string>
+    <string name="profile_owner_info_with_terms_headers" msgid="7373591910245655373">"तपाईं आफ्नो संगठनले व्यवस्थापन तथा अनुगमन गर्ने कुनै वर्क प्रोफाइल सिर्जना गर्न आँट्दै हुनुहुन्छ। यसमा <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> का सर्तहरू लागू हुनेछन्।"</string>
     <string name="profile_owner_info_comp" msgid="9190421701126119142">"तपाईंका कार्य सम्बन्धी एपका लागि एउटा प्रोफाइल सिर्जना गरिने छ। तपाईंको संगठनले यो प्रोफाइल र तपाईंका बाँकी डिभाइसको व्यवस्थापन तथा अनुगमन गर्ने छ। यसमा सर्तहरू लागू हुनेछन्।"</string>
     <string name="profile_owner_info_with_terms_headers_comp" msgid="2012766614492554556">"तपाईंका कार्य सम्बन्धी एपका लागि एउटा प्रोफाइल सिर्जना गरिने छ। तपाईंको संगठनले यो प्रोफाइल र तपाईंका बाँकी डिभाइसको व्यवस्थापन तथा अनुगमन गर्ने छ। यसमा <xliff:g id="TERMS_HEADERS">%1$s</xliff:g> का सर्तहरू लागू हुनेछन्।"</string>
     <string name="device_owner_info" msgid="3716661456037934467">"<xliff:g id="YOUR_ORGANIZATION">%1$s</xliff:g> ले यस डिभाइसको व्यवस्थापन तथा अनुगमन गरी यसलाई सुरक्षित राख्ने छ। सर्तहरू लागू हुने छन्।<xliff:g id="VIEW_TERMS">%2$s</xliff:g>"</string>
@@ -124,8 +124,8 @@
     <string name="provisioning" msgid="4512493827019163451">"प्रावधान गरिँदै"</string>
     <string name="copying_certs" msgid="5697938664953550881">"CA सर्टिफिकेटहरू सेटअप गरिँदै"</string>
     <string name="setup_profile" msgid="5573950582159698549">"आफ्नो प्रोफाइल सेटअप गर्नुहोस्"</string>
-    <string name="profile_benefits_description" msgid="758432985984252636">"तपाईं कुनै कार्य प्रोफाइलको प्रयोग गरी कार्य सम्बन्धी डेटालाई व्यक्तिगत डेटाबाट छुट्याउन सक्नुहुन्छ।"</string>
-    <string name="comp_profile_benefits_description" msgid="379837075456998273">"कुनै कार्य प्रोफाइलको प्रयोग गरेर तपाईं आफ्ना कार्य सम्बन्धी एपहरूलाई एकै ठाउँमा राख्न सक्नुहुन्छ"</string>
+    <string name="profile_benefits_description" msgid="758432985984252636">"तपाईं कुनै वर्क प्रोफाइलको प्रयोग गरी कार्य सम्बन्धी डेटालाई व्यक्तिगत डेटाबाट छुट्याउन सक्नुहुन्छ।"</string>
+    <string name="comp_profile_benefits_description" msgid="379837075456998273">"कुनै वर्क प्रोफाइलको प्रयोग गरेर तपाईं आफ्ना कार्य सम्बन्धी एपहरूलाई एकै ठाउँमा राख्न सक्नुहुन्छ"</string>
     <string name="setup_profile_encryption" msgid="5241291404536277038">"तपाईँको प्रोफाइल सेटअप गर्नुहोस्। इन्क्रिप्सन"</string>
     <string name="setup_profile_progress" msgid="7742718527853325656">"तपाईँको प्रोफाइल सेटअप गर्नुहोस्। कार्य प्रगति देखाउँदै"</string>
     <string name="setup_device" msgid="1679201701102889156">"आफ्नो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> सेटअप गर्नुहोस्"</string>
@@ -153,7 +153,7 @@
     <string name="join_many_items_first" msgid="8365482726853276608">"<xliff:g id="FIRST_ITEM">%1$s</xliff:g>, <xliff:g id="ALL_BUT_FIRST_AND_LAST_ITEM">%2$s</xliff:g>"</string>
     <string name="join_many_items_middle" msgid="8569294838319639963">"<xliff:g id="ADDED_ITEM">%1$s</xliff:g>, <xliff:g id="REST_OF_ITEMS">%2$s</xliff:g>"</string>
     <string name="take_a_few_minutes" msgid="6282806501305322838">"यस कार्यमा केही मिनेट लाग्न सक्छ"</string>
-    <string name="work_profile_description" msgid="8524116010729569213">"तपाईंका कार्यसम्बन्धी एपहरू यो प्रोफाइलमा राखिने छन् र तिनको व्यवस्थापन तपाईंको संगठनले गर्छ"</string>
+    <string name="work_profile_description" msgid="8524116010729569213">"तपाईंका वर्क एपहरू यो प्रोफाइलमा राखिने छन् र तिनको व्यवस्थापन तपाईंको संगठनले गर्छ"</string>
     <string name="device_owner_description" msgid="168013145812679664">"यो यन्त्रलाई तपाईंको संगठनले सुरक्षित र व्यवस्थित राख्ने छ"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"कार्यस्थलको डिभाइस सेटअप गर्ने तयारी गर्दै…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"प्रशासक एप सेटअप गर्दै"</string>
@@ -162,11 +162,11 @@
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"तपाईंको खाता व्यवस्थापन गरिएको छ"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"तपाईंका IT एड्मिन सुरक्षासम्बन्धी नीतिहरू लागू गर्न मोबाइल डिभाइस व्यवस्थापन गर्ने सुविधा प्रयोग गर्नुहुन्छ"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"कामका लागि डिभाइस सेटअप गर्ने तयारी गरिँदै छ…"</string>
-    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"सर्वप्रथम आफ्नो कार्य प्रोफाइल सेटअप गरौँ"</string>
+    <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"सर्वप्रथम आफ्नो वर्क प्रोफाइल सेटअप गरौँ"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"कामसम्बन्धी एपहरू तपाईंको कार्य प्रोफाइलमा राखिन्छन्"</string>
-    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"आफ्नो दिनभरिको काम पूरा भएपछि कामसम्बन्धी एप पज गर्नुहोस्"</string>
+    <string name="work_profile_provisioning_step_2_header" msgid="6001172190404670248">"आफ्नो दिनभरिको काम पूरा भएपछि वर्क एप पज गर्नुहोस्"</string>
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"तपाईंका IT एडमिनले तपाईंको कार्यलयको प्रोफाइलमा भएका डेटा हेर्न सक्छन्"</string>
-    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"तपाईंको कार्य प्रोफाइल सेट गरिँदै छ…"</string>
+    <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"तपाईंको वर्क प्रोफाइल सेट गरिँदै छ…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"कामसम्बन्धी एपहरू तपाईंको कार्यलयको प्रोफाइलमा राखिन्छन्। तपाईंले दिनभरिको काम सकेपछि तपाईं कामसम्बन्धी एपहरू पज गर्न सक्नुहुन्छ। तपाईंका IT एडमिनले तपाईंको कार्यलयको प्रोफाइलमा भएका डेटा हेर्न सक्छन्।"</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"तपाईंको कार्यालयको डिभाइस सेट अप गर्नुहोस्"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"आफ्ना कामसम्बन्धी एपहरू सजिलै भेट्टाउनुहोस्"</string>
@@ -185,10 +185,10 @@
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_header" msgid="7938653381656306039">"यो डिभाइस सेटअप गर्न मिल्दैन"</string>
     <string name="fully_managed_device_unsupported_DPC_in_headless_mode_subheader" msgid="5158035482490079567">"यो डिभाइस पूर्ण रूपमा व्यवस्थापन गरिने मोडमा दर्ता गर्न मिल्दैन। आफ्नो डिभाइस फ्याक्ट्री रिसेट गर्नुहोस् अनि आफ्ना IT एड्मिनलाई सम्पर्क गर्नुहोस्।"</string>
     <string name="fully_managed_device_reset_button" msgid="5957116315144904542">"फ्याक्ट्री रिसेट गर्नुहोस्"</string>
-    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"कामसम्बन्धी एप कार्य प्रोफाइलमा हुन्छन् र IT एड्मिनले हेर्छन्"</string>
+    <string name="cope_provisioning_step_1_header" msgid="1945759718804756423">"वर्क एप वर्क प्रोफाइलमा हुन्छन् र IT एड्मिनले हेर्छन्"</string>
     <string name="cope_provisioning_step_2_header" msgid="2388399739294883042">"व्यक्तिगत एप छुट्टै राखिन्छन् र कामसम्बन्धी एपसँगै देखिँदैनन्"</string>
     <string name="cope_provisioning_step_3_header" msgid="7161795433847296201">"IT एड्मिन यो डिभाइस र यसका केही एपहरू नियन्त्रण गर्न सक्छन्"</string>
-    <string name="cope_provisioning_summary" msgid="4993405755138454918">"कामसम्बन्धी एपहरू तपाईंको कार्य प्रोफाइलमा राखिन्छन् र तपाईंका IT एड्मिन ती एप व्यवस्थापन गर्छन्। व्यक्तिगत एपहरू छुट्टै राखिन्छन् र ती एप कामसम्बन्धी एपसँगै देखिँदैनन्। तपाईंका IT एड्मिन यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> नियन्त्रण गर्न र निश्चित एपमाथि रोक लगाउन सक्छन्।"</string>
+    <string name="cope_provisioning_summary" msgid="4993405755138454918">"कामसम्बन्धी एपहरू तपाईंको वर्क प्रोफाइलमा राखिन्छन् र तपाईंका IT एड्मिन ती एप व्यवस्थापन गर्छन्। व्यक्तिगत एपहरू छुट्टै राखिन्छन् र ती एप कामसम्बन्धी एपसँगै देखिँदैनन्। तपाईंका IT एड्मिन यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> नियन्त्रण गर्न र निश्चित एपमाथि रोक लगाउन सक्छन्।"</string>
     <string name="just_a_sec" msgid="6244676028626237220">"एकै छिन पर्खनुहोस्…"</string>
     <string name="fully_managed_device_provisioning_privacy_title" msgid="4017627906103556021">"गोपनीयतासम्बन्धी रिमाइन्डर"</string>
     <string name="fully_managed_device_provisioning_privacy_body" msgid="2107315052054483060">"तपाईंका IT एड्मिन तपाईंले यो <xliff:g id="DEVICE_NAME">%1$s</xliff:g> मा गर्ने क्रियाकलाप र यसमा भएका डेटा हेर्न सक्छन्"</string>
