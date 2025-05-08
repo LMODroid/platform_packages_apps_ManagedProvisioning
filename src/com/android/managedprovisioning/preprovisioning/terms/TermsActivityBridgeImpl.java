@@ -31,11 +31,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.managedprovisioning.R;
 import com.android.managedprovisioning.common.AccessibilityContextMenuMaker;
+import com.android.managedprovisioning.common.ClickableSpanFactory;
 import com.android.managedprovisioning.common.StylerHelper;
+import com.android.managedprovisioning.common.ThemeHelper;
 import com.android.managedprovisioning.common.TransitionHelper;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.preprovisioning.terms.adapters.TermsListAdapter;
+import com.android.managedprovisioning.preprovisioning.terms.adapters.TermsAdapterUtils;
+import android.text.Spanned;
 
+import com.google.android.setupdesign.GlifRecyclerLayout;
+import com.google.android.setupdesign.items.ItemGroup;
+import com.google.android.setupdesign.items.RecyclerItemAdapter;
 import com.google.auto.value.AutoValue;
 
 import java.util.List;
@@ -55,13 +62,18 @@ abstract class TermsActivityBridgeImpl implements TermsActivityBridge {
     @Override
     public void initiateUi(final Activity activity, final List<TermsDocument> terms,
             final TermsDocument generalTerms) {
-        activity.setContentView(R.layout.terms_screen);
+        if(ThemeHelper.shouldApplyGlifExpressiveStyle(activity)) {
+            activity.setContentView(R.layout.terms_screen_expressive);
+            setupTermsListForHandheldsExpressive(activity, terms, generalTerms);
+        }
+        else {
+            activity.setContentView(R.layout.terms_screen);
+            setupHeader(activity);
+            setupRecyclerView(activity);
+            setupToolbar(activity);
+            setupTermsListForHandhelds(activity, terms, generalTerms);
+        }
         activity.setTitle(R.string.terms);
-
-        setupHeader(activity);
-        setupRecyclerView(activity);
-        setupToolbar(activity);
-        setupTermsListForHandhelds(activity, terms, generalTerms);
     }
 
     private void setupHeader(Activity activity) {
@@ -109,6 +121,31 @@ abstract class TermsActivityBridgeImpl implements TermsActivityBridge {
                 getStylerHelper()));
     }
 
+    private void setupTermsListForHandheldsExpressive(Activity activity, List<TermsDocument> terms,
+            TermsDocument generalTerms) {
+        GlifRecyclerLayout glifRecyclerLayout = activity.findViewById(R.id.terms_layout);
+        glifRecyclerLayout.setDescriptionText(generalTerms.getContent());
+
+        RecyclerItemAdapter recyclerItemAdapter =
+            (RecyclerItemAdapter) glifRecyclerLayout.getAdapter();
+        ItemGroup termsList = (ItemGroup) recyclerItemAdapter.getRootItemHierarchy();
+        RecyclerView recyclerView = glifRecyclerLayout.getRecyclerView();
+        for (TermsDocument termsDocument : terms) {
+        TermsExpandableItem expandableItem =
+            new TermsExpandableItem(recyclerView.getContext(), /* attrs= */ null);
+        expandableItem.setExpandedLayoutRes(R.layout.terms_disclaimer_content_expressive);
+        expandableItem.setTitle(termsDocument.getHeading());
+        Spanned content =
+            TermsAdapterUtils.parseHtmlWithLinks(
+                activity,
+                termsDocument.getContent(),
+                new ClickableSpanFactory(getUtils().getAccentColor(activity),
+                    ((TermsListAdapter.TermsBridge) activity)::onLinkClicked));
+
+        expandableItem.setTermsContent(content);
+        termsList.addChild(expandableItem);
+        }
+    }
     static Builder builder() {
         return new AutoValue_TermsActivityBridgeImpl.Builder();
     }
