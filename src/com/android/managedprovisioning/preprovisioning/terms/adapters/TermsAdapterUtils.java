@@ -29,7 +29,7 @@ import com.android.managedprovisioning.preprovisioning.terms.TermsDocument;
 /**
  * Utils for adapters displaying terms
  */
-final class TermsAdapterUtils {
+public final class TermsAdapterUtils {
 
     /**
      * Populate a given text view with the contents of the term
@@ -40,18 +40,25 @@ final class TermsAdapterUtils {
      */
     public static void populateContentTextView(Context context, TextView contentTextView,
             TermsDocument disclaimer, ClickableSpanFactory clickableSpanFactory) {
-        HtmlToSpannedParser htmlToSpannedParser = new HtmlToSpannedParser(
-                clickableSpanFactory,
-                url -> WebActivity.createIntent(context, url));
-        Spanned content = htmlToSpannedParser.parseHtml(disclaimer.getContent());
+        Spanned content = parseHtmlWithLinks(context, disclaimer.getContent(),
+            clickableSpanFactory);
         contentTextView.setText(content);
         contentTextView.setContentDescription(
-                context.getResources().getString(R.string.section_content, disclaimer.getHeading(),
-                        content));
+            context
+                .getResources()
+                .getString(R.string.section_content, disclaimer.getHeading(), content));
         // makes html links clickable
         contentTextView.setMovementMethod(LinkMovementMethod.getInstance());
     }
+    public static Spanned parseHtmlWithLinks(Context context, String htmlContent,
+            ClickableSpanFactory clickableSpanFactory) {
+        // Use HtmlToSpannedParser to handle the clickable spans and URL parsing
+        HtmlToSpannedParser htmlToSpannedParser = new HtmlToSpannedParser(
+                clickableSpanFactory,
+                url -> WebActivity.createIntent(context, url));
 
+        return htmlToSpannedParser.parseHtml(htmlContent);
+    }
     private TermsAdapterUtils() {
     }
 }
