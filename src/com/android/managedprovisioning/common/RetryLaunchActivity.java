@@ -31,6 +31,8 @@ import com.android.managedprovisioning.common.RetryLaunchViewModel.Config;
 import com.android.managedprovisioning.common.RetryLaunchViewModel.LaunchActivityEvent;
 import com.android.managedprovisioning.common.RetryLaunchViewModel.RetryLaunchViewModelFactory;
 
+import com.google.android.setupcompat.util.WizardManagerHelper;
+
 /**
  * An {@link Activity} which tries to start the {@link #EXTRA_INTENT_TO_LAUNCH} intent
  * {@link #EXTRA_MAX_RETRIES} times every {@link #EXTRA_RETRY_PERIOD_MS} milliseconds.
@@ -188,6 +190,7 @@ public final class RetryLaunchActivity extends SetupGlifLayoutActivity {
     }
 
     private void launchActivity(Intent intent) {
+        WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         getTransitionHelper().startActivityForResultWithTransition(
                 this,
                 intent,

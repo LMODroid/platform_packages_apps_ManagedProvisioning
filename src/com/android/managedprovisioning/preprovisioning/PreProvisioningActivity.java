@@ -802,6 +802,7 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
                         new DefaultIntentResolverChecker(getPackageManager()),
                         new DefaultFeatureFlagChecker(getContentResolver()));
         Intent intent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
+        WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         intent.putExtra(
                 EXTRA_INTENT_TO_LAUNCH,
                 roleHolderUpdaterHelper.createRoleHolderUpdaterIntent(
@@ -822,6 +823,7 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
     public void startRoleHolderProvisioning(Intent intent) {
         mAnalyticsTracker.logRoleHolderProvisioningStart();
         Intent retryLaunchIntent = new Intent(this, getActivityForScreen(RETRY_LAUNCH));
+        WizardManagerHelper.copyWizardManagerExtras(getIntent(), retryLaunchIntent);
         retryLaunchIntent.putExtra(RetryLaunchActivity.EXTRA_INTENT_TO_LAUNCH, intent);
         getTransitionHelper().startActivityForResultWithTransition(
                 /* activity= */ this,
