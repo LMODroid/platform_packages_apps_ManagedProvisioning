@@ -40,8 +40,6 @@ import static com.android.managedprovisioning.preprovisioning.PreProvisioningVie
 import static com.android.managedprovisioning.preprovisioning.PreProvisioningViewModel.STATE_SHOWING_USER_CONSENT;
 import static com.android.managedprovisioning.provisioning.Constants.PROVISIONING_SERVICE_INTENT;
 
-import static com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_SETUP_FLOW;
-
 import static java.util.Objects.requireNonNull;
 
 import android.annotation.NonNull;
@@ -184,13 +182,6 @@ public class PreProvisioningActivity extends Hilt_PreProvisioningActivity implem
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO(b/192074477): Remove deferred setup-specific logic after the managed account flow
-        //  starts ManagedProvisioning with the isSetupFlow extra
-        // This temporary fix only works when called before super.onCreate
-        if (mSettingsFacade.isDeferredSetup(getApplicationContext())) {
-            getIntent().putExtra(EXTRA_IS_SETUP_FLOW, true);
-        }
-
         super.onCreate(savedInstanceState);
         setupMetricScreenName = SETUP_METRIC_PREPROVISIONING_SCREEN_NAME;
         mScreenKey = ScreenKey.of(setupMetricScreenName, this);
