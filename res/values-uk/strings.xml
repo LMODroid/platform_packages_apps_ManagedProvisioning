@@ -29,7 +29,7 @@
     <string name="next" msgid="1004321437324424398">"Далі"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Налаштування робочого профілю…"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"Ваш системний адміністратор може керувати налаштуваннями, корпоративним доступом, активністю в мережі, додатками, дозволами й даними, пов’язаними з цим профілем, а також історією викликів і пошуку контактів. Щоб дізнатися більше про політику конфіденційності вашої організації тощо, зверніться до ІТ-адміністратора."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7786186939607332934">"Ваш системний адміністратор може керувати налаштуваннями, корпоративним доступом, додатками, дозволами й даними, пов’язаними з пристроєм \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\". До таких даних належать, зокрема, дії в мережі, геодані пристрою, історія викликів і пошуку контактів.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_device" msgid="7786186939607332934">"Ваш системний адміністратор може керувати налаштуваннями, корпоративним доступом, додатками, дозволами й даними, пов’язаними із цим пристроєм <xliff:g id="DEVICE_NAME">%1$s</xliff:g>. До таких даних належать, зокрема, дії в мережі, геодані пристрою, історія викликів і пошуку контактів.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Щоб дізнатися більше про політику конфіденційності організації тощо, зверніться до системного адміністратора."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Щоб користуватися функціями захисту від крадіжок, потрібно ввімкнути блокування екрана за допомогою пароля."</string>
@@ -170,7 +170,7 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Робочі додатки зберігаються в робочому профілі. Ви можете призупинити їх, коли потрібно. ІТ-адміністратор бачить дані у вашому робочому профілі."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Налаштуймо ваш робочий пристрій"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Робочі додатки у вас під рукою"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Пристрій \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\" не особистий"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Цей пристрій <xliff:g id="DEVICE_NAME">%1$s</xliff:g> не особистий"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Системний адміністратор може бачити ваші дані й дії на пристрої \"<xliff:g id="DEVICE_NAME">%1$s</xliff:g>\""</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Ваші дії й дані"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Дозволи для додатків"</string>
