@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<?xml version="1.0" encoding="utf-8"?>
+<!--
 /**
- * Copyright (C) 2014 The Android Open Source Project
+ * Copyright (C) 2016 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,9 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- -->
-
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="cancel_setup_and_factory_reset_dialog_msg" msgid="808442439937994485">"Se termini la configurazione verrà eseguito il ripristino dei dati di fabbrica del dispositivo e verrai reindirizzato alla prima schermata."</string>
-</resources>
+-->
+<com.google.android.setupdesign.GlifRecyclerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/terms_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:sucHeaderText="@string/terms"
+    android:entries="@xml/terms_disclaimer_list_expressive"/>

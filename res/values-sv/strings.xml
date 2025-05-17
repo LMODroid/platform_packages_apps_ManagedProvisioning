@@ -29,7 +29,7 @@
     <string name="next" msgid="1004321437324424398">"Nästa"</string>
     <string name="setting_up_workspace" msgid="7862472373642601041">"Konfigurerar jobbprofilen …"</string>
     <string name="admin_has_ability_to_monitor_profile" msgid="1018585795537086728">"IT-administratören kan övervaka och hantera inställningar, företagsåtkomst, appar, behörigheter, data och nätverksaktivitet för den här profilen, samt din samtalshistorik och sökhistorik i kontakter. Kontakta IT-administratören om du vill få mer information, till exempel om organisationens integritetspolicy."</string>
-    <string name="admin_has_ability_to_monitor_device" msgid="7786186939607332934">"IT-administratören kan övervaka och hantera inställningar, företagsåtkomst, appar och data med koppling till denna <xliff:g id="DEVICE_NAME">%1$s</xliff:g>, inklusive nätverksaktivitet, samt enhetens plats, samtalshistorik och sökhistorik i kontakter.<xliff:g id="LINE_BREAK">
+    <string name="admin_has_ability_to_monitor_device" msgid="7786186939607332934">"IT-administratören kan övervaka och hantera inställningar, företagsåtkomst, appar och data med koppling till denna <xliff:g id="DEVICE_NAME">%1$s</xliff:g>, inklusive nätverksaktivitet samt enhetens plats, samtalshistorik och sökhistorik i kontakter.<xliff:g id="LINE_BREAK">
 
 </xliff:g>Kontakta IT-administratören om du vill få mer information, till exempel om organisationens integritetspolicy."</string>
     <string name="theft_protection_disabled_warning" msgid="3708092473574738478">"Enheten måste ha ett lösenordsskyddat skärmlås för att du ska kunna använda stöldskyddsfunktioner."</string>
