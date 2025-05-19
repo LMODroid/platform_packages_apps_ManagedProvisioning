@@ -36,6 +36,8 @@ import com.android.managedprovisioning.common.SharedPreferences;
 import com.android.managedprovisioning.common.TransitionHelper;
 import com.android.managedprovisioning.common.Utils;
 
+import com.google.android.setupcompat.util.WizardManagerHelper;
+
 /**
  * A UX-less {@link Activity} which is meant to delegate provisioning finalization to either
  * the platform-provided finalization or the device management role holder finalization.
@@ -88,6 +90,7 @@ public class FinalizationForwarderActivity extends Activity implements
         intent.putExtra(
                 RetryLaunchActivity.EXTRA_INTENT_TO_LAUNCH,
                 mFinalizationController.createRoleHolderFinalizationIntent(this, getIntent()));
+        WizardManagerHelper.copyWizardManagerExtras(getIntent(), intent);
         mTransitionHelper.startActivityForResultWithTransition(
                 this,
                 intent,
