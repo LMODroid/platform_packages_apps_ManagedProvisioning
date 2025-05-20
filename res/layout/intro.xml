@@ -32,7 +32,7 @@
             android:layout_height="match_parent"
             android:maxWidth="@dimen/animation_max_size"
             android:maxHeight="@dimen/animation_max_size">
-            <com.airbnb.lottie.LottieAnimationView
+            <com.google.android.setupdesign.view.SudLottieAnimationView
                 android:id="@+id/animation"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
