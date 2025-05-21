@@ -28,6 +28,7 @@ import com.android.managedprovisioning.analytics.MetricsWriterFactory
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker
 import com.android.managedprovisioning.finalization.SendDpcBroadcastService
 import com.android.managedprovisioning.model.ProvisioningParams
+import com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_DEFERRED_SETUP
 import com.google.common.truth.Truth.assertThat
 import org.junit.Ignore
 import org.junit.Test
@@ -115,11 +116,14 @@ class PolicyComplianceUtilsTest {
                 parentActivity,
                 createTrustedSourceParamsBuilder().build(),
                 mUtils,
-                mProvisioningAnalyticsTracker)
+                mProvisioningAnalyticsTracker,
+                SUW_SRC_INTENT)
         val startedIntent = shadowOf(parentActivity).peekNextStartedActivity()
         assertThat(startedIntent.action).isEqualTo(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE)
         assertThat(startedIntent.getPackage()).isEqualTo(TEST_MDM_PACKAGE_NAME)
         assertThat(startedIntent.flags).isEqualTo(NO_FLAGS)
+        assertThat(startedIntent.getBooleanExtra(EXTRA_IS_DEFERRED_SETUP, false))
+            .isTrue()
         assertThat(result).isTrue()
     }
 
@@ -131,7 +135,8 @@ class PolicyComplianceUtilsTest {
                 parentActivity,
                 createTrustedSourceParamsBuilder().build(),
                 mUtils,
-                mProvisioningAnalyticsTracker)
+                mProvisioningAnalyticsTracker,
+                SUW_SRC_INTENT)
         val startedIntent = shadowOf(parentActivity).peekNextStartedActivity()
         assertThat(startedIntent).isNull()
         assertThat(result).isFalse()
@@ -146,11 +151,14 @@ class PolicyComplianceUtilsTest {
                 service,
                 createTrustedSourceParamsBuilder().build(),
                 mUtils,
-                mProvisioningAnalyticsTracker)
+                mProvisioningAnalyticsTracker,
+                SUW_SRC_INTENT)
         val startedIntent = shadowOf(service).peekNextStartedActivity()
         assertThat(startedIntent.action).isEqualTo(DevicePolicyManager.ACTION_ADMIN_POLICY_COMPLIANCE)
         assertThat(startedIntent.getPackage()).isEqualTo(TEST_MDM_PACKAGE_NAME)
         assertThat(startedIntent.flags).isEqualTo(Intent.FLAG_ACTIVITY_NEW_TASK)
+        assertThat(startedIntent.getBooleanExtra(EXTRA_IS_DEFERRED_SETUP, false))
+            .isTrue()
         assertThat(result).isTrue()
     }
 
@@ -187,6 +195,7 @@ class PolicyComplianceUtilsTest {
                 TEST_MDM_ADMIN_RECEIVER)
         private const val POLICY_COMPLIANCE_ACTIVITY_REQUEST_CODE = 123
         private const val NO_FLAGS = 0
+        private val SUW_SRC_INTENT = Intent().putExtra(EXTRA_IS_DEFERRED_SETUP, true)
         private fun createTrustedSourceParamsBuilder(): ProvisioningParams.Builder {
             return ProvisioningParams.Builder.builder()
                     .setProvisioningAction(DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)

@@ -25,6 +25,7 @@ import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
+import androidx.annotation.Nullable;
 
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.model.ProvisioningParams;
@@ -72,7 +73,8 @@ public class PolicyComplianceUtils {
                     }
                     transitionHelper.startActivityForResultAsUserWithTransition(
                             parentActivity, intent, requestCode, userHandle);
-                });
+                },
+                 /* suwSrcIntent= */ null);
     }
 
     /**
@@ -81,24 +83,30 @@ public class PolicyComplianceUtils {
      */
     public boolean startPolicyComplianceActivityIfResolved(Context context,
             ProvisioningParams params, Utils utils,
-            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
+            @Nullable Intent suwSrcIntent) {
         return startPolicyComplianceActivityIfResolvedInternal(
                 context,
                 params,
                 utils,
                 provisioningAnalyticsTracker,
-                context::startActivityAsUser);
+                context::startActivityAsUser,
+                suwSrcIntent);
     }
 
     private boolean startPolicyComplianceActivityIfResolvedInternal(
             Context context, ProvisioningParams params, Utils utils,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
-            BiConsumer<Intent, UserHandle> startActivityFunc) {
+            BiConsumer<Intent, UserHandle> startActivityFunc,
+            @Nullable Intent suwSrcIntent) {
         final UserHandle userHandle = getPolicyComplianceUserHandle(context, params, utils);
         final Intent policyComplianceIntent = getPolicyComplianceIntentIfResolvable(
                 context, params, utils, userHandle);
 
         if (policyComplianceIntent != null) {
+            if (suwSrcIntent != null) {
+                WizardManagerHelper.copyWizardManagerExtras(suwSrcIntent, policyComplianceIntent);
+            }
             startActivityFunc.accept(policyComplianceIntent, userHandle);
             ProvisionLogger.logd(
                     "The DPC POLICY_COMPLIANCE handler was launched on user " + userHandle);
@@ -110,6 +118,7 @@ public class PolicyComplianceUtils {
         return false;
     }
 
+    @Nullable
     private Intent getPolicyComplianceIntentIfResolvable(Context context,
             ProvisioningParams params, Utils utils, UserHandle userHandle) {
         final Intent policyComplianceIntent = getPolicyComplianceIntent(params, context);
