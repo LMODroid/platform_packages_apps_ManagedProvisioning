@@ -23,6 +23,7 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE;
 import static android.app.admin.DevicePolicyManager.PROVISIONING_TRIGGER_MANAGED_ACCOUNT;
 
+import static com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_DEFERRED_SETUP;
 import static com.google.common.truth.Truth.assertThat;
 
 import static org.mockito.ArgumentMatchers.any;
@@ -66,6 +67,8 @@ public class ProvisioningIntentProviderTest {
     private static final PersistableBundle ADMIN_EXTRAS_BUNDLE =
             PersistableBundle.forPair("test_key", "test_value");
     private static final UserHandle WORK_PROFILE_USER_HANDLE = UserHandle.of(10);
+    private static final Intent SUW_SRC_INTENT =
+            new Intent().putExtra(EXTRA_IS_DEFERRED_SETUP, true);
     private static final ProvisioningParams ADMIN_INTEGRATED_FLOW_PARAMS =
             new ProvisioningParams.Builder()
                     .setProvisioningAction(ACTION_PROVISION_MANAGED_DEVICE_FROM_TRUSTED_SOURCE)
@@ -111,12 +114,15 @@ public class ProvisioningIntentProviderTest {
         PolicyComplianceUtils policyComplianceUtils = new PolicyComplianceUtils();
 
         mProvisioningIntentProvider.maybeLaunchDpc(ADMIN_INTEGRATED_FLOW_PARAMS, 0, mUtils,
-                mContext, mProvisioningAnalyticsTracker, policyComplianceUtils, mSettingsFacade);
+                mContext, mProvisioningAnalyticsTracker, policyComplianceUtils,
+                mSettingsFacade, SUW_SRC_INTENT);
 
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mContext).startActivityAsUser(intentCaptor.capture(), any());
         verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(any(), any());
         assertThat(intentCaptor.getValue().getAction()).isEqualTo(ACTION_ADMIN_POLICY_COMPLIANCE);
+        assertThat(intentCaptor.getValue().getBooleanExtra(EXTRA_IS_DEFERRED_SETUP, false))
+                .isTrue();
     }
 
     @Test
@@ -125,12 +131,15 @@ public class ProvisioningIntentProviderTest {
         PolicyComplianceUtils policyComplianceUtils = new PolicyComplianceUtils();
 
         mProvisioningIntentProvider.maybeLaunchDpc(LEGACY_FLOW_PARAMS, 0, mUtils, mContext,
-                mProvisioningAnalyticsTracker, policyComplianceUtils, mSettingsFacade);
+                mProvisioningAnalyticsTracker, policyComplianceUtils, mSettingsFacade,
+                SUW_SRC_INTENT);
 
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mContext).startActivityAsUser(intentCaptor.capture(), any());
         verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(any(), any());
         assertThat(intentCaptor.getValue().getAction()).isEqualTo(ACTION_PROVISIONING_SUCCESSFUL);
+        assertThat(intentCaptor.getValue().getBooleanExtra(EXTRA_IS_DEFERRED_SETUP, false))
+                .isTrue();
     }
 
     @Test
@@ -140,12 +149,14 @@ public class ProvisioningIntentProviderTest {
         PolicyComplianceUtils policyComplianceUtils = new PolicyComplianceUtils();
 
         mProvisioningIntentProvider.maybeLaunchDpc(LEGACY_FLOW_PARAMS, 0, mUtils, mContext,
-                mProvisioningAnalyticsTracker, policyComplianceUtils, mSettingsFacade);
+                mProvisioningAnalyticsTracker, policyComplianceUtils, mSettingsFacade, null);
 
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mContext).startActivityAsUser(intentCaptor.capture(), any());
         verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(any(), any());
         assertThat(intentCaptor.getValue().getAction()).isEqualTo(ACTION_PROVISIONING_SUCCESSFUL);
+        assertThat(intentCaptor.getValue().hasExtra(EXTRA_IS_DEFERRED_SETUP))
+                .isFalse();
     }
 
     @Test
@@ -157,12 +168,15 @@ public class ProvisioningIntentProviderTest {
 
         mProvisioningIntentProvider.maybeLaunchDpc(
                 LEGACY_FLOW_PARAMS, WORK_PROFILE_USER_HANDLE.getIdentifier(), mUtils, mContext,
-                mProvisioningAnalyticsTracker, policyComplianceUtils, mSettingsFacade);
+                mProvisioningAnalyticsTracker, policyComplianceUtils, mSettingsFacade,
+                SUW_SRC_INTENT);
 
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mContext).startActivityAsUser(intentCaptor.capture(), any());
         verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(any(), any());
         assertThat(intentCaptor.getValue().getAction()).isEqualTo(ACTION_ADMIN_POLICY_COMPLIANCE);
+        assertThat(intentCaptor.getValue().getBooleanExtra(EXTRA_IS_DEFERRED_SETUP, false))
+                .isTrue();
     }
 
     @Test
@@ -175,12 +189,15 @@ public class ProvisioningIntentProviderTest {
         mProvisioningIntentProvider.maybeLaunchDpc(
                 LEGACY_FLOW_PARAMS_WITH_PROVISIONING_TRIGGER,
                 WORK_PROFILE_USER_HANDLE.getIdentifier(), mUtils, mContext,
-                mProvisioningAnalyticsTracker, policyComplianceUtils, mSettingsFacade);
+                mProvisioningAnalyticsTracker, policyComplianceUtils, mSettingsFacade,
+                SUW_SRC_INTENT);
 
         ArgumentCaptor<Intent> intentCaptor = ArgumentCaptor.forClass(Intent.class);
         verify(mContext).startActivityAsUser(intentCaptor.capture(), any());
         verify(mProvisioningAnalyticsTracker).logDpcSetupStarted(any(), any());
         assertThat(intentCaptor.getValue().getAction()).isEqualTo(ACTION_PROVISIONING_SUCCESSFUL);
+        assertThat(intentCaptor.getValue().getBooleanExtra(EXTRA_IS_DEFERRED_SETUP, false))
+                .isTrue();
     }
 
     @Test
@@ -188,7 +205,8 @@ public class ProvisioningIntentProviderTest {
         when(mUtils.canResolveIntentAsUser(any(), any(), anyInt())).thenReturn(false);
 
         mProvisioningIntentProvider.maybeLaunchDpc(LEGACY_FLOW_PARAMS, 0, mUtils, mContext,
-                mProvisioningAnalyticsTracker, mPolicyComplianceUtils, mSettingsFacade);
+                mProvisioningAnalyticsTracker, mPolicyComplianceUtils, mSettingsFacade,
+                SUW_SRC_INTENT);
 
         verify(mContext, never()).startActivityAsUser(any(), any());
         verify(mProvisioningAnalyticsTracker, never()).logDpcSetupStarted(any(), any());

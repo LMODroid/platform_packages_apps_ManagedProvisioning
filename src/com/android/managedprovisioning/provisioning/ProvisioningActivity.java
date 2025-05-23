@@ -45,6 +45,7 @@ import com.android.managedprovisioning.common.ThemeHelper.DefaultSetupWizardBrid
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.finalization.PreFinalizationController;
 import com.android.managedprovisioning.finalization.UserProvisioningStateHelper;
+import com.android.managedprovisioning.flags.Flags;
 import com.android.managedprovisioning.model.ProvisioningParams;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationCallback;
 import com.android.managedprovisioning.provisioning.TransitionAnimationHelper.TransitionAnimationStateManager;
@@ -304,8 +305,15 @@ public class ProvisioningActivity extends AbstractProvisioningActivity
     }
 
     private void markDeviceManagementEstablishedAndFinish() {
+        Intent suwIntent = null;
+        if (Flags.enablePassingSuwExtrasToService()
+                || ThemeHelper.shouldApplyGlifExpressiveStyle(this)) {
+            suwIntent = new Intent();
+            WizardManagerHelper.copyWizardManagerExtras(getIntent(), suwIntent);
+            ProvisionLogger.logi("Passing suw intent flags to the service");
+        }
         new PreFinalizationController(this, mUserProvisioningStateHelper)
-                .deviceManagementEstablished(mParams);
+                .deviceManagementEstablished(mParams, suwIntent);
         if (mParams.flowType == ProvisioningParams.FLOW_TYPE_ADMIN_INTEGRATED) {
             if (mUtils.isProfileOwnerAction(mParams.provisioningAction)) {
                 setResult(RESULT_CODE_WORK_PROFILE_CREATED);

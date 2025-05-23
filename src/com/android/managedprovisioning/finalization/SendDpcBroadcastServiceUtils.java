@@ -17,16 +17,18 @@
 package com.android.managedprovisioning.finalization;
 
 import static com.android.managedprovisioning.finalization.SendDpcBroadcastService.EXTRA_PROVISIONING_PARAMS;
+import static com.android.managedprovisioning.finalization.SendDpcBroadcastService.EXTRA_SUW_EXTRAS;
 
 import android.content.Context;
 import android.content.Intent;
+import androidx.annotation.Nullable;
 
 import com.android.managedprovisioning.model.ProvisioningParams;
 
 /**
  * Class containing utility methods for starting up the SendDpcBroadcastService.
  */
-class SendDpcBroadcastServiceUtils {
+public class SendDpcBroadcastServiceUtils {
 
     /**
      * Start a service which notifies the DPC on the managed profile that provisioning has
@@ -34,9 +36,14 @@ class SendDpcBroadcastServiceUtils {
      * profile is ready. The service is needed to prevent the managed provisioning process from
      * getting killed while the user is on the DPC screen.
      */
-    void startSendDpcBroadcastService(Context context, ProvisioningParams params) {
-        context.startService(
-                new Intent(context, SendDpcBroadcastService.class)
-                        .putExtra(EXTRA_PROVISIONING_PARAMS, params));
+    void startSendDpcBroadcastService(
+        Context context, ProvisioningParams params, @Nullable Intent suwSrcIntent) {
+        Intent intent =
+            new Intent(context, SendDpcBroadcastService.class)
+                .putExtra(EXTRA_PROVISIONING_PARAMS, params);
+        if (suwSrcIntent != null) {
+        intent.putExtra(EXTRA_SUW_EXTRAS, suwSrcIntent);
+        }
+        context.startService(intent);
     }
 }

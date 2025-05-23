@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import android.os.UserHandle;
+import androidx.annotation.Nullable;
 
 import com.android.managedprovisioning.analytics.MetricsWriterFactory;
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
@@ -41,14 +42,17 @@ import com.android.managedprovisioning.model.ProvisioningParams;
  */
 public class SendDpcBroadcastService extends Service implements Callback {
 
-    public static String EXTRA_PROVISIONING_PARAMS =
+    public static final String EXTRA_PROVISIONING_PARAMS =
             "com.android.managedprovisioning.PROVISIONING_PARAMS";
+    public static final String EXTRA_SUW_EXTRAS =
+            "com.android.managedprovisioning.SUW_EXTRAS";
     private SettingsFacade mSettingsFacade = new SettingsFacade();
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         final Context context = getApplicationContext();
         ProvisioningParams params = intent.getParcelableExtra(EXTRA_PROVISIONING_PARAMS);
+        Intent suwSrcIntent = intent.getParcelableExtra(EXTRA_SUW_EXTRAS);
         Utils utils = new Utils();
         ProvisioningIntentProvider helper = new ProvisioningIntentProvider();
         UserHandle managedProfileUserHandle = utils.getManagedProfile(context);
@@ -61,13 +65,14 @@ public class SendDpcBroadcastService extends Service implements Callback {
                     context, params, utils, helper, managedProfileUserHandle);
         }
 
-        maybeLaunchDpc(context, params, utils, helper, managedProfileUserHandle);
+        maybeLaunchDpc(context, params, utils, helper, managedProfileUserHandle, suwSrcIntent);
 
         return START_STICKY;
     }
 
     private void maybeLaunchDpc(Context context, ProvisioningParams params, Utils utils,
-            ProvisioningIntentProvider helper, UserHandle managedProfileUserHandle) {
+            ProvisioningIntentProvider helper, UserHandle managedProfileUserHandle,
+            @Nullable Intent suwSrcIntent) {
         final ProvisioningAnalyticsTracker provisioningAnalyticsTracker =
                 new ProvisioningAnalyticsTracker(
                         MetricsWriterFactory.getMetricsWriter(context, mSettingsFacade),
@@ -77,7 +82,7 @@ public class SendDpcBroadcastService extends Service implements Callback {
         helper.maybeLaunchDpc(
                 params, managedProfileUserHandle.getIdentifier(),
                 utils, context, provisioningAnalyticsTracker, policyComplianceUtils,
-                mSettingsFacade);
+                mSettingsFacade, suwSrcIntent);
     }
 
     private void sendDpcReceivedSuccessReceiver(Context context, ProvisioningParams params,
