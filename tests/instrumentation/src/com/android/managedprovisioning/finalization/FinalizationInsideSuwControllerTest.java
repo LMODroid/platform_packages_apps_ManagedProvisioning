@@ -23,6 +23,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ADMIN_EXT
 
 import static com.android.managedprovisioning.TestUtils.createTestAdminExtras;
 
+import static com.google.android.setupcompat.util.WizardManagerHelper.EXTRA_IS_DEFERRED_SETUP;
 import static com.google.common.truth.Truth.assertThat;
 
 import static org.mockito.ArgumentMatchers.anyString;
@@ -79,9 +80,12 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
             TEST_MDM_ADMIN_RECEIVER);
     private static final PersistableBundle TEST_MDM_EXTRA_BUNDLE = createTestAdminExtras();
     private static final Account TEST_ACCOUNT = new Account("test@account.com", "account.type");
-    private static final Intent ACTIVITY_INTENT =
-            new Intent("android.app.action.PROVISION_FINALIZATION_INSIDE_SUW");
 
+    private static final Intent SUW_SRC_INTENT =
+         new Intent().putExtra(EXTRA_IS_DEFERRED_SETUP, true);
+    private static final Intent ACTIVITY_INTENT =
+            new Intent("android.app.action.PROVISION_FINALIZATION_INSIDE_SUW")
+                    .putExtra(EXTRA_IS_DEFERRED_SETUP, true);
     @Mock private Activity mActivity;
     @Mock private Utils mUtils;
     @Mock private SettingsFacade mSettingsFacade;
@@ -192,7 +196,7 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         when(mUtils.getManagedProfile(mActivity)).thenReturn(MANAGED_PROFILE_USER_HANDLE);
 
         // WHEN calling deviceManagementEstablished
-        mPreFinalizationController.deviceManagementEstablished(params);
+        mPreFinalizationController.deviceManagementEstablished(params, SUW_SRC_INTENT);
 
         // THEN the user provisioning state should be marked as initially done
         verify(mHelper).markUserProvisioningStateInitiallyDone(params);
@@ -275,7 +279,7 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         when(mSettingsFacade.isDuringSetupWizard(mActivity)).thenReturn(true);
 
         // WHEN calling deviceManagementEstablished
-        mPreFinalizationController.deviceManagementEstablished(params);
+        mPreFinalizationController.deviceManagementEstablished(params, SUW_SRC_INTENT);
 
         // THEN the user provisioning state should be marked as initially done
         verify(mHelper).markUserProvisioningStateInitiallyDone(params);
@@ -383,7 +387,7 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
         when(profileContext.getSystemService(DevicePolicyManager.class)).thenReturn(mockProfileDpm);
 
         // WHEN calling deviceManagementEstablished
-        mPreFinalizationController.deviceManagementEstablished(params);
+        mPreFinalizationController.deviceManagementEstablished(params, SUW_SRC_INTENT);
 
         // THEN the user provisioning state should be marked as initially done
         verify(mHelper).markUserProvisioningStateInitiallyDone(params);
@@ -452,6 +456,7 @@ public class FinalizationInsideSuwControllerTest extends AndroidTestCase {
     private void assertExtras(Intent intent) {
         assertTrue(TestUtils.bundleEquals(TEST_MDM_EXTRA_BUNDLE,
                 (PersistableBundle) intent.getExtra(EXTRA_PROVISIONING_ADMIN_EXTRAS_BUNDLE)));
+        assertThat(intent.getBooleanExtra(EXTRA_IS_DEFERRED_SETUP, false)).isTrue();
     }
 
     private ProvisioningParams createProvisioningParams(String action, boolean migrateAccount) {

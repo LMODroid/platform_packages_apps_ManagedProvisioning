@@ -21,6 +21,8 @@ import static android.app.admin.DevicePolicyManager.ACTION_PROVISION_MANAGED_PRO
 import static com.android.internal.util.Preconditions.checkNotNull;
 
 import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.Nullable;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.managedprovisioning.common.ProvisionLogger;
@@ -94,8 +96,10 @@ public final class PreFinalizationController {
      * <p>Note that fully managed device provisioning is only possible during SUW.
      *
      * @param params the provisioning params
+     * @param suwSrcIntent Intent to get the wizard manager extras from.
      */
-    public final void deviceManagementEstablished(ProvisioningParams params) {
+    public final void deviceManagementEstablished(ProvisioningParams params,
+         @Nullable Intent suwSrcIntent) {
         if (!mUserProvisioningStateHelper.isStateUnmanagedOrFinalized()) {
             // In any other state than STATE_USER_SETUP_FINALIZED, STATE_USER_PROFILE_FINALIZED and
             // STATE_USER_UNMANAGED, we've already run this method, so don't do anything.
@@ -110,7 +114,8 @@ public final class PreFinalizationController {
                 // If a managed profile was provisioned and the provisioning initiator has requested
                 // managed profile provisioning and DPC setup to happen in one step, notify the
                 // DPC straight away.
-                mSendDpcBroadcastServiceUtils.startSendDpcBroadcastService(mContext, params);
+                mSendDpcBroadcastServiceUtils.startSendDpcBroadcastService(mContext,
+                    params, suwSrcIntent);
             }
         }
         if (params.returnBeforePolicyCompliance) {

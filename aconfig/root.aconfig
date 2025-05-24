@@ -45,3 +45,10 @@ flag {
   description: "Stop TalkBack disruptive announcement for the header of the work profile education screens"
   bug: "386334889"
 }
+
+flag {
+  name: "enable_passing_suw_extras_to_service"
+  namespace: "enterprise"
+  description: "Enables passingass suw extras from the activity to the service which launches the dpc."
+  bug: "73431128"
+}
