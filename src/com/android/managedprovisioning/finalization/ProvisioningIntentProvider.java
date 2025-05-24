@@ -28,6 +28,7 @@ import android.annotation.NonNull;
 import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
+import androidx.annotation.Nullable;
 
 import com.android.managedprovisioning.analytics.ProvisioningAnalyticsTracker;
 import com.android.managedprovisioning.common.ColorPaletteHelper;
@@ -39,6 +40,8 @@ import com.android.managedprovisioning.common.SettingsFacade;
 import com.android.managedprovisioning.common.Utils;
 import com.android.managedprovisioning.model.ProvisioningParams;
 
+import com.google.android.setupcompat.util.WizardManagerHelper;
+
 import java.util.HashMap;
 
 /**
@@ -48,14 +51,17 @@ class ProvisioningIntentProvider {
     void maybeLaunchDpc(ProvisioningParams params, int userId, Utils utils, Context context,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
             PolicyComplianceUtils policyComplianceUtils,
-            SettingsFacade settingsFacade) {
+            SettingsFacade settingsFacade,
+            @Nullable Intent suwSrcIntent) {
         if (shouldLaunchPolicyCompliance(
                 context, settingsFacade, params, policyComplianceUtils, utils, userId)) {
             launchPolicyComplianceDpcHandler(
-                    context, params, utils, provisioningAnalyticsTracker, policyComplianceUtils);
+                    context, params, utils, provisioningAnalyticsTracker,
+                    policyComplianceUtils, suwSrcIntent);
         } else {
             launchProvisioningSuccessfulDpcHandler(
-                    params, userId, utils, context, provisioningAnalyticsTracker);
+                    params, userId, utils, context, provisioningAnalyticsTracker,
+                    suwSrcIntent);
         }
     }
 
@@ -84,18 +90,23 @@ class ProvisioningIntentProvider {
     private void launchPolicyComplianceDpcHandler(
             Context context, ProvisioningParams params, Utils utils,
             ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
-            PolicyComplianceUtils policyComplianceUtils) {
+            PolicyComplianceUtils policyComplianceUtils,
+            @Nullable Intent suwSrcIntent) {
         policyComplianceUtils.startPolicyComplianceActivityIfResolved(
-                context, params, utils, provisioningAnalyticsTracker);
+                context, params, utils, provisioningAnalyticsTracker, suwSrcIntent);
     }
 
     private void launchProvisioningSuccessfulDpcHandler(ProvisioningParams params, int userId,
             Utils utils, Context context,
-            ProvisioningAnalyticsTracker provisioningAnalyticsTracker) {
+            ProvisioningAnalyticsTracker provisioningAnalyticsTracker,
+            @Nullable Intent suwSrcIntent) {
         final Intent dpcLaunchIntent = createDpcLaunchIntent(params, context, utils);
         if (utils.canResolveIntentAsUser(context, dpcLaunchIntent, userId)) {
-            context.startActivityAsUser(
-                    createDpcLaunchIntent(params, context, utils), UserHandle.of(userId));
+            Intent createDpcLaunchIntent = createDpcLaunchIntent(params, context, utils);
+            if (suwSrcIntent != null) {
+                WizardManagerHelper.copyWizardManagerExtras(suwSrcIntent, createDpcLaunchIntent);
+            }
+            context.startActivityAsUser(createDpcLaunchIntent, UserHandle.of(userId));
             ProvisionLogger.logd("Dpc was launched for user: " + userId);
             provisioningAnalyticsTracker.logDpcSetupStarted(context, dpcLaunchIntent.getAction());
         }
