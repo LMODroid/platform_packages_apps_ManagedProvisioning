@@ -45,19 +45,19 @@ abstract class LandingActivityBridgeImpl implements LandingActivityBridge {
 
     @Override
     public void initiateUi(Activity activity) {
-        int headerResId = R.string.brand_screen_header;
         CharSequence deviceName = DeviceHelper.getDeviceName(activity.getApplicationContext());
         String title = activity.getString(R.string.setup_device_progress, deviceName);
+        String headerText = activity.getString(R.string.brand_screen_header, deviceName);
 
         if (shouldShowAccountManagementDisclaimer(
                 getParams().initiatorRequestedProvisioningModes, getUtils())) {
-            headerResId = R.string.account_management_disclaimer_header;
+            headerText = activity.getString(R.string.account_management_disclaimer_header);
         }
 
         CustomizationParams customizationParams =
                 CustomizationParams.createInstance(getParams(), activity, getUtils());
         getInitializeLayoutParamsConsumer()
-                .initializeLayoutParams(R.layout.landing_screen, headerResId);
+                .initializeLayoutParams(R.layout.landing_screen, headerText);
         activity.setTitle(title);
 
         setupSubtitleText(activity, getParams(), customizationParams);
