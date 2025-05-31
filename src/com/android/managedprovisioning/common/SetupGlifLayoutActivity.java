@@ -25,6 +25,7 @@ import android.text.Layout;
 import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.widget.TextView;
+import androidx.annotation.LayoutRes;
 import androidx.annotation.VisibleForTesting;
 import com.android.managedprovisioning.R;
 import com.google.android.setupdesign.GlifLayout;
@@ -57,13 +58,27 @@ public abstract class SetupGlifLayoutActivity extends SetupLayoutActivity {
         theme.applyStyle(R.style.SetupWizardPartnerResource, true);
         super.onApplyThemeResource(theme, resid, first);
     }
+    protected void initializeLayoutParams(
+        @LayoutRes int layoutResourceId,
+        @Nullable CharSequence headerText) {
+        initializeLayoutInternal(layoutResourceId, null, headerText);
+    }
 
     protected void initializeLayoutParams(
-            int layoutResourceId, @Nullable Integer headerResourceId) {
+        @LayoutRes int layoutResourceId,
+        @Nullable Integer headerResourceId) {
+        initializeLayoutInternal(layoutResourceId, headerResourceId, null);
+    }
+
+    protected void initializeLayoutInternal(
+            int layoutResourceId, @Nullable Integer headerResourceId,
+            @Nullable CharSequence headerText) {
         setContentView(layoutResourceId);
         GlifLayout layout = findViewById(R.id.setup_wizard_layout);
 
-        if (headerResourceId != null) {
+        if (headerText != null) {
+            layout.setHeaderText(headerText);
+        } else if (headerResourceId != null) {
             layout.setHeaderText(headerResourceId);
         }
 

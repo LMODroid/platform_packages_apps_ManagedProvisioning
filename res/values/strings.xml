@@ -328,7 +328,7 @@
 
   <!-- Organization brand screen -->
   <!-- Screen title. This is letting the user know that their organization (e.g. company) owns the device. [CHAR LIMIT=NONE]-->
-  <string name="brand_screen_header">This device belongs to your organization</string>
+  <string name="brand_screen_header">This <xliff:g id="device_name" example="Pixel">%1$s</xliff:g> belongs to your organization</string>
   <!-- Subtext on a screen. This is letting the user know that their organization (e.g. company) will manage their device, and it's introducing the management app that their IT admin will use. [CHAR LIMIT=NONE]-->
   <string name="brand_screen_subheader">The following app will be used to manage and monitor this phone</string>
   <!-- Screen title. This is letting the user know that the user's account will be managed on their new device. [CHAR LIMIT=NONE]-->

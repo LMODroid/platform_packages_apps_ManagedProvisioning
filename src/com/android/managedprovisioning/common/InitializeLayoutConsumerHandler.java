@@ -31,5 +31,5 @@ public interface InitializeLayoutConsumerHandler {
      */
     void initializeLayoutParams(
             @LayoutRes int layoutRes,
-            @Nullable @StringRes Integer headerRes);
+            @Nullable CharSequence headerText);
 }

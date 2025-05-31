@@ -54,6 +54,7 @@ android_library {
         "setupdesign",
         "managedprovisioning_protoslite",
         "androidx.webkit_webkit",
+        "setupdesign-lottie-animation-view",
         "setupdesign-lottie-loading-layout",
         "lottie",
         "guava",
