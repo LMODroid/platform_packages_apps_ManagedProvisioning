@@ -82,6 +82,18 @@ public class TouchTargetEnforcer {
                             if (ancestor.getTouchDelegate() == null) {
                                 ancestor.setTouchDelegate(
                                         mTouchDelegateProvider.getInstance(bounds, target));
+                                // Add bottom padding to the target to prevent the expanded touch
+                                // area from being clipped. Top padding is sufficient to prevent
+                                // clipping because the container is large enough.
+                                // This is particularly important for targets at the bottom of the
+                                // layout, such as description views.
+                                int startPadding = target.getPaddingStart();
+                                int topPadding = target.getPaddingTop();
+                                int endPadding = target.getPaddingEnd();
+                                int bottomPadding =
+                                        Math.max(target.getPaddingBottom(), deltaHeight / 2);
+                                target.setPaddingRelative(
+                                        startPadding, topPadding, endPadding, bottomPadding);
                                 ProvisionLogger.logd(String.format(
                                         "Successfully set touch delegate on ancestor %s "
                                                 + "delegating to target %s.",
