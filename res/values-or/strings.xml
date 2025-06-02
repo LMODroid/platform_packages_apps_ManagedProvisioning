@@ -157,7 +157,8 @@
     <string name="device_owner_description" msgid="168013145812679664">"ଏହି ଡିଭାଇସ୍‌କୁ ସୁରକ୍ଷିତ ରଖାଯିବ ଏବଂ ଆପଣଙ୍କ ସଂସ୍ଥା ଦ୍ଵାରା ପରିଚାଳିତ ହେବ"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"ୱର୍କ ଡିଭାଇସ୍ ସେଟ୍ ଅପ୍ କରିବାକୁ ପ୍ରସ୍ତୁତ ହେଉଛି…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"ବ୍ୟବସ୍ଥାପକ ଆପ୍ ସେଟ‍୍‌ ଅପ୍ କରାଯାଉଛି"</string>
-    <string name="brand_screen_header" msgid="8865808542690116648">"ଏହି ଡିଭାଇସ୍ ଆପଣଙ୍କ ସଂସ୍ଥାର ଅନ୍ତର୍ଗତ ଅଟେ"</string>
+    <!-- no translation found for brand_screen_header (216501013773864020) -->
+    <skip />
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ଏହି ଫୋନ୍‌କୁ ପରିଚଳନା ଏବଂ ମନିଟର୍ କରିବାକୁ ନିମ୍ନୋକ୍ତ ଆପ୍‌ର ବ୍ୟବହାର ହେବ"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"ଆପଣଙ୍କ ଆକାଉଣ୍ଟଟି ପରିଚାଳିତ ହେଉଛି"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"ସୁରକ୍ଷା ନୀତିଗୁଡ଼ିକୁ ଲାଗୁ କରିବା ପାଇଁ ଆପଣଙ୍କ IT ଆଡମିନ ମୋବାଇଲ ପରିଚାଳନା ବ୍ୟବହାର କରନ୍ତି"</string>
