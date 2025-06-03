@@ -157,7 +157,8 @@
     <string name="device_owner_description" msgid="168013145812679664">"Cet appareil sera sécurisé et géré par votre organisation"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Préparation de l\'appareil professionnel en cours…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Configuration de l\'appli d\'administration en cours…"</string>
-    <string name="brand_screen_header" msgid="8865808542690116648">"Cet appareil appartient à votre organisation"</string>
+    <!-- no translation found for brand_screen_header (216501013773864020) -->
+    <skip />
     <string name="brand_screen_subheader" msgid="7664792208784456436">"L\'appli suivante sera utilisée pour gérer et surveiller ce téléphone"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Votre compte est géré"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Votre administrateur informatique utilise la gestion des appareils mobiles pour appliquer obligatoirement les politiques de sécurité"</string>

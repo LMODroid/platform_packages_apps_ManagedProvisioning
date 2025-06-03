@@ -157,7 +157,7 @@
     <string name="device_owner_description" msgid="168013145812679664">"ഈ ഉപകരണം സുരക്ഷിതമായി സൂക്ഷിക്കപ്പെടും, ഒപ്പം നിങ്ങളുടെ ഓര്‍ഗനൈസേഷന്‍ അത് മാനേജും ചെയ്യും"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"ഔദ്യോഗിക ഉപകരണം സജ്ജീകരിക്കാൻ തയ്യാറെടുക്കുന്നു…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"അഡ്‌മിൻ ആപ്പ്, സജ്ജീകരിക്കുന്നു"</string>
-    <string name="brand_screen_header" msgid="8865808542690116648">"ഈ ഉപകരണം നിങ്ങളുടെ സ്ഥാപനത്തിന്റെ ഉടമസ്ഥതയിലാണ്"</string>
+    <string name="brand_screen_header" msgid="216501013773864020">"ഈ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> നിങ്ങളുടെ സ്ഥാപനത്തിന്റേതാണ്"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ഈ ഫോൺ മാനേജ് ചെയ്യാനും നിരീക്ഷിക്കാനുമായി ഇനിപ്പറയുന്ന ആപ്പ് ഉപയോഗിക്കും"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"നിങ്ങളുടെ അക്കൗണ്ട് മാനേജ് ചെയ്യും"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"സുരക്ഷാ നയങ്ങൾ നടപ്പിലാക്കാൻ നിങ്ങളുടെ ഐടി അഡ്‌മിൻ, മൊബെെൽ മാനേജ് ചെയ്യൽ ഉപയോഗിക്കുന്നു"</string>
