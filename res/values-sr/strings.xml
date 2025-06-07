@@ -157,8 +157,7 @@
     <string name="device_owner_description" msgid="168013145812679664">"Организација ће штитити овај уређај и управљаће њиме"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Припрема се подешавање уређаја за посао…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Апликација за администраторе се подешава"</string>
-    <!-- no translation found for brand_screen_header (216501013773864020) -->
-    <skip />
+    <string name="brand_screen_header" msgid="216501013773864020">"Уређај <xliff:g id="DEVICE_NAME">%1$s</xliff:g> припада организацији"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Следећа апликација ће се користити за праћење овог телефона и управљање њимe"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Налогом се управља"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"ИТ администратор користи управљање мобилним уређајима да би примењивао безбедносне смернице"</string>

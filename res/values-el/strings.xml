@@ -157,8 +157,7 @@
     <string name="device_owner_description" msgid="168013145812679664">"Αυτή η συσκευή θα παραμείνει ασφαλής και διαχειριζόμενη από τον οργανισμό σας"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Προετοιμασία για ρύθμιση συσκευής εργασίας…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Ρύθμιση εφαρμογής διαχειριστή"</string>
-    <!-- no translation found for brand_screen_header (216501013773864020) -->
-    <skip />
+    <string name="brand_screen_header" msgid="216501013773864020">"Αυτή η συσκευή <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ανήκει στον οργανισμό σας"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Η παρακάτω εφαρμογή θα χρησιμοποιηθεί για τη διαχείριση και την παρακολούθηση αυτού του τηλεφώνου"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Ο λογαριασμός σας είναι διαχειριζόμενος"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Ο διαχειριστής IT χρησιμοποιεί τη διαχείριση κινητών συσκευών για την επιβολή πολιτικών ασφαλείας"</string>

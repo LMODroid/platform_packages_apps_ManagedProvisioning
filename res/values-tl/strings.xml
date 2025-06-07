@@ -157,8 +157,7 @@
     <string name="device_owner_description" msgid="168013145812679664">"Ang device na ito ay pamamahalaan at pananatilihing secure ng iyong organisasyon"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Naghahandang i-set up ang device sa trabaho…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Sine-set up ang admin app"</string>
-    <!-- no translation found for brand_screen_header (216501013773864020) -->
-    <skip />
+    <string name="brand_screen_header" msgid="216501013773864020">"Pagmamay-ari ng iyong organisasyon ang <xliff:g id="DEVICE_NAME">%1$s</xliff:g> na ito"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Gagamitin ang sumusunod na app para pamahalaan at subaybayan ang teleponong ito"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Pinamamahalaan ang iyong account"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Gumagamit ang iyong IT admin ng pamamahala ng mobile para magpatupad ng mga patakaran sa seguridad"</string>
