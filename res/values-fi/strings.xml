@@ -157,7 +157,7 @@
     <string name="device_owner_description" msgid="168013145812679664">"Organisaatiosi vastaa laitteen turvallisuudesta ja hallinnoi sitä."</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Valmistellaan työlaitteen määritystä…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Hallintasovellusta määritetään"</string>
-    <string name="brand_screen_header" msgid="8865808542690116648">"Tämä on organisaatiosi laite"</string>
+    <string name="brand_screen_header" msgid="216501013773864020">"Tämä <xliff:g id="DEVICE_NAME">%1$s</xliff:g> kuuluu organisaatiollesi"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Tätä puhelinta ylläpidetään ja valvotaan seuraavalla sovelluksella"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Tiliäsi hallinnoidaan"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Järjestelmänvalvoja käyttää mobiilihallintaa suojauskäytäntöjen täytäntöönpanossa"</string>

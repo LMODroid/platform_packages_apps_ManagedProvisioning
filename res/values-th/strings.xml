@@ -157,7 +157,7 @@
     <string name="device_owner_description" msgid="168013145812679664">"อุปกรณ์นี้จะได้รับการรักษาความปลอดภัยและจัดการโดยองค์กรของคุณ"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"กำลังเตรียมตั้งค่าอุปกรณ์สำหรับการทำงาน…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"กำลังตั้งค่าแอปผู้ดูแลระบบ"</string>
-    <string name="brand_screen_header" msgid="8865808542690116648">"องค์กรของคุณเป็นเจ้าของอุปกรณ์นี้"</string>
+    <string name="brand_screen_header" msgid="216501013773864020">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> นี้เป็นขององค์กรคุณ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"แอปต่อไปนี้จะใช้เพื่อจัดการและตรวจสอบโทรศัพท์เครื่องนี้"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"บัญชีของคุณได้รับการจัดการแล้ว"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"ผู้ดูแลระบบไอทีจะใช้การจัดการอุปกรณ์เคลื่อนที่เพื่อบังคับใช้นโยบายด้านความปลอดภัย"</string>

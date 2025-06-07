@@ -157,7 +157,7 @@
     <string name="device_owner_description" msgid="168013145812679664">"Jou organisasie sal hierdie toestel veilig hou en bestuur"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"Maak tans gereed om werktoestel op te stel …"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"Stel tans administrasieprogram op"</string>
-    <string name="brand_screen_header" msgid="8865808542690116648">"Hierdie toestel behoort aan jou organisasie"</string>
+    <string name="brand_screen_header" msgid="216501013773864020">"Hierdie <xliff:g id="DEVICE_NAME">%1$s</xliff:g> behoort aan jou organisasie"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"Die volgende app sal gebruik word om hierdie foon te bestuur en te monitor"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"Jou rekening word bestuur"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"Jou IT-admin gebruik mobiele bestuur om sekuriteitbeleide toe te pas"</string>

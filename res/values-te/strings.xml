@@ -157,7 +157,7 @@
     <string name="device_owner_description" msgid="168013145812679664">"ఈ పరికరం సురక్షితంగా ఉంచబడుతుంది మరియు మీ సంస్థ ద్వారా నిర్వహించబడతాయి"</string>
     <string name="setup_provisioning_header" msgid="4282483198266806271">"ఆఫీసు పరికరాన్ని సెటప్ చేయడానికి సన్నద్ధం చేస్తోంది…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"నిర్వాహక యాప్‌ని సెటప్ చేయడం"</string>
-    <string name="brand_screen_header" msgid="8865808542690116648">"ఇది మీ సంస్థకు చెందిన పరికరం"</string>
+    <string name="brand_screen_header" msgid="216501013773864020">"ఈ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> మీ సంస్థకు చెందినది"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"ఈ ఫోన్‌ని నిర్వహించేందుకు మరియు పర్యవేక్షించడానికి ఈ యాప్‌ ఉపయోగపడుతుంది"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"మీ ఖాతా మేనేజ్ చేయబడుతోంది"</string>
     <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"సెక్యూరిటీ పాలసీలను అమలు చేయడానికి మీ IT అడ్మిన్, మొబైల్ మేనేజ్‌మెంట్‌ను ఉపయోగిస్తారు"</string>
