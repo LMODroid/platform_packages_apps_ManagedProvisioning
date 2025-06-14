@@ -200,6 +200,10 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
             "a.a.e.PDAPDL";
 
     @VisibleForTesting
+    static final String EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION_SHORT =
+            "a.a.e.PRHPDL";
+
+    @VisibleForTesting
     static final String EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT = "a.a.e.PON";
 
     @VisibleForTesting
@@ -213,10 +217,17 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
             "a.a.e.PDAPDCH";
 
     @VisibleForTesting
+    static final String EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER_SHORT =
+            "a.a.e.PRHPDCH";
+
+    @VisibleForTesting
     static final String EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM_SHORT = "a.a.e.PDAPC";
 
     @VisibleForTesting
     static final String EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM_SHORT = "a.a.e.PDASC";
+
+    @VisibleForTesting
+    static final String EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM_SHORT = "a.a.e.PRHSC";
 
     @VisibleForTesting
     static final String EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT = "a.a.e.PSE";
@@ -303,6 +314,9 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION,
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_LOCATION_SHORT);
         shorterExtras.put(
+                EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION,
+                EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION_SHORT);
+        shorterExtras.put(
                 EXTRA_PROVISIONING_ORGANIZATION_NAME, EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_SUPPORT_URL, EXTRA_PROVISIONING_SUPPORT_URL_SHORT);
@@ -313,11 +327,17 @@ public class ExtrasProvisioningDataParser implements ProvisioningDataParser {
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER,
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_DOWNLOAD_COOKIE_HEADER_SHORT);
         shorterExtras.put(
+                EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
+                EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER_SHORT);
+        shorterExtras.put(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM,
                 EXTRA_PROVISIONING_DEVICE_ADMIN_PACKAGE_CHECKSUM_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM,
                 EXTRA_PROVISIONING_DEVICE_ADMIN_SIGNATURE_CHECKSUM_SHORT);
+        shorterExtras.put(
+                EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM,
+                EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM_SHORT);
         shorterExtras.put(
                 EXTRA_PROVISIONING_SKIP_ENCRYPTION, EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT);
         shorterExtras.put(

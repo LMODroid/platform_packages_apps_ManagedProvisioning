@@ -40,6 +40,7 @@ import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ORGANIZAT
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_RETURN_BEFORE_POLICY_COMPLIANCE;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION;
+import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_EDUCATION_SCREENS;
 import static android.app.admin.DevicePolicyManager.EXTRA_PROVISIONING_SKIP_ENCRYPTION;
@@ -93,6 +94,9 @@ import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParse
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCALE_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_LOCAL_TIME_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ORGANIZATION_NAME_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION_SHORT;
+import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SENSORS_PERMISSION_GRANT_OPT_OUT_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SKIP_ENCRYPTION_SHORT;
 import static com.android.managedprovisioning.parser.ExtrasProvisioningDataParser.EXTRA_PROVISIONING_SUPPORT_URL_SHORT;
@@ -1089,7 +1093,27 @@ public class ExtrasProvisioningDataParserTest extends AndroidTestCase {
                         TEST_DOWNLOAD_LOCATION)
                 .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER,
                         TEST_COOKIE_HEADER)
-                .putExtra(DevicePolicyManager.EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM,
+                .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM,
+                        TEST_SIGNATURE_CHECKSUM_STRING);
+        mockInstalledDeviceAdminForTestPackageName();
+
+        ProvisioningParams params = mExtrasProvisioningDataParser.parse(intent);
+
+        assertThat(params.roleHolderDownloadInfo).isNotNull();
+        assertThat(params.roleHolderDownloadInfo.location).isEqualTo(TEST_DOWNLOAD_LOCATION);
+        assertThat(params.roleHolderDownloadInfo.signatureChecksum)
+                .isEqualTo(TEST_SIGNATURE_CHECKSUM);
+        assertThat(params.roleHolderDownloadInfo.cookieHeader).isEqualTo(TEST_COOKIE_HEADER);
+    }
+
+    public void testParse_trustedSourceProvisioningWithShortRoleHolderDownloadInfo_works()
+            throws IllegalProvisioningArgumentException {
+        Intent intent = buildTestTrustedSourceIntent()
+                .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_LOCATION_SHORT,
+                        TEST_DOWNLOAD_LOCATION)
+                .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_PACKAGE_DOWNLOAD_COOKIE_HEADER_SHORT,
+                        TEST_COOKIE_HEADER)
+                .putExtra(EXTRA_PROVISIONING_ROLE_HOLDER_SIGNATURE_CHECKSUM_SHORT,
                         TEST_SIGNATURE_CHECKSUM_STRING);
         mockInstalledDeviceAdminForTestPackageName();
 
