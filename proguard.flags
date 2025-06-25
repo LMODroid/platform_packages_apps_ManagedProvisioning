@@ -57,3 +57,14 @@
     public *;
     *;
 }
+
+# Keep all R.color fields prefixed with "sud_system_". These are used via
+# reflection by the setupdesign library for dynamic theming and are
+# incorrectly stripped by the resource shrinker (b/409265937).
+-keep class **.R$color {
+    public static final int sud_system_*;
+}
+
+-keep class **.R$style {
+    public static final int *;
+}
