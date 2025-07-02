@@ -160,7 +160,7 @@
     <string name="brand_screen_header" msgid="216501013773864020">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> นี้เป็นขององค์กรคุณ"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"แอปต่อไปนี้จะใช้เพื่อจัดการและตรวจสอบโทรศัพท์เครื่องนี้"</string>
     <string name="account_management_disclaimer_header" msgid="8013083414694316564">"บัญชีของคุณได้รับการจัดการแล้ว"</string>
-    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"ผู้ดูแลระบบไอทีจะใช้การจัดการอุปกรณ์เคลื่อนที่เพื่อบังคับใช้นโยบายด้านความปลอดภัย"</string>
+    <string name="account_management_disclaimer_subheader" msgid="8991450067243733878">"ผู้ดูแลระบบไอทีจะใช้การจัดการมือถือเพื่อบังคับใช้นโยบายด้านความปลอดภัย"</string>
     <string name="downloading_administrator_header" msgid="8660294318893902915">"กำลังเตรียมอุปกรณ์เพื่อตั้งค่าสำหรับการทำงาน…"</string>
     <string name="work_profile_provisioning_accept_header_post_suw" msgid="1353127953275291089">"เริ่มตั้งค่าโปรไฟล์งานกันเลย"</string>
     <string name="work_profile_provisioning_step_1_header" msgid="7914961694921466366">"แอปงานเก็บอยู่ในโปรไฟล์งาน"</string>
