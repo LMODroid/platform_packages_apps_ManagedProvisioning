@@ -66,7 +66,7 @@
     <string name="pick_launcher" msgid="4257084827403983845">"OK"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"အသုံးပြုသူ ပြင်ဆင်သတ်မှတ်မှု မပြီးစီးပါ"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"အလုပ်စက်ပစ္စည်း အသုံးပြုသူ"</string>
-    <string name="setup_work_device" msgid="6003988351437862369">"အလုပ်စက်ပစ္စည်းကို ပြင်ဆင်သတ်မှတ်နေပါသည်…"</string>
+    <string name="setup_work_device" msgid="6003988351437862369">"ရုံးပိုင်စက်ပစ္စည်းကို စနစ်ထည့်သွင်းနေပါသည်…"</string>
     <string name="device_doesnt_allow_encryption_contact_admin" msgid="410347019947997299">"ဤ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> သည် စနစ်ထည့်သွင်းမှုအတွက် လိုအပ်သော အသွင်ဝှက်ခြင်းကို ခွင့်မပြုပါ။ အကူအညီရယူရန် သင်၏ IT စီမံခန့်ခွဲသူကို ဆက်သွယ်ပါ။"</string>
     <string name="stop_setup_reset_device_question" msgid="2323844935990001069">"စနစ်ထည့်သွင်းမှုရပ်ပြီး <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ကို ပြင်ဆင်သတ်မှတ်မလား။"</string>
     <string name="this_will_reset_take_back_first_screen" msgid="5881727570968119259">"၎င်းက သင်၏ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ကို ပြင်ဆင်သတ်မှတ်ပြီး သင့်ကို ပထမဆုံးစခရင်သို့ ပြန်ပို့ပေးပါမည်"</string>
@@ -155,7 +155,7 @@
     <string name="take_a_few_minutes" msgid="6282806501305322838">"မိနစ်အနည်းငယ် ကြာနိုင်ပါသည်"</string>
     <string name="work_profile_description" msgid="8524116010729569213">"အလုပ်အက်ပ်များကို ဤပရိုဖိုင်တွင် ထားရှိမည်ဖြစ်ပြီး သင်၏အဖွဲ့အစည်းက စီမံခန့်ခွဲပါမည်"</string>
     <string name="device_owner_description" msgid="168013145812679664">"ဤစက်ပစ္စည်းကို သင်၏ အဖွဲ့အစည်းက လုံခြုံအောင်ထားပြီး စီမံခန့်ခွဲသွားပါမည်"</string>
-    <string name="setup_provisioning_header" msgid="4282483198266806271">"အလုပ်သုံးကိရိယာ စနစ်ထည့်သွင်းရန် ပြင်ဆင်နေသည်…"</string>
+    <string name="setup_provisioning_header" msgid="4282483198266806271">"ရုံးပိုင်စက်ပစ္စည်း စနစ်ထည့်သွင်းရန် ပြင်ဆင်နေသည်…"</string>
     <string name="setup_provisioning_header_description" msgid="2567041263563823566">"စီမံခန့်ခွဲသူအက်ပ် စနစ်ထည့်သွင်းနေသည်"</string>
     <string name="brand_screen_header" msgid="216501013773864020">"ဤ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ကို သင့်အဖွဲ့အစည်းက ပိုင်သည်"</string>
     <string name="brand_screen_subheader" msgid="7664792208784456436">"အောက်ပါအက်ပ် အသုံးပြု၍ ဤဖုန်းကို စီမံခန့်ခွဲခြင်း၊ စောင့်ကြည့်ခြင်းတို့ ပြုလုပ်ပါမည်"</string>
@@ -168,9 +168,9 @@
     <string name="work_profile_provisioning_step_3_header" msgid="4316106639726774330">"သင့်အလုပ်ပရိုဖိုင်ရှိ ဒေတာများကို သင်၏ IT စီမံခန့်ခွဲသူက မြင်ရပါသည်"</string>
     <string name="work_profile_provisioning_progress_label" msgid="2627905308998389193">"သင်၏အလုပ်ပရိုဖိုင်ကို ထည့်သွင်းနေသည်…"</string>
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"အလုပ်သုံးအက်ပ်များကို သင့်အလုပ်ပရိုဖိုင်တွင် သိမ်းထားသည်။ တစ်နေ့တာအပြီးတွင် သင့်အလုပ်သုံးအက်ပ်များကို ခဏရပ်နိုင်သည်။ သင့်အလုပ်ပရိုဖိုင်ရှိ ဒေတာများကို သင်၏ IT စီမံခန့်ခွဲသူက မြင်ရပါသည်။"</string>
-    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"သင့်အလုပ်သုံး စက်ပစ္စည်းကို စနစ်ထည့်သွင်းရအောင်"</string>
+    <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"သင့်ရုံးပိုင်စက်ပစ္စည်းကို စနစ်ထည့်သွင်းရအောင်"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"သင့်အလုပ်သုံးအက်ပ်များကို အလွယ်တကူသုံးနိုင်အောင် ပြုလုပ်ပါ"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"ဤ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> က သီးသန့်မဟုတ်ပါ"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"ဤ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> က ကိုယ်ပိုင်မဟုတ်ပါ"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"သင့် IT စီမံခန့်ခွဲသူက ဤ <xliff:g id="DEVICE_NAME">%1$s</xliff:g> ရှိ သင်၏ ဒေတာနှင့် လုပ်ဆောင်ချက်ကို မြင်နိုင်သည်။"</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"သင့်လုပ်ဆောင်ချက်နှင့် ဒေတာ"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"အက်ပ်ခွင့်ပြုချက်များ"</string>

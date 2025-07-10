@@ -170,7 +170,7 @@
     <string name="work_profile_provisioning_summary" msgid="3436190271657388747">"Programu za kazini zinawekwa kwenye wasifu wako wa kazini. Unaweza kusimamisha programu zako za kazini unapoondoka kazini. Msimamizi wako wa TEHAMA anaona data iliyo kwenye wasifu wako wa kazini."</string>
     <string name="fully_managed_device_provisioning_accept_header" msgid="2944032660440403130">"Tuweke mipangilio kwenye kifaa chako cha kazini"</string>
     <string name="fully_managed_device_provisioning_step_1_header" msgid="6396274703116708592">"Tumia programu zako za kazini popote ulipo"</string>
-    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> si ya faragha"</string>
+    <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"<xliff:g id="DEVICE_NAME">%1$s</xliff:g> hii si ya faragha"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Msimamizi wako wa TEHAMA anaweza kuona data na shughuli zako kwenye <xliff:g id="DEVICE_NAME">%1$s</xliff:g> hii."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Shughuli na data yako"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Ruhusa za programu"</string>
