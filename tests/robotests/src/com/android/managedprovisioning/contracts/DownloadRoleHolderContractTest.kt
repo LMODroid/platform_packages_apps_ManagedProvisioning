@@ -29,7 +29,7 @@ class DownloadRoleHolderContractTest : NodeAwareIntentSerializerTest<DownloadRol
     val nodeId: NodeId = TEST_NODE_ID
 
     @Inject
-    override lateinit var target: DownloadRoleHolderContract
+    override public lateinit var target: DownloadRoleHolderContract
     override val data = requireNotNull(aProvisioningParams.roleHolderDownloadInfo).let {
         DownloadRoleHolderArguments(
                 suwArguments = aSuwArguments,
