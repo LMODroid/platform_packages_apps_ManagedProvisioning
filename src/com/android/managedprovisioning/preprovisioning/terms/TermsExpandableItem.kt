@@ -16,6 +16,7 @@ package com.android.managedprovisioning.preprovisioning.terms
 
 import android.content.Context
 import android.text.Spanned
+import android.text.method.LinkMovementMethod
 import android.util.AttributeSet
 import android.view.View
 import android.widget.TextView
@@ -36,5 +37,6 @@ class TermsExpandableItem(context: Context, attrs: AttributeSet? = null) :
     super.onBindView(view)
     val textView = view.findViewById<TextView>(R.id.terms_content)
     textView?.text = termsContent
+    textView?.movementMethod = LinkMovementMethod.getInstance()
   }
 }
