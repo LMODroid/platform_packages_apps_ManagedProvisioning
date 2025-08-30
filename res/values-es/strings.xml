@@ -173,7 +173,7 @@
     <string name="fully_managed_device_provisioning_step_2_header" msgid="142633978260399682">"Este <xliff:g id="DEVICE_NAME">%1$s</xliff:g> no es privado"</string>
     <string name="fully_managed_device_provisioning_step_2_subheader" msgid="3981784440341141618">"Tu administrador de TI puede ver los datos y la actividad de este dispositivo (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>)."</string>
     <string name="fully_managed_device_provisioning_permissions_header" msgid="2852101532084770993">"Tu actividad y tus datos"</string>
-    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Permisos de aplicaciones"</string>
+    <string name="fully_managed_device_provisioning_permissions_secondary_header" msgid="4419374850927705136">"Permisos de apps"</string>
     <string name="fully_managed_device_provisioning_permissions_secondary_subheader" msgid="1973320148595109400">"Tu administrador de TI puede configurar los permisos de las apps de este dispositivo (<xliff:g id="DEVICE_NAME">%1$s</xliff:g>), incluidos los permisos del micrófono, la cámara y la ubicación."</string>
     <string name="fully_managed_device_provisioning_progress_label" msgid="3925516135130021966">"Configurando el dispositivo…"</string>
     <string name="fully_managed_device_provisioning_summary" msgid="2532673962822596806">"Con este dispositivo (<xliff:g id="DEVICE_NAME_0">%1$s</xliff:g>), puedes acceder fácilmente a tus apps de trabajo. Este dispositivo (<xliff:g id="DEVICE_NAME_1">%1$s</xliff:g>) no es privado, por lo que tu administrador de TI puede ver tus datos y tu actividad."</string>
