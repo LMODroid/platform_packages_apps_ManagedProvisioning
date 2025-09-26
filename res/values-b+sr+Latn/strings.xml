@@ -36,7 +36,7 @@
     <string name="contact_your_admin_for_more_info" msgid="9209568156969966347">"Kontaktirajte IT administratora da biste saznali više informacija, uključujući politiku privatnosti organizacije."</string>
     <string name="learn_more_link" msgid="3012495805919550043">"Saznajte više"</string>
     <string name="cancel_setup" msgid="2949928239276274745">"Otkaži"</string>
-    <string name="ok_setup" msgid="4593707675416137504">"Potvrdi"</string>
+    <string name="ok_setup" msgid="4593707675416137504">"Važi"</string>
     <string name="user_consent_msg" msgid="8820951802130353584">"Prihvatam"</string>
     <string name="url_error" msgid="5958494012986243186">"Ovaj link ne može da se prikaže."</string>
     <string name="navigation_button_description" msgid="6106309408994461239">"Idi nagore"</string>
@@ -63,7 +63,7 @@
     <string name="change_device_launcher" msgid="4523563368433637980">"Promenite pokretač za uređaj"</string>
     <string name="launcher_app_cant_be_used_by_work_profile" msgid="3524366082000739743">"Ova aplikacija pokretača ne može da se koristi preko poslovnog profila"</string>
     <string name="cancel_provisioning" msgid="3408069559452653724">"Otkaži"</string>
-    <string name="pick_launcher" msgid="4257084827403983845">"Potvrdi"</string>
+    <string name="pick_launcher" msgid="4257084827403983845">"Važi"</string>
     <string name="user_setup_incomplete" msgid="6494920045526591079">"Podešavanje korisnika nije dovršeno"</string>
     <string name="default_owned_device_username" msgid="3915120202811807955">"Korisnik poslovnog uređaja"</string>
     <string name="setup_work_device" msgid="6003988351437862369">"Podešava se poslovni uređaj..."</string>
@@ -72,7 +72,7 @@
     <string name="this_will_reset_take_back_first_screen" msgid="5881727570968119259">"To će vratiti uređaj <xliff:g id="DEVICE_NAME">%1$s</xliff:g> na fabrička podešavanja i odvesti vas na prvi ekran"</string>
     <string name="device_owner_cancel_message" msgid="2529288571742712065">"Želite li da prekinete podešavanje i obrišete podatke uređaja?"</string>
     <string name="device_owner_cancel_cancel" msgid="1052951540909389275">"Otkaži"</string>
-    <string name="device_owner_error_ok" msgid="2002250763093787051">"Potvrdi"</string>
+    <string name="device_owner_error_ok" msgid="2002250763093787051">"Važi"</string>
     <string name="reset" msgid="6467204151306265796">"Resetuj"</string>
     <string name="cant_set_up_profile" msgid="4341825293970158436">"Podešavanje profila nije uspelo"</string>
     <string name="cant_set_up_device" msgid="4120090138983350714">"Podešavanje uređaja nije uspelo"</string>
